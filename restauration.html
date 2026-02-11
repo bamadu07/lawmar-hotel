@@ -10,17 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== STYLES GÉNÉRAUX - COULEUR PRINCIPALE #1d5199 ===== */
+        /* ===== STYLES GÉNÉRAUX - COULEUR PRINCIPALE #025ba5 ===== */
         :root {
-            --primary-color: #1d5199;
-            --secondary-color: #d4af37;
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;      /* Gris clair au lieu du doré */
             --accent-color: #c53030;
             --dark-color: #2d3748;
             --light-color: #f7fafc;
+            --yellow-color: #FFD700;          /* Jaune pour le bouton réserver */
             --light-green: #f0fff4;
             --transition: all 0.3s ease;
             --border-radius: 8px;
-            --box-shadow: 0 3px 10px rgba(29, 81, 153, 0.08);
+            --box-shadow: 0 3px 10px rgba(2, 91, 165, 0.08);
         }
 
         * {
@@ -33,7 +34,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: var(--dark-color);
-            padding-top: 80px;
+            padding-top: 80px; /* Ajusté pour la navbar réduite */
             background-color: #f8fbff;
         }
 
@@ -58,8 +59,8 @@
         }
 
         .btn-primary:hover {
-            background-color: #15427a;
-            border-color: #15427a;
+            background-color: #024a84;
+            border-color: #024a84;
             transform: translateY(-2px);
         }
 
@@ -78,7 +79,7 @@
             color: white;
         }
         
-        /* ===== BOUTONS AMÉLIORÉS - COULEURS DISTINCTES ===== */
+        /* ===== BOUTONS AMÉLIORÉS ===== */
         .btn-order {
             background-color: var(--accent-color);
             color: white;
@@ -158,6 +159,22 @@
             color: white;
             transform: translateY(-2px);
         }
+
+        /* ===== BOUTON RÉSERVER - FOND JAUNE ===== */
+        .btn-reservation {
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            border: none;
+        }
+
+        .btn-reservation:hover {
+            background-color: #e6c200 !important;
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
         
         .action-buttons {
             display: flex;
@@ -195,7 +212,7 @@
             position: absolute;
             top: -8px;
             right: -8px;
-            background-color: var(--secondary-color);
+            background-color: var(--yellow-color);
             color: var(--primary-color);
             border-radius: 50%;
             width: 22px;
@@ -208,11 +225,12 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVIGATION AVEC LOGO RÉEL ===== */
+        /* ===== NAVIGATION - TAILLE RÉDUITE ===== */
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            padding: 10px 0;
+            padding: 5px 0; /* Réduit */
+            min-height: 70px; /* Hauteur fixe */
         }
 
         .navbar-brand {
@@ -225,22 +243,21 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px; /* Réduit */
         }
 
         .logo-image {
-            width: 50px;
-            height: 50px;
+            width: 45px; /* Réduit */
+            height: 45px; /* Réduit */
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--secondary-color);
+            border: 2px solid var(--secondary-color); /* Gris clair */
             background-color: white;
             transition: var(--transition);
         }
 
         .logo-image:hover {
             transform: scale(1.05);
-            border-color: white;
         }
 
         .brand-text {
@@ -249,23 +266,23 @@
         }
 
         .hotel-name {
-            color: var(--secondary-color);
-            font-size: 1.6rem;
+            color: white; /* Blanc sur fond bleu */
+            font-size: 1.4rem; /* Réduit */
             margin: 0;
             line-height: 1.2;
             font-weight: 700;
         }
 
         .hotel-subtitle {
-            color: white;
-            font-size: 0.75rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem; /* Réduit */
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
             color: rgba(255,255,255,0.95) !important;
             font-weight: 500;
-            padding: 6px 14px !important;
+            padding: 6px 12px !important; /* Réduit */
             margin: 0 2px;
             transition: var(--transition);
             font-size: 0.9rem;
@@ -274,26 +291,13 @@
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: var(--secondary-color) !important;
+            color: white !important; /* Blanc pur au hover */
             background-color: rgba(255,255,255,0.1);
         }
 
-        .btn-reservation {
-            background-color: var(--secondary-color);
-            color: var(--primary-color) !important;
-            border-radius: 5px;
-            font-weight: 600;
-            padding: 6px 18px !important;
-        }
-
-        .btn-reservation:hover {
-            background-color: #e6c12e;
-            color: #0e3a5c !important;
-        }
-
-        /* ===== HEADER SIMPLIFIÉ - OVERLAY BLEU SANS FOND BLANC ===== */
+        /* ===== HEADER SIMPLIFIÉ ===== */
         .restaurant-hero {
-            background: linear-gradient(135deg, rgba(29, 81, 153, 0.9), rgba(21, 66, 122, 0.9)), 
+            background: linear-gradient(135deg, rgba(2, 91, 165, 0.9), rgba(2, 74, 132, 0.9)), 
                         url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
@@ -305,12 +309,26 @@
             text-align: center;
             padding-bottom: 40px;
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .restaurant-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
         .hero-content {
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-title {
@@ -330,13 +348,13 @@
 
         .location-badge {
             display: inline-block;
-            background-color: rgba(212, 175, 55, 0.25);
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.85rem;
             margin-bottom: 5px;
-            border: 1px solid rgba(212, 175, 55, 0.5);
+            border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
         }
 
@@ -355,7 +373,7 @@
             margin-left: 2px;
         }
         
-        /* ===== GRILLE DE PLATS - 2 COLONNES SUR MOBILE ===== */
+        /* ===== GRILLE DE PLATS ===== */
         .menu-items-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -372,13 +390,14 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(29, 81, 153, 0.05);
+            border: 1px solid rgba(2, 91, 165, 0.05);
+            position: relative;
         }
         
         .dish-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(29, 81, 153, 0.15);
-            border-color: rgba(29, 81, 153, 0.1);
+            box-shadow: 0 12px 25px rgba(2, 91, 165, 0.15);
+            border-color: rgba(2, 91, 165, 0.1);
         }
         
         .dish-image-container {
@@ -402,7 +421,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background: rgba(29, 81, 153, 0.85);
+            background: rgba(2, 91, 165, 0.85);
             color: white;
             padding: 4px 10px;
             border-radius: 20px;
@@ -421,7 +440,7 @@
         }
         
         .specialty-badge {
-            background: var(--secondary-color);
+            background: var(--yellow-color);
             color: var(--dark-color);
             padding: 3px 10px;
             border-radius: 20px;
@@ -478,7 +497,7 @@
             padding: 25px;
             margin-top: 30px;
             box-shadow: var(--box-shadow);
-            border: 1px solid rgba(29, 81, 153, 0.1);
+            border: 1px solid rgba(2, 91, 165, 0.1);
         }
         
         .cart-item-controls {
@@ -501,18 +520,116 @@
             border-radius: var(--border-radius);
             padding: 20px;
             box-shadow: var(--box-shadow);
-            border: 1px solid rgba(29, 81, 153, 0.05);
+            border: 1px solid rgba(2, 91, 165, 0.05);
         }
         
         .hours-card h5 {
             color: var(--primary-color);
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--yellow-color);
             padding-bottom: 8px;
             font-size: 1.1rem;
         }
 
-        /* ===== MODAL PAIEMENT MOBILE ===== */
+        /* ===== CARROUSEL AVIS CLIENTS ===== */
+        .reviews-carousel {
+            position: relative;
+            padding: 20px 0 40px;
+        }
+        
+        .review-slide {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(2, 91, 165, 0.1);
+        }
+        
+        .review-avatar-round {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 3px solid var(--secondary-color); /* Gris clair */
+            position: relative;
+        }
+        
+        .review-avatar-round img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-stars-round {
+            color: #ffb400;
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+        
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin: 15px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .review-origin {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .carousel-indicators {
+            bottom: -20px;
+        }
+        
+        .carousel-indicators button {
+            background-color: var(--primary-color) !important;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            opacity: 0.5;
+        }
+        
+        .carousel-indicators button.active {
+            opacity: 1;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0.8;
+        }
+        
+        .carousel-control-prev {
+            left: -30px;
+        }
+        
+        .carousel-control-next {
+            right: -30px;
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            padding: 12px;
+            background-size: 60%;
+        }
+
+        /* ===== MODAL PAIEMENT ===== */
         .payment-option-btn {
             display: flex;
             align-items: center;
@@ -531,7 +648,7 @@
         .payment-option-btn:hover,
         .payment-option-btn.selected {
             border-color: var(--primary-color);
-            background-color: rgba(29, 81, 153, 0.05);
+            background-color: rgba(2, 91, 165, 0.05);
             transform: translateX(5px);
         }
         
@@ -544,7 +661,7 @@
         .wave-color { color: #00B2A9; }
         .orange-color { color: #FF6600; }
         .whatsapp-color { color: #25D366; }
-        .card-color { color: #1d5199; }
+        .card-color { color: var(--primary-color); }
 
         .modal-header {
             background-color: var(--primary-color);
@@ -554,109 +671,12 @@
         }
 
         .modal-title {
-            color: var(--secondary-color);
+            color: white;
             font-weight: 600;
         }
 
         .btn-close {
             filter: invert(1);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background-color: #0e3a5c;
-            color: white;
-            padding: 30px 0 15px;
-            font-size: 0.85rem;
-            margin-top: 40px;
-        }
-
-        .footer-about h3 {
-            color: var(--secondary-color);
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-
-        .footer-links h4,
-        .footer-contact h4,
-        .footer-newsletter h4 {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links ul li a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.85rem;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--secondary-color);
-            padding-left: 5px;
-        }
-
-        .footer-contact p {
-            margin-bottom: 8px;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.85rem;
-        }
-
-        .footer-contact i {
-            color: var(--secondary-color);
-            margin-right: 8px;
-            width: 18px;
-        }
-
-        .social-links {
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 34px;
-            height: 34px;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 34px;
-            margin-right: 8px;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-            color: #0e3a5c;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding-top: 15px;
-            margin-top: 20px;
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.8rem;
-        }
-
-        .footer-bottom a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
         }
 
         /* ===== NOTIFICATION TOAST ===== */
@@ -679,13 +699,116 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* ===== RESPONSIVE - OPTIMISÉ POUR MOBILE ===== */
+        /* ===== FOOTER - HARMONISÉ ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0 15px;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        .footer-about h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-newsletter h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 8px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+        }
+
+        .footer-contact i {
+            color: white;
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 34px;
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            margin-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE POUR NAVBAR RÉDUITE ===== */
         @media (max-width: 992px) {
             .navbar-brand {
                 max-width: 70%;
             }
             .hotel-name {
-                font-size: 1.4rem !important;
+                font-size: 1.3rem !important;
+            }
+            .carousel-control-prev {
+                left: -15px;
+            }
+            .carousel-control-next {
+                right: -15px;
             }
         }
 
@@ -695,20 +818,25 @@
             }
             
             .navbar {
-                padding: 8px 0;
+                padding: 4px 0 !important;
+                min-height: 60px;
             }
             
             .logo-image {
-                width: 45px;
-                height: 45px;
+                width: 38px;
+                height: 38px;
             }
             
             .hotel-name {
-                font-size: 1.3rem !important;
+                font-size: 1.2rem !important;
             }
             
             .hotel-subtitle {
-                font-size: 0.7rem !important;
+                font-size: 0.65rem !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 15px !important;
             }
             
             .restaurant-hero {
@@ -723,6 +851,11 @@
             .hero-subtitle {
                 font-size: 0.9rem;
                 padding: 0 10px;
+            }
+            
+            .location-badge {
+                font-size: 0.8rem;
+                padding: 6px 16px;
             }
             
             .menu-navigation .btn {
@@ -743,6 +876,7 @@
             .dish-name {
                 font-size: 0.95rem;
                 margin: 5px 0 3px;
+                min-height: 40px;
             }
             
             .dish-card p {
@@ -782,16 +916,38 @@
                 padding: 10px 18px;
                 font-size: 0.85rem;
             }
+            
+            .review-avatar-round {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .review-text {
+                font-size: 0.9rem;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
         }
 
         @media (max-width: 576px) {
+            body {
+                padding-top: 65px;
+            }
+            
+            .navbar {
+                min-height: 55px;
+            }
+            
             .navbar-brand {
                 max-width: 65%;
             }
             
             .logo-image {
-                width: 40px;
-                height: 40px;
+                width: 32px;
+                height: 32px;
             }
             
             .hotel-name {
@@ -813,7 +969,10 @@
             
             .location-badge {
                 font-size: 0.75rem;
-                padding: 4px 12px;
+                padding: 5px 12px;
+                width: 90%;
+                white-space: normal;
+                line-height: 1.3;
             }
             
             .menu-items-grid {
@@ -869,9 +1028,26 @@
                 justify-content: center;
                 display: flex;
             }
+            
+            .review-slide {
+                padding: 20px;
+            }
+            
+            .review-avatar-round {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 375px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar {
+                min-height: 50px;
+            }
+            
             .menu-items-grid {
                 gap: 8px;
             }
@@ -897,17 +1073,21 @@
                 font-size: 0.65rem;
                 padding: 4px 6px;
             }
+            
+            .location-badge {
+                width: 100%;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION AVEC LOGO RÉEL ===== -->
+    <!-- ===== NAVIGATION AVEC LOGO - TAILLE RÉDUITE ===== -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- LOGO RÉEL - images/logo1.png -->
-                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image">
+                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" onerror="this.style.display='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle">
@@ -959,7 +1139,7 @@
         </div>
     </nav>
 
-    <!-- ===== HEADER SIMPLIFIÉ - SANS FOND BLANC ===== -->
+    <!-- ===== HEADER SIMPLIFIÉ ===== -->
     <header class="restaurant-hero">
         <div class="container hero-content">
             <div class="row justify-content-center">
@@ -1008,12 +1188,12 @@
                 </div>
                 
                 <div class="menu-items-grid">
-                    <!-- Spécialité 1 - Thieboudienne (Recommandé Chef) -->
+                    <!-- Spécialité 1 - Thieboudienne -->
                     <div class="dish-card chef-recommendation">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Thieboudienne" class="dish-image">
+                                 alt="Thieboudienne" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Thieboudienne <span class="specialty-badge">Plat national</span></div>
                         <p class="mb-2 flex-grow-1 small">Riz au poisson, légumes frais, condiments - Recette traditionnelle de Grand-Mère</p>
@@ -1033,7 +1213,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Yassa Poulet" class="dish-image">
+                                 alt="Yassa Poulet" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Yassa Poulet</div>
                         <p class="mb-2 flex-grow-1 small">Poulet fermier mariné au citron, oignons confits, moutarde locale</p>
@@ -1053,7 +1233,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Mafé d'agneau" class="dish-image">
+                                 alt="Mafé d'agneau" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Mafé d'agneau</div>
                         <p class="mb-2 flex-grow-1 small">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
@@ -1073,7 +1253,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Pastels" class="dish-image">
+                                 alt="Pastels" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Pastels (6 pièces)</div>
                         <p class="mb-2 flex-grow-1 small">Beignets farcis au poisson épicé de Tassinère</p>
@@ -1093,7 +1273,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1526230529638-b6a96d69e4c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Accra" class="dish-image">
+                                 alt="Accra" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Accra (10 pièces)</div>
                         <p class="mb-2 flex-grow-1 small">Beignets de haricots blancs, sauce piquante maison</p>
@@ -1113,7 +1293,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Feuilles de manioc" class="dish-image">
+                                 alt="Feuilles de manioc" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Feuilles de manioc</div>
                         <p class="mb-2 flex-grow-1 small">Feuilles de manioc au poisson fumé, huile de palme</p>
@@ -1146,7 +1326,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Salade Gandiolaise" class="dish-image">
+                                 alt="Salade Gandiolaise" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Salade Gandiolaise</div>
                         <p class="mb-2 small">Salade composée, thon local, avocat, tomates du Gandiol</p>
@@ -1166,7 +1346,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Velouté de potiron" class="dish-image">
+                                 alt="Velouté de potiron" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Velouté de potiron de Gandiol</div>
                         <p class="mb-2 small">Potiron local, gingembre frais, lait de coco</p>
@@ -1186,7 +1366,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Brochettes de crevettes" class="dish-image">
+                                 alt="Brochettes de crevettes" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Brochettes de crevettes de Tassinère</div>
                         <p class="mb-2 small">Crevettes sauvages grillées, épices sénégalaises</p>
@@ -1206,7 +1386,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Carpaccio de thon" class="dish-image">
+                                 alt="Carpaccio de thon" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Carpaccio de thon</div>
                         <p class="mb-2 small">Thon frais de Saint-Louis, huile d'olive, citron vert de Gandiol</p>
@@ -1226,7 +1406,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Soupe de poisson" class="dish-image">
+                                 alt="Soupe de poisson" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Soupe de poisson locale</div>
                         <p class="mb-2 small">Soupe traditionnelle aux poissons du Gandiol</p>
@@ -1246,7 +1426,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Accra de haricots" class="dish-image">
+                                 alt="Accra de haricots" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Accra de haricots</div>
                         <p class="mb-2 small">Beignets de haricots blancs (10 pièces), sauce tamarin</p>
@@ -1266,7 +1446,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Salade de fruits de mer" class="dish-image">
+                                 alt="Salade de fruits de mer" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Salade de fruits de mer de Gandiol</div>
                         <p class="mb-2 small">Crevettes, calamar, poulpe, vinaigrette citron vert</p>
@@ -1286,7 +1466,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Soupe de légumes" class="dish-image">
+                                 alt="Soupe de légumes" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Soupe de légumes de Tassinère</div>
                         <p class="mb-2 small">Légumes de saison du Gandiol, épices douces</p>
@@ -1314,12 +1494,12 @@
                 </div>
                 
                 <div class="menu-items-grid">
-                    <!-- Plat 1 - Filet de Capitaine (Recommandé Chef) -->
+                    <!-- Plat 1 - Filet de Capitaine -->
                     <div class="dish-card chef-recommendation">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Filet de Capitaine" class="dish-image">
+                                 alt="Filet de Capitaine" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Filet de Capitaine</div>
                         <p class="mb-2 small">Poisson frais du Gandiol, sauce yassa, riz parfumé</p>
@@ -1331,9 +1511,6 @@
                             <button class="btn-whatsapp whatsapp-order" data-dish="Filet de Capitaine" data-price="14500">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </button>
-                            <button class="btn-mobile-payment mobile-payment" data-dish="Filet de Capitaine" data-price="14500">
-                                <i class="fas fa-mobile-alt"></i> Payer
-                            </button>
                         </div>
                     </div>
                     
@@ -1342,7 +1519,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Agneau de Barbarie" class="dish-image">
+                                 alt="Agneau de Barbarie" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Agneau de Barbarie</div>
                         <p class="mb-2 small">Carré d'agneau rôti, purée de patates douces de Gandiol</p>
@@ -1362,7 +1539,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Riz fruits de mer" class="dish-image">
+                                 alt="Riz fruits de mer" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Riz fruits de mer de Gandiol</div>
                         <p class="mb-2 small">Riz crémeux aux crevettes, calamar, poisson local</p>
@@ -1382,7 +1559,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Poulet Yassa" class="dish-image">
+                                 alt="Poulet Yassa" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Poulet Yassa complet</div>
                         <p class="mb-2 small">Poulet fermier entier mariné, riz parfumé de Gandiol</p>
@@ -1402,7 +1579,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Poisson braisé" class="dish-image">
+                                 alt="Poisson braisé" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Poisson braisé entier de Gandiol</div>
                         <p class="mb-2 small">Poisson entier braisé, épices locales du Gandiol</p>
@@ -1422,7 +1599,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Ragout de boeuf" class="dish-image">
+                                 alt="Ragout de boeuf" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Ragout de boeuf sénégalais</div>
                         <p class="mb-2 small">Boeuf mijoté aux légumes de Tassinère et épices</p>
@@ -1442,7 +1619,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Thiou de légumes" class="dish-image">
+                                 alt="Thiou de légumes" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Thiou de légumes de Gandiol</div>
                         <p class="mb-2 small">Ragoût de légumes locaux du Gandiol, version végétarienne</p>
@@ -1462,7 +1639,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Couscous sénégalais" class="dish-image">
+                                 alt="Couscous sénégalais" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Couscous sénégalais de Tassinère</div>
                         <p class="mb-2 small">Couscous aux légumes du Gandiol et viande mijotée</p>
@@ -1482,7 +1659,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Poulet DG" class="dish-image">
+                                 alt="Poulet DG" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Poulet DG</div>
                         <p class="mb-2 small">Poulet sauté aux légumes, plantains frits de Gandiol</p>
@@ -1502,7 +1679,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Poisson à la gandiolaise" class="dish-image">
+                                 alt="Poisson à la gandiolaise" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Poisson à la gandiolaise</div>
                         <p class="mb-2 small">Poisson grillé de Tassinère, sauce tomate épicée</p>
@@ -1535,7 +1712,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Fondant au chocolat" class="dish-image">
+                                 alt="Fondant au chocolat" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Fondant chocolat baobab</div>
                         <p class="mb-2 small">Glace à la bouye (fruit du baobab de Gandiol)</p>
@@ -1555,7 +1732,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Crème de mangue" class="dish-image">
+                                 alt="Crème de mangue" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Crème de mangue de Gandiol</div>
                         <p class="mb-2 small">Crème dessert à la mangue fraîche de Tassinère</p>
@@ -1575,7 +1752,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Tarte aux fruits" class="dish-image">
+                                 alt="Tarte aux fruits" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Tarte aux fruits tropicaux de Gandiol</div>
                         <p class="mb-2 small">Mangue, ananas, fruit de la passion de Tassinère</p>
@@ -1595,7 +1772,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Mousse au chocolat" class="dish-image">
+                                 alt="Mousse au chocolat" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Mousse au chocolat noir</div>
                         <p class="mb-2 small">Chocolat local 70%, crème fraîche de Gandiol</p>
@@ -1615,7 +1792,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Glace baobab" class="dish-image">
+                                 alt="Glace baobab" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Glace au baobab maison de Gandiol</div>
                         <p class="mb-2 small">Glace artisanale au fruit de baobab de Tassinère</p>
@@ -1635,7 +1812,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Tiramisu" class="dish-image">
+                                 alt="Tiramisu" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Tiramisu café local de Gandiol</div>
                         <p class="mb-2 small">Avec café de Casamance, mascarpone léger</p>
@@ -1655,7 +1832,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Assiette de fruits" class="dish-image">
+                                 alt="Assiette de fruits" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Assiette de fruits frais de Gandiol</div>
                         <p class="mb-2 small">Fruits de saison de Tassinère, coulis de mangue</p>
@@ -1675,7 +1852,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Crêpes" class="dish-image">
+                                 alt="Crêpes" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Crêpes sucrées de Gandiol</div>
                         <p class="mb-2 small">Confiture de mangue de Tassinère ou miel local</p>
@@ -1695,7 +1872,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Flan coco" class="dish-image">
+                                 alt="Flan coco" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Flan à la noix de coco de Gandiol</div>
                         <p class="mb-2 small">Flan crémeux à la noix de coco locale de Tassinère</p>
@@ -1715,7 +1892,7 @@
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Beignets sucrés" class="dish-image">
+                                 alt="Beignets sucrés" class="dish-image" loading="lazy">
                         </div>
                         <div class="dish-name">Beignets sucrés à la banane de Gandiol</div>
                         <p class="mb-2 small">Beignets de banane plantain de Tassinère, sucre glace</p>
@@ -1803,15 +1980,121 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER AVEC LOGO RÉEL ===== -->
+    <!-- ===== SECTION AVIS CLIENTS ===== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center mb-4">
+                <h2>Ils ont savouré Le Teranga <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p class="text-muted">Ce que nos convives disent de notre cuisine sénégalaise</p>
+            </div>
+            
+            <div id="reviewsCarousel" class="carousel slide reviews-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner" id="reviews-container">
+                    <!-- Les avis seront chargés dynamiquement -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+                <div class="carousel-indicators">
+                    <!-- Les indicateurs seront générés dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL RÉSERVATION TABLE ===== -->
+    <div class="modal fade" id="tableBookingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-calendar-alt me-2"></i> Réserver une table - Le Teranga
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="table-booking-form">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-date" class="form-label small fw-bold">Date *</label>
+                                <input type="date" class="form-control form-control-sm" id="booking-date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-time" class="form-label small fw-bold">Heure *</label>
+                                <select class="form-select form-select-sm" id="booking-time" required>
+                                    <option value="12:00">12h00</option>
+                                    <option value="12:30">12h30</option>
+                                    <option value="13:00">13h00</option>
+                                    <option value="13:30">13h30</option>
+                                    <option value="19:00">19h00</option>
+                                    <option value="19:30">19h30</option>
+                                    <option value="20:00">20h00</option>
+                                    <option value="20:30">20h30</option>
+                                    <option value="21:00">21h00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-guests" class="form-label small fw-bold">Nombre de personnes *</label>
+                                <select class="form-select form-select-sm" id="booking-guests" required>
+                                    <option value="1">1 personne</option>
+                                    <option value="2" selected>2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                    <option value="5">5 personnes</option>
+                                    <option value="6">6 personnes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-name" class="form-label small fw-bold">Votre nom *</label>
+                                <input type="text" class="form-control form-control-sm" id="booking-name" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-phone" class="form-label small fw-bold">Téléphone *</label>
+                                <input type="tel" class="form-control form-control-sm" id="booking-phone" placeholder="+221 77 XXX XX XX" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-email" class="form-label small fw-bold">Email</label>
+                                <input type="email" class="form-control form-control-sm" id="booking-email" placeholder="optionnel">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="booking-special" class="form-label small fw-bold">Demandes spéciales</label>
+                            <textarea class="form-control form-control-sm" id="booking-special" rows="2" placeholder="Allergies, occasion spéciale, etc."></textarea>
+                        </div>
+                        <div class="alert alert-info small mb-3">
+                            <i class="fas fa-info-circle me-2"></i> Réservation gratuite. Annulation possible jusqu'à 2h avant.
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary flex-grow-1">
+                                <i class="fas fa-check-circle me-2"></i> Confirmer
+                            </button>
+                            <button type="button" class="btn btn-whatsapp flex-grow-1" onclick="bookTableViaWhatsApp()">
+                                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER - HARMONISÉ ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-3">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <!-- LOGO RÉEL - images/logo1.png -->
-                            <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" style="width: 60px; height: 60px;">
+                            <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" style="width: 50px; height: 50px;" onerror="this.style.display='none';">
                             <h3><i class="fas fa-crown me-2"></i> LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
                         </div>
                         <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
@@ -2020,18 +2303,99 @@
         </div>
     </div>
 
+    <!-- ===== MODAL ADMIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label small fw-bold">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label small fw-bold">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select form-select-sm" id="admin-role">
+                                <option value="reception">Réceptionniste</option>
+                                <option value="serveur">Serveur</option>
+                                <option value="cuisine">Cuisine</option>
+                                <option value="guide">Guide touristique</option>
+                                <option value="manager">Manager</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // ============================================
         // RESTAURANT LE TERANGA - GANDIOL 🇸🇳
-        // Panier, Commandes WhatsApp, Paiement Mobile
+        // AVEC TOUTES LES AMÉLIORATIONS
         // ============================================
         
         // Numéro WhatsApp de l'hôtel
         const WHATSAPP_NUMBER = "221779952020";
         
+        // Données des avis clients
+        const restaurantReviews = [
+            {
+                nom: "Awa Ndiaye",
+                note: 5,
+                commentaire: "La meilleure thieboudienne de tout le Gandiol ! Le chef Oumar est un magicien. L'accueil est chaleureux, les plats généreux. Je reviens chaque semaine !",
+                date: "12/12/2023",
+                avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                origine: "Saint-Louis"
+            },
+            {
+                nom: "Jean Lefebvre",
+                note: 5,
+                commentaire: "Une expérience culinaire exceptionnelle. Le yassa poulet est incroyablement savoureux. Cadre magnifique et personnel aux petits soins. Je recommande vivement !",
+                date: "05/12/2023",
+                avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+                origine: "France"
+            },
+            {
+                nom: "Moussa Diop",
+                note: 4,
+                commentaire: "Restaurant authentique avec des produits frais du Gandiol. Le mafé d'agneau est fondant à souhait. Service impeccable. Un régal !",
+                date: "28/11/2023",
+                avatar: "https://randomuser.me/api/portraits/men/55.jpg",
+                origine: "Dakar"
+            },
+            {
+                nom: "Claire Dubois",
+                note: 5,
+                commentaire: "Coup de cœur pour les pastels et le fondant chocolat baobab. La terrasse est agréable, l'équipe souriante. Merci pour ce beau moment !",
+                date: "20/11/2023",
+                avatar: "https://randomuser.me/api/portraits/women/28.jpg",
+                origine: "Canada"
+            },
+            {
+                nom: "Aminata Sow",
+                note: 5,
+                commentaire: "Restaurant Le Teranga : une adresse incontournable à Gandiol. Cuisine raffinée, produits locaux, prix raisonnables. Le chef Oumar maîtrise son art.",
+                date: "15/11/2023",
+                avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+                origine: "Thiès"
+            }
+        ];
+
         document.addEventListener('DOMContentLoaded', function() {
+            // ========== AFFICHER LES AVIS ==========
+            displayRestaurantReviews();
+            
             // ========== PANIER DE COMMANDES ==========
             let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
             
@@ -2232,37 +2596,6 @@
                     if (modalElement) {
                         const modal = new bootstrap.Modal(modalElement);
                         modal.show();
-                    }
-                });
-            });
-            
-            // ========== PAIEMENT MOBILE DIRECT ==========
-            document.querySelectorAll('.mobile-payment').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const dish = this.getAttribute('data-dish');
-                    const price = parseInt(this.getAttribute('data-price'));
-                    
-                    // Ajouter au panier
-                    const existingItem = cart.find(item => item.name === dish);
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({
-                            name: dish,
-                            price: price,
-                            quantity: 1
-                        });
-                    }
-                    
-                    saveAndUpdate();
-                    
-                    // Ouvrir le modal de paiement
-                    const modalElement = document.getElementById('paymentModal');
-                    if (modalElement) {
-                        const modal = new bootstrap.Modal(modalElement);
-                        modal.show();
-                        updatePaymentSummary();
                     }
                 });
             });
@@ -2493,6 +2826,24 @@
                 });
             }
             
+            // ========== RÉSERVATION TABLE ==========
+            const tableBookingForm = document.getElementById('table-booking-form');
+            if (tableBookingForm) {
+                tableBookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('booking-name')?.value;
+                    const date = document.getElementById('booking-date')?.value;
+                    const time = document.getElementById('booking-time')?.value;
+                    const guests = document.getElementById('booking-guests')?.value;
+                    
+                    if (name && date && time) {
+                        showNotification(`✅ Table réservée pour ${name} le ${date} à ${time} pour ${guests} personne(s)`);
+                        bootstrap.Modal.getInstance(document.getElementById('tableBookingModal')).hide();
+                        this.reset();
+                    }
+                });
+            }
+            
             // ========== NEWSLETTER ==========
             const newsletterForm = document.getElementById('newsletter-form');
             if (newsletterForm) {
@@ -2503,6 +2854,17 @@
                         showNotification(`✅ Merci ! Vous êtes inscrit à notre newsletter.`);
                         this.reset();
                     }
+                });
+            }
+            
+            // ========== ADMIN LOGIN ==========
+            const adminLoginForm = document.getElementById('admin-login-form');
+            if (adminLoginForm) {
+                adminLoginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    showNotification('✅ Connexion réussie !');
+                    bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+                    this.reset();
                 });
             }
             
@@ -2530,6 +2892,84 @@
             // Initialiser l'affichage du panier
             updateCartDisplay();
         });
+
+        // ========== AFFICHER LES AVIS RESTAURANT ==========
+        function displayRestaurantReviews() {
+            const reviewsContainer = document.getElementById('reviews-container');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            if (!reviewsContainer) return;
+            
+            reviewsContainer.innerHTML = '';
+            if (indicatorsContainer) indicatorsContainer.innerHTML = '';
+            
+            restaurantReviews.forEach((review, index) => {
+                const stars = '★'.repeat(review.note) + '☆'.repeat(5 - review.note);
+                const isActive = index === 0 ? 'active' : '';
+                
+                const carouselItem = document.createElement('div');
+                carouselItem.className = `carousel-item ${isActive}`;
+                carouselItem.innerHTML = `
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="review-slide">
+                                <div class="review-avatar-round">
+                                    <img src="${review.avatar}" alt="${review.nom}">
+                                </div>
+                                <div class="review-stars-round">${stars}</div>
+                                <p class="review-text">"${review.commentaire}"</p>
+                                <div class="review-author">${review.nom}</div>
+                                <div class="review-origin">
+                                    <i class="fas fa-map-marker-alt"></i> ${review.origine} • ${review.date}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                reviewsContainer.appendChild(carouselItem);
+                
+                if (indicatorsContainer) {
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.dataset.bsTarget = '#reviewsCarousel';
+                    indicator.dataset.bsSlideTo = index;
+                    indicator.className = index === 0 ? 'active' : '';
+                    indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                    indicatorsContainer.appendChild(indicator);
+                }
+            });
+        }
+
+        // ========== RÉSERVATION TABLE VIA WHATSAPP ==========
+        function bookTableViaWhatsApp() {
+            const name = document.getElementById('booking-name')?.value || 'Non spécifié';
+            const date = document.getElementById('booking-date')?.value || 'Non spécifié';
+            const time = document.getElementById('booking-time')?.value || 'Non spécifié';
+            const guests = document.getElementById('booking-guests')?.value || 'Non spécifié';
+            const special = document.getElementById('booking-special')?.value || 'Aucune';
+            
+            const message = 
+                `Bonjour Restaurant Le Teranga - Gandiol 🇸🇳,\n\n` +
+                `Je souhaite réserver une table :\n\n` +
+                `📅 Date : ${date}\n` +
+                `⏰ Heure : ${time}\n` +
+                `👥 Personnes : ${guests}\n` +
+                `👤 Nom : ${name}\n` +
+                `📝 Demande spéciale : ${special}\n\n` +
+                `Merci de me confirmer la disponibilité.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            
+            // Fermer le modal
+            const modalElement = document.getElementById('tableBookingModal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) modal.hide();
+            }
+        }
 
         // ========== CHANGEMENT DE LANGUE ==========
         function changeLanguage(lang) {
