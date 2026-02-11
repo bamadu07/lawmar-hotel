@@ -1,0 +1,3825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Village de Tassinére - Résidence Lawmar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- SheetJS pour export Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        /* ===== VARIABLES VILLAGE DE TASSINÉRE ===== */
+        :root {
+            --primary-color: #D4AF37;
+            --primary-dark: #B8860B;
+            --primary-light: #F0E68C;
+            --secondary-color: #1E3A5F;
+            --secondary-dark: #0D2848;
+            --village-sand: #C19A6B;
+            --village-terracotta: #A0522D;
+            --light-color: #FFF9E6;
+            --text-color: #2C3E50;
+            --text-light: #5D6D7E;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+            --transition: all 0.3s ease;
+            --sidebar-width: 260px;
+            --whatsapp-color: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #F8F9FA;
+        }
+
+        /* ===== CONNEXION OBLIGATOIRE ===== */
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px 35px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 75px rgba(0, 0, 0, 0.25);
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: "🏝️";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 120px;
+            opacity: 0.05;
+            transform: rotate(15deg);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .login-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            border: 3px solid var(--village-sand);
+        }
+
+        .login-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .login-subtitle {
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .village-badge {
+            background: var(--primary-color);
+            color: var(--secondary-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* ===== SIDEBAR TASSINÉRE ===== */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: linear-gradient(180deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            color: white;
+            z-index: 1000;
+            border-right: 3px solid var(--primary-color);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .hotel-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .hotel-logo i {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .village-tag {
+            background: var(--primary-color);
+            color: var(--secondary-dark);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+            height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+            text-decoration: none;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(212, 175, 55, 0.15);
+            color: white;
+            border-left-color: var(--primary-color);
+        }
+
+        .badge-notification {
+            background: var(--primary-color);
+            color: var(--secondary-dark);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: none;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* ===== TOP NAVBAR ===== */
+        .top-navbar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(212, 175, 55, 0.1);
+            padding: 0 25px;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: var(--sidebar-width);
+            z-index: 999;
+            border-bottom: 3px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-tools {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 15px 8px 40px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 280px;
+            background: #f8f9fa;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            width: 320px;
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section-content {
+            display: none;
+            padding-top: 80px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== STATISTIQUES ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===== CARTES RÉSERVATION ===== */
+        .reservation-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* ===== BADGES STATUT ===== */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; border-left: 3px solid #ffc107; }
+        .status-confirmed { background: #d4edda; color: #155724; border-left: 3px solid #28a745; }
+        .status-checkedin { background: #cce5ff; color: #004085; border-left: 3px solid #0066cc; }
+        .status-checkedout { background: #e2e3e5; color: #383d41; border-left: 3px solid #6c757d; }
+        .status-cancelled { background: #f8d7da; color: #721c24; border-left: 3px solid #dc3545; }
+        
+        .status-preparing { background: #fff3cd; color: #856404; border-left: 3px solid #ffc107; }
+        .status-served { background: #d4edda; color: #155724; border-left: 3px solid #28a745; }
+        .status-paid { background: #d4edda; color: #155724; border-left: 3px solid #28a745; }
+
+        /* ===== BOUTONS D'ACTION ===== */
+        .action-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-view { background: #17a2b8; }
+        .btn-edit { background: var(--secondary-color); }
+        .btn-status { background: #ffc107; color: #000; }
+        .btn-invoice { background: var(--primary-color); color: #000; }
+        .btn-delete { background: #dc3545; }
+        .btn-download { background: #28a745; }
+        .btn-whatsapp { background: var(--whatsapp-color); color: white; }
+
+        /* ===== FACTURE TASSINÉRE SANS TVA ===== */
+        .invoice-tassinere {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .invoice-tassinere::before {
+            content: "🏝️ VILLAGE DE TASSINÉRE 🏝️";
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 14px;
+            color: rgba(212, 175, 55, 0.08);
+            font-weight: 700;
+            transform: rotate(15deg);
+            white-space: nowrap;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .invoice-company {
+            flex: 1;
+        }
+
+        .invoice-company-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .invoice-company-name span {
+            color: var(--primary-color);
+        }
+
+        .invoice-company-details {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .invoice-company-details i {
+            color: var(--primary-color);
+            width: 18px;
+        }
+
+        .invoice-title-section {
+            text-align: right;
+        }
+
+        .invoice-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .invoice-number {
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            display: inline-block;
+        }
+
+        .invoice-client-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .invoice-table th {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .invoice-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+
+        .invoice-table tfoot tr {
+            background: #f8f9fa;
+        }
+
+        .invoice-stamp {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            transform: rotate(-3deg);
+            background: rgba(212, 175, 55, 0.05);
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+
+        .invoice-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 10px;
+            color: #999;
+            text-align: center;
+        }
+
+        /* ===== BOUTON WHATSAPP ===== */
+        .btn-whatsapp {
+            background: var(--whatsapp-color);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            color: white;
+        }
+
+        /* ===== FILTRES ===== */
+        .filters-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* ===== ALERTS ===== */
+        .alert-container {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            z-index: 9999;
+            max-width: 350px;
+        }
+
+        /* ===== LOADING ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== HISTORIQUE DES STATUTS ===== */
+        .status-history {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .status-history-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+        
+        .status-history-item:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .top-navbar {
+                left: 0;
+            }
+            
+            .search-box input {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .invoice-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .invoice-title-section {
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .action-group {
+                justify-content: center;
+            }
+        }
+
+        /* ===== UTILITAIRES ===== */
+        .currency-fcfa {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .badge-vip {
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            color: #000;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+
+        .village-watermark {
+            position: absolute;
+            opacity: 0.03;
+            font-size: 100px;
+            transform: rotate(-20deg);
+            bottom: 50px;
+            right: 30px;
+            color: var(--primary-color);
+            font-weight: 800;
+            pointer-events: none;
+        }
+
+        .btn-village {
+            background: var(--primary-color);
+            color: var(--secondary-dark);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-village:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- LOADING OVERLAY -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p style="color: var(--secondary-color);">Village de Tassinére - Chargement...</p>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginOverlay">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <h1 class="login-title">Tassinére</h1>
+                <div class="village-badge">Résidence Lawmar</div>
+                <p class="login-subtitle mt-3">Administration & Gestion</p>
+            </div>
+
+            <div class="alert alert-danger" id="loginError" style="display: none;"></div>
+
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">
+                        <i class="fas fa-user me-2" style="color: var(--primary-color);"></i>
+                        Nom d'utilisateur
+                    </label>
+                    <input type="text" class="form-control form-control-lg" id="username" 
+                           placeholder="admin" required autocomplete="username">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">
+                        <i class="fas fa-lock me-2" style="color: var(--primary-color);"></i>
+                        Mot de passe
+                    </label>
+                    <div class="input-group">
+                        <input type="password" class="form-control form-control-lg" id="password" 
+                               placeholder="••••••••" required autocomplete="current-password">
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-village w-100 py-3 fw-semibold" id="loginBtn">
+                    <i class="fas fa-sign-in-alt me-2"></i>
+                    Accéder au tableau de bord
+                </button>
+
+                <div class="text-center mt-4 pt-3 border-top">
+                    <small class="text-muted">
+                        <i class="fas fa-map-pin me-1"></i>
+                        Village de Tassinére, Ndiébène Gandiol
+                    </small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PRINCIPAL -->
+    <div id="dashboardPage" style="display: none;">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="hotel-logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <div>
+                        <div>VILLAGE DE</div>
+                        <div style="font-size: 1.4rem; color: var(--primary-color);">TASSINÉRE</div>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <div style="width: 45px; height: 45px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user-tie" style="color: var(--secondary-dark); font-size: 1.3rem;"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.95rem;" id="userName">Administrateur</div>
+                        <div style="font-size: 0.75rem; opacity: 0.9;" id="userRole">Direction</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <nav>
+                    <a href="#" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="reservations">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Réservations</span>
+                        <span class="badge-notification" id="reservation-badge">3</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="commandes">
+                        <i class="fas fa-utensils"></i>
+                        <span>Commandes Restaurant</span>
+                        <span class="badge-notification" id="orders-badge">2</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="clients">
+                        <i class="fas fa-users"></i>
+                        <span>Clients</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="hebergements">
+                        <i class="fas fa-bed"></i>
+                        <span>Hébergements</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="factures">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Factures</span>
+                        <span class="badge-notification" id="invoice-badge">1</span>
+                    </a>
+                    <a href="#" class="nav-link" data-section="calendrier">
+                        <i class="fas fa-calendar"></i>
+                        <span>Calendrier</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </nav>
+
+                <!-- COORDONNÉES TASSINÉRE -->
+                <div style="padding: 20px; margin-top: 20px; border-top: 1px solid rgba(212,175,55,0.3);">
+                    <small style="color: var(--primary-color); font-weight: 600;">
+                        <i class="fas fa-info-circle me-1"></i> RÉSIDENCE LAWMAR
+                    </small>
+                    <div style="font-size: 0.7rem; margin-top: 12px; opacity: 0.9; line-height: 1.7;">
+                        <i class="fas fa-map-marker-alt me-1" style="color: var(--primary-color);"></i> 
+                        Commune de Ndiébène Gandiol<br>
+                        <i class="fas fa-id-card me-1" style="color: var(--primary-color);"></i> 
+                        RC: SN-STL-20217-B-1703<br>
+                        <i class="fas fa-file-signature me-1" style="color: var(--primary-color);"></i> 
+                        NINEA: 006522032<br>
+                        <i class="fas fa-envelope me-1" style="color: var(--primary-color);"></i> 
+                        residencelawmar@gmail.com<br>
+                        <i class="fas fa-envelope me-1" style="color: var(--primary-color);"></i> 
+                        diopelhadji11@gmail.com<br>
+                        <i class="fas fa-phone me-1" style="color: var(--primary-color);"></i> 
+                        +221 77 995 20 20<br>
+                        <i class="fas fa-phone me-1" style="color: var(--primary-color);"></i> 
+                        +221 77 291 72 15
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="mainContent">
+            <!-- TOP NAVBAR -->
+            <header class="top-navbar">
+                <button class="btn btn-light d-lg-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <h5 style="margin: 0; color: var(--secondary-color);" id="current-section">
+                    <i class="fas fa-tachometer-alt me-2" style="color: var(--primary-color);"></i>
+                    Tableau de bord - Village de Tassinére
+                </h5>
+                
+                <div class="nav-tools">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="globalSearch" placeholder="Rechercher réservation, client...">
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="navbar-username">Admin</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="showChangePasswordModal()">
+                                <i class="fas fa-key me-2"></i>Changer mot de passe
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i>Déconnexion
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ALERT CONTAINER -->
+            <div class="alert-container" id="alertContainer"></div>
+
+            <!-- ==================== SECTION DASHBOARD ==================== -->
+            <section class="section-content active" id="dashboard-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="stat-number" id="todayArrivals">3</div>
+                                <div class="stat-label">Arrivées aujourd'hui</div>
+                            </div>
+                            <i class="fas fa-sign-in-alt fa-2x" style="color: var(--primary-color); opacity: 0.5;"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="stat-number" id="occupancyRate">68%</div>
+                                <div class="stat-label">Taux d'occupation</div>
+                            </div>
+                            <i class="fas fa-bed fa-2x" style="color: var(--primary-color); opacity: 0.5;"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="stat-number" id="pendingReservations">5</div>
+                                <div class="stat-label">Réservations en attente</div>
+                            </div>
+                            <i class="fas fa-clock fa-2x" style="color: var(--primary-color); opacity: 0.5;"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="stat-number" id="monthlyRevenue">2 450 000</div>
+                                <div class="stat-label">CA du mois (FCFA)</div>
+                            </div>
+                            <i class="fas fa-chart-line fa-2x" style="color: var(--primary-color); opacity: 0.5;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="reservation-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 style="color: var(--secondary-color);">
+                                    <i class="fas fa-history me-2" style="color: var(--primary-color);"></i>
+                                    Dernières réservations
+                                </h5>
+                                <button class="btn btn-sm btn-outline-primary" onclick="refreshReservations()">
+                                    <i class="fas fa-sync-alt me-1"></i> Actualiser
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead style="background: #f8f9fa;">
+                                        <tr>
+                                            <th>Référence</th>
+                                            <th>Client</th>
+                                            <th>Hébergement</th>
+                                            <th>Dates</th>
+                                            <th>Statut</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recentReservations">
+                                        <!-- Chargé dynamiquement -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="reservation-card">
+                            <h5 style="color: var(--secondary-color);">
+                                <i class="fas fa-bell me-2" style="color: var(--primary-color);"></i>
+                                Aujourd'hui
+                            </h5>
+                            <div id="todaySummary" class="mt-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>🛏️ Arrivées:</span>
+                                    <strong>3</strong>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>🧳 Départs:</span>
+                                    <strong>2</strong>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>👑 Clients VIP:</span>
+                                    <strong><span class="badge-vip">1</span></strong>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <span>💰 Recette du jour:</span>
+                                    <strong class="currency-fcfa">385 000</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reservation-card">
+                            <h5 style="color: var(--secondary-color);">
+                                <i class="fas fa-phone-alt me-2" style="color: var(--primary-color);"></i>
+                                Contact rapide
+                            </h5>
+                            <div class="d-grid gap-2 mt-3">
+                                <a href="tel:+221779952020" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-phone me-2"></i>77 995 20 20
+                                </a>
+                                <a href="tel:+221772917215" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-phone me-2"></i>77 291 72 15
+                                </a>
+                                <a href="https://wa.me/221779952020" target="_blank" class="btn btn-whatsapp btn-sm">
+                                    <i class="fab fa-whatsapp me-2"></i>WhatsApp 77 995 20 20
+                                </a>
+                                <a href="https://wa.me/221772917215" target="_blank" class="btn btn-whatsapp btn-sm">
+                                    <i class="fab fa-whatsapp me-2"></i>WhatsApp 77 291 72 15
+                                </a>
+                                <a href="mailto:residencelawmar@gmail.com" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-envelope me-2"></i>residencelawmar@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SECTION RÉSERVATIONS ==================== -->
+            <section class="section-content" id="reservations-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-calendar-check me-2" style="color: var(--primary-color);"></i>
+                        Gestion des réservations
+                    </h4>
+                    <div class="action-group">
+                        <button class="btn btn-village" onclick="showReservationModal()">
+                            <i class="fas fa-plus-circle me-2"></i>Nouvelle réservation
+                        </button>
+                        <button class="btn btn-success" onclick="exportReservations()">
+                            <i class="fas fa-file-excel me-2"></i>Exporter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FILTRES RÉSERVATIONS -->
+                <div class="filters-section">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Date d'arrivée</label>
+                            <input type="date" class="form-control" id="filterCheckin">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Date de départ</label>
+                            <input type="date" class="form-control" id="filterCheckout">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label fw-semibold">Statut</label>
+                            <select class="form-control" id="filterStatus">
+                                <option value="">Tous</option>
+                                <option value="pending">En attente</option>
+                                <option value="confirmed">Confirmée</option>
+                                <option value="checked-in">Check-in</option>
+                                <option value="checked-out">Check-out</option>
+                                <option value="cancelled">Annulée</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label fw-semibold">Client</label>
+                            <input type="text" class="form-control" id="filterClient" placeholder="Nom / Téléphone">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="btn btn-primary w-100" onclick="applyReservationFilters()">
+                                <i class="fas fa-filter me-2"></i>Filtrer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLEAU RÉSERVATIONS -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle" style="background: white; border-radius: 10px;">
+                        <thead style="background: var(--secondary-color); color: white;">
+                            <tr>
+                                <th>Référence</th>
+                                <th>Client</th>
+                                <th>Hébergement</th>
+                                <th>Arrivée</th>
+                                <th>Départ</th>
+                                <th>Nuits</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservationsTableBody">
+                            <!-- Chargé dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="reservationsPagination" class="pagination-container"></div>
+            </section>
+
+            <!-- ==================== SECTION COMMANDES RESTAURANT ==================== -->
+            <section class="section-content" id="commandes-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-utensils me-2" style="color: var(--primary-color);"></i>
+                        Commandes Restaurant - Saveurs de Tassinére
+                    </h4>
+                    <div class="action-group">
+                        <button class="btn btn-village" onclick="showOrderModal()">
+                            <i class="fas fa-plus-circle me-2"></i>Nouvelle commande
+                        </button>
+                        <button class="btn btn-success" onclick="exportOrders()">
+                            <i class="fas fa-file-excel me-2"></i>Exporter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FILTRES COMMANDES -->
+                <div class="filters-section">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Date</label>
+                            <input type="date" class="form-control" id="orderFilterDate">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Statut</label>
+                            <select class="form-control" id="orderFilterStatus">
+                                <option value="">Tous</option>
+                                <option value="pending">En attente</option>
+                                <option value="preparing">En préparation</option>
+                                <option value="served">Servi</option>
+                                <option value="paid">Payé</option>
+                                <option value="cancelled">Annulé</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold">Client / Table</label>
+                            <input type="text" class="form-control" id="orderFilterClient" placeholder="Nom du client ou n° table">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="btn btn-primary w-100" onclick="applyOrderFilters()">
+                                <i class="fas fa-filter me-2"></i>Filtrer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLEAU COMMANDES -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle" style="background: white; border-radius: 10px;">
+                        <thead style="background: var(--secondary-color); color: white;">
+                            <tr>
+                                <th>N° Commande</th>
+                                <th>Date/Heure</th>
+                                <th>Client/Table</th>
+                                <th>Articles</th>
+                                <th>Total</th>
+                                <th>Statut</th>
+                                <th>Paiement</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Chargé dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="ordersPagination" class="pagination-container"></div>
+            </section>
+
+            <!-- ==================== SECTION CLIENTS ==================== -->
+            <section class="section-content" id="clients-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-users me-2" style="color: var(--primary-color);"></i>
+                        Gestion des clients
+                    </h4>
+                    <div class="action-group">
+                        <button class="btn btn-village" onclick="showClientModal()">
+                            <i class="fas fa-user-plus me-2"></i>Nouveau client
+                        </button>
+                        <button class="btn btn-success" onclick="exportClients()">
+                            <i class="fas fa-file-excel me-2"></i>Exporter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover" style="background: white; border-radius: 10px;">
+                        <thead style="background: var(--secondary-color); color: white;">
+                            <tr>
+                                <th>Nom & Prénom</th>
+                                <th>Téléphone</th>
+                                <th>Email</th>
+                                <th>Nationalité</th>
+                                <th>Séjours</th>
+                                <th>Total dépensé</th>
+                                <th>VIP</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <!-- Chargé dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== SECTION HÉBERGEMENTS ==================== -->
+            <section class="section-content" id="hebergements-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-bed me-2" style="color: var(--primary-color);"></i>
+                        Parc hébergement
+                    </h4>
+                    <div>
+                        <button class="btn btn-village" onclick="showRoomModal()">
+                            <i class="fas fa-plus-circle me-2"></i>Ajouter un hébergement
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row" id="roomsGrid">
+                    <!-- Chargé dynamiquement -->
+                </div>
+            </section>
+
+            <!-- ==================== SECTION FACTURES ==================== -->
+            <section class="section-content" id="factures-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-file-invoice me-2" style="color: var(--primary-color);"></i>
+                        Factures & Documents
+                    </h4>
+                    <div>
+                        <button class="btn btn-village" onclick="showInvoiceStats()">
+                            <i class="fas fa-chart-pie me-2"></i>Statistiques
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover" style="background: white; border-radius: 10px;">
+                        <thead style="background: var(--secondary-color); color: white;">
+                            <tr>
+                                <th>N° Facture</th>
+                                <th>Client</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoicesTableBody">
+                            <!-- Chargé dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== SECTION CALENDRIER ==================== -->
+            <section class="section-content" id="calendrier-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 style="color: var(--secondary-color);">
+                        <i class="fas fa-calendar me-2" style="color: var(--primary-color);"></i>
+                        Calendrier des réservations
+                    </h4>
+                    <div>
+                        <button class="btn btn-outline-primary" onclick="prevMonth()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span id="currentMonth" style="margin: 0 15px; font-weight: 600;">Mars 2024</span>
+                        <button class="btn btn-outline-primary" onclick="nextMonth()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="calendarContainer" class="bg-white p-3 rounded shadow-sm">
+                    <!-- Calendrier généré dynamiquement -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- MODAL RÉSERVATION -->
+    <div class="modal fade" id="reservationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--secondary-color); color: white;">
+                    <h5 class="modal-title">
+                        <i class="fas fa-calendar-plus me-2" style="color: var(--primary-color);"></i>
+                        Nouvelle réservation
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reservationForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Client</label>
+                                <select class="form-control" id="reservationClient" required>
+                                    <option value="">Sélectionner un client</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Hébergement</label>
+                                <select class="form-control" id="reservationRoom" required>
+                                    <option value="">Sélectionner un hébergement</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Date d'arrivée</label>
+                                <input type="date" class="form-control" id="reservationCheckin" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Date de départ</label>
+                                <input type="date" class="form-control" id="reservationCheckout" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Adultes</label>
+                                <input type="number" class="form-control" id="reservationAdults" value="2" min="1" max="6">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Enfants</label>
+                                <input type="number" class="form-control" id="reservationChildren" value="0" min="0" max="4">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-semibold">Total estimé</label>
+                                <input type="text" class="form-control" id="reservationTotal" readonly placeholder="0 FCFA">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Notes / Demandes spéciales</label>
+                            <textarea class="form-control" id="reservationNotes" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-village" onclick="saveReservation()">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DÉTAILS RÉSERVATION -->
+    <div class="modal fade" id="viewReservationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--secondary-color); color: white;">
+                    <h5 class="modal-title">
+                        <i class="fas fa-info-circle me-2" style="color: var(--primary-color);"></i>
+                        Détails de la réservation
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="viewReservationContent">
+                    <!-- Contenu dynamique -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-warning" onclick="editFromViewModal()">Modifier</button>
+                    <button type="button" class="btn btn-status" onclick="showStatusModalFromView()">Changer statut</button>
+                    <button type="button" class="btn btn-primary" onclick="generateInvoiceFromView()">Facture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHANGEMENT STATUT - RÉSERVATION -->
+    <div class="modal fade" id="statusReservationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--primary-color);">
+                    <h5 class="modal-title" style="color: var(--secondary-dark);">
+                        <i class="fas fa-sync-alt me-2"></i>
+                        Modifier le statut de la réservation
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="statusReservationId">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Statut actuel</label>
+                        <input type="text" class="form-control" id="currentStatusReservation" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nouveau statut</label>
+                        <select class="form-control" id="newStatusReservation">
+                            <option value="pending">En attente</option>
+                            <option value="confirmed">Confirmée</option>
+                            <option value="checked-in">Check-in</option>
+                            <option value="checked-out">Check-out</option>
+                            <option value="cancelled">Annulée</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Commentaire (optionnel)</label>
+                        <textarea class="form-control" id="statusReservationComment" rows="2" placeholder="Motif du changement..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Historique des statuts</label>
+                        <div id="statusReservationHistory" class="status-history">
+                            <!-- Historique chargé dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-village" onclick="updateReservationStatus()">Mettre à jour</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHANGEMENT STATUT - COMMANDE -->
+    <div class="modal fade" id="statusOrderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--primary-color);">
+                    <h5 class="modal-title" style="color: var(--secondary-dark);">
+                        <i class="fas fa-sync-alt me-2"></i>
+                        Modifier le statut de la commande
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="statusOrderId">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Statut actuel</label>
+                        <input type="text" class="form-control" id="currentStatusOrder" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nouveau statut</label>
+                        <select class="form-control" id="newStatusOrder">
+                            <option value="pending">En attente</option>
+                            <option value="preparing">En préparation</option>
+                            <option value="served">Servi</option>
+                            <option value="paid">Payé</option>
+                            <option value="cancelled">Annulé</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Commentaire (optionnel)</label>
+                        <textarea class="form-control" id="statusOrderComment" rows="2" placeholder="Motif du changement..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Historique des statuts</label>
+                        <div id="statusOrderHistory" class="status-history">
+                            <!-- Historique chargé dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-village" onclick="updateOrderStatus()">Mettre à jour</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FACTURE TASSINÉRE (SANS TVA) -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--secondary-color);">
+                    <h5 class="modal-title text-white">
+                        <i class="fas fa-file-invoice me-2" style="color: var(--primary-color);"></i>
+                        Facture - Village de Tassinére
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background: #f8f9fa;">
+                    <div id="invoiceContent" class="invoice-tassinere">
+                        <!-- Contenu généré dynamiquement -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadInvoicePDF()">
+                        <i class="fas fa-download me-2"></i>Télécharger PDF
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="printInvoice()">
+                        <i class="fas fa-print me-2"></i>Imprimer
+                    </button>
+                    <button type="button" class="btn btn-whatsapp" onclick="shareInvoiceWhatsApp()">
+                        <i class="fab fa-whatsapp me-2"></i>Partager WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHANGEMENT MOT DE PASSE -->
+    <div class="modal fade" id="passwordModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--secondary-color); color: white;">
+                    <h5 class="modal-title">
+                        <i class="fas fa-key me-2" style="color: var(--primary-color);"></i>
+                        Changer le mot de passe
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="passwordForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Mot de passe actuel</label>
+                            <input type="password" class="form-control" id="currentPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nouveau mot de passe</label>
+                            <input type="password" class="form-control" id="newPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Confirmer le nouveau mot de passe</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-village" onclick="changePassword()">Changer le mot de passe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ============================================
+        // VILLAGE DE TASSINÉRE - RÉSIDENCE LAWMAR
+        // SYSTÈME DE GESTION ADMINISTRATIVE COMPLET
+        // VERSION 3.0 - SANS TVA + WHATSAPP + STATUTS
+        // ============================================
+
+        // ========== CONFIGURATION & CONSTANTES ==========
+        const TASSINERE_CONFIG = {
+            // Informations légales
+            legal: {
+                name: "VILLAGE DE TASSINÉRE",
+                residence: "Résidence Lawmar",
+                commune: "Commune de Ndiébène Gandiol",
+                rc: "SN-STL-20217-B-1703",
+                ninea: "006522032",
+                emails: ["residencelawmar@gmail.com", "diopelhadji11@gmail.com"],
+                phones: ["+221 77 995 20 20", "+221 77 291 72 15"],
+                whatsapp: ["221779952020", "221772917215"],
+                address: "Village de Tassinére, Ndiébène Gandiol, Saint-Louis, Sénégal"
+            },
+            // Authentification
+            auth: {
+                username: "admin",
+                passwordHash: hashPassword("Tassinere2024!"),
+                sessionDuration: 2 * 60 * 60 * 1000 // 2 heures
+            }
+        };
+
+        // ========== DONNÉES DE DÉMONSTRATION ==========
+        let appData = {
+            currentUser: null,
+            clients: [
+                { id: 1, firstName: "Amadou", lastName: "Diop", phone: "77 123 45 67", email: "amadou.diop@gmail.com", 
+                  nationality: "Sénégalaise", idType: "CNI", idNumber: "123456789012", stays: 3, totalSpent: 385000, 
+                  vip: true, createdAt: "2023-01-15" },
+                { id: 2, firstName: "Fatou", lastName: "Sy", phone: "78 234 56 78", email: "fatou.sy@gmail.com",
+                  nationality: "Sénégalaise", idType: "Passeport", idNumber: "AB654321", stays: 5, totalSpent: 725000,
+                  vip: true, createdAt: "2023-02-20" },
+                { id: 3, firstName: "Moussa", lastName: "Ndiaye", phone: "76 345 67 89", email: "moussa.ndiaye@entreprise.sn",
+                  nationality: "Sénégalaise", idType: "CNI", idNumber: "345678901234", stays: 2, totalSpent: 210000,
+                  vip: false, createdAt: "2023-03-10" },
+                { id: 4, firstName: "Aminata", lastName: "Fall", phone: "70 456 78 90", email: "aminata.fall@gmail.com",
+                  nationality: "Sénégalaise", idType: "CNI", idNumber: "456789012345", stays: 1, totalSpent: 95000,
+                  vip: false, createdAt: "2023-04-05" }
+            ],
+            rooms: [
+                { id: 1, number: "V101", name: "Villa Lagon", type: "villa", price: 65000, capacity: 4, 
+                  floor: "Rez-de-chaussée", status: "available", equipments: ["wifi", "tv", "ac", "minibar", "terrasse"],
+                  description: "Villa vue jardin avec terrasse privative" },
+                { id: 2, number: "V102", name: "Villa Océane", type: "villa", price: 75000, capacity: 4,
+                  status: "occupied", equipments: ["wifi", "tv", "ac", "minibar", "jacuzzi", "terrasse"],
+                  description: "Villa vue mer avec jacuzzi" },
+                { id: 3, number: "C201", name: "Chambre Supérieure", type: "superieure", price: 45000, capacity: 2,
+                  status: "available", equipments: ["wifi", "tv", "ac", "minibar"],
+                  description: "Chambre supérieure vue piscine" },
+                { id: 4, number: "C202", name: "Chambre Standard", type: "standard", price: 35000, capacity: 2,
+                  status: "available", equipments: ["wifi", "tv", "ac"],
+                  description: "Chambre standard confortable" },
+                { id: 5, number: "S301", name: "Suite Prestige", type: "suite", price: 95000, capacity: 3,
+                  status: "maintenance", equipments: ["wifi", "tv", "ac", "minibar", "salon"],
+                  description: "Suite prestige avec salon séparé" }
+            ],
+            reservations: [
+                { 
+                    id: 1, reference: "TAS-2024-001", clientId: 1, clientName: "Amadou Diop", clientPhone: "77 123 45 67",
+                    roomId: 2, roomNumber: "V102", roomName: "Villa Océane", checkIn: "2024-03-15", checkOut: "2024-03-18",
+                    nights: 3, adults: 2, children: 1, amount: 225000, status: "confirmed", paymentStatus: "pending",
+                    notes: "Vue mer souhaitée - Client VIP", createdAt: "2024-03-10", createdBy: "Admin",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-10 10:30", user: "Admin", comment: "Création réservation" },
+                        { status: "confirmed", date: "2024-03-10 14:15", user: "Admin", comment: "Confirmation client" }
+                    ]
+                },
+                { 
+                    id: 2, reference: "TAS-2024-002", clientId: 2, clientName: "Fatou Sy", clientPhone: "78 234 56 78",
+                    roomId: 1, roomNumber: "V101", roomName: "Villa Lagon", checkIn: "2024-03-15", checkOut: "2024-03-20",
+                    nights: 5, adults: 2, children: 0, amount: 325000, status: "checked-in", paymentStatus: "partial",
+                    notes: "Anniversaire de mariage - Déco spéciale", createdAt: "2024-03-05", createdBy: "Admin",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-05 09:20", user: "Admin", comment: "Création réservation" },
+                        { status: "confirmed", date: "2024-03-05 11:45", user: "Admin", comment: "Confirmation téléphonique" },
+                        { status: "checked-in", date: "2024-03-15 14:30", user: "Admin", comment: "Check-in effectué - Clé remise" }
+                    ]
+                },
+                { 
+                    id: 3, reference: "TAS-2024-003", clientId: 3, clientName: "Moussa Ndiaye", clientPhone: "76 345 67 89",
+                    roomId: 4, roomNumber: "C202", roomName: "Chambre Standard", checkIn: "2024-03-16", checkOut: "2024-03-19",
+                    nights: 3, adults: 1, children: 0, amount: 105000, status: "pending", paymentStatus: "pending",
+                    notes: "Voyage d'affaires - Arrivée tardive", createdAt: "2024-03-12", createdBy: "Admin",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-12 16:20", user: "Admin", comment: "Création réservation" }
+                    ]
+                },
+                { 
+                    id: 4, reference: "TAS-2024-004", clientId: 4, clientName: "Aminata Fall", clientPhone: "70 456 78 90",
+                    roomId: 3, roomNumber: "C201", roomName: "Chambre Supérieure", checkIn: "2024-03-18", checkOut: "2024-03-21",
+                    nights: 3, adults: 2, children: 0, amount: 135000, status: "confirmed", paymentStatus: "paid",
+                    notes: "", createdAt: "2024-03-14", createdBy: "Admin",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-14 08:15", user: "Admin", comment: "Création réservation" },
+                        { status: "confirmed", date: "2024-03-14 09:30", user: "Admin", comment: "Paiement reçu - Wave" }
+                    ]
+                }
+            ],
+            orders: [
+                { 
+                    id: 1, reference: "CMD-2024-001", date: "2024-03-15", time: "12:30", clientName: "Amadou Diop",
+                    table: "12", clientId: 1, items: [
+                        { name: "Thiébou Djeun", quantity: 2, price: 12500 },
+                        { name: "Bissap", quantity: 2, price: 2500 }
+                    ], total: 30000, status: "served", paymentStatus: "paid", paymentMethod: "mobile_money",
+                    createdAt: "2024-03-15T12:30:00",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-15 12:30", user: "Admin", comment: "Commande prise" },
+                        { status: "preparing", date: "2024-03-15 12:35", user: "Admin", comment: "En cuisine" },
+                        { status: "served", date: "2024-03-15 13:10", user: "Admin", comment: "Servi à table" },
+                        { status: "paid", date: "2024-03-15 13:45", user: "Admin", comment: "Paiement Mobile Money" }
+                    ]
+                },
+                { 
+                    id: 2, reference: "CMD-2024-002", date: "2024-03-15", time: "19:45", clientName: "Fatou Sy",
+                    table: "05", clientId: 2, items: [
+                        { name: "Poulet Yassa", quantity: 1, price: 10500 },
+                        { name: "Maffe", quantity: 1, price: 9500 },
+                        { name: "Bouye", quantity: 2, price: 2500 }
+                    ], total: 25000, status: "preparing", paymentStatus: "pending", paymentMethod: null,
+                    createdAt: "2024-03-15T19:45:00",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-15 19:45", user: "Admin", comment: "Commande prise" },
+                        { status: "preparing", date: "2024-03-15 19:50", user: "Admin", comment: "En préparation" }
+                    ]
+                },
+                { 
+                    id: 3, reference: "CMD-2024-003", date: "2024-03-16", time: "20:15", clientName: "Moussa Ndiaye",
+                    table: "08", clientId: 3, items: [
+                        { name: "Salade Saint-Louis", quantity: 1, price: 7500 },
+                        { name: "Thiébou Djeun", quantity: 1, price: 12500 },
+                        { name: "Bissap", quantity: 1, price: 2500 }
+                    ], total: 22500, status: "pending", paymentStatus: "pending", paymentMethod: null,
+                    createdAt: "2024-03-16T20:15:00",
+                    statusHistory: [
+                        { status: "pending", date: "2024-03-16 20:15", user: "Admin", comment: "Commande prise" }
+                    ]
+                }
+            ],
+            invoices: [
+                { id: 1, number: "FAC-2024-001", clientId: 4, clientName: "Aminata Fall", 
+                  date: "2024-03-14", type: "reservation", reference: "TAS-2024-004",
+                  amount: 135000, status: "paid", paymentMethod: "wave" }
+            ],
+            settings: {
+                darkMode: false,
+                notifications: true,
+                itemsPerPage: 10
+            },
+            nextId: {
+                client: 5,
+                room: 6,
+                reservation: 5,
+                order: 4,
+                invoice: 2
+            }
+        };
+
+        // ========== VARIABLES GLOBALES ==========
+        let isAuthenticated = false;
+        let currentInvoiceData = null;
+        let paginationReservations = null;
+        let paginationOrders = null;
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        // ========== FONCTIONS DE SÉCURITÉ ==========
+        function hashPassword(password) {
+            let hash = 0;
+            for (let i = 0; i < password.length; i++) {
+                const char = password.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return 'tassinere_' + Math.abs(hash).toString(16);
+        }
+
+        function verifyPassword(inputPassword, storedHash) {
+            if (!storedHash || !storedHash.includes('tassinere_')) return false;
+            const inputHash = hashPassword(inputPassword);
+            return inputHash === storedHash;
+        }
+
+        // ========== VÉRIFICATION DE SESSION ==========
+        function checkSession() {
+            const token = localStorage.getItem('tassinere_token');
+            const expiry = localStorage.getItem('tassinere_expiry');
+            
+            if (token && expiry) {
+                const now = new Date().getTime();
+                if (now < parseInt(expiry)) {
+                    return true;
+                } else {
+                    localStorage.removeItem('tassinere_token');
+                    localStorage.removeItem('tassinere_expiry');
+                    localStorage.removeItem('tassinere_user');
+                }
+            }
+            return false;
+        }
+
+        // ========== INITIALISATION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier la session
+            if (checkSession()) {
+                const savedUser = localStorage.getItem('tassinere_user');
+                if (savedUser) {
+                    appData.currentUser = JSON.parse(savedUser);
+                    showDashboard();
+                } else {
+                    showLogin();
+                }
+            } else {
+                showLogin();
+            }
+            
+            // Configuration du formulaire de login
+            setupLoginForm();
+            
+            // Charger les données sauvegardées
+            loadSavedData();
+            
+            // Initialiser les composants
+            initComponents();
+        });
+
+        function setupLoginForm() {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleLogin();
+                });
+            }
+            
+            const togglePassword = document.getElementById('togglePassword');
+            if (togglePassword) {
+                togglePassword.addEventListener('click', function() {
+                    const passwordInput = document.getElementById('password');
+                    const icon = this.querySelector('i');
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.className = 'fas fa-eye-slash';
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.className = 'fas fa-eye';
+                    }
+                });
+            }
+        }
+
+        function handleLogin() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginError = document.getElementById('loginError');
+            
+            if (!username || !password) {
+                loginError.textContent = 'Veuillez remplir tous les champs';
+                loginError.style.display = 'block';
+                return;
+            }
+            
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Connexion...';
+            
+            setTimeout(() => {
+                if (username === TASSINERE_CONFIG.auth.username && 
+                    verifyPassword(password, TASSINERE_CONFIG.auth.passwordHash)) {
+                    
+                    const token = 'tassinere_' + Date.now();
+                    const expiry = new Date().getTime() + TASSINERE_CONFIG.auth.sessionDuration;
+                    
+                    localStorage.setItem('tassinere_token', token);
+                    localStorage.setItem('tassinere_expiry', expiry.toString());
+                    
+                    const user = { 
+                        username: username, 
+                        name: 'Administrateur', 
+                        role: 'admin',
+                        loginTime: new Date().toISOString()
+                    };
+                    localStorage.setItem('tassinere_user', JSON.stringify(user));
+                    appData.currentUser = user;
+                    
+                    loginBtn.innerHTML = '<i class="fas fa-check me-2"></i>Connexion réussie!';
+                    
+                    setTimeout(() => {
+                        showDashboard();
+                    }, 500);
+                } else {
+                    loginError.textContent = 'Identifiants incorrects';
+                    loginError.style.display = 'block';
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Accéder au tableau de bord';
+                }
+            }, 800);
+        }
+
+        function showLogin() {
+            document.getElementById('loginOverlay').style.display = 'flex';
+            document.getElementById('dashboardPage').style.display = 'none';
+            document.getElementById('sidebar').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            isAuthenticated = false;
+        }
+
+        function showDashboard() {
+            document.getElementById('loginOverlay').style.display = 'none';
+            document.getElementById('dashboardPage').style.display = 'block';
+            document.getElementById('sidebar').style.display = 'block';
+            document.getElementById('mainContent').style.display = 'block';
+            isAuthenticated = true;
+            
+            // Mettre à jour l'UI utilisateur
+            if (appData.currentUser) {
+                document.getElementById('userName').textContent = appData.currentUser.name;
+                document.getElementById('navbar-username').textContent = appData.currentUser.name;
+            }
+            
+            // Initialiser le tableau de bord
+            initDashboard();
+            
+            showNotification('Bienvenue au Village de Tassinére!', 'success');
+        }
+
+        function loadSavedData() {
+            const savedReservations = localStorage.getItem('tassinere_reservations');
+            const savedOrders = localStorage.getItem('tassinere_orders');
+            const savedClients = localStorage.getItem('tassinere_clients');
+            const savedRooms = localStorage.getItem('tassinere_rooms');
+            
+            if (savedReservations) appData.reservations = JSON.parse(savedReservations);
+            if (savedOrders) appData.orders = JSON.parse(savedOrders);
+            if (savedClients) appData.clients = JSON.parse(savedClients);
+            if (savedRooms) appData.rooms = JSON.parse(savedRooms);
+        }
+
+        function saveData() {
+            localStorage.setItem('tassinere_reservations', JSON.stringify(appData.reservations));
+            localStorage.setItem('tassinere_orders', JSON.stringify(appData.orders));
+            localStorage.setItem('tassinere_clients', JSON.stringify(appData.clients));
+            localStorage.setItem('tassinere_rooms', JSON.stringify(appData.rooms));
+        }
+
+        function initComponents() {
+            // Sidebar toggle
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    document.getElementById('sidebar').classList.toggle('active');
+                });
+            }
+            
+            // Navigation
+            document.querySelectorAll('.nav-link[data-section]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    showSection(section);
+                    
+                    // Mettre à jour la classe active
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Fermer la sidebar sur mobile
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                });
+            });
+            
+            // Recherche globale
+            const searchInput = document.getElementById('globalSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', debounce(globalSearch, 500));
+            }
+        }
+
+        function initDashboard() {
+            updateDashboardStats();
+            loadRecentReservations();
+            loadTodaySummary();
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        // ========== FONCTIONS DES SECTIONS ==========
+        function showSection(sectionId) {
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            const sectionElement = document.getElementById(sectionId + '-section');
+            if (sectionElement) {
+                sectionElement.classList.add('active');
+            }
+            
+            // Mettre à jour le titre
+            const titles = {
+                'dashboard': 'Tableau de bord',
+                'reservations': 'Réservations',
+                'commandes': 'Commandes Restaurant',
+                'clients': 'Clients',
+                'hebergements': 'Hébergements',
+                'factures': 'Factures',
+                'calendrier': 'Calendrier'
+            };
+            
+            const icons = {
+                'dashboard': 'tachometer-alt',
+                'reservations': 'calendar-check',
+                'commandes': 'utensils',
+                'clients': 'users',
+                'hebergements': 'bed',
+                'factures': 'file-invoice',
+                'calendrier': 'calendar'
+            };
+            
+            document.getElementById('current-section').innerHTML = `
+                <i class="fas fa-${icons[sectionId] || 'tachometer-alt'} me-2" style="color: var(--primary-color);"></i>
+                ${titles[sectionId] || 'Tableau de bord'} - Village de Tassinére
+            `;
+            
+            // Charger les données selon la section
+            switch(sectionId) {
+                case 'reservations':
+                    loadReservations();
+                    break;
+                case 'commandes':
+                    loadOrders();
+                    break;
+                case 'clients':
+                    loadClients();
+                    break;
+                case 'hebergements':
+                    loadRooms();
+                    break;
+                case 'factures':
+                    loadInvoices();
+                    break;
+                case 'calendrier':
+                    generateCalendar(currentMonth, currentYear);
+                    break;
+            }
+        }
+
+        // ========== FONCTIONS RÉSERVATIONS ==========
+        function loadReservations(filteredData = null) {
+            const tbody = document.getElementById('reservationsTableBody');
+            if (!tbody) return;
+            
+            const data = filteredData || appData.reservations;
+            
+            tbody.innerHTML = data.map(res => {
+                const statusClass = getStatusClass(res.status);
+                const statusText = getStatusText(res.status);
+                const paymentBadge = getPaymentBadge(res.paymentStatus);
+                
+                return `
+                    <tr>
+                        <td><strong>${res.reference}</strong></td>
+                        <td>
+                            ${res.clientName}<br>
+                            <small class="text-muted">${res.clientPhone}</small>
+                        </td>
+                        <td>${res.roomNumber} - ${res.roomName}</td>
+                        <td>${formatDate(res.checkIn)}</td>
+                        <td>${formatDate(res.checkOut)}</td>
+                        <td>${res.nights}</td>
+                        <td><strong class="currency-fcfa">${formatNumber(res.amount)}</strong></td>
+                        <td>
+                            <span class="status-badge status-${res.status}">${statusText}</span>
+                            <br><small>${paymentBadge}</small>
+                        </td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewReservation(${res.id})" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-edit" onclick="editReservation(${res.id})" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action btn-status" onclick="showReservationStatusModal(${res.id})" title="Changer statut">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-action btn-invoice" onclick="generateReservationInvoice(${res.id})" title="Générer facture">
+                                    <i class="fas fa-file-invoice"></i>
+                                </button>
+                                <button class="btn-action btn-delete" onclick="deleteReservation(${res.id})" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            // Pagination
+            setupPagination('reservations', data, 10);
+        }
+
+        function loadRecentReservations() {
+            const tbody = document.getElementById('recentReservations');
+            if (!tbody) return;
+            
+            const recent = appData.reservations.slice(0, 5);
+            
+            tbody.innerHTML = recent.map(res => {
+                const statusText = getStatusText(res.status);
+                return `
+                    <tr>
+                        <td>${res.reference}</td>
+                        <td>${res.clientName}</td>
+                        <td>${res.roomNumber}</td>
+                        <td>${formatDate(res.checkIn)} - ${formatDate(res.checkOut)}</td>
+                        <td><span class="status-badge status-${res.status}">${statusText}</span></td>
+                        <td>
+                            <button class="btn-action btn-view btn-sm" onclick="viewReservation(${res.id})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function viewReservation(id) {
+            const reservation = appData.reservations.find(r => r.id === id);
+            if (!reservation) return;
+            
+            const client = appData.clients.find(c => c.id === reservation.clientId) || {};
+            const room = appData.rooms.find(r => r.id === reservation.roomId) || {};
+            
+            const vipBadge = client.vip ? '<span class="badge-vip ms-2">VIP</span>' : '';
+            const statusText = getStatusText(reservation.status);
+            const paymentText = getPaymentStatusText(reservation.paymentStatus);
+            
+            // Générer l'historique des statuts
+            let historyHtml = '';
+            if (reservation.statusHistory && reservation.statusHistory.length > 0) {
+                historyHtml = '<div class="mt-3"><h6>Historique des statuts</h6><div class="status-history">';
+                reservation.statusHistory.forEach(item => {
+                    historyHtml += `<div class="status-history-item">
+                        <strong>${getStatusText(item.status)}</strong> - ${item.date}<br>
+                        <small>Par: ${item.user} | ${item.comment || 'Aucun commentaire'}</small>
+                    </div>`;
+                });
+                historyHtml += '</div></div>';
+            }
+            
+            const content = `
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background: var(--primary-light);">
+                                    <i class="fas fa-user me-2"></i>Informations client
+                                </div>
+                                <div class="card-body">
+                                    <h6>${reservation.clientName} ${vipBadge}</h6>
+                                    <p class="mb-1"><i class="fas fa-phone me-2"></i>${reservation.clientPhone}</p>
+                                    <p class="mb-1"><i class="fas fa-envelope me-2"></i>${client.email || 'Non renseigné'}</p>
+                                    <p class="mb-0"><i class="fas fa-id-card me-2"></i>${client.idType || 'CNI'}: ${client.idNumber || '-'}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background: var(--primary-light);">
+                                    <i class="fas fa-bed me-2"></i>Hébergement
+                                </div>
+                                <div class="card-body">
+                                    <h6>${room.name || reservation.roomName}</h6>
+                                    <p class="mb-1"><i class="fas fa-door-open me-2"></i>N° ${reservation.roomNumber}</p>
+                                    <p class="mb-1"><i class="fas fa-tag me-2"></i>${getRoomTypeText(room.type)}</p>
+                                    <p class="mb-0"><i class="fas fa-users me-2"></i>${room.capacity || 'N/A'} personnes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background: var(--primary-light);">
+                                    <i class="fas fa-calendar me-2"></i>Détails du séjour
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-1"><strong>Arrivée:</strong> ${formatDate(reservation.checkIn)}</p>
+                                    <p class="mb-1"><strong>Départ:</strong> ${formatDate(reservation.checkOut)}</p>
+                                    <p class="mb-1"><strong>Nuits:</strong> ${reservation.nights}</p>
+                                    <p class="mb-1"><strong>Adultes:</strong> ${reservation.adults}, <strong>Enfants:</strong> ${reservation.children}</p>
+                                    <p class="mb-0"><strong>Créé le:</strong> ${formatDate(reservation.createdAt)}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background: var(--primary-light);">
+                                    <i class="fas fa-credit-card me-2"></i>Paiement
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-1"><strong>Montant total:</strong> <span class="currency-fcfa">${formatNumber(reservation.amount)}</span></p>
+                                    <p class="mb-1"><strong>Statut réservation:</strong> <span class="status-badge status-${reservation.status}">${statusText}</span></p>
+                                    <p class="mb-1"><strong>Statut paiement:</strong> ${paymentText}</p>
+                                    <p class="mb-0"><strong>Référence:</strong> ${reservation.reference}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-3">
+                                <div class="card-header" style="background: var(--primary-light);">
+                                    <i class="fas fa-sticky-note me-2"></i>Notes
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-0">${reservation.notes || 'Aucune note'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${historyHtml}
+                </div>
+            `;
+            
+            document.getElementById('viewReservationContent').innerHTML = content;
+            
+            // Stocker l'ID pour les actions
+            window.currentViewReservationId = reservation.id;
+            
+            const modal = new bootstrap.Modal(document.getElementById('viewReservationModal'));
+            modal.show();
+        }
+
+        function editFromViewModal() {
+            bootstrap.Modal.getInstance(document.getElementById('viewReservationModal')).hide();
+            setTimeout(() => {
+                editReservation(window.currentViewReservationId);
+            }, 300);
+        }
+
+        function showStatusModalFromView() {
+            bootstrap.Modal.getInstance(document.getElementById('viewReservationModal')).hide();
+            setTimeout(() => {
+                showReservationStatusModal(window.currentViewReservationId);
+            }, 300);
+        }
+
+        function generateInvoiceFromView() {
+            bootstrap.Modal.getInstance(document.getElementById('viewReservationModal')).hide();
+            setTimeout(() => {
+                generateReservationInvoice(window.currentViewReservationId);
+            }, 300);
+        }
+
+        function editReservation(id) {
+            const reservation = appData.reservations.find(r => r.id === id);
+            if (!reservation) return;
+            
+            // Pré-remplir le formulaire
+            showReservationModal(reservation);
+        }
+
+        function deleteReservation(id) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette réservation ? Cette action est irréversible.')) {
+                const index = appData.reservations.findIndex(r => r.id === id);
+                if (index !== -1) {
+                    appData.reservations.splice(index, 1);
+                    saveData();
+                    loadReservations();
+                    loadRecentReservations();
+                    updateDashboardStats();
+                    showNotification('Réservation supprimée avec succès', 'success');
+                }
+            }
+        }
+
+        function applyReservationFilters() {
+            const checkIn = document.getElementById('filterCheckin')?.value;
+            const checkOut = document.getElementById('filterCheckout')?.value;
+            const status = document.getElementById('filterStatus')?.value;
+            const client = document.getElementById('filterClient')?.value?.toLowerCase();
+            
+            let filtered = [...appData.reservations];
+            
+            if (checkIn) filtered = filtered.filter(r => r.checkIn === checkIn);
+            if (checkOut) filtered = filtered.filter(r => r.checkOut === checkOut);
+            if (status) filtered = filtered.filter(r => r.status === status);
+            if (client) filtered = filtered.filter(r => 
+                r.clientName.toLowerCase().includes(client) || 
+                (r.clientPhone && r.clientPhone.includes(client))
+            );
+            
+            loadReservations(filtered);
+            showNotification(`${filtered.length} réservation(s) trouvée(s)`, 'info');
+        }
+
+        // ========== FONCTIONS DE GESTION DES STATUTS - RÉSERVATIONS ==========
+        function showReservationStatusModal(id) {
+            const reservation = appData.reservations.find(r => r.id === id);
+            if (!reservation) return;
+            
+            document.getElementById('statusReservationId').value = id;
+            document.getElementById('currentStatusReservation').value = getStatusText(reservation.status);
+            document.getElementById('newStatusReservation').value = reservation.status;
+            document.getElementById('statusReservationComment').value = '';
+            
+            // Charger l'historique
+            const historyDiv = document.getElementById('statusReservationHistory');
+            if (reservation.statusHistory && reservation.statusHistory.length > 0) {
+                let historyHtml = '';
+                reservation.statusHistory.forEach(item => {
+                    historyHtml += `<div class="status-history-item">
+                        <strong>${getStatusText(item.status)}</strong> - ${item.date}<br>
+                        <small>Par: ${item.user} | ${item.comment || 'Aucun commentaire'}</small>
+                    </div>`;
+                });
+                historyDiv.innerHTML = historyHtml;
+            } else {
+                historyDiv.innerHTML = '<div class="text-muted">Aucun historique disponible</div>';
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('statusReservationModal'));
+            modal.show();
+        }
+
+        function updateReservationStatus() {
+            const id = parseInt(document.getElementById('statusReservationId').value);
+            const newStatus = document.getElementById('newStatusReservation').value;
+            const comment = document.getElementById('statusReservationComment').value;
+            
+            const reservation = appData.reservations.find(r => r.id === id);
+            if (reservation) {
+                const oldStatus = reservation.status;
+                
+                // Ne rien faire si le statut est identique
+                if (oldStatus === newStatus) {
+                    showNotification('Le statut est déjà défini sur cette valeur', 'warning');
+                    return;
+                }
+                
+                // Mettre à jour le statut
+                reservation.status = newStatus;
+                
+                // Ajouter à l'historique
+                if (!reservation.statusHistory) {
+                    reservation.statusHistory = [];
+                }
+                
+                const now = new Date();
+                const dateStr = `${now.toLocaleDateString('fr-FR')} ${now.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}`;
+                
+                reservation.statusHistory.push({
+                    status: newStatus,
+                    date: dateStr,
+                    user: appData.currentUser?.name || 'Admin',
+                    comment: comment || `Changement de statut: ${getStatusText(oldStatus)} → ${getStatusText(newStatus)}`
+                });
+                
+                // Mettre à jour le statut de la chambre si nécessaire
+                if (newStatus === 'checked-in') {
+                    const room = appData.rooms.find(r => r.id === reservation.roomId);
+                    if (room) room.status = 'occupied';
+                }
+                if (newStatus === 'checked-out' || newStatus === 'cancelled') {
+                    const room = appData.rooms.find(r => r.id === reservation.roomId);
+                    if (room) room.status = 'available';
+                }
+                
+                saveData();
+                loadReservations();
+                loadRecentReservations();
+                updateDashboardStats();
+                updateBadges();
+                
+                showNotification(`Statut mis à jour: ${getStatusText(newStatus)}`, 'success');
+                bootstrap.Modal.getInstance(document.getElementById('statusReservationModal')).hide();
+            }
+        }
+
+        // ========== FONCTIONS COMMANDES RESTAURANT ==========
+        function loadOrders(filteredData = null) {
+            const tbody = document.getElementById('ordersTableBody');
+            if (!tbody) return;
+            
+            const data = filteredData || appData.orders;
+            
+            tbody.innerHTML = data.map(order => {
+                const itemsCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const itemsList = order.items.map(item => 
+                    `${item.quantity}x ${item.name}`
+                ).join(', ');
+                
+                const statusText = getOrderStatusText(order.status);
+                const paymentBadge = getPaymentBadge(order.paymentStatus);
+                
+                return `
+                    <tr>
+                        <td><strong>${order.reference}</strong></td>
+                        <td>
+                            ${formatDate(order.date)}<br>
+                            <small class="text-muted">${order.time}</small>
+                        </td>
+                        <td>
+                            ${order.clientName}<br>
+                            <small class="text-muted">Table ${order.table}</small>
+                        </td>
+                        <td>
+                            <span class="badge bg-info">${itemsCount} article(s)</span><br>
+                            <small class="text-muted">${itemsList.substring(0, 30)}...</small>
+                        </td>
+                        <td><strong class="currency-fcfa">${formatNumber(order.total)}</strong></td>
+                        <td>
+                            <span class="status-badge status-${order.status}">${statusText}</span>
+                        </td>
+                        <td>${paymentBadge}</td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewOrder(${order.id})" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-edit" onclick="editOrder(${order.id})" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action btn-status" onclick="showOrderStatusModal(${order.id})" title="Changer statut">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-action btn-invoice" onclick="generateOrderInvoice(${order.id})" title="Ticket de caisse">
+                                    <i class="fas fa-receipt"></i>
+                                </button>
+                                <button class="btn-action btn-delete" onclick="deleteOrder(${order.id})" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            setupPagination('orders', data, 10);
+        }
+
+        function viewOrder(id) {
+            const order = appData.orders.find(o => o.id === id);
+            if (!order) return;
+            
+            let itemsHtml = '';
+            order.items.forEach(item => {
+                itemsHtml += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>${formatNumber(item.price)} FCFA</td>
+                        <td>${formatNumber(item.price * item.quantity)} FCFA</td>
+                    </tr>
+                `;
+            });
+            
+            const statusText = getOrderStatusText(order.status);
+            const paymentText = getPaymentStatusText(order.paymentStatus);
+            
+            // Générer l'historique des statuts
+            let historyHtml = '';
+            if (order.statusHistory && order.statusHistory.length > 0) {
+                historyHtml = '<div class="mt-3"><h6>Historique des statuts</h6><div class="status-history">';
+                order.statusHistory.forEach(item => {
+                    historyHtml += `<div class="status-history-item">
+                        <strong>${getOrderStatusText(item.status)}</strong> - ${item.date}<br>
+                        <small>Par: ${item.user} | ${item.comment || 'Aucun commentaire'}</small>
+                    </div>`;
+                });
+                historyHtml += '</div></div>';
+            }
+            
+            const content = `
+                <div class="container-fluid">
+                    <h5 class="text-center mb-4" style="color: var(--secondary-color);">
+                        COMMANDE N° ${order.reference}
+                    </h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Date:</strong> ${formatDate(order.date)} à ${order.time}</p>
+                            <p><strong>Client:</strong> ${order.clientName}</p>
+                            <p><strong>Table:</strong> ${order.table}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Statut:</strong> <span class="status-badge status-${order.status}">${statusText}</span></p>
+                            <p><strong>Paiement:</strong> ${paymentText}</p>
+                            <p><strong>Méthode:</strong> ${order.paymentMethod ? getPaymentMethodText(order.paymentMethod) : 'Non spécifié'}</p>
+                        </div>
+                    </div>
+                    
+                    <h6 class="mt-3">Détail des articles</h6>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Qté</th>
+                                <th>Prix unitaire</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${itemsHtml}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3" class="text-end">TOTAL</th>
+                                <th>${formatNumber(order.total)} FCFA</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    ${historyHtml}
+                </div>
+            `;
+            
+            const modalContent = document.createElement('div');
+            modalContent.className = 'modal fade';
+            modalContent.id = 'viewOrderModal';
+            modalContent.innerHTML = `
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background: var(--secondary-color); color: white;">
+                            <h5 class="modal-title">Détails de la commande</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            ${content}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-status" onclick="showOrderStatusModal(${order.id})">
+                                <i class="fas fa-sync-alt me-2"></i>Changer statut
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="generateOrderInvoice(${order.id})">
+                                <i class="fas fa-receipt me-2"></i>Ticket de caisse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modalContent);
+            const modal = new bootstrap.Modal(modalContent);
+            modal.show();
+            
+            modalContent.addEventListener('hidden.bs.modal', function() {
+                modalContent.remove();
+            });
+        }
+
+        function editOrder(id) {
+            const order = appData.orders.find(o => o.id === id);
+            if (!order) return;
+            
+            showOrderModal(order);
+        }
+
+        function deleteOrder(id) {
+            if (confirm('Supprimer cette commande ?')) {
+                const index = appData.orders.findIndex(o => o.id === id);
+                if (index !== -1) {
+                    appData.orders.splice(index, 1);
+                    saveData();
+                    loadOrders();
+                    updateBadges();
+                    showNotification('Commande supprimée', 'success');
+                }
+            }
+        }
+
+        function applyOrderFilters() {
+            const date = document.getElementById('orderFilterDate')?.value;
+            const status = document.getElementById('orderFilterStatus')?.value;
+            const client = document.getElementById('orderFilterClient')?.value?.toLowerCase();
+            
+            let filtered = [...appData.orders];
+            
+            if (date) filtered = filtered.filter(o => o.date === date);
+            if (status) filtered = filtered.filter(o => o.status === status);
+            if (client) filtered = filtered.filter(o => 
+                o.clientName.toLowerCase().includes(client) || 
+                o.table.includes(client)
+            );
+            
+            loadOrders(filtered);
+            showNotification(`${filtered.length} commande(s) trouvée(s)`, 'info');
+        }
+
+        // ========== FONCTIONS DE GESTION DES STATUTS - COMMANDES ==========
+        function showOrderStatusModal(id) {
+            const order = appData.orders.find(o => o.id === id);
+            if (!order) return;
+            
+            document.getElementById('statusOrderId').value = id;
+            document.getElementById('currentStatusOrder').value = getOrderStatusText(order.status);
+            document.getElementById('newStatusOrder').value = order.status;
+            document.getElementById('statusOrderComment').value = '';
+            
+            // Charger l'historique
+            const historyDiv = document.getElementById('statusOrderHistory');
+            if (order.statusHistory && order.statusHistory.length > 0) {
+                let historyHtml = '';
+                order.statusHistory.forEach(item => {
+                    historyHtml += `<div class="status-history-item">
+                        <strong>${getOrderStatusText(item.status)}</strong> - ${item.date}<br>
+                        <small>Par: ${item.user} | ${item.comment || 'Aucun commentaire'}</small>
+                    </div>`;
+                });
+                historyDiv.innerHTML = historyHtml;
+            } else {
+                historyDiv.innerHTML = '<div class="text-muted">Aucun historique disponible</div>';
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('statusOrderModal'));
+            modal.show();
+        }
+
+        function updateOrderStatus() {
+            const id = parseInt(document.getElementById('statusOrderId').value);
+            const newStatus = document.getElementById('newStatusOrder').value;
+            const comment = document.getElementById('statusOrderComment').value;
+            
+            const order = appData.orders.find(o => o.id === id);
+            if (order) {
+                const oldStatus = order.status;
+                
+                // Ne rien faire si le statut est identique
+                if (oldStatus === newStatus) {
+                    showNotification('Le statut est déjà défini sur cette valeur', 'warning');
+                    return;
+                }
+                
+                // Mettre à jour le statut
+                order.status = newStatus;
+                
+                // Ajouter à l'historique
+                if (!order.statusHistory) {
+                    order.statusHistory = [];
+                }
+                
+                const now = new Date();
+                const dateStr = `${now.toLocaleDateString('fr-FR')} ${now.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}`;
+                
+                order.statusHistory.push({
+                    status: newStatus,
+                    date: dateStr,
+                    user: appData.currentUser?.name || 'Admin',
+                    comment: comment || `Changement de statut: ${getOrderStatusText(oldStatus)} → ${getOrderStatusText(newStatus)}`
+                });
+                
+                // Si le statut passe à "payé", mettre à jour le statut de paiement
+                if (newStatus === 'paid') {
+                    order.paymentStatus = 'paid';
+                }
+                
+                saveData();
+                loadOrders();
+                updateBadges();
+                
+                showNotification(`Statut mis à jour: ${getOrderStatusText(newStatus)}`, 'success');
+                bootstrap.Modal.getInstance(document.getElementById('statusOrderModal')).hide();
+            }
+        }
+
+        // ========== FONCTIONS CLIENTS ==========
+        function loadClients() {
+            const tbody = document.getElementById('clientsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = appData.clients.map(client => {
+                const vipBadge = client.vip ? '<span class="badge-vip">VIP</span>' : '';
+                
+                return `
+                    <tr>
+                        <td><strong>${client.firstName} ${client.lastName}</strong></td>
+                        <td>${client.phone}</td>
+                        <td>${client.email || '-'}</td>
+                        <td>${client.nationality}</td>
+                        <td><span class="badge bg-primary">${client.stays || 0}</span></td>
+                        <td><strong class="currency-fcfa">${formatNumber(client.totalSpent || 0)}</strong></td>
+                        <td>${vipBadge}</td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewClient(${client.id})">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-edit" onclick="editClient(${client.id})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action btn-whatsapp" onclick="whatsappClient('${client.phone}')" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // ========== FONCTIONS HÉBERGEMENTS ==========
+        function loadRooms() {
+            const grid = document.getElementById('roomsGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = appData.rooms.map(room => {
+                const statusClass = getRoomStatusClass(room.status);
+                const statusText = getRoomStatusText(room.status);
+                
+                return `
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header" style="background: ${room.status === 'available' ? '#d4edda' : room.status === 'occupied' ? '#f8d7da' : '#fff3cd'};">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="mb-0"><i class="fas fa-bed me-2"></i>${room.number}</h6>
+                                    <span class="badge ${statusClass}">${statusText}</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6>${room.name}</h6>
+                                <p class="small text-muted mb-1">${getRoomTypeText(room.type)}</p>
+                                <p class="small mb-1"><i class="fas fa-users me-1"></i> ${room.capacity} personnes</p>
+                                <p class="small mb-1"><i class="fas fa-tag me-1"></i> ${formatNumber(room.price)} FCFA/nuit</p>
+                                <p class="small mb-0 text-truncate">${room.description}</p>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <div class="action-group">
+                                    <button class="btn-action btn-view btn-sm" onclick="viewRoom(${room.id})">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-action btn-edit btn-sm" onclick="editRoom(${room.id})">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action btn-status btn-sm" onclick="showRoomStatusModal(${room.id})">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ========== FONCTIONS FACTURES ==========
+        function loadInvoices() {
+            const tbody = document.getElementById('invoicesTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = appData.invoices.map(inv => {
+                const statusBadge = inv.status === 'paid' ? 
+                    '<span class="badge bg-success">Payée</span>' : 
+                    '<span class="badge bg-warning">En attente</span>';
+                
+                return `
+                    <tr>
+                        <td><strong>${inv.number}</strong></td>
+                        <td>${inv.clientName}</td>
+                        <td>${formatDate(inv.date)}</td>
+                        <td>${inv.type === 'reservation' ? 'Hébergement' : 'Restaurant'} - ${inv.reference}</td>
+                        <td><strong class="currency-fcfa">${formatNumber(inv.amount)}</strong></td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewInvoice(${inv.id})">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-download" onclick="downloadInvoice(${inv.id})">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-action btn-whatsapp" onclick="shareInvoiceWhatsApp(${inv.id})" title="Partager WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // ========== FACTURE TASSINÉRE - SANS TVA ==========
+        function generateReservationInvoice(reservationId) {
+            const reservation = appData.reservations.find(r => r.id === reservationId);
+            if (!reservation) return;
+            
+            const client = appData.clients.find(c => c.id === reservation.clientId) || {};
+            const room = appData.rooms.find(r => r.id === reservation.roomId) || {};
+            
+            const invoiceNumber = `FAC-${new Date().getFullYear()}-${String(reservation.id).padStart(4, '0')}`;
+            const today = new Date();
+            
+            // Calcul sans TVA
+            const subtotal = reservation.amount;
+            const total = subtotal; // Pas de TVA
+            
+            const invoiceHTML = `
+                <div class="invoice-tassinere">
+                    <div class="village-watermark">🏝️ TASSINÉRE 🏝️</div>
+                    
+                    <div class="invoice-header">
+                        <div class="invoice-company">
+                            <div class="invoice-company-name">
+                                <span>VILLAGE DE</span> TASSINÉRE
+                            </div>
+                            <div class="invoice-company-details">
+                                <strong>Résidence Lawmar</strong><br>
+                                <i class="fas fa-map-marker-alt"></i> ${TASSINERE_CONFIG.legal.commune}<br>
+                                <i class="fas fa-id-card"></i> RC: ${TASSINERE_CONFIG.legal.rc}<br>
+                                <i class="fas fa-file-signature"></i> NINEA: ${TASSINERE_CONFIG.legal.ninea}<br>
+                                <i class="fas fa-envelope"></i> ${TASSINERE_CONFIG.legal.emails[0]}<br>
+                                <i class="fas fa-envelope"></i> ${TASSINERE_CONFIG.legal.emails[1]}<br>
+                                <i class="fas fa-phone"></i> ${TASSINERE_CONFIG.legal.phones[0]} / ${TASSINERE_CONFIG.legal.phones[1]}<br>
+                                <i class="fab fa-whatsapp"></i> ${TASSINERE_CONFIG.legal.phones[0]} / ${TASSINERE_CONFIG.legal.phones[1]}
+                            </div>
+                        </div>
+                        <div class="invoice-title-section">
+                            <div class="invoice-title">FACTURE</div>
+                            <div class="invoice-number">N° ${invoiceNumber}</div>
+                            <div style="margin-top: 15px; font-size: 12px;">
+                                Date: ${formatDate(today)}<br>
+                                Réf. réservation: ${reservation.reference}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-client-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong style="color: var(--primary-color);">CLIENT</strong><br>
+                                <span style="font-size: 14px;">${reservation.clientName}</span><br>
+                                <span style="font-size: 12px;">Tél: ${reservation.clientPhone}</span><br>
+                                <span style="font-size: 12px;">Email: ${client.email || 'Non renseigné'}</span>
+                                ${client.vip ? '<br><span class="badge-vip mt-1">CLIENT VIP</span>' : ''}
+                            </div>
+                            <div class="col-md-6">
+                                <strong style="color: var(--primary-color);">SÉJOUR</strong><br>
+                                <span style="font-size: 12px;">Arrivée: ${formatDate(reservation.checkIn)}</span><br>
+                                <span style="font-size: 12px;">Départ: ${formatDate(reservation.checkOut)}</span><br>
+                                <span style="font-size: 12px;">${reservation.nights} nuit(s) • ${reservation.adults} adulte(s) • ${reservation.children} enfant(s)</span><br>
+                                <span style="font-size: 12px;">Hébergement: ${room.name || reservation.roomName} (${reservation.roomNumber})</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Quantité</th>
+                                <th>Prix unitaire</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hébergement - ${room.name || reservation.roomName} (N° ${reservation.roomNumber})</td>
+                                <td>${reservation.nights} nuit(s)</td>
+                                <td>${formatNumber(reservation.amount / reservation.nights)} FCFA</td>
+                                <td>${formatNumber(subtotal)} FCFA</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: var(--primary-color); color: var(--secondary-dark);">
+                                <td colspan="3" style="text-align: right;"><strong>TOTAL À PAYER:</strong></td>
+                                <td><strong>${formatNumber(total)} FCFA</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div style="font-size: 12px; margin-bottom: 20px;">
+                        <strong>Statut paiement:</strong> 
+                        ${getPaymentStatusText(reservation.paymentStatus)}<br>
+                        <strong>Mode de paiement:</strong> À régler à la réception
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="invoice-stamp">
+                            ${reservation.paymentStatus === 'paid' ? 'PAYÉ' : 'EN ATTENTE DE PAIEMENT'}
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--primary-color);"></i>
+                            Cachet et signature de la direction
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-footer">
+                        <p style="margin-bottom: 5px; font-size: 11px;">
+                            <i class="fas fa-umbrella-beach"></i> Village de Tassinére - Résidence Lawmar
+                        </p>
+                        <p style="margin-bottom: 5px;">
+                            ${TASSINERE_CONFIG.legal.address}<br>
+                            RC: ${TASSINERE_CONFIG.legal.rc} | NINEA: ${TASSINERE_CONFIG.legal.ninea}
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            ${TASSINERE_CONFIG.legal.phones[0]} / ${TASSINERE_CONFIG.legal.phones[1]} | ${TASSINERE_CONFIG.legal.emails[0]}
+                        </p>
+                        <p style="margin-top: 15px; font-size: 9px;">
+                            * Facture générée automatiquement le ${formatDateTime(today)}<br>
+                            * TVA non applicable - Article 257 du CGI<br>
+                            * Seul le cachet de la résidence fait office de document officiel
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('invoiceContent').innerHTML = invoiceHTML;
+            
+            currentInvoiceData = {
+                type: 'reservation',
+                id: reservation.id,
+                number: invoiceNumber,
+                total: total,
+                clientName: reservation.clientName,
+                clientPhone: reservation.clientPhone
+            };
+            
+            const modal = new bootstrap.Modal(document.getElementById('invoiceModal'));
+            modal.show();
+        }
+
+        function generateOrderInvoice(orderId) {
+            const order = appData.orders.find(o => o.id === orderId);
+            if (!order) return;
+            
+            const invoiceNumber = `TKT-${new Date().getFullYear()}-${String(order.id).padStart(4, '0')}`;
+            const today = new Date();
+            
+            let itemsHtml = '';
+            order.items.forEach(item => {
+                itemsHtml += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>${formatNumber(item.price)} FCFA</td>
+                        <td>${formatNumber(item.price * item.quantity)} FCFA</td>
+                    </tr>
+                `;
+            });
+            
+            const invoiceHTML = `
+                <div class="invoice-tassinere">
+                    <div class="village-watermark">🍽️ RESTAURANT 🍽️</div>
+                    
+                    <div class="invoice-header">
+                        <div class="invoice-company">
+                            <div class="invoice-company-name">
+                                <span>VILLAGE DE</span> TASSINÉRE
+                            </div>
+                            <div class="invoice-company-details">
+                                <strong>Restaurant - Saveurs de Tassinére</strong><br>
+                                <i class="fas fa-map-marker-alt"></i> ${TASSINERE_CONFIG.legal.commune}<br>
+                                <i class="fas fa-phone"></i> ${TASSINERE_CONFIG.legal.phones[0]}<br>
+                                <i class="fab fa-whatsapp"></i> ${TASSINERE_CONFIG.legal.whatsapp[0]}<br>
+                                NINEA: ${TASSINERE_CONFIG.legal.ninea}
+                            </div>
+                        </div>
+                        <div class="invoice-title-section">
+                            <div class="invoice-title">TICKET DE CAISSE</div>
+                            <div class="invoice-number">N° ${invoiceNumber}</div>
+                            <div style="margin-top: 15px; font-size: 12px;">
+                                ${formatDate(order.date)} à ${order.time}<br>
+                                Table: ${order.table}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-client-section">
+                        <strong>CLIENT:</strong> ${order.clientName}
+                    </div>
+                    
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Qté</th>
+                                <th>P.U</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${itemsHtml}
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: var(--primary-color);">
+                                <td colspan="3" style="text-align: right;"><strong>TOTAL À PAYER:</strong></td>
+                                <td><strong>${formatNumber(order.total)} FCFA</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <div class="invoice-stamp" style="transform: none; margin: 0 auto;">
+                            ${order.paymentStatus === 'paid' ? 'PAYÉ' : 'EN ATTENTE'}
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px;">
+                            ${order.paymentMethod ? `Paiement par: ${getPaymentMethodText(order.paymentMethod)}` : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-footer">
+                        <p style="margin-bottom: 5px;">Merci de votre visite ! À très bientôt au Village de Tassinére</p>
+                        <p style="margin-bottom: 0;">${TASSINERE_CONFIG.legal.emails[0]} • ${TASSINERE_CONFIG.legal.phones[0]}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('invoiceContent').innerHTML = invoiceHTML;
+            
+            currentInvoiceData = {
+                type: 'order',
+                id: order.id,
+                number: invoiceNumber,
+                total: order.total,
+                clientName: order.clientName,
+                clientPhone: null
+            };
+            
+            const modal = new bootstrap.Modal(document.getElementById('invoiceModal'));
+            modal.show();
+        }
+
+        // ========== FONCTIONS WHATSAPP ==========
+        function shareInvoiceWhatsApp() {
+            if (!currentInvoiceData) {
+                showNotification('Aucune facture à partager', 'warning');
+                return;
+            }
+            
+            // Numéro WhatsApp par défaut (premier contact)
+            const phoneNumber = TASSINERE_CONFIG.legal.whatsapp[0];
+            
+            // Message personnalisé
+            let message = `🏝️ *VILLAGE DE TASSINÉRE - RÉSIDENCE LAWMAR* 🏝️\n\n`;
+            message += `Facture N°: ${currentInvoiceData.number}\n`;
+            message += `Client: ${currentInvoiceData.clientName}\n`;
+            message += `Montant: ${formatNumber(currentInvoiceData.total)} FCFA\n`;
+            message += `Date: ${formatDateTime(new Date())}\n\n`;
+            message += `RC: ${TASSINERE_CONFIG.legal.rc}\n`;
+            message += `NINEA: ${TASSINERE_CONFIG.legal.ninea}\n\n`;
+            message += `📞 ${TASSINERE_CONFIG.legal.phones[0]} / ${TASSINERE_CONFIG.legal.phones[1]}\n`;
+            message += `📧 ${TASSINERE_CONFIG.legal.emails[0]}\n\n`;
+            message += `_Merci de votre confiance !_ 🏖️`;
+            
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            
+            showNotification('Redirection vers WhatsApp...', 'info');
+        }
+
+        function whatsappClient(phoneNumber) {
+            // Nettoyer le numéro de téléphone
+            let cleanNumber = phoneNumber.replace(/\s+/g, '').replace('+', '');
+            
+            // Ajouter l'indicatif si nécessaire
+            if (!cleanNumber.startsWith('221')) {
+                cleanNumber = '221' + cleanNumber;
+            }
+            
+            const url = `https://wa.me/${cleanNumber}`;
+            window.open(url, '_blank');
+        }
+
+        // ========== FONCTIONS DE PAGINATION ==========
+        function setupPagination(tableId, data, itemsPerPage = 10) {
+            const paginationId = tableId + 'Pagination';
+            let container = document.getElementById(paginationId);
+            
+            if (!container) return;
+            
+            const totalPages = Math.ceil(data.length / itemsPerPage);
+            let currentPage = 1;
+            
+            function renderPage(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const pageData = data.slice(start, end);
+                
+                if (tableId === 'reservations') {
+                    renderReservationsPage(pageData);
+                } else if (tableId === 'orders') {
+                    renderOrdersPage(pageData);
+                }
+                
+                renderPaginationControls(page, totalPages);
+            }
+            
+            function renderPaginationControls(page, total) {
+                let html = `
+                    <nav aria-label="Pagination">
+                        <ul class="pagination mb-0">
+                            <li class="page-item ${page === 1 ? 'disabled' : ''}">
+                                <button class="page-link" onclick="changePage('${tableId}', ${page - 1})">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                            </li>
+                `;
+                
+                for (let i = 1; i <= Math.min(5, total); i++) {
+                    html += `
+                        <li class="page-item ${page === i ? 'active' : ''}">
+                            <button class="page-link" onclick="changePage('${tableId}', ${i})">${i}</button>
+                        </li>
+                    `;
+                }
+                
+                if (total > 5) {
+                    html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+                    html += `
+                        <li class="page-item ${page === total ? 'active' : ''}">
+                            <button class="page-link" onclick="changePage('${tableId}', ${total})">${total}</button>
+                        </li>
+                    `;
+                }
+                
+                html += `
+                            <li class="page-item ${page === total ? 'disabled' : ''}">
+                                <button class="page-link" onclick="changePage('${tableId}', ${page + 1})">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="text-muted">
+                        Page ${page} sur ${total} • ${data.length} élément(s)
+                    </div>
+                `;
+                
+                container.innerHTML = html;
+            }
+            
+            window[`changePage_${tableId}`] = function(page) {
+                if (page >= 1 && page <= totalPages) {
+                    currentPage = page;
+                    renderPage(page);
+                }
+            };
+            
+            renderPage(1);
+        }
+
+        function changePage(tableId, page) {
+            const fn = window[`changePage_${tableId}`];
+            if (fn) fn(page);
+        }
+
+        function renderReservationsPage(reservations) {
+            const tbody = document.getElementById('reservationsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = reservations.map(res => {
+                const statusText = getStatusText(res.status);
+                const paymentBadge = getPaymentBadge(res.paymentStatus);
+                
+                return `
+                    <tr>
+                        <td><strong>${res.reference}</strong></td>
+                        <td>${res.clientName}<br><small>${res.clientPhone}</small></td>
+                        <td>${res.roomNumber} - ${res.roomName}</td>
+                        <td>${formatDate(res.checkIn)}</td>
+                        <td>${formatDate(res.checkOut)}</td>
+                        <td>${res.nights}</td>
+                        <td><strong class="currency-fcfa">${formatNumber(res.amount)}</strong></td>
+                        <td>
+                            <span class="status-badge status-${res.status}">${statusText}</span>
+                            <br><small>${paymentBadge}</small>
+                        </td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewReservation(${res.id})" title="Voir">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-edit" onclick="editReservation(${res.id})" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action btn-status" onclick="showReservationStatusModal(${res.id})" title="Statut">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-action btn-invoice" onclick="generateReservationInvoice(${res.id})" title="Facture">
+                                    <i class="fas fa-file-invoice"></i>
+                                </button>
+                                <button class="btn-action btn-delete" onclick="deleteReservation(${res.id})" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderOrdersPage(orders) {
+            const tbody = document.getElementById('ordersTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = orders.map(order => {
+                const itemsCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+                const statusText = getOrderStatusText(order.status);
+                const paymentBadge = getPaymentBadge(order.paymentStatus);
+                
+                return `
+                    <tr>
+                        <td><strong>${order.reference}</strong></td>
+                        <td>${formatDate(order.date)}<br><small>${order.time}</small></td>
+                        <td>${order.clientName}<br><small>Table ${order.table}</small></td>
+                        <td><span class="badge bg-info">${itemsCount}</span></td>
+                        <td><strong class="currency-fcfa">${formatNumber(order.total)}</strong></td>
+                        <td><span class="status-badge status-${order.status}">${statusText}</span></td>
+                        <td>${paymentBadge}</td>
+                        <td>
+                            <div class="action-group">
+                                <button class="btn-action btn-view" onclick="viewOrder(${order.id})" title="Voir">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action btn-edit" onclick="editOrder(${order.id})" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action btn-status" onclick="showOrderStatusModal(${order.id})" title="Statut">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-action btn-invoice" onclick="generateOrderInvoice(${order.id})" title="Ticket">
+                                    <i class="fas fa-receipt"></i>
+                                </button>
+                                <button class="btn-action btn-delete" onclick="deleteOrder(${order.id})" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // ========== FONCTIONS CALENDRIER ==========
+        function generateCalendar(month, year) {
+            const container = document.getElementById('calendarContainer');
+            if (!container) return;
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDay = firstDay.getDay();
+            
+            const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 
+                               'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            
+            document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+            
+            let calendarHTML = '<div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">';
+            
+            // En-têtes
+            const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+            days.forEach(day => {
+                calendarHTML += `<div style="background: var(--secondary-color); color: white; padding: 10px; text-align: center; font-weight: 600;">${day}</div>`;
+            });
+            
+            // Jours vides
+            for (let i = 0; i < startingDay; i++) {
+                calendarHTML += '<div style="background: #f8f9fa; padding: 10px; min-height: 100px;"></div>';
+            }
+            
+            // Jours du mois
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const isToday = date.getDate() === today.getDate() && 
+                               date.getMonth() === today.getMonth() && 
+                               date.getFullYear() === today.getFullYear();
+                
+                // Réservations pour ce jour
+                const arrivals = appData.reservations.filter(r => r.checkIn === dateStr);
+                const departures = appData.reservations.filter(r => r.checkOut === dateStr);
+                const ongoing = appData.reservations.filter(r => r.checkIn <= dateStr && r.checkOut > dateStr);
+                
+                let dayStyle = 'background: white; padding: 10px; min-height: 100px; border: 1px solid #eee;';
+                if (isToday) dayStyle += ' border: 2px solid var(--primary-color); background: #fff9e6;';
+                
+                calendarHTML += `<div style="${dayStyle}">`;
+                calendarHTML += `<strong style="font-size: 1.1rem;">${day}</strong>`;
+                
+                if (arrivals.length > 0) {
+                    calendarHTML += `<div style="margin-top: 5px; background: #d4edda; color: #155724; padding: 2px 5px; border-radius: 3px; font-size: 0.7rem;">
+                        <i class="fas fa-sign-in-alt"></i> ${arrivals.length} arrivée(s)
+                    </div>`;
+                }
+                
+                if (departures.length > 0) {
+                    calendarHTML += `<div style="margin-top: 3px; background: #f8d7da; color: #721c24; padding: 2px 5px; border-radius: 3px; font-size: 0.7rem;">
+                        <i class="fas fa-sign-out-alt"></i> ${departures.length} départ(s)
+                    </div>`;
+                }
+                
+                if (ongoing.length > 0 && ongoing.length !== arrivals.length) {
+                    calendarHTML += `<div style="margin-top: 3px; background: #cce5ff; color: #004085; padding: 2px 5px; border-radius: 3px; font-size: 0.7rem;">
+                        <i class="fas fa-bed"></i> ${ongoing.length} séjour(s)
+                    </div>`;
+                }
+                
+                calendarHTML += '</div>';
+            }
+            
+            calendarHTML += '</div>';
+            container.innerHTML = calendarHTML;
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        }
+
+        // ========== FONCTIONS DE RECHERCHE ==========
+        function globalSearch() {
+            const query = document.getElementById('globalSearch').value.toLowerCase();
+            if (query.length < 2) return;
+            
+            const results = {
+                reservations: appData.reservations.filter(r => 
+                    r.reference.toLowerCase().includes(query) ||
+                    r.clientName.toLowerCase().includes(query) ||
+                    r.clientPhone.includes(query)
+                ),
+                clients: appData.clients.filter(c => 
+                    c.firstName.toLowerCase().includes(query) ||
+                    c.lastName.toLowerCase().includes(query) ||
+                    c.phone.includes(query) ||
+                    (c.email && c.email.toLowerCase().includes(query))
+                )
+            };
+            
+            let message = `🔍 Résultats pour "${query}"\n\n`;
+            
+            if (results.reservations.length > 0) {
+                message += `📅 Réservations (${results.reservations.length}):\n`;
+                results.reservations.slice(0, 3).forEach(r => {
+                    message += `  • ${r.reference} - ${r.clientName}\n`;
+                });
+                message += '\n';
+            }
+            
+            if (results.clients.length > 0) {
+                message += `👤 Clients (${results.clients.length}):\n`;
+                results.clients.slice(0, 3).forEach(c => {
+                    message += `  • ${c.firstName} ${c.lastName} - ${c.phone}\n`;
+                });
+            }
+            
+            if (results.reservations.length === 0 && results.clients.length === 0) {
+                message += 'Aucun résultat trouvé';
+            }
+            
+            showNotification(message, 'info', 5000);
+        }
+
+        // ========== FONCTIONS D'EXPORT ==========
+        function exportReservations() {
+            let csv = "Référence,Client,Téléphone,Email,Hébergement,Arrivée,Départ,Nuits,Adultes,Enfants,Montant,Statut,Paiement,Notes\n";
+            
+            appData.reservations.forEach(r => {
+                const client = appData.clients.find(c => c.id === r.clientId) || {};
+                csv += `${r.reference},"${r.clientName}","${r.clientPhone}","${client.email || ''}","${r.roomNumber} - ${r.roomName}",`;
+                csv += `${r.checkIn},${r.checkOut},${r.nights},${r.adults},${r.children},${r.amount},${r.status},${r.paymentStatus},"${r.notes || ''}"\n`;
+            });
+            
+            downloadCSV(csv, `reservations-tassinere-${formatDate(new Date())}.csv`);
+            showNotification('Export des réservations réussi', 'success');
+        }
+
+        function exportOrders() {
+            let csv = "Référence,Date,Heure,Client,Table,Articles,Total,Statut,Paiement,Méthode\n";
+            
+            appData.orders.forEach(o => {
+                const articles = o.items.map(i => `${i.quantity}x ${i.name}`).join('; ');
+                csv += `${o.reference},${o.date},${o.time},"${o.clientName}",${o.table},"${articles}",`;
+                csv += `${o.total},${o.status},${o.paymentStatus},${o.paymentMethod || ''}\n`;
+            });
+            
+            downloadCSV(csv, `commandes-tassinere-${formatDate(new Date())}.csv`);
+            showNotification('Export des commandes réussi', 'success');
+        }
+
+        function exportClients() {
+            let csv = "Nom,Prénom,Téléphone,Email,Nationalité,Pièce d'identité,N° pièce,Séjours,Total dépensé,VIP\n";
+            
+            appData.clients.forEach(c => {
+                csv += `"${c.lastName}","${c.firstName}","${c.phone}","${c.email || ''}","${c.nationality}",`;
+                csv += `"${c.idType || ''}","${c.idNumber || ''}",${c.stays || 0},${c.totalSpent || 0},${c.vip ? 'Oui' : 'Non'}\n`;
+            });
+            
+            downloadCSV(csv, `clients-tassinere-${formatDate(new Date())}.csv`);
+            showNotification('Export des clients réussi', 'success');
+        }
+
+        function downloadCSV(csv, filename) {
+            const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // ========== FONCTIONS DE NOTIFICATION ==========
+        function showNotification(message, type = 'info', duration = 4000) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            alert.style.borderLeft = `4px solid ${type === 'success' ? '#28a745' : type === 'danger' ? '#dc3545' : type === 'warning' ? '#ffc107' : '#17a2b8'}`;
+            
+            if (message.includes('\n')) {
+                alert.innerHTML = message.replace(/\n/g, '<br>') + 
+                    '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+            } else {
+                alert.innerHTML = message + 
+                    '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+            }
+            
+            document.getElementById('alertContainer').appendChild(alert);
+            
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.remove();
+                }
+            }, duration);
+        }
+
+        // ========== FONCTIONS UTILITAIRES ==========
+        function formatDate(date) {
+            if (!date) return '';
+            const d = new Date(date);
+            return d.toLocaleDateString('fr-FR');
+        }
+
+        function formatDateTime(date) {
+            if (!date) return '';
+            const d = new Date(date);
+            return d.toLocaleDateString('fr-FR') + ' ' + d.toLocaleTimeString('fr-FR');
+        }
+
+        function formatNumber(num) {
+            return new Intl.NumberFormat('fr-FR').format(num || 0);
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        function getStatusText(status) {
+            const statuses = {
+                'pending': 'En attente',
+                'confirmed': 'Confirmée',
+                'checked-in': 'Check-in',
+                'checked-out': 'Check-out',
+                'cancelled': 'Annulée'
+            };
+            return statuses[status] || status;
+        }
+
+        function getStatusClass(status) {
+            return status;
+        }
+
+        function getOrderStatusText(status) {
+            const statuses = {
+                'pending': 'En attente',
+                'preparing': 'En préparation',
+                'served': 'Servi',
+                'paid': 'Payé',
+                'cancelled': 'Annulé'
+            };
+            return statuses[status] || status;
+        }
+
+        function getOrderStatusClass(status) {
+            return status;
+        }
+
+        function getPaymentBadge(status) {
+            const badges = {
+                'paid': '<span class="badge bg-success">Payé</span>',
+                'partial': '<span class="badge bg-warning">Acompte</span>',
+                'pending': '<span class="badge bg-danger">Impayé</span>'
+            };
+            return badges[status] || '<span class="badge bg-secondary">-</span>';
+        }
+
+        function getPaymentStatusText(status) {
+            const statuses = {
+                'paid': '✅ Payé',
+                'partial': '⚠️ Acompte versé',
+                'pending': '⏳ En attente de paiement'
+            };
+            return statuses[status] || status;
+        }
+
+        function getPaymentMethodText(method) {
+            const methods = {
+                'cash': 'Espèces',
+                'mobile_money': 'Mobile Money',
+                'card': 'Carte bancaire',
+                'wave': 'Wave',
+                'orange_money': 'Orange Money',
+                'bank_transfer': 'Virement bancaire'
+            };
+            return methods[method] || method;
+        }
+
+        function getRoomTypeText(type) {
+            const types = {
+                'villa': 'Villa',
+                'suite': 'Suite',
+                'superieure': 'Chambre Supérieure',
+                'standard': 'Chambre Standard'
+            };
+            return types[type] || type;
+        }
+
+        function getRoomStatusText(status) {
+            const statuses = {
+                'available': 'Disponible',
+                'occupied': 'Occupée',
+                'maintenance': 'Maintenance',
+                'reserved': 'Réservée'
+            };
+            return statuses[status] || status;
+        }
+
+        function getRoomStatusClass(status) {
+            const classes = {
+                'available': 'bg-success',
+                'occupied': 'bg-danger',
+                'maintenance': 'bg-warning',
+                'reserved': 'bg-info'
+            };
+            return classes[status] || 'bg-secondary';
+        }
+
+        function updateDashboardStats() {
+            const today = new Date().toISOString().split('T')[0];
+            
+            const todayArrivals = appData.reservations.filter(r => r.checkIn === today).length;
+            document.getElementById('todayArrivals').textContent = todayArrivals;
+            
+            const totalRooms = appData.rooms.length;
+            const occupiedRooms = appData.rooms.filter(r => r.status === 'occupied').length;
+            const occupancyRate = totalRooms > 0 ? Math.round((occupiedRooms / totalRooms) * 100) : 0;
+            document.getElementById('occupancyRate').textContent = occupancyRate + '%';
+            
+            const pendingReservations = appData.reservations.filter(r => r.status === 'pending').length;
+            document.getElementById('pendingReservations').textContent = pendingReservations;
+            
+            const thisMonth = new Date().getMonth();
+            const thisYear = new Date().getFullYear();
+            const monthlyRevenue = appData.reservations
+                .filter(r => {
+                    const date = new Date(r.createdAt);
+                    return date.getMonth() === thisMonth && date.getFullYear() === thisYear;
+                })
+                .reduce((sum, r) => sum + r.amount, 0);
+            document.getElementById('monthlyRevenue').textContent = formatNumber(monthlyRevenue);
+            
+            updateBadges();
+        }
+
+        function loadTodaySummary() {
+            const today = new Date().toISOString().split('T')[0];
+            
+            const arrivals = appData.reservations.filter(r => r.checkIn === today).length;
+            const departures = appData.reservations.filter(r => r.checkOut === today).length;
+            
+            const vipArrivals = appData.reservations.filter(r => {
+                if (r.checkIn !== today) return false;
+                const client = appData.clients.find(c => c.id === r.clientId);
+                return client && client.vip;
+            }).length;
+            
+            const todayRevenue = appData.invoices
+                .filter(i => i.date === today)
+                .reduce((sum, i) => sum + i.amount, 0);
+            
+            const summary = document.getElementById('todaySummary');
+            if (summary) {
+                summary.innerHTML = `
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>🛏️ Arrivées:</span>
+                        <strong>${arrivals}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>🧳 Départs:</span>
+                        <strong>${departures}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>👑 Clients VIP:</span>
+                        <strong><span class="badge-vip">${vipArrivals}</span></strong>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>💰 Recette du jour:</span>
+                        <strong class="currency-fcfa">${formatNumber(todayRevenue)}</strong>
+                    </div>
+                `;
+            }
+        }
+
+        function updateBadges() {
+            const pendingReservations = appData.reservations.filter(r => r.status === 'pending').length;
+            document.getElementById('reservation-badge').textContent = pendingReservations;
+            
+            const pendingOrders = appData.orders.filter(o => o.status === 'pending' || o.status === 'preparing').length;
+            document.getElementById('orders-badge').textContent = pendingOrders;
+            
+            const unpaidInvoices = appData.invoices.filter(i => i.status !== 'paid').length;
+            document.getElementById('invoice-badge').textContent = unpaidInvoices;
+        }
+
+        function refreshReservations() {
+            loadReservations();
+            showNotification('Liste des réservations actualisée', 'success');
+        }
+
+        // ========== FONCTIONS DES MODALS (À COMPLÉTER) ==========
+        function showReservationModal(reservation = null) {
+            const modal = new bootstrap.Modal(document.getElementById('reservationModal'));
+            
+            // Charger les clients et chambres
+            const clientSelect = document.getElementById('reservationClient');
+            clientSelect.innerHTML = '<option value="">Sélectionner un client</option>' +
+                appData.clients.map(c => 
+                    `<option value="${c.id}">${c.firstName} ${c.lastName} - ${c.phone}</option>`
+                ).join('');
+            
+            const roomSelect = document.getElementById('reservationRoom');
+            roomSelect.innerHTML = '<option value="">Sélectionner un hébergement</option>' +
+                appData.rooms.filter(r => r.status === 'available').map(r =>
+                    `<option value="${r.id}" data-price="${r.price}">
+                        ${r.number} - ${r.name} (${formatNumber(r.price)} FCFA/nuit)
+                    </option>`
+                ).join('');
+            
+            if (reservation) {
+                document.getElementById('reservationClient').value = reservation.clientId || '';
+                document.getElementById('reservationRoom').value = reservation.roomId || '';
+                document.getElementById('reservationCheckin').value = reservation.checkIn;
+                document.getElementById('reservationCheckout').value = reservation.checkOut;
+                document.getElementById('reservationAdults').value = reservation.adults || 2;
+                document.getElementById('reservationChildren').value = reservation.children || 0;
+                document.getElementById('reservationNotes').value = reservation.notes || '';
+                
+                // Calculer le total
+                const room = appData.rooms.find(r => r.id === reservation.roomId);
+                if (room) {
+                    const nights = reservation.nights;
+                    const total = room.price * nights;
+                    document.getElementById('reservationTotal').value = formatNumber(total) + ' FCFA';
+                }
+            } else {
+                // Valeurs par défaut
+                const today = new Date().toISOString().split('T')[0];
+                const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+                document.getElementById('reservationCheckin').value = today;
+                document.getElementById('reservationCheckout').value = tomorrow;
+                document.getElementById('reservationAdults').value = 2;
+                document.getElementById('reservationChildren').value = 0;
+                document.getElementById('reservationTotal').value = '0 FCFA';
+            }
+            
+            modal.show();
+        }
+
+        function showOrderModal(order = null) {
+            showNotification('Fonctionnalité Nouvelle commande à implémenter', 'info');
+        }
+
+        function showClientModal() {
+            showNotification('Fonctionnalité Nouveau client à implémenter', 'info');
+        }
+
+        function showRoomModal() {
+            showNotification('Fonctionnalité Ajouter hébergement à implémenter', 'info');
+        }
+
+        function showChangePasswordModal() {
+            const modal = new bootstrap.Modal(document.getElementById('passwordModal'));
+            document.getElementById('passwordForm').reset();
+            modal.show();
+        }
+
+        function changePassword() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            
+            if (!current || !newPass || !confirm) {
+                showNotification('Veuillez remplir tous les champs', 'warning');
+                return;
+            }
+            
+            if (newPass !== confirm) {
+                showNotification('Les nouveaux mots de passe ne correspondent pas', 'danger');
+                return;
+            }
+            
+            if (newPass.length < 8) {
+                showNotification('Le mot de passe doit contenir au moins 8 caractères', 'warning');
+                return;
+            }
+            
+            showNotification('Mot de passe changé avec succès', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('passwordModal')).hide();
+        }
+
+        // ========== FONCTIONS PDF ==========
+        function downloadInvoicePDF() {
+            showNotification('Génération PDF en cours...', 'info');
+            
+            const element = document.getElementById('invoiceContent');
+            
+            html2canvas(element, {
+                scale: 2,
+                backgroundColor: '#ffffff',
+                logging: false
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+                
+                const imgWidth = 190;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                pdf.save(`facture-tassinere-${currentInvoiceData?.number || 'document'}.pdf`);
+                
+                showNotification('PDF généré avec succès', 'success');
+            }).catch(error => {
+                console.error('Erreur PDF:', error);
+                showNotification('Erreur lors de la génération du PDF', 'danger');
+            });
+        }
+
+        function printInvoice() {
+            window.print();
+        }
+
+        function viewInvoice(id) {
+            showNotification('Fonctionnalité Visualisation facture à implémenter', 'info');
+        }
+
+        function downloadInvoice(id) {
+            showNotification('Fonctionnalité Téléchargement facture à implémenter', 'info');
+        }
+
+        function viewClient(id) {
+            showNotification('Fonctionnalité Détails client à implémenter', 'info');
+        }
+
+        function editClient(id) {
+            showNotification('Fonctionnalité Modification client à implémenter', 'info');
+        }
+
+        function viewRoom(id) {
+            showNotification('Fonctionnalité Détails hébergement à implémenter', 'info');
+        }
+
+        function editRoom(id) {
+            showNotification('Fonctionnalité Modification hébergement à implémenter', 'info');
+        }
+
+        function showRoomStatusModal(id) {
+            showNotification('Fonctionnalité Changement statut hébergement à implémenter', 'info');
+        }
+
+        function saveReservation() {
+            showNotification('Fonctionnalité Sauvegarde réservation à implémenter', 'info');
+        }
+
+        function showInvoiceStats() {
+            showNotification('Fonctionnalité Statistiques factures à implémenter', 'info');
+        }
+
+        // ========== DÉCONNEXION ==========
+        function logout() {
+            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                localStorage.removeItem('tassinere_token');
+                localStorage.removeItem('tassinere_expiry');
+                localStorage.removeItem('tassinere_user');
+                appData.currentUser = null;
+                isAuthenticated = false;
+                
+                document.getElementById('dashboardPage').style.display = 'none';
+                document.getElementById('sidebar').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'none';
+                document.getElementById('loginOverlay').style.display = 'flex';
+                
+                document.getElementById('loginForm').reset();
+                document.getElementById('loginError').style.display = 'none';
+                
+                showNotification('Déconnexion réussie', 'info');
+            }
+        }
+
+        // Exposer les fonctions globalement
+        window.showSection = showSection;
+        window.viewReservation = viewReservation;
+        window.editReservation = editReservation;
+        window.deleteReservation = deleteReservation;
+        window.showReservationStatusModal = showReservationStatusModal;
+        window.showOrderStatusModal = showOrderStatusModal;
+        window.updateReservationStatus = updateReservationStatus;
+        window.updateOrderStatus = updateOrderStatus;
+        window.generateReservationInvoice = generateReservationInvoice;
+        window.generateOrderInvoice = generateOrderInvoice;
+        window.viewOrder = viewOrder;
+        window.editOrder = editOrder;
+        window.deleteOrder = deleteOrder;
+        window.showReservationModal = showReservationModal;
+        window.showOrderModal = showOrderModal;
+        window.showClientModal = showClientModal;
+        window.showRoomModal = showRoomModal;
+        window.changePage = changePage;
+        window.prevMonth = prevMonth;
+        window.nextMonth = nextMonth;
+        window.applyReservationFilters = applyReservationFilters;
+        window.applyOrderFilters = applyOrderFilters;
+        window.exportReservations = exportReservations;
+        window.exportOrders = exportOrders;
+        window.exportClients = exportClients;
+        window.refreshReservations = refreshReservations;
+        window.downloadInvoicePDF = downloadInvoicePDF;
+        window.printInvoice = printInvoice;
+        window.shareInvoiceWhatsApp = shareInvoiceWhatsApp;
+        window.whatsappClient = whatsappClient;
+        window.showChangePasswordModal = showChangePasswordModal;
+        window.changePassword = changePassword;
+        window.logout = logout;
+        window.editFromViewModal = editFromViewModal;
+        window.showStatusModalFromView = showStatusModalFromView;
+        window.generateInvoiceFromView = generateInvoiceFromView;
+        window.viewInvoice = viewInvoice;
+        window.downloadInvoice = downloadInvoice;
+        window.viewClient = viewClient;
+        window.editClient = editClient;
+        window.viewRoom = viewRoom;
+        window.editRoom = editRoom;
+        window.showRoomStatusModal = showRoomStatusModal;
+        window.saveReservation = saveReservation;
+        window.showInvoiceStats = showInvoiceStats;
+    </script>
+</body>
+</html>
