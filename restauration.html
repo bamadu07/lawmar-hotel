@@ -13,11 +13,11 @@
         /* ===== STYLES GÉNÉRAUX - COULEUR PRINCIPALE #025ba5 ===== */
         :root {
             --primary-color: #025ba5;
-            --secondary-color: #e0e0e0;      /* Gris clair au lieu du doré */
+            --secondary-color: #e0e0e0;
             --accent-color: #c53030;
             --dark-color: #2d3748;
             --light-color: #f7fafc;
-            --yellow-color: #FFD700;          /* Jaune pour le bouton réserver */
+            --yellow-color: #FFD700;
             --light-green: #f0fff4;
             --transition: all 0.3s ease;
             --border-radius: 8px;
@@ -34,7 +34,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: var(--dark-color);
-            padding-top: 80px; /* Ajusté pour la navbar réduite */
+            padding-top: 80px;
             background-color: #f8fbff;
         }
 
@@ -79,7 +79,6 @@
             color: white;
         }
         
-        /* ===== BOUTONS AMÉLIORÉS ===== */
         .btn-order {
             background-color: var(--accent-color);
             color: white;
@@ -160,7 +159,6 @@
             transform: translateY(-2px);
         }
 
-        /* ===== BOUTON RÉSERVER - FOND JAUNE ===== */
         .btn-reservation {
             background-color: var(--yellow-color) !important;
             color: var(--primary-color) !important;
@@ -176,6 +174,21 @@
             transform: translateY(-2px);
         }
         
+        .btn-admin {
+            background-color: #6c757d !important;
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            border: none;
+        }
+        
+        .btn-admin:hover {
+            background-color: #5a6268 !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
         .action-buttons {
             display: flex;
             gap: 6px;
@@ -183,7 +196,6 @@
             flex-wrap: wrap;
         }
         
-        /* ===== BOUTON FLOTTANT PANIER ===== */
         .quick-order-btn {
             position: fixed;
             bottom: 20px;
@@ -225,12 +237,12 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVIGATION - TAILLE RÉDUITE ===== */
+        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE CHAMBRES) ===== */
         .navbar {
             background-color: var(--primary-color);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            padding: 5px 0; /* Réduit */
-            min-height: 70px; /* Hauteur fixe */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
         }
 
         .navbar-brand {
@@ -243,21 +255,16 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px; /* Réduit */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 45px; /* Réduit */
-            height: 45px; /* Réduit */
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--secondary-color); /* Gris clair */
+            border: 2px solid var(--secondary-color);
             background-color: white;
-            transition: var(--transition);
-        }
-
-        .logo-image:hover {
-            transform: scale(1.05);
         }
 
         .brand-text {
@@ -266,36 +273,63 @@
         }
 
         .hotel-name {
-            color: white; /* Blanc sur fond bleu */
-            font-size: 1.4rem; /* Réduit */
+            color: white;
+            font-size: 1.4rem;
             margin: 0;
             line-height: 1.2;
-            font-weight: 700;
         }
 
         .hotel-subtitle {
             color: rgba(255,255,255,0.9);
-            font-size: 0.75rem; /* Réduit */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.95) !important;
+            color: rgba(255,255,255,0.9) !important;
             font-weight: 500;
-            padding: 6px 12px !important; /* Réduit */
+            padding: 6px 12px !important;
             margin: 0 2px;
             transition: var(--transition);
             font-size: 0.9rem;
-            border-radius: 5px;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important; /* Blanc pur au hover */
-            background-color: rgba(255,255,255,0.1);
+            color: white !important;
+            opacity: 0.9;
         }
 
-        /* ===== HEADER SIMPLIFIÉ ===== */
+        .btn-reservation {
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            border: none;
+        }
+
+        .btn-reservation:hover {
+            background-color: #e6c200 !important;
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .btn-admin {
+            background-color: #6c757d !important;
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            border: none;
+        }
+        
+        .btn-admin:hover {
+            background-color: #5a6268 !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
         .restaurant-hero {
             background: linear-gradient(135deg, rgba(2, 91, 165, 0.9), rgba(2, 74, 132, 0.9)), 
                         url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
@@ -358,7 +392,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* ===== PRIX XOF STYLISÉ ===== */
         .menu-price {
             color: var(--primary-color);
             font-weight: 700;
@@ -373,7 +406,6 @@
             margin-left: 2px;
         }
         
-        /* ===== GRILLE DE PLATS ===== */
         .menu-items-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -490,8 +522,8 @@
             margin-right: 5px;
         }
 
-        /* ===== PANIER INTÉGRÉ ===== */
-        .panier-section {
+        /* ===== STYLES COMMANDES ===== */
+        .commande-section {
             background: white;
             border-radius: var(--border-radius);
             padding: 25px;
@@ -500,38 +532,143 @@
             border: 1px solid rgba(2, 91, 165, 0.1);
         }
         
-        .cart-item-controls {
+        .commande-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-            margin-top: 5px;
-            justify-content: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--yellow-color);
+            padding-bottom: 15px;
         }
         
-        .cart-item-quantity {
-            min-width: 25px;
-            text-align: center;
-            font-weight: bold;
+        .order-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-en-cours {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
+        .status-confirmee {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .status-livree {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        .status-annulee {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .order-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .order-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .order-id {
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(2, 91, 165, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+        
+        .order-date {
+            color: #6c757d;
+            font-size: 0.75rem;
+        }
+        
+        .order-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
             font-size: 0.85rem;
         }
         
-        .hours-card {
+        .order-items {
+            margin: 10px 0;
+            padding: 10px;
             background: white;
-            border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--box-shadow);
-            border: 1px solid rgba(2, 91, 165, 0.05);
+            border-radius: 5px;
+            font-size: 0.8rem;
         }
         
-        .hours-card h5 {
+        .order-total {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+        
+        .confirmation-code {
+            background: var(--yellow-color);
             color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .admin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #343a40;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .admin-link:hover {
+            background-color: #23272b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .empty-orders {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+        
+        .empty-orders i {
+            font-size: 3rem;
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--yellow-color);
-            padding-bottom: 8px;
-            font-size: 1.1rem;
+            color: #dee2e6;
         }
 
-        /* ===== CARROUSEL AVIS CLIENTS ===== */
         .reviews-carousel {
             position: relative;
             padding: 20px 0 40px;
@@ -555,7 +692,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 15px;
-            border: 3px solid var(--secondary-color); /* Gris clair */
+            border: 3px solid var(--secondary-color);
             position: relative;
         }
         
@@ -629,7 +766,6 @@
             background-size: 60%;
         }
 
-        /* ===== MODAL PAIEMENT ===== */
         .payment-option-btn {
             display: flex;
             align-items: center;
@@ -679,7 +815,6 @@
             filter: invert(1);
         }
 
-        /* ===== NOTIFICATION TOAST ===== */
         .notification-toast {
             position: fixed;
             top: 100px;
@@ -699,7 +834,6 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* ===== FOOTER - HARMONISÉ ===== */
         .footer {
             background-color: var(--primary-color);
             color: white;
@@ -796,7 +930,6 @@
             text-decoration: underline;
         }
 
-        /* ===== RESPONSIVE POUR NAVBAR RÉDUITE ===== */
         @media (max-width: 992px) {
             .navbar-brand {
                 max-width: 70%;
@@ -906,7 +1039,7 @@
                 right: 5px;
             }
             
-            .panier-section {
+            .commande-section {
                 padding: 20px;
             }
             
@@ -929,6 +1062,12 @@
             .carousel-control-prev,
             .carousel-control-next {
                 display: none;
+            }
+            
+            .order-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
         }
 
@@ -1016,7 +1155,7 @@
                 padding: 2px 8px;
             }
             
-            .panier-section {
+            .commande-section {
                 padding: 15px;
             }
             
@@ -1079,15 +1218,169 @@
                 font-size: 0.7rem;
             }
         }
+
+        /* Styles pour le panier */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item-details {
+            font-size: 0.85rem;
+        }
+        .cart-item-remove {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 5px;
+        }
+        .cart-total {
+            font-weight: 700;
+            color: var(--primary-color);
+            border-top: 2px dashed var(--yellow-color);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        #cart-items-list {
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .cart-action-btn {
+            background-color: var(--yellow-color);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 600;
+        }
+        .cart-action-btn:hover {
+            background-color: #e6c200;
+        }
+
+        /* Nouveaux styles pour améliorations */
+        .filter-badge {
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+        .filter-badge.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .filter-badge:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, var(--yellow-color), #ffaa00);
+            color: var(--primary-color);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .menu-search {
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+        .delivery-time {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        .rating-badge {
+            background: var(--yellow-color);
+            color: var(--dark-color);
+            padding: 2px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Styles pour la validation de commande */
+        .validation-step {
+            display: none;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+        }
+        .validation-step.active {
+            display: block;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 0.85rem;
+        }
+        .step.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .step.completed {
+            background: #28a745;
+            color: white;
+        }
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .promo-code-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .promo-success {
+            color: #28a745;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .validation-error {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION AVEC LOGO - TAILLE RÉDUITE ===== -->
+    <!-- ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE CHAMBRES) ===== -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" onerror="this.style.display='none';">
+                    <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" loading="lazy" onerror="this.style.display='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle">
@@ -1120,9 +1413,10 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#tableBookingModal">
-                            <i class="fas fa-calendar-alt me-1"></i> Réserver
-                        </a>
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#tableBookingModal">Réserver</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
@@ -1157,6 +1451,27 @@
     <!-- ===== SECTION MENU ===== -->
     <section class="section-padding">
         <div class="container">
+            <!-- Bannière promotionnelle -->
+            <div class="promo-banner">
+                <i class="fas fa-tag me-2"></i> Commandez via WhatsApp et recevez -10% sur votre première commande !
+                <span class="badge bg-light text-dark ms-2">Code: BIENVENUE10</span>
+            </div>
+
+            <!-- Barre de recherche -->
+            <div class="menu-search">
+                <input type="text" class="form-control" id="search-menu" placeholder="🔍 Rechercher un plat...">
+            </div>
+
+            <!-- Filtres rapides -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+                <span class="filter-badge active" data-filter="all">Tous</span>
+                <span class="filter-badge" data-filter="spécialité">Spécialités</span>
+                <span class="filter-badge" data-filter="poisson">Poisson</span>
+                <span class="filter-badge" data-filter="viande">Viande</span>
+                <span class="filter-badge" data-filter="végétarien">Végétarien</span>
+                <span class="filter-badge" data-filter="dessert">Desserts</span>
+            </div>
+
             <!-- Navigation du menu -->
             <div class="row mb-4">
                 <div class="col-12">
@@ -1172,6 +1487,9 @@
                         </button>
                         <button class="btn btn-outline-primary mb-2" data-menu="desserts">
                             <i class="fas fa-ice-cream me-1"></i> Desserts
+                        </button>
+                        <button class="btn btn-outline-primary mb-2" data-menu="boissons">
+                            <i class="fas fa-glass-cheers me-1"></i> Boissons
                         </button>
                     </div>
                 </div>
@@ -1189,7 +1507,7 @@
                 
                 <div class="menu-items-grid">
                     <!-- Spécialité 1 - Thieboudienne -->
-                    <div class="dish-card chef-recommendation">
+                    <div class="dish-card chef-recommendation" data-category="spécialité poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1197,9 +1515,13 @@
                         </div>
                         <div class="dish-name">Thieboudienne <span class="specialty-badge">Plat national</span></div>
                         <p class="mb-2 flex-grow-1 small">Riz au poisson, légumes frais, condiments - Recette traditionnelle de Grand-Mère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (128 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                        </div>
                         <div class="menu-price">12,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Thieboudienne" data-price="12500">
+                            <button class="btn-order add-to-cart" data-dish="Thieboudienne" data-price="12500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Thieboudienne" data-price="12500">
@@ -1209,7 +1531,7 @@
                     </div>
                     
                     <!-- Spécialité 2 - Yassa Poulet -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="spécialité viande">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1217,9 +1539,13 @@
                         </div>
                         <div class="dish-name">Yassa Poulet</div>
                         <p class="mb-2 flex-grow-1 small">Poulet fermier mariné au citron, oignons confits, moutarde locale</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (95 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                        </div>
                         <div class="menu-price">11,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Yassa Poulet" data-price="11000">
+                            <button class="btn-order add-to-cart" data-dish="Yassa Poulet" data-price="11000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Yassa Poulet" data-price="11000">
@@ -1229,7 +1555,7 @@
                     </div>
                     
                     <!-- Spécialité 3 - Mafé d'agneau -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="spécialité viande">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1237,9 +1563,13 @@
                         </div>
                         <div class="dish-name">Mafé d'agneau</div>
                         <p class="mb-2 flex-grow-1 small">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (82 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
+                        </div>
                         <div class="menu-price">12,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Mafé d'agneau" data-price="12000">
+                            <button class="btn-order add-to-cart" data-dish="Mafé d'agneau" data-price="12000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Mafé d'agneau" data-price="12000">
@@ -1249,7 +1579,7 @@
                     </div>
                     
                     <!-- Spécialité 4 - Pastels -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="spécialité poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1257,9 +1587,13 @@
                         </div>
                         <div class="dish-name">Pastels (6 pièces)</div>
                         <p class="mb-2 flex-grow-1 small">Beignets farcis au poisson épicé de Tassinère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (64 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>20 min</span>
+                        </div>
                         <div class="menu-price">8,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Pastels" data-price="8000">
+                            <button class="btn-order add-to-cart" data-dish="Pastels" data-price="8000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Pastels" data-price="8000">
@@ -1269,7 +1603,7 @@
                     </div>
                     
                     <!-- Spécialité 5 - Accra -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="spécialité végétarien">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1526230529638-b6a96d69e4c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1277,9 +1611,13 @@
                         </div>
                         <div class="dish-name">Accra (10 pièces)</div>
                         <p class="mb-2 flex-grow-1 small">Beignets de haricots blancs, sauce piquante maison</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.5 (52 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Accra" data-price="6500">
+                            <button class="btn-order add-to-cart" data-dish="Accra" data-price="6500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Accra" data-price="6500">
@@ -1289,7 +1627,7 @@
                     </div>
                     
                     <!-- Spécialité 6 - Feuilles de manioc -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="spécialité poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">🇸🇳 Spécialité</span>
                             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1297,9 +1635,13 @@
                         </div>
                         <div class="dish-name">Feuilles de manioc</div>
                         <p class="mb-2 flex-grow-1 small">Feuilles de manioc au poisson fumé, huile de palme</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.4 (38 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>25 min</span>
+                        </div>
                         <div class="menu-price">8,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Feuilles de manioc" data-price="8000">
+                            <button class="btn-order add-to-cart" data-dish="Feuilles de manioc" data-price="8000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Feuilles de manioc" data-price="8000">
@@ -1322,7 +1664,7 @@
                 
                 <div class="menu-items-grid">
                     <!-- Entrée 1 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1330,9 +1672,13 @@
                         </div>
                         <div class="dish-name">Salade Gandiolaise</div>
                         <p class="mb-2 small">Salade composée, thon local, avocat, tomates du Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.5 (42 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">8,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Salade Gandiolaise" data-price="8500">
+                            <button class="btn-order add-to-cart" data-dish="Salade Gandiolaise" data-price="8500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Salade Gandiolaise" data-price="8500">
@@ -1342,7 +1688,7 @@
                     </div>
                     
                     <!-- Entrée 2 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="végétarien">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1350,9 +1696,13 @@
                         </div>
                         <div class="dish-name">Velouté de potiron de Gandiol</div>
                         <p class="mb-2 small">Potiron local, gingembre frais, lait de coco</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (28 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>20 min</span>
+                        </div>
                         <div class="menu-price">7,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Velouté de potiron de Gandiol" data-price="7500">
+                            <button class="btn-order add-to-cart" data-dish="Velouté de potiron de Gandiol" data-price="7500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Velouté de potiron de Gandiol" data-price="7500">
@@ -1362,7 +1712,7 @@
                     </div>
                     
                     <!-- Entrée 3 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1370,9 +1720,13 @@
                         </div>
                         <div class="dish-name">Brochettes de crevettes de Tassinère</div>
                         <p class="mb-2 small">Crevettes sauvages grillées, épices sénégalaises</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (35 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>20 min</span>
+                        </div>
                         <div class="menu-price">9,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Brochettes de crevettes de Tassinère" data-price="9500">
+                            <button class="btn-order add-to-cart" data-dish="Brochettes de crevettes de Tassinère" data-price="9500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Brochettes de crevettes de Tassinère" data-price="9500">
@@ -1382,7 +1736,7 @@
                     </div>
                     
                     <!-- Entrée 4 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1390,9 +1744,13 @@
                         </div>
                         <div class="dish-name">Carpaccio de thon</div>
                         <p class="mb-2 small">Thon frais de Saint-Louis, huile d'olive, citron vert de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (22 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">10,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Carpaccio de thon" data-price="10500">
+                            <button class="btn-order add-to-cart" data-dish="Carpaccio de thon" data-price="10500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Carpaccio de thon" data-price="10500">
@@ -1402,7 +1760,7 @@
                     </div>
                     
                     <!-- Entrée 5 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1410,9 +1768,13 @@
                         </div>
                         <div class="dish-name">Soupe de poisson locale</div>
                         <p class="mb-2 small">Soupe traditionnelle aux poissons du Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.5 (18 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">8,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Soupe de poisson locale" data-price="8500">
+                            <button class="btn-order add-to-cart" data-dish="Soupe de poisson locale" data-price="8500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Soupe de poisson locale" data-price="8500">
@@ -1422,7 +1784,7 @@
                     </div>
                     
                     <!-- Entrée 6 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="végétarien">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1430,9 +1792,13 @@
                         </div>
                         <div class="dish-name">Accra de haricots</div>
                         <p class="mb-2 small">Beignets de haricots blancs (10 pièces), sauce tamarin</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.4 (25 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Accra de haricots" data-price="6500">
+                            <button class="btn-order add-to-cart" data-dish="Accra de haricots" data-price="6500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Accra de haricots" data-price="6500">
@@ -1442,7 +1808,7 @@
                     </div>
                     
                     <!-- Entrée 7 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1450,9 +1816,13 @@
                         </div>
                         <div class="dish-name">Salade de fruits de mer de Gandiol</div>
                         <p class="mb-2 small">Crevettes, calamar, poulpe, vinaigrette citron vert</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (15 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>20 min</span>
+                        </div>
                         <div class="menu-price">11,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Salade de fruits de mer de Gandiol" data-price="11000">
+                            <button class="btn-order add-to-cart" data-dish="Salade de fruits de mer de Gandiol" data-price="11000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Salade de fruits de mer de Gandiol" data-price="11000">
@@ -1462,7 +1832,7 @@
                     </div>
                     
                     <!-- Entrée 8 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="végétarien">
                         <div class="dish-image-container">
                             <span class="category-badge">Entrée</span>
                             <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1470,9 +1840,13 @@
                         </div>
                         <div class="dish-name">Soupe de légumes de Tassinère</div>
                         <p class="mb-2 small">Légumes de saison du Gandiol, épices douces</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.3 (12 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Soupe de légumes de Tassinère" data-price="6000">
+                            <button class="btn-order add-to-cart" data-dish="Soupe de légumes de Tassinère" data-price="6000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Soupe de légumes de Tassinère" data-price="6000">
@@ -1495,7 +1869,7 @@
                 
                 <div class="menu-items-grid">
                     <!-- Plat 1 - Filet de Capitaine -->
-                    <div class="dish-card chef-recommendation">
+                    <div class="dish-card chef-recommendation" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1503,9 +1877,13 @@
                         </div>
                         <div class="dish-name">Filet de Capitaine</div>
                         <p class="mb-2 small">Poisson frais du Gandiol, sauce yassa, riz parfumé</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (56 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                        </div>
                         <div class="menu-price">14,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Filet de Capitaine" data-price="14500">
+                            <button class="btn-order add-to-cart" data-dish="Filet de Capitaine" data-price="14500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Filet de Capitaine" data-price="14500">
@@ -1515,7 +1893,7 @@
                     </div>
                     
                     <!-- Plat 2 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="viande">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1523,9 +1901,13 @@
                         </div>
                         <div class="dish-name">Agneau de Barbarie</div>
                         <p class="mb-2 small">Carré d'agneau rôti, purée de patates douces de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (42 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
+                        </div>
                         <div class="menu-price">16,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Agneau de Barbarie" data-price="16000">
+                            <button class="btn-order add-to-cart" data-dish="Agneau de Barbarie" data-price="16000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Agneau de Barbarie" data-price="16000">
@@ -1535,7 +1917,7 @@
                     </div>
                     
                     <!-- Plat 3 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1543,9 +1925,13 @@
                         </div>
                         <div class="dish-name">Riz fruits de mer de Gandiol</div>
                         <p class="mb-2 small">Riz crémeux aux crevettes, calamar, poisson local</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (38 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                        </div>
                         <div class="menu-price">13,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Riz fruits de mer de Gandiol" data-price="13500">
+                            <button class="btn-order add-to-cart" data-dish="Riz fruits de mer de Gandiol" data-price="13500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Riz fruits de mer de Gandiol" data-price="13500">
@@ -1555,7 +1941,7 @@
                     </div>
                     
                     <!-- Plat 4 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="viande">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1563,9 +1949,13 @@
                         </div>
                         <div class="dish-name">Poulet Yassa complet</div>
                         <p class="mb-2 small">Poulet fermier entier mariné, riz parfumé de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (45 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                        </div>
                         <div class="menu-price">14,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Poulet Yassa complet" data-price="14000">
+                            <button class="btn-order add-to-cart" data-dish="Poulet Yassa complet" data-price="14000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Poulet Yassa complet" data-price="14000">
@@ -1575,7 +1965,7 @@
                     </div>
                     
                     <!-- Plat 5 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1583,9 +1973,13 @@
                         </div>
                         <div class="dish-name">Poisson braisé entier de Gandiol</div>
                         <p class="mb-2 small">Poisson entier braisé, épices locales du Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (32 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                        </div>
                         <div class="menu-price">15,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Poisson braisé entier de Gandiol" data-price="15500">
+                            <button class="btn-order add-to-cart" data-dish="Poisson braisé entier de Gandiol" data-price="15500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Poisson braisé entier de Gandiol" data-price="15500">
@@ -1595,7 +1989,7 @@
                     </div>
                     
                     <!-- Plat 6 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="viande">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1603,9 +1997,13 @@
                         </div>
                         <div class="dish-name">Ragout de boeuf sénégalais</div>
                         <p class="mb-2 small">Boeuf mijoté aux légumes de Tassinère et épices</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (28 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
+                        </div>
                         <div class="menu-price">13,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Ragout de boeuf sénégalais" data-price="13000">
+                            <button class="btn-order add-to-cart" data-dish="Ragout de boeuf sénégalais" data-price="13000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Ragout de boeuf sénégalais" data-price="13000">
@@ -1615,7 +2013,7 @@
                     </div>
                     
                     <!-- Plat 7 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="végétarien">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1623,9 +2021,13 @@
                         </div>
                         <div class="dish-name">Thiou de légumes de Gandiol</div>
                         <p class="mb-2 small">Ragoût de légumes locaux du Gandiol, version végétarienne</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.5 (22 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                        </div>
                         <div class="menu-price">11,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Thiou de légumes de Gandiol" data-price="11500">
+                            <button class="btn-order add-to-cart" data-dish="Thiou de légumes de Gandiol" data-price="11500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Thiou de légumes de Gandiol" data-price="11500">
@@ -1635,7 +2037,7 @@
                     </div>
                     
                     <!-- Plat 8 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="viande">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1643,9 +2045,13 @@
                         </div>
                         <div class="dish-name">Couscous sénégalais de Tassinère</div>
                         <p class="mb-2 small">Couscous aux légumes du Gandiol et viande mijotée</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (20 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                        </div>
                         <div class="menu-price">12,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Couscous sénégalais de Tassinère" data-price="12500">
+                            <button class="btn-order add-to-cart" data-dish="Couscous sénégalais de Tassinère" data-price="12500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Couscous sénégalais de Tassinère" data-price="12500">
@@ -1655,7 +2061,7 @@
                     </div>
                     
                     <!-- Plat 9 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="viande">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1663,9 +2069,13 @@
                         </div>
                         <div class="dish-name">Poulet DG</div>
                         <p class="mb-2 small">Poulet sauté aux légumes, plantains frits de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (35 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                        </div>
                         <div class="menu-price">13,800</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Poulet DG" data-price="13800">
+                            <button class="btn-order add-to-cart" data-dish="Poulet DG" data-price="13800">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Poulet DG" data-price="13800">
@@ -1675,7 +2085,7 @@
                     </div>
                     
                     <!-- Plat 10 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="poisson">
                         <div class="dish-image-container">
                             <span class="category-badge">Principal</span>
                             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1683,9 +2093,13 @@
                         </div>
                         <div class="dish-name">Poisson à la gandiolaise</div>
                         <p class="mb-2 small">Poisson grillé de Tassinère, sauce tomate épicée</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (18 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                        </div>
                         <div class="menu-price">14,200</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Poisson à la gandiolaise" data-price="14200">
+                            <button class="btn-order add-to-cart" data-dish="Poisson à la gandiolaise" data-price="14200">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Poisson à la gandiolaise" data-price="14200">
@@ -1708,7 +2122,7 @@
                 
                 <div class="menu-items-grid">
                     <!-- Dessert 1 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1716,9 +2130,13 @@
                         </div>
                         <div class="dish-name">Fondant chocolat baobab</div>
                         <p class="mb-2 small">Glace à la bouye (fruit du baobab de Gandiol)</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (45 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Fondant chocolat baobab" data-price="6500">
+                            <button class="btn-order add-to-cart" data-dish="Fondant chocolat baobab" data-price="6500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Fondant chocolat baobab" data-price="6500">
@@ -1728,7 +2146,7 @@
                     </div>
                     
                     <!-- Dessert 2 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1736,9 +2154,13 @@
                         </div>
                         <div class="dish-name">Crème de mangue de Gandiol</div>
                         <p class="mb-2 small">Crème dessert à la mangue fraîche de Tassinère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (38 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>10 min</span>
+                        </div>
                         <div class="menu-price">5,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Crème de mangue de Gandiol" data-price="5500">
+                            <button class="btn-order add-to-cart" data-dish="Crème de mangue de Gandiol" data-price="5500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Crème de mangue de Gandiol" data-price="5500">
@@ -1748,7 +2170,7 @@
                     </div>
                     
                     <!-- Dessert 3 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1756,9 +2178,13 @@
                         </div>
                         <div class="dish-name">Tarte aux fruits tropicaux de Gandiol</div>
                         <p class="mb-2 small">Mangue, ananas, fruit de la passion de Tassinère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (32 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>20 min</span>
+                        </div>
                         <div class="menu-price">7,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Tarte aux fruits tropicaux de Gandiol" data-price="7000">
+                            <button class="btn-order add-to-cart" data-dish="Tarte aux fruits tropicaux de Gandiol" data-price="7000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Tarte aux fruits tropicaux de Gandiol" data-price="7000">
@@ -1768,7 +2194,7 @@
                     </div>
                     
                     <!-- Dessert 4 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1776,9 +2202,13 @@
                         </div>
                         <div class="dish-name">Mousse au chocolat noir</div>
                         <p class="mb-2 small">Chocolat local 70%, crème fraîche de Gandiol</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (28 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Mousse au chocolat noir" data-price="6000">
+                            <button class="btn-order add-to-cart" data-dish="Mousse au chocolat noir" data-price="6000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Mousse au chocolat noir" data-price="6000">
@@ -1788,7 +2218,7 @@
                     </div>
                     
                     <!-- Dessert 5 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1796,9 +2226,13 @@
                         </div>
                         <div class="dish-name">Glace au baobab maison de Gandiol</div>
                         <p class="mb-2 small">Glace artisanale au fruit de baobab de Tassinère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (25 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>10 min</span>
+                        </div>
                         <div class="menu-price">4,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Glace au baobab maison de Gandiol" data-price="4500">
+                            <button class="btn-order add-to-cart" data-dish="Glace au baobab maison de Gandiol" data-price="4500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Glace au baobab maison de Gandiol" data-price="4500">
@@ -1808,7 +2242,7 @@
                     </div>
                     
                     <!-- Dessert 6 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1816,9 +2250,13 @@
                         </div>
                         <div class="dish-name">Tiramisu café local de Gandiol</div>
                         <p class="mb-2 small">Avec café de Casamance, mascarpone léger</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (22 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">6,800</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Tiramisu café local de Gandiol" data-price="6800">
+                            <button class="btn-order add-to-cart" data-dish="Tiramisu café local de Gandiol" data-price="6800">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Tiramisu café local de Gandiol" data-price="6800">
@@ -1828,7 +2266,7 @@
                     </div>
                     
                     <!-- Dessert 7 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1836,9 +2274,13 @@
                         </div>
                         <div class="dish-name">Assiette de fruits frais de Gandiol</div>
                         <p class="mb-2 small">Fruits de saison de Tassinère, coulis de mangue</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (18 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>10 min</span>
+                        </div>
                         <div class="menu-price">5,000</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Assiette de fruits frais de Gandiol" data-price="5000">
+                            <button class="btn-order add-to-cart" data-dish="Assiette de fruits frais de Gandiol" data-price="5000">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Assiette de fruits frais de Gandiol" data-price="5000">
@@ -1848,7 +2290,7 @@
                     </div>
                     
                     <!-- Dessert 8 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1856,9 +2298,13 @@
                         </div>
                         <div class="dish-name">Crêpes sucrées de Gandiol</div>
                         <p class="mb-2 small">Confiture de mangue de Tassinère ou miel local</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.5 (15 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">5,500</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Crêpes sucrées de Gandiol" data-price="5500">
+                            <button class="btn-order add-to-cart" data-dish="Crêpes sucrées de Gandiol" data-price="5500">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Crêpes sucrées de Gandiol" data-price="5500">
@@ -1868,7 +2314,7 @@
                     </div>
                     
                     <!-- Dessert 9 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1876,9 +2322,13 @@
                         </div>
                         <div class="dish-name">Flan à la noix de coco de Gandiol</div>
                         <p class="mb-2 small">Flan crémeux à la noix de coco locale de Tassinère</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (12 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">5,200</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Flan à la noix de coco de Gandiol" data-price="5200">
+                            <button class="btn-order add-to-cart" data-dish="Flan à la noix de coco de Gandiol" data-price="5200">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Flan à la noix de coco de Gandiol" data-price="5200">
@@ -1888,7 +2338,7 @@
                     </div>
                     
                     <!-- Dessert 10 -->
-                    <div class="dish-card">
+                    <div class="dish-card" data-category="dessert">
                         <div class="dish-image-container">
                             <span class="category-badge">Dessert</span>
                             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
@@ -1896,9 +2346,13 @@
                         </div>
                         <div class="dish-name">Beignets sucrés à la banane de Gandiol</div>
                         <p class="mb-2 small">Beignets de banane plantain de Tassinère, sucre glace</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.6 (10 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>15 min</span>
+                        </div>
                         <div class="menu-price">4,800</div>
                         <div class="action-buttons">
-                            <button class="btn-order" data-dish="Beignets sucrés à la banane de Gandiol" data-price="4800">
+                            <button class="btn-order add-to-cart" data-dish="Beignets sucrés à la banane de Gandiol" data-price="4800">
                                 <i class="fas fa-shopping-cart"></i> Panier
                             </button>
                             <button class="btn-whatsapp whatsapp-order" data-dish="Beignets sucrés à la banane de Gandiol" data-price="4800">
@@ -1909,69 +2363,281 @@
                 </div>
             </div>
 
-            <!-- ===== PANIER INTÉGRÉ ===== -->
-            <div class="panier-section">
-                <h3 class="mb-3" style="color: var(--primary-color);">
-                    <i class="fas fa-shopping-cart me-2"></i> Votre Panier
-                </h3>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div id="cart-items" class="mb-3" style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
-                            <p class="text-muted text-center py-4">Votre panier est vide</p>
+            <!-- ===== BOISSONS ===== -->
+            <div class="menu-category mb-4" id="boissons-category" style="display: none;">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="menu-category-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="mb-0 ms-2">Boissons</h3>
+                    <span class="badge bg-primary ms-2 px-3 py-2" style="font-size: 0.75rem;">8 boissons</span>
+                </div>
+                
+                <div class="menu-items-grid">
+                    <!-- Boisson 1 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de bissap" class="dish-image" loading="lazy">
                         </div>
-                        
-                        <div id="cart-total" class="d-none">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <strong>Sous-total:</strong>
-                                        <span id="subtotal-amount" class="menu-price">0</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <strong>Service (10%):</strong>
-                                        <span id="service-amount" class="menu-price">0</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-3 border-top pt-2">
-                                        <strong>Total:</strong>
-                                        <span id="total-amount" class="menu-price" style="font-size: 1.2rem;">0</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="action-buttons">
-                                        <button class="btn-payment w-100 mb-2" data-bs-toggle="modal" data-bs-target="#paymentModal">
-                                            <i class="fas fa-credit-card me-2"></i> Paiement
-                                        </button>
-                                        <button class="btn-whatsapp w-100 mb-2" id="whatsapp-cart">
-                                            <i class="fab fa-whatsapp me-2"></i> Commander
-                                        </button>
-                                        <button class="btn btn-outline-danger w-100" id="clear-cart">
-                                            <i class="fas fa-trash me-2"></i> Vider
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="dish-name">Jus de bissap frais</div>
+                        <p class="mb-2 small">Hibiscus bio de Gandiol, menthe fraîche</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (52 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">3,500</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de bissap frais" data-price="3500">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de bissap frais" data-price="3500">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <!-- Horaires d'ouverture -->
-                        <div class="hours-card">
-                            <h5><i class="fas fa-clock me-2"></i> Horaires</h5>
-                            <div class="mb-2">
-                                <strong>Petit déjeuner</strong><br>
-                                <span class="text-muted">7h00 - 10h30</span>
-                            </div>
-                            <div class="mb-2">
-                                <strong>Déjeuner</strong><br>
-                                <span class="text-muted">12h00 - 15h00</span>
-                            </div>
-                            <div class="mb-2">
-                                <strong>Dîner</strong><br>
-                                <span class="text-muted">19h00 - 23h00</span>
-                            </div>
-                            <div class="mt-3 pt-2 border-top">
-                                <small class="text-muted">
-                                    <i class="fas fa-moon me-1"></i> Room service 24h/24
-                                </small>
+                    
+                    <!-- Boisson 2 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de gingembre" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Jus de gingembre</div>
+                        <p class="mb-2 small">Gingembre frais de Gandiol, citron vert</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (44 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">3,500</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de gingembre" data-price="3500">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de gingembre" data-price="3500">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 3 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1543253687-c931c8e01820?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de bouye" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Jus de bouye</div>
+                        <p class="mb-2 small">Fruit de baobab de Gandiol, lait caillé</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (38 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">4,000</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de bouye" data-price="4000">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de bouye" data-price="4000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 4 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1543253687-c931c8e01820?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Bissap-gingembre" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Bissap-gingembre</div>
+                        <p class="mb-2 small">Mélange rafraîchissant de bissap et gingembre</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (32 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">4,000</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Bissap-gingembre" data-price="4000">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Bissap-gingembre" data-price="4000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 5 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de tamarin" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Jus de tamarin</div>
+                        <p class="mb-2 small">Tamarin de Gandiol, sucre de canne</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (28 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">3,500</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de tamarin" data-price="3500">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de tamarin" data-price="3500">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 6 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Bissap-menthe" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Bissap-menthe</div>
+                        <p class="mb-2 small">Bissap infusé à la menthe fraîche</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (25 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">4,000</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Bissap-menthe" data-price="4000">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Bissap-menthe" data-price="4000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 7 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de ditax" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Jus de ditax</div>
+                        <p class="mb-2 small">Fruit sauvage du Gandiol (spécialité locale)</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (20 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">4,500</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de ditax" data-price="4500">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de ditax" data-price="4500">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Boisson 8 -->
+                    <div class="dish-card" data-category="boisson">
+                        <div class="dish-image-container">
+                            <span class="category-badge">Boisson</span>
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Jus de fruits" class="dish-image" loading="lazy">
+                        </div>
+                        <div class="dish-name">Jus de fruits frais</div>
+                        <p class="mb-2 small">Mangue, papaye, ananas selon saison</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (15 avis)</span>
+                            <span class="delivery-time"><i class="fas fa-clock me-1"></i>5 min</span>
+                        </div>
+                        <div class="menu-price">4,000</div>
+                        <div class="action-buttons">
+                            <button class="btn-order add-to-cart" data-dish="Jus de fruits frais" data-price="4000">
+                                <i class="fas fa-shopping-cart"></i> Panier
+                            </button>
+                            <button class="btn-whatsapp whatsapp-order" data-dish="Jus de fruits frais" data-price="4000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SUIVI DES COMMANDES ===== -->
+            <div class="commande-section">
+                <div class="commande-header">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0;">
+                        <i class="fas fa-shopping-bag me-2"></i> Suivi des commandes
+                    </h3>
+                    <a href="admin.html" class="admin-link" target="_blank">
+                        <i class="fas fa-lock me-1"></i> Admin (Commandes)
+                    </a>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="cart-container" class="mb-4">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="bg-light p-3 rounded">
+                                        <h6 class="mb-3" style="color: var(--primary-color);">
+                                            <i class="fas fa-history me-2"></i> Vos commandes récentes
+                                        </h6>
+                                        <div id="recent-orders-list" style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
+                                            <!-- Les commandes récentes seront chargées ici -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <div class="bg-light p-3 rounded">
+                                        <h6 class="mb-3" style="color: var(--primary-color);">
+                                            <i class="fas fa-clipboard-check me-2"></i> Suivi de commande
+                                        </h6>
+                                        <p class="small text-muted mb-3">
+                                            Consultez le statut de vos commandes en cours.
+                                        </p>
+                                        
+                                        <div id="order-confirmation-area" class="d-none">
+                                            <div class="text-center mb-3">
+                                                <div style="font-size: 2rem; color: #28a745;">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </div>
+                                                <h5 style="color: #28a745;">Commande en cours</h5>
+                                                <div class="confirmation-code mt-2" id="confirmation-code">
+                                                    LAW-2024-001
+                                                </div>
+                                                <p class="small mt-2 mb-0">
+                                                    Code de commande
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="alert alert-success small">
+                                                <i class="fas fa-clock me-2"></i> 
+                                                Temps de préparation estimé : <strong id="prep-time">25-35 minutes</strong>
+                                            </div>
+                                            
+                                            <div class="d-grid">
+                                                <button class="btn btn-primary" id="track-order-btn">
+                                                    <i class="fas fa-map-marker-alt me-2"></i> Rafraîchir le statut
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="no-order-message">
+                                            <div class="text-center py-4">
+                                                <i class="fas fa-receipt" style="font-size: 2.5rem; color: #dee2e6;"></i>
+                                                <p class="mt-2 text-muted">Aucune commande en cours</p>
+                                                <p class="small text-muted">Vos commandes confirmées apparaîtront ici.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2087,7 +2753,176 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER - HARMONISÉ ===== -->
+    <!-- ===== MODAL PANIER AVEC VALIDATION ===== -->
+    <div class="modal fade" id="cartModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart me-2"></i> Validation de votre commande - Le Teranga
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Indicateur d'étapes -->
+                    <div class="step-indicator">
+                        <div class="step active" id="step1-indicator">1. Panier</div>
+                        <div class="step" id="step2-indicator">2. Coordonnées</div>
+                        <div class="step" id="step3-indicator">3. Confirmation</div>
+                    </div>
+
+                    <!-- ÉTAPE 1 : Récapitulatif du panier -->
+                    <div class="validation-step active" id="step1">
+                        <h6 class="mb-3">Récapitulatif de votre commande</h6>
+                        <div id="cart-items-list" style="max-height: 300px; overflow-y: auto;"></div>
+                        
+                        <div class="cart-total d-flex justify-content-between mt-3">
+                            <span class="fw-bold">Total</span>
+                            <span class="fw-bold text-primary" id="cart-total">0 XOF</span>
+                        </div>
+                        
+                        <div class="alert alert-warning small mt-3" id="cart-empty-warning" style="display: none;">
+                            <i class="fas fa-exclamation-triangle me-2"></i> Votre panier est vide.
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuer mes achats</button>
+                            <button type="button" class="btn btn-primary" id="step1-next" disabled>Continuer</button>
+                        </div>
+                    </div>
+
+                    <!-- ÉTAPE 2 : Coordonnées du client -->
+                    <div class="validation-step" id="step2">
+                        <h6 class="mb-3">Vos coordonnées</h6>
+                        <form id="checkout-form">
+                            <div class="mb-3">
+                                <label for="checkout-name" class="form-label small fw-bold">Nom complet *</label>
+                                <input type="text" class="form-control form-control-sm" id="checkout-name" required>
+                                <div class="validation-error" id="name-error"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-phone" class="form-label small fw-bold">Téléphone *</label>
+                                <input type="tel" class="form-control form-control-sm" id="checkout-phone" placeholder="+221 77 XXX XX XX" required>
+                                <div class="validation-error" id="phone-error"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-email" class="form-label small fw-bold">Email (optionnel)</label>
+                                <input type="email" class="form-control form-control-sm" id="checkout-email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-address" class="form-label small fw-bold">Adresse de livraison *</label>
+                                <textarea class="form-control form-control-sm" id="checkout-address" rows="2" placeholder="Votre adresse complète à Gandiol / Saint-Louis" required></textarea>
+                                <div class="validation-error" id="address-error"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-notes" class="form-label small fw-bold">Instructions spéciales</label>
+                                <textarea class="form-control form-control-sm" id="checkout-notes" rows="2" placeholder="Allergies, heure de livraison souhaitée, etc."></textarea>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                <button type="button" class="btn btn-secondary" id="step2-back">← Retour</button>
+                                <button type="button" class="btn btn-primary" id="step2-next">Continuer vers la confirmation</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ÉTAPE 3 : Confirmation et envoi WhatsApp -->
+                    <div class="validation-step" id="step3">
+                        <h6 class="mb-3">Confirmation de votre commande</h6>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle me-2"></i> Votre commande sera envoyée via WhatsApp pour confirmation.
+                        </div>
+                        
+                        <div class="mb-3 p-3 bg-light rounded">
+                            <h6 class="fw-bold">Récapitulatif</h6>
+                            <div id="order-summary-confirm"></div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span>Total</span>
+                                <span class="fw-bold text-primary" id="confirm-total">0 XOF</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Vos coordonnées</label>
+                            <div class="bg-light p-2 rounded small" id="confirm-client-info"></div>
+                        </div>
+                        
+                        <div class="alert alert-info small">
+                            <i class="fab fa-whatsapp me-2"></i> En cliquant sur "Confirmer la commande", vous serez redirigé vers WhatsApp pour finaliser votre commande. Un message pré-rempli avec tous les détails sera généré.
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" id="step3-back">← Retour</button>
+                            <button type="button" class="btn btn-success" id="finalize-order">
+                                <i class="fab fa-whatsapp me-2"></i> Confirmer via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL COMMANDE WHATSAPP ===== -->
+    <div class="modal fade" id="whatsappOrderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fab fa-whatsapp me-2"></i> Commander via WhatsApp
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted">Commandez directement via WhatsApp pour une prise en charge rapide par Les Résidences du Lawmar.</p>
+                    <div class="mb-3">
+                        <label for="whatsapp-name" class="form-label small fw-bold">Votre nom *</label>
+                        <input type="text" class="form-control form-control-sm" id="whatsapp-name" placeholder="Ex: El Hadji Diop">
+                    </div>
+                    <div class="mb-3">
+                        <label for="whatsapp-phone" class="form-label small fw-bold">Numéro WhatsApp *</label>
+                        <input type="tel" class="form-control form-control-sm" id="whatsapp-phone" placeholder="+221 77 123 45 67">
+                    </div>
+                    <div class="mb-3">
+                        <label for="whatsapp-message" class="form-label small fw-bold">Votre commande</label>
+                        <textarea class="form-control form-control-sm" id="whatsapp-message" rows="4" readonly></textarea>
+                    </div>
+                    <div class="alert alert-info small">
+                        <i class="fas fa-info-circle me-2"></i> Vous serez redirigé vers WhatsApp pour confirmer votre commande.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-whatsapp btn-sm" id="send-whatsapp-order">
+                        <i class="fab fa-whatsapp me-2"></i> Envoyer la commande
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL DÉTAILS PLAT ===== -->
+    <div class="modal fade" id="dishDetailModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dish-detail-title">Détails du plat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="dish-detail-body">
+                    <!-- Contenu généré dynamiquement -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" id="add-from-detail">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -2116,6 +2951,7 @@
                             <li><a href="services.html">Services</a></li>
                             <li><a href="galerie.html">Galerie</a></li>
                             <li><a href="contact.html">Contact</a></li>
+                            <li><a href="admin.html" target="_blank"><i class="fas fa-lock me-1"></i> Administration</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2151,198 +2987,30 @@
             <div class="footer-bottom">
                 <p>&copy; 2023 Lawmar Hôtel Les Résidences - Gandiol. Tous droits réservés. | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
-                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Accès personnel</a>
+                   <a href="admin.html" target="_blank">Accès administration</a>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== BOUTON FLOTTANT PANIER ===== -->
-    <button class="quick-order-btn" id="quick-order-btn">
-        <i class="fas fa-shopping-cart"></i> Panier
+    <!-- Bouton flottant pour ouvrir le panier -->
+    <button class="quick-order-btn" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="fas fa-shopping-cart"></i> Voir mon panier
         <span class="cart-badge" id="cart-count">0</span>
     </button>
 
-    <!-- ===== MODAL PAIEMENT MOBILE ===== -->
-    <div class="modal fade" id="paymentModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <i class="fas fa-lock me-2"></i> Paiement Mobile Sécurisé - Gandiol
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 style="color: var(--primary-color);" class="mb-3">
-                                <i class="fas fa-receipt me-2"></i> Récapitulatif
-                            </h6>
-                            <div id="payment-summary" class="mb-3 p-3 bg-light rounded">
-                                <!-- Généré par JavaScript -->
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between mb-2">
-                                <strong>Total à payer:</strong>
-                                <span id="payment-total" class="menu-price" style="font-size: 1.2rem;">0</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="mb-3" style="color: var(--primary-color);">
-                                <i class="fas fa-mobile-alt me-2"></i> Choisissez votre moyen de paiement
-                            </h6>
-                            
-                            <div class="mb-3">
-                                <button class="payment-option-btn" data-payment="wave">
-                                    <div class="payment-icon wave-color">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Wave</strong>
-                                        <p class="small mb-0 text-muted">Paiement mobile Sénégal</p>
-                                        <small class="text-primary">Numéro: +221 77 995 20 20</small>
-                                    </div>
-                                </button>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <button class="payment-option-btn" data-payment="orange">
-                                    <div class="payment-icon orange-color">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Orange Money</strong>
-                                        <p class="small mb-0 text-muted">Paiement mobile Orange</p>
-                                        <small class="text-primary">Numéro: +221 77 291 72 15</small>
-                                    </div>
-                                </button>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <button class="payment-option-btn" data-payment="whatsapp">
-                                    <div class="payment-icon whatsapp-color">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Commander via WhatsApp</strong>
-                                        <p class="small mb-0 text-muted">Confirmation et paiement</p>
-                                        <small class="text-primary">+221 77 995 20 20</small>
-                                    </div>
-                                </button>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <button class="payment-option-btn" data-payment="card">
-                                    <div class="payment-icon card-color">
-                                        <i class="fas fa-credit-card"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Carte Bancaire</strong>
-                                        <p class="small mb-0 text-muted">Visa, Mastercard</p>
-                                        <small class="text-primary">Paiement sécurisé</small>
-                                    </div>
-                                </button>
-                            </div>
-                            
-                            <div id="payment-details" class="mt-4 p-3 bg-light rounded" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="payment-name" class="form-label small fw-bold">Nom complet *</label>
-                                    <input type="text" class="form-control form-control-sm" id="payment-name" placeholder="Votre nom">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="payment-phone" class="form-label small fw-bold">Numéro de téléphone *</label>
-                                    <input type="tel" class="form-control form-control-sm" id="payment-phone" placeholder="+221 77 XXX XX XX">
-                                </div>
-                                <button class="btn btn-success w-100" id="confirm-payment">
-                                    <i class="fas fa-check-circle me-2"></i> Confirmer le paiement
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== MODAL COMMANDE WHATSAPP ===== -->
-    <div class="modal fade" id="whatsappOrderModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <i class="fab fa-whatsapp me-2"></i> Commander via WhatsApp
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="small text-muted">Commandez directement via WhatsApp pour une prise en charge rapide à Gandiol.</p>
-                    <div class="mb-3">
-                        <label for="whatsapp-name" class="form-label small fw-bold">Votre nom *</label>
-                        <input type="text" class="form-control form-control-sm" id="whatsapp-name" placeholder="Ex: El Hadji Diop">
-                    </div>
-                    <div class="mb-3">
-                        <label for="whatsapp-phone" class="form-label small fw-bold">Numéro WhatsApp *</label>
-                        <input type="tel" class="form-control form-control-sm" id="whatsapp-phone" placeholder="+221 77 123 45 67">
-                    </div>
-                    <div class="mb-3">
-                        <label for="whatsapp-message" class="form-label small fw-bold">Votre commande</label>
-                        <textarea class="form-control form-control-sm" id="whatsapp-message" rows="4" readonly></textarea>
-                    </div>
-                    <div class="alert alert-info small">
-                        <i class="fas fa-info-circle me-2"></i> Vous serez redirigé vers WhatsApp pour confirmer votre commande.
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-whatsapp btn-sm" id="send-whatsapp-order">
-                        <i class="fab fa-whatsapp me-2"></i> Envoyer la commande
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== MODAL ADMIN ===== -->
-    <div class="modal fade" id="adminLoginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Connexion personnel</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="admin-login-form">
-                        <div class="mb-3">
-                            <label for="admin-email" class="form-label small fw-bold">Email</label>
-                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="admin-password" class="form-label small fw-bold">Mot de passe</label>
-                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select form-select-sm" id="admin-role">
-                                <option value="reception">Réceptionniste</option>
-                                <option value="serveur">Serveur</option>
-                                <option value="cuisine">Cuisine</option>
-                                <option value="guide">Guide touristique</option>
-                                <option value="manager">Manager</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 btn-sm">Se connecter</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Bouton remonter en haut -->
+    <button id="scroll-top" class="btn btn-primary" style="position: fixed; bottom: 90px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; z-index: 999;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // ============================================
         // RESTAURANT LE TERANGA - GANDIOL 🇸🇳
-        // AVEC TOUTES LES AMÉLIORATIONS
+        // SUIVI DES COMMANDES POUR ADMIN + PANIER DYNAMIQUE
+        // AVEC ENVOI WHATSAPP ET SYNCHRONISATION ADMIN
         // ============================================
         
         // Numéro WhatsApp de l'hôtel
@@ -2392,123 +3060,18 @@
             }
         ];
 
+        // Stockage global des commandes (synchronisé avec la page admin)
+        let orders = JSON.parse(localStorage.getItem('restaurantOrders')) || [];
+        
+        // Panier d'achats
+        let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
+
+        // Variables pour la validation
+        let currentStep = 1;
+
         document.addEventListener('DOMContentLoaded', function() {
             // ========== AFFICHER LES AVIS ==========
             displayRestaurantReviews();
-            
-            // ========== PANIER DE COMMANDES ==========
-            let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
-            
-            // Mettre à jour l'affichage du panier
-            function updateCartDisplay() {
-                const cartCount = document.getElementById('cart-count');
-                const cartItems = document.getElementById('cart-items');
-                const cartTotal = document.getElementById('cart-total');
-                const totalAmount = document.getElementById('total-amount');
-                const subtotalAmount = document.getElementById('subtotal-amount');
-                const serviceAmount = document.getElementById('service-amount');
-                
-                if (!cartItems) return;
-                
-                // Mettre à jour le compteur
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                if (cartCount) cartCount.textContent = totalItems;
-                
-                // Mettre à jour le panier
-                if (cart.length === 0) {
-                    cartItems.innerHTML = '<p class="text-muted text-center py-4">Votre panier est vide</p>';
-                    if (cartTotal) cartTotal.classList.add('d-none');
-                } else {
-                    let itemsHtml = '';
-                    let subtotal = 0;
-                    
-                    cart.forEach((item, index) => {
-                        const itemTotal = item.price * item.quantity;
-                        subtotal += itemTotal;
-                        
-                        itemsHtml += `
-                            <div class="mb-3 pb-2 border-bottom">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div class="flex-grow-1">
-                                        <strong class="small">${item.name}</strong><br>
-                                        <small class="text-muted">${item.price.toLocaleString()} XOF × ${item.quantity}</small>
-                                    </div>
-                                    <div class="text-end">
-                                        <div class="menu-price small">${itemTotal.toLocaleString()}</div>
-                                        <div class="cart-item-controls mt-1">
-                                            <button class="btn btn-sm btn-outline-secondary decrease-qty" data-index="${index}" style="padding: 2px 6px;">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <span class="cart-item-quantity">${item.quantity}</span>
-                                            <button class="btn btn-sm btn-outline-secondary increase-qty" data-index="${index}" style="padding: 2px 6px;">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                            <button class="btn btn-sm btn-outline-danger remove-item" data-index="${index}" style="padding: 2px 6px;">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    const service = Math.round(subtotal * 0.10);
-                    const total = subtotal + service;
-                    
-                    cartItems.innerHTML = itemsHtml;
-                    if (subtotalAmount) subtotalAmount.textContent = subtotal.toLocaleString();
-                    if (serviceAmount) serviceAmount.textContent = service.toLocaleString();
-                    if (totalAmount) totalAmount.textContent = total.toLocaleString();
-                    if (cartTotal) cartTotal.classList.remove('d-none');
-                    
-                    // Ajouter les événements pour les contrôles du panier
-                    document.querySelectorAll('.increase-qty').forEach(btn => {
-                        btn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const index = parseInt(this.getAttribute('data-index'));
-                            cart[index].quantity += 1;
-                            updateCartDisplay();
-                            saveCart();
-                        });
-                    });
-                    
-                    document.querySelectorAll('.decrease-qty').forEach(btn => {
-                        btn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const index = parseInt(this.getAttribute('data-index'));
-                            if (cart[index].quantity > 1) {
-                                cart[index].quantity -= 1;
-                            } else {
-                                cart.splice(index, 1);
-                            }
-                            updateCartDisplay();
-                            saveCart();
-                        });
-                    });
-                    
-                    document.querySelectorAll('.remove-item').forEach(btn => {
-                        btn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const index = parseInt(this.getAttribute('data-index'));
-                            cart.splice(index, 1);
-                            updateCartDisplay();
-                            saveCart();
-                        });
-                    });
-                }
-                
-                // Sauvegarder le panier dans le localStorage
-                function saveCart() {
-                    localStorage.setItem('restaurantCart', JSON.stringify(cart));
-                }
-            }
-            
-            // Sauvegarder et afficher
-            function saveAndUpdate() {
-                localStorage.setItem('restaurantCart', JSON.stringify(cart));
-                updateCartDisplay();
-            }
             
             // ========== NAVIGATION MENU ==========
             const menuButtons = document.querySelectorAll('.menu-navigation button');
@@ -2516,6 +3079,7 @@
             const entreesCategory = document.getElementById('entrees-category');
             const platsCategory = document.getElementById('plats-category');
             const dessertsCategory = document.getElementById('desserts-category');
+            const boissonsCategory = document.getElementById('boissons-category');
             
             if (menuButtons.length > 0) {
                 menuButtons.forEach(btn => {
@@ -2527,6 +3091,7 @@
                         if (entreesCategory) entreesCategory.style.display = 'none';
                         if (platsCategory) platsCategory.style.display = 'none';
                         if (dessertsCategory) dessertsCategory.style.display = 'none';
+                        if (boissonsCategory) boissonsCategory.style.display = 'none';
                         
                         // Afficher la section correspondante
                         if (menuType === 'specialites' && specialitesSection) {
@@ -2537,42 +3102,404 @@
                             platsCategory.style.display = 'block';
                         } else if (menuType === 'desserts' && dessertsCategory) {
                             dessertsCategory.style.display = 'block';
+                        } else if (menuType === 'boissons' && boissonsCategory) {
+                            boissonsCategory.style.display = 'block';
                         }
                         
                         // Mettre à jour les boutons actifs
                         menuButtons.forEach(b => b.classList.remove('active'));
                         this.classList.add('active');
+                        
+                        // Sauvegarder la catégorie active
+                        localStorage.setItem('activeMenuCategory', menuType);
                     });
                 });
             }
             
-            // Afficher les spécialités par défaut
-            if (specialitesSection) specialitesSection.style.display = 'block';
-            if (menuButtons[0]) menuButtons[0].classList.add('active');
+            // Restaurer la dernière catégorie active
+            const lastActiveCategory = localStorage.getItem('activeMenuCategory');
+            if (lastActiveCategory) {
+                const btnToActivate = document.querySelector(`.menu-navigation button[data-menu="${lastActiveCategory}"]`);
+                if (btnToActivate) {
+                    btnToActivate.click();
+                } else {
+                    // Par défaut, afficher les spécialités
+                    if (menuButtons[0]) menuButtons[0].click();
+                }
+            } else {
+                // Afficher les spécialités par défaut
+                if (specialitesSection) specialitesSection.style.display = 'block';
+                if (menuButtons[0]) menuButtons[0].classList.add('active');
+            }
             
-            // ========== AJOUT AU PANIER ==========
-            document.querySelectorAll('.btn-order').forEach(btn => {
+            // ========== RECHERCHE DE PLATS ==========
+            const searchInput = document.getElementById('search-menu');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    const allDishCards = document.querySelectorAll('.dish-card');
+                    
+                    allDishCards.forEach(card => {
+                        const dishName = card.querySelector('.dish-name')?.textContent.toLowerCase() || '';
+                        const dishDesc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                        
+                        if (dishName.includes(searchTerm) || dishDesc.includes(searchTerm)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // ========== FILTRES RAPIDES ==========
+            const filterBadges = document.querySelectorAll('.filter-badge');
+            filterBadges.forEach(badge => {
+                badge.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Mettre à jour l'état actif
+                    filterBadges.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const allDishCards = document.querySelectorAll('.dish-card');
+                    
+                    if (filter === 'all') {
+                        allDishCards.forEach(card => card.style.display = 'flex');
+                    } else {
+                        allDishCards.forEach(card => {
+                            const categories = card.getAttribute('data-category') || '';
+                            if (categories.includes(filter)) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // ========== GESTION DU PANIER ==========
+            function updateCartCount() {
+                const cartCount = document.getElementById('cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+                    cartCount.textContent = totalItems;
+                    cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                }
+            }
+            
+            function addToCart(dishName, dishPrice) {
+                const existingItem = cart.find(item => item.name === dishName);
+                if (existingItem) {
+                    existingItem.quantity = (existingItem.quantity || 1) + 1;
+                } else {
+                    cart.push({ name: dishName, price: dishPrice, quantity: 1 });
+                }
+                localStorage.setItem('restaurantCart', JSON.stringify(cart));
+                updateCartCount();
+                showNotification(`✅ ${dishName} ajouté au panier !`, 'success');
+                
+                // Animation du bouton panier
+                const cartBtn = document.getElementById('cart-button');
+                cartBtn.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    cartBtn.style.transform = 'scale(1)';
+                }, 200);
+            }
+            
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const dish = this.getAttribute('data-dish');
                     const price = parseInt(this.getAttribute('data-price'));
-                    
-                    // Vérifier si le plat est déjà dans le panier
-                    const existingItem = cart.find(item => item.name === dish);
-                    
-                    if (existingItem) {
-                        existingItem.quantity += 1;
-                    } else {
-                        cart.push({
-                            name: dish,
-                            price: price,
-                            quantity: 1
-                        });
-                    }
-                    
-                    saveAndUpdate();
-                    showNotification(`✅ "${dish}" ajouté au panier!`);
+                    addToCart(dish, price);
                 });
+            });
+            
+            // ========== AFFICHER LE PANIER DANS LE MODAL DE VALIDATION ======
+            function displayCartInModal() {
+                const cartItemsDiv = document.getElementById('cart-items-list');
+                const cartTotalSpan = document.getElementById('cart-total');
+                const step1NextBtn = document.getElementById('step1-next');
+                const cartEmptyWarning = document.getElementById('cart-empty-warning');
+                
+                if (!cartItemsDiv) return;
+                
+                if (cart.length === 0) {
+                    cartItemsDiv.innerHTML = '<p class="text-muted text-center py-3">Votre panier est vide.</p>';
+                    if (cartTotalSpan) cartTotalSpan.textContent = '0 XOF';
+                    if (step1NextBtn) step1NextBtn.disabled = true;
+                    if (cartEmptyWarning) cartEmptyWarning.style.display = 'block';
+                    return;
+                }
+                
+                let html = '';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * (item.quantity || 1);
+                    total += itemTotal;
+                    html += `
+                        <div class="cart-item">
+                            <div class="cart-item-details">
+                                <strong>${item.name}</strong><br>
+                                <small>${(item.quantity || 1)} x ${item.price.toLocaleString()} XOF</small>
+                            </div>
+                            <div>
+                                <span class="fw-bold">${itemTotal.toLocaleString()} XOF</span>
+                                <i class="fas fa-trash-alt cart-item-remove ms-2" data-index="${index}"></i>
+                            </div>
+                        </div>
+                    `;
+                });
+                cartItemsDiv.innerHTML = html;
+                
+                if (cartTotalSpan) cartTotalSpan.textContent = total.toLocaleString() + ' XOF';
+                if (step1NextBtn) step1NextBtn.disabled = false;
+                if (cartEmptyWarning) cartEmptyWarning.style.display = 'none';
+                
+                // Ajouter l'événement de suppression
+                document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = this.getAttribute('data-index');
+                        cart.splice(index, 1);
+                        localStorage.setItem('restaurantCart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartInModal();
+                        showNotification('🗑️ Article retiré du panier', 'info');
+                    });
+                });
+            }
+            
+            // ========== GESTION DES ÉTAPES DE VALIDATION ==========
+            const cartModal = document.getElementById('cartModal');
+            if (cartModal) {
+                cartModal.addEventListener('show.bs.modal', function() {
+                    // Réinitialiser les étapes
+                    currentStep = 1;
+                    
+                    // Mettre à jour l'affichage des étapes
+                    updateStepDisplay();
+                    
+                    // Afficher le panier
+                    displayCartInModal();
+                });
+            }
+            
+            function updateStepDisplay() {
+                // Masquer toutes les étapes
+                document.querySelectorAll('.validation-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Afficher l'étape courante
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                
+                // Mettre à jour les indicateurs
+                for (let i = 1; i <= 3; i++) {
+                    const indicator = document.getElementById(`step${i}-indicator`);
+                    if (i < currentStep) {
+                        indicator.classList.remove('active');
+                        indicator.classList.add('completed');
+                        indicator.textContent = `✓ Étape ${i}`;
+                    } else if (i === currentStep) {
+                        indicator.classList.add('active');
+                        indicator.classList.remove('completed');
+                        indicator.textContent = `Étape ${i}`;
+                    } else {
+                        indicator.classList.remove('active', 'completed');
+                        indicator.textContent = `Étape ${i}`;
+                    }
+                }
+            }
+            
+            // Étape 1 : Continuer
+            document.getElementById('step1-next')?.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('❌ Votre panier est vide', 'error');
+                    return;
+                }
+                currentStep = 2;
+                updateStepDisplay();
+            });
+            
+            // Étape 2 : Retour
+            document.getElementById('step2-back')?.addEventListener('click', function() {
+                currentStep = 1;
+                updateStepDisplay();
+            });
+            
+            // Étape 2 : Continuer vers confirmation
+            document.getElementById('step2-next')?.addEventListener('click', function() {
+                // Valider les champs
+                const name = document.getElementById('checkout-name').value.trim();
+                const phone = document.getElementById('checkout-phone').value.trim();
+                const address = document.getElementById('checkout-address').value.trim();
+                
+                let isValid = true;
+                
+                if (!name) {
+                    document.getElementById('name-error').textContent = 'Le nom est requis';
+                    isValid = false;
+                } else {
+                    document.getElementById('name-error').textContent = '';
+                }
+                
+                if (!phone) {
+                    document.getElementById('phone-error').textContent = 'Le téléphone est requis';
+                    isValid = false;
+                } else {
+                    document.getElementById('phone-error').textContent = '';
+                }
+                
+                if (!address) {
+                    document.getElementById('address-error').textContent = 'L\'adresse est requise';
+                    isValid = false;
+                } else {
+                    document.getElementById('address-error').textContent = '';
+                }
+                
+                if (isValid) {
+                    // Préparer le résumé pour l'étape 3
+                    prepareOrderSummary();
+                    currentStep = 3;
+                    updateStepDisplay();
+                }
+            });
+            
+            function prepareOrderSummary() {
+                const summaryDiv = document.getElementById('order-summary-confirm');
+                const confirmTotalSpan = document.getElementById('confirm-total');
+                const clientInfoDiv = document.getElementById('confirm-client-info');
+                
+                if (!summaryDiv || !confirmTotalSpan || !clientInfoDiv) return;
+                
+                // Résumé des articles
+                let summaryHtml = '';
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.price * (item.quantity || 1);
+                    total += itemTotal;
+                    summaryHtml += `<div class="order-summary-item"><span>${item.quantity}x ${item.name}</span><span>${itemTotal.toLocaleString()} XOF</span></div>`;
+                });
+                summaryDiv.innerHTML = summaryHtml;
+                confirmTotalSpan.textContent = total.toLocaleString() + ' XOF';
+                
+                // Informations client
+                const name = document.getElementById('checkout-name').value.trim();
+                const phone = document.getElementById('checkout-phone').value.trim();
+                const email = document.getElementById('checkout-email').value.trim();
+                const address = document.getElementById('checkout-address').value.trim();
+                const notes = document.getElementById('checkout-notes').value.trim();
+                
+                clientInfoDiv.innerHTML = `
+                    <strong>${name}</strong><br>
+                    📞 ${phone}<br>
+                    ${email ? '✉️ ' + email + '<br>' : ''}
+                    📍 ${address}<br>
+                    ${notes ? '📝 ' + notes : ''}
+                `;
+            }
+            
+            // Étape 3 : Retour
+            document.getElementById('step3-back')?.addEventListener('click', function() {
+                currentStep = 2;
+                updateStepDisplay();
+            });
+            
+            // Étape 3 : Finaliser la commande via WhatsApp
+            document.getElementById('finalize-order')?.addEventListener('click', function() {
+                // Récupérer les informations client
+                const name = document.getElementById('checkout-name').value.trim();
+                const phone = document.getElementById('checkout-phone').value.trim();
+                const email = document.getElementById('checkout-email').value.trim();
+                const address = document.getElementById('checkout-address').value.trim();
+                const notes = document.getElementById('checkout-notes').value.trim();
+                
+                // Calculer le total
+                const total = cart.reduce((acc, item) => acc + (item.price * (item.quantity || 1)), 0);
+                
+                // Générer un numéro de commande
+                const orderNumber = 'LAW-' + new Date().getFullYear() + '-' + 
+                                    String(Math.floor(Math.random() * 9999)).padStart(4, '0');
+                
+                // Créer la commande
+                const order = {
+                    id: orderNumber,
+                    date: new Date().toLocaleString('fr-FR'),
+                    items: cart.map(item => ({ name: item.name, price: item.price, quantity: item.quantity || 1 })),
+                    subtotal: total,
+                    total: total,
+                    status: 'en-cours',
+                    statusText: 'En cours (WhatsApp)',
+                    preparationTime: '25-35 minutes',
+                    confirmationCode: orderNumber,
+                    type: 'restaurant',
+                    timestamp: new Date().getTime(),
+                    clientName: name,
+                    clientPhone: phone,
+                    clientEmail: email,
+                    clientAddress: address,
+                    notes: notes,
+                    source: 'WhatsApp'
+                };
+                
+                // Sauvegarder la commande dans localStorage (pour la page admin)
+                orders.unshift(order);
+                localStorage.setItem('restaurantOrders', JSON.stringify(orders));
+                
+                // Synchronisation avec la clé admin (pour admin.html)
+                let adminOrders = JSON.parse(localStorage.getItem('adminRestaurantOrders')) || [];
+                adminOrders.unshift(order);
+                localStorage.setItem('adminRestaurantOrders', JSON.stringify(adminOrders));
+                
+                // Créer le message WhatsApp
+                let message = `*NOUVELLE COMMANDE RESTAURANT - LE TERANGA* 🇸🇳\n\n`;
+                message += `📋 *Numéro de commande* : ${orderNumber}\n`;
+                message += `👤 *Client* : ${name}\n`;
+                message += `📞 *Téléphone* : ${phone}\n`;
+                if (email) message += `✉️ *Email* : ${email}\n`;
+                message += `📍 *Adresse de livraison* : ${address}\n\n`;
+                message += `🛒 *ARTICLES COMMANDÉS* :\n`;
+                
+                cart.forEach(item => {
+                    message += `   - ${item.quantity}x ${item.name} : ${(item.price * item.quantity).toLocaleString()} XOF\n`;
+                });
+                
+                message += `\n💰 *TOTAL* : ${total.toLocaleString()} XOF\n`;
+                if (notes) message += `\n📝 *Instructions spéciales* : ${notes}\n`;
+                message += `\n⏱️ *Temps de préparation estimé* : 25-35 minutes\n`;
+                message += `\n_Merci de confirmer cette commande._`;
+                
+                // Encoder le message pour WhatsApp
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Vider le panier
+                cart = [];
+                localStorage.setItem('restaurantCart', JSON.stringify(cart));
+                updateCartCount();
+                
+                // Fermer le modal
+                const modal = bootstrap.Modal.getInstance(cartModal);
+                if (modal) modal.hide();
+                
+                // Ouvrir WhatsApp
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+                
+                // Notification de succès
+                showNotification(`✅ Commande envoyée via WhatsApp !\nCode: ${orderNumber}`, 'success');
+                
+                // Afficher la zone de suivi
+                document.getElementById('order-confirmation-area')?.classList.remove('d-none');
+                document.getElementById('no-order-message')?.classList.add('d-none');
+                document.getElementById('confirmation-code').textContent = orderNumber;
+                document.getElementById('prep-time').textContent = '25-35 minutes';
+                
+                // Mettre à jour les commandes récentes
+                displayRecentOrders();
+                
+                // Sauvegarder la dernière commande pour suivi
+                localStorage.setItem('lastOrderId', orderNumber);
             });
             
             // ========== COMMANDE WHATSAPP DIRECTE ==========
@@ -2586,7 +3513,7 @@
                     const messageField = document.getElementById('whatsapp-message');
                     if (messageField) {
                         messageField.value = 
-                            `Bonjour Restaurant Le Teranga - Gandiol 🇸🇳,\n\n` +
+                            `Bonjour Restaurant Hôtel Les Résidences du Lawmar - Gandiol 🇸🇳,\n\n` +
                             `Je souhaite commander :\n- ${dish} (${price.toLocaleString()} XOF)\n\n` +
                             `Nom : \nTéléphone : \n\nMerci !`;
                     }
@@ -2599,71 +3526,6 @@
                     }
                 });
             });
-            
-            // ========== VIDER LE PANIER ==========
-            const clearCartBtn = document.getElementById('clear-cart');
-            if (clearCartBtn) {
-                clearCartBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (cart.length > 0) {
-                        if (confirm('Vider votre panier ?')) {
-                            cart = [];
-                            saveAndUpdate();
-                            showNotification('🛒 Panier vidé');
-                        }
-                    }
-                });
-            }
-            
-            // ========== BOUTON FLOTTANT PANIER ==========
-            const quickOrderBtn = document.getElementById('quick-order-btn');
-            if (quickOrderBtn) {
-                quickOrderBtn.addEventListener('click', function() {
-                    const panierSection = document.querySelector('.panier-section');
-                    if (panierSection) {
-                        panierSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            }
-            
-            // ========== COMMANDE PANIER VIA WHATSAPP ==========
-            const whatsappCartBtn = document.getElementById('whatsapp-cart');
-            if (whatsappCartBtn) {
-                whatsappCartBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (cart.length === 0) {
-                        showNotification('❌ Votre panier est vide!', 'error');
-                        return;
-                    }
-                    
-                    let message = "Bonjour Restaurant Le Teranga - Gandiol 🇸🇳,\n\n";
-                    message += "Je souhaite commander :\n\n";
-                    let total = 0;
-                    
-                    cart.forEach(item => {
-                        const itemTotal = item.price * item.quantity;
-                        total += itemTotal;
-                        message += `- ${item.name} (${item.quantity}x) : ${itemTotal.toLocaleString()} XOF\n`;
-                    });
-                    
-                    const service = Math.round(total * 0.10);
-                    const finalTotal = total + service;
-                    
-                    message += `\nSous-total : ${total.toLocaleString()} XOF`;
-                    message += `\nService (10%) : ${service.toLocaleString()} XOF`;
-                    message += `\nTOTAL : ${finalTotal.toLocaleString()} XOF`;
-                    message += `\n\nNom : \nTéléphone : \nHeure de retrait : \n\nMerci !`;
-                    
-                    const messageField = document.getElementById('whatsapp-message');
-                    if (messageField) messageField.value = message;
-                    
-                    const modalElement = document.getElementById('whatsappOrderModal');
-                    if (modalElement) {
-                        const modal = new bootstrap.Modal(modalElement);
-                        modal.show();
-                    }
-                });
-            }
             
             // ========== ENVOYER COMMANDE WHATSAPP ==========
             const sendWhatsAppBtn = document.getElementById('send-whatsapp-order');
@@ -2682,6 +3544,36 @@
                     message = message.replace('Nom :', `Nom : ${name}`);
                     message = message.replace('Téléphone :', `Téléphone : ${phone}`);
                     
+                    // Générer un numéro de commande pour la commande WhatsApp
+                    const orderNumber = 'LAW-' + new Date().getFullYear() + '-' + 
+                                        String(Math.floor(Math.random() * 9999)).padStart(4, '0');
+                    
+                    // Créer une commande à partir du message
+                    const order = {
+                        id: orderNumber,
+                        date: new Date().toLocaleString('fr-FR'),
+                        items: [{ name: message.split('-')[1]?.split('(')[0]?.trim() || 'Plat', price: 0, quantity: 1 }],
+                        subtotal: 0,
+                        total: 0,
+                        status: 'en-cours',
+                        statusText: 'En cours (WhatsApp)',
+                        preparationTime: '25-35 minutes',
+                        confirmationCode: orderNumber,
+                        type: 'restaurant',
+                        timestamp: new Date().getTime(),
+                        clientName: name,
+                        clientPhone: phone,
+                        source: 'WhatsApp Direct'
+                    };
+                    
+                    orders.unshift(order);
+                    localStorage.setItem('restaurantOrders', JSON.stringify(orders));
+                    
+                    // Synchronisation admin
+                    let adminOrders = JSON.parse(localStorage.getItem('adminRestaurantOrders')) || [];
+                    adminOrders.unshift(order);
+                    localStorage.setItem('adminRestaurantOrders', JSON.stringify(adminOrders));
+                    
                     const encodedMessage = encodeURIComponent(message);
                     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
                     
@@ -2692,137 +3584,75 @@
                         if (modal) modal.hide();
                     }
                     
-                    // Vider le panier après commande
-                    cart = [];
-                    saveAndUpdate();
-                    showNotification('✅ Commande envoyée sur WhatsApp !');
+                    showNotification('✅ Commande envoyée sur WhatsApp !', 'success');
+                    
+                    // Afficher les commandes récentes
+                    displayRecentOrders();
                 });
             }
             
-            // ========== MODAL DE PAIEMENT ==========
-            const paymentModal = document.getElementById('paymentModal');
-            
-            function updatePaymentSummary() {
-                const paymentSummary = document.getElementById('payment-summary');
-                const paymentTotal = document.getElementById('payment-total');
+            // ========== AFFICHER LES COMMANDES RÉCENTES ==========
+            function displayRecentOrders() {
+                const recentOrdersContainer = document.getElementById('recent-orders-list');
+                if (!recentOrdersContainer) return;
                 
-                if (!paymentSummary || !paymentTotal) return;
-                
-                let html = '';
-                let subtotal = 0;
-                
-                if (cart.length === 0) {
-                    html = '<p class="text-muted text-center mb-0">Panier vide</p>';
-                    paymentTotal.textContent = '0';
-                } else {
-                    cart.forEach(item => {
-                        const itemTotal = item.price * item.quantity;
-                        subtotal += itemTotal;
-                        html += `<div class="d-flex justify-content-between small mb-1">
-                                    <span>${item.name} (${item.quantity}x)</span>
-                                    <span class="fw-bold">${itemTotal.toLocaleString()} XOF</span>
-                                </div>`;
-                    });
-                    
-                    const service = Math.round(subtotal * 0.10);
-                    const total = subtotal + service;
-                    
-                    html += `<hr class="my-2">`;
-                    html += `<div class="d-flex justify-content-between small">
-                                <span>Sous-total</span>
-                                <span>${subtotal.toLocaleString()} XOF</span>
-                            </div>`;
-                    html += `<div class="d-flex justify-content-between small">
-                                <span>Service (10%)</span>
-                                <span>${service.toLocaleString()} XOF</span>
-                            </div>`;
-                    html += `<div class="d-flex justify-content-between fw-bold mt-2">
-                                <span>Total</span>
-                                <span class="text-primary">${total.toLocaleString()} XOF</span>
-                            </div>`;
-                    
-                    paymentTotal.textContent = total.toLocaleString();
+                if (orders.length === 0) {
+                    recentOrdersContainer.innerHTML = '<p class="text-muted text-center py-2 small">Aucune commande récente</p>';
+                    return;
                 }
                 
-                paymentSummary.innerHTML = html;
+                let html = '';
+                orders.slice(0, 5).forEach(order => {
+                    let statusClass = '';
+                    let statusText = order.statusText || 'Confirmée';
+                    
+                    if (order.status === 'confirmée') statusClass = 'status-confirmee';
+                    else if (order.status === 'en-cours') statusClass = 'status-en-cours';
+                    else if (order.status === 'livrée') statusClass = 'status-livree';
+                    else statusClass = 'status-confirmee';
+                    
+                    html += `
+                        <div class="order-card small">
+                            <div class="order-header">
+                                <span class="order-id">${order.id}</span>
+                                <span class="order-status ${statusClass}">${statusText}</span>
+                            </div>
+                            <div class="order-date">${order.date}</div>
+                            <div class="order-total mt-1">${order.total?.toLocaleString() || '0'} XOF</div>
+                        </div>
+                    `;
+                });
+                
+                recentOrdersContainer.innerHTML = html;
             }
             
-            // Sélection du mode de paiement
-            document.querySelectorAll('.payment-option-btn').forEach(option => {
-                option.addEventListener('click', function() {
-                    document.querySelectorAll('.payment-option-btn').forEach(opt => {
-                        opt.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
+            // ========== SUIVI DE COMMANDE ==========
+            const trackOrderBtn = document.getElementById('track-order-btn');
+            if (trackOrderBtn) {
+                trackOrderBtn.addEventListener('click', function() {
+                    showNotification('🔄 Statut mis à jour', 'info');
                     
-                    const paymentDetails = document.getElementById('payment-details');
-                    if (paymentDetails) {
-                        paymentDetails.style.display = 'block';
+                    // Simuler une mise à jour du statut
+                    const lastOrderId = localStorage.getItem('lastOrderId');
+                    const order = orders.find(o => o.id === lastOrderId);
+                    if (order) {
+                        if (order.status === 'confirmée') {
+                            order.status = 'en-cours';
+                            order.statusText = 'En cours de préparation';
+                            localStorage.setItem('restaurantOrders', JSON.stringify(orders));
+                            
+                            // Mettre à jour aussi la copie admin
+                            let adminOrders = JSON.parse(localStorage.getItem('adminRestaurantOrders')) || [];
+                            const adminOrderIndex = adminOrders.findIndex(o => o.id === lastOrderId);
+                            if (adminOrderIndex !== -1) {
+                                adminOrders[adminOrderIndex].status = 'en-cours';
+                                adminOrders[adminOrderIndex].statusText = 'En cours de préparation';
+                                localStorage.setItem('adminRestaurantOrders', JSON.stringify(adminOrders));
+                            }
+                            
+                            showNotification('🔄 Votre commande est maintenant en cours de préparation', 'info');
+                        }
                     }
-                });
-            });
-            
-            // Confirmer le paiement
-            const confirmPaymentBtn = document.getElementById('confirm-payment');
-            if (confirmPaymentBtn) {
-                confirmPaymentBtn.addEventListener('click', function() {
-                    const selectedPayment = document.querySelector('.payment-option-btn.selected');
-                    
-                    if (!selectedPayment) {
-                        showNotification('❌ Veuillez sélectionner un mode de paiement', 'error');
-                        return;
-                    }
-                    
-                    const paymentMethod = selectedPayment.getAttribute('data-payment');
-                    const name = document.getElementById('payment-name')?.value.trim();
-                    const phone = document.getElementById('payment-phone')?.value.trim();
-                    
-                    if (!name || !phone) {
-                        showNotification('❌ Veuillez remplir vos coordonnées', 'error');
-                        return;
-                    }
-                    
-                    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                    const service = Math.round(subtotal * 0.10);
-                    const total = subtotal + service;
-                    
-                    let methodName = '';
-                    if (paymentMethod === 'wave') methodName = 'Wave';
-                    else if (paymentMethod === 'orange') methodName = 'Orange Money';
-                    else if (paymentMethod === 'whatsapp') methodName = 'WhatsApp';
-                    else methodName = 'Carte Bancaire';
-                    
-                    if (paymentMethod === 'whatsapp') {
-                        // Rediriger vers WhatsApp
-                        const message = encodeURIComponent(
-                            `Bonjour Les Résidences du Lawmar - Gandiol 🇸🇳,\n\n` +
-                            `Je souhaite payer ma commande du Restaurant Le Teranga.\n\n` +
-                            `Montant total : ${total.toLocaleString()} XOF\n` +
-                            `Mode de paiement : ${methodName}\n` +
-                            `Nom : ${name}\n` +
-                            `Téléphone : ${phone}\n\n` +
-                            `Merci de me confirmer les détails de paiement.`
-                        );
-                        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-                    }
-                    
-                    // Notification de confirmation
-                    showNotification(`✅ Paiement de ${total.toLocaleString()} XOF confirmé !\nMéthode : ${methodName}`);
-                    
-                    // Vider le panier
-                    cart = [];
-                    saveAndUpdate();
-                    
-                    // Fermer le modal
-                    const modal = bootstrap.Modal.getInstance(paymentModal);
-                    if (modal) modal.hide();
-                });
-            }
-            
-            // Mettre à jour le récapitulatif quand le modal s'ouvre
-            if (paymentModal) {
-                paymentModal.addEventListener('show.bs.modal', function() {
-                    updatePaymentSummary();
                 });
             }
             
@@ -2837,7 +3667,7 @@
                     const guests = document.getElementById('booking-guests')?.value;
                     
                     if (name && date && time) {
-                        showNotification(`✅ Table réservée pour ${name} le ${date} à ${time} pour ${guests} personne(s)`);
+                        showNotification(`✅ Table réservée pour ${name} le ${date} à ${time} pour ${guests} personne(s)`, 'success');
                         bootstrap.Modal.getInstance(document.getElementById('tableBookingModal')).hide();
                         this.reset();
                     }
@@ -2851,20 +3681,16 @@
                     e.preventDefault();
                     const email = this.querySelector('input[type="email"]')?.value;
                     if (email) {
-                        showNotification(`✅ Merci ! Vous êtes inscrit à notre newsletter.`);
+                        showNotification(`✅ Merci ! Vous êtes inscrit à notre newsletter.`, 'success');
                         this.reset();
+                        
+                        // Sauvegarder l'email pour les promotions
+                        let subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers')) || [];
+                        if (!subscribers.includes(email)) {
+                            subscribers.push(email);
+                            localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+                        }
                     }
-                });
-            }
-            
-            // ========== ADMIN LOGIN ==========
-            const adminLoginForm = document.getElementById('admin-login-form');
-            if (adminLoginForm) {
-                adminLoginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    showNotification('✅ Connexion réussie !');
-                    bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
-                    this.reset();
                 });
             }
             
@@ -2873,11 +3699,9 @@
                 const notification = document.createElement('div');
                 notification.className = 'notification-toast';
                 
-                const bgColor = type === 'success' ? '#c53030' : '#e53e3e';
-                
                 notification.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        <div style="font-size: 1.2rem;">${type === 'success' ? '✅' : '❌'}</div>
+                        <div style="font-size: 1.2rem;">${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</div>
                         <div style="flex-grow: 1; font-size: 0.9rem; white-space: pre-line;">${message}</div>
                     </div>
                 `;
@@ -2889,8 +3713,35 @@
                 }, 3000);
             }
             
-            // Initialiser l'affichage du panier
-            updateCartDisplay();
+            // ========== BOUTON REMONTER ==========
+            const scrollTopBtn = document.getElementById('scroll-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'block';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Afficher les commandes récentes
+            displayRecentOrders();
+            
+            // Mettre à jour le compteur du panier
+            updateCartCount();
+            
+            // Vérifier s'il y a une commande en cours
+            const lastOrderId = localStorage.getItem('lastOrderId');
+            const lastOrder = orders.find(o => o.id === lastOrderId && (o.status === 'confirmée' || o.status === 'en-cours' || o.status === 'en-cours'));
+            if (lastOrder) {
+                document.getElementById('order-confirmation-area')?.classList.remove('d-none');
+                document.getElementById('no-order-message')?.classList.add('d-none');
+                document.getElementById('confirmation-code').textContent = lastOrder.id;
+                document.getElementById('prep-time').textContent = lastOrder.preparationTime || '25-35 minutes';
+            }
         });
 
         // ========== AFFICHER LES AVIS RESTAURANT ==========
@@ -2951,7 +3802,7 @@
             const special = document.getElementById('booking-special')?.value || 'Aucune';
             
             const message = 
-                `Bonjour Restaurant Le Teranga - Gandiol 🇸🇳,\n\n` +
+                `Bonjour Restaurant Hôtel Les Résidences du Lawmar - Gandiol 🇸🇳,\n\n` +
                 `Je souhaite réserver une table :\n\n` +
                 `📅 Date : ${date}\n` +
                 `⏰ Heure : ${time}\n` +
@@ -2963,7 +3814,6 @@
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
             
-            // Fermer le modal
             const modalElement = document.getElementById('tableBookingModal');
             if (modalElement) {
                 const modal = bootstrap.Modal.getInstance(modalElement);
@@ -2978,7 +3828,20 @@
             else if (lang === 'en') message = '🇬🇧 English selected';
             else if (lang === 'wo') message = '🇸🇳 Wolof lañu tontu';
             
-            alert(message + ' - Fonctionnalité à implémenter');
+            // Sauvegarder la langue choisie
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Afficher la notification
+            const notification = document.createElement('div');
+            notification.className = 'notification-toast';
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="font-size: 1.2rem;">🌐</div>
+                    <div style="flex-grow: 1; font-size: 0.9rem;">${message}</div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
         }
     </script>
 </body>

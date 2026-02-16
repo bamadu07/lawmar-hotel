@@ -18,7 +18,7 @@
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-            --yellow-color: #FFD700; /* AJOUTÉ - Identique à l'accueil */
+            --yellow-color: #FFD700;
             --transition: all 0.3s ease;
             --border-radius: 8px;
             --box-shadow: 0 3px 10px rgba(0,0,0,0.08);
@@ -35,7 +35,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: var(--dark-color);
-            padding-top: 80px; /* Ajusté pour la nouvelle hauteur de navbar */
+            padding-top: 80px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -105,8 +105,8 @@
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 5px 0 !important; /* MODIFIÉ - Réduit de 10px à 5px */
-            min-height: 70px; /* AJOUTÉ - Hauteur fixe plus compacte */
+            padding: 5px 0 !important;
+            min-height: 70px;
         }
 
         .navbar-brand {
@@ -119,12 +119,12 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px; /* MODIFIÉ - Réduit de 12px à 8px */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 45px; /* MODIFIÉ - Réduit de 50px à 45px */
-            height: 45px; /* MODIFIÉ - Réduit de 50px à 45px */
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--secondary-color);
@@ -137,37 +137,37 @@
         }
 
         .hotel-name {
-            color: white; /* MODIFIÉ - Passé de secondary-color à blanc */
-            font-size: 1.4rem; /* MODIFIÉ - Réduit de 1.6rem à 1.4rem */
+            color: white;
+            font-size: 1.4rem;
             margin: 0;
             line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: rgba(255,255,255,0.9);
-            font-size: 0.75rem; /* MODIFIÉ - Réduit de 0.8rem à 0.75rem */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
             color: rgba(255,255,255,0.9) !important;
             font-weight: 500;
-            padding: 6px 12px !important; /* MODIFIÉ - Réduit de 8px 15px à 6px 12px */
+            padding: 6px 12px !important;
             margin: 0 2px;
             transition: var(--transition);
-            font-size: 0.9rem; /* AJOUTÉ */
+            font-size: 0.9rem;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important; /* MODIFIÉ - Blanc au lieu de secondary-color */
+            color: white !important;
             opacity: 0.9;
         }
 
         /* BOUTON RÉSERVER - FOND JAUNE AJOUTÉ - IDENTIQUE ACCUEIL */
         .btn-reservation {
-            background-color: var(--yellow-color) !important; /* Fond jaune */
-            color: var(--primary-color) !important; /* Texte bleu */
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
@@ -175,7 +175,7 @@
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important; /* Jaune plus foncé au hover */
+            background-color: #e6c200 !important;
             color: var(--primary-color) !important;
             transform: translateY(-2px);
         }
@@ -185,7 +185,7 @@
             background: url('https://images.unsplash.com/photo-1541976598-5d4f4f3d0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            height: 500px; /* MODIFIÉ - Identique à l'accueil (500px) */
+            height: 500px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -201,14 +201,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Overlay sombre semi-transparent */
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
 
         .hero-content {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 60px; /* margin-bottom pour descendre le texte */
+            margin: 0 auto 60px;
             position: relative;
             z-index: 2;
         }
@@ -284,31 +284,17 @@
             margin: 0 auto;
         }
 
-        /* Badge prix - UNIFORME AVEC ACCUEIL */
+        /* Badge prix - CORRIGÉ : PLUS DE DOUBLE SUFFIXE */
         .service-price {
             font-weight: bold;
             color: var(--primary-color);
             font-size: 1.1rem;
-        }
-        
-        .service-price::after {
-            content: " XOF";
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
         }
 
         .price-display {
             font-weight: bold;
             color: var(--primary-color);
             font-size: 1.1rem;
-        }
-        
-        .price-display::after {
-            content: " XOF";
-            font-weight: 600;
-            color: var(--accent-color);
-            font-size: 0.9rem;
         }
 
         .currency-badge {
@@ -417,13 +403,6 @@
             font-weight: bold;
             color: var(--primary-color);
             font-size: 1.1rem;
-        }
-
-        .treatment-price::after {
-            content: " XOF";
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
         }
         
         /* Conference room */
@@ -698,7 +677,7 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 70px; /* Ajusté pour mobile */
+                padding-top: 70px;
             }
             
             .navbar {
@@ -730,10 +709,12 @@
             
             .hero-title {
                 font-size: 1.8rem !important;
+                color: white !important;
             }
             
             .hero-subtitle {
                 font-size: 1rem !important;
+                color: white !important;
             }
             
             .location-badge {
@@ -848,16 +829,20 @@
             
             .hero-title {
                 font-size: 1.6rem !important;
+                color: white !important;
             }
             
             .hero-subtitle {
                 font-size: 0.9rem !important;
+                color: white !important;
             }
             
             .location-badge {
                 font-size: 0.75rem !important;
                 width: 100%;
                 padding: 5px 10px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .btn-hero {
@@ -921,15 +906,19 @@
             
             .hero-title {
                 font-size: 1.4rem !important;
+                color: white !important;
             }
             
             .hero-subtitle {
                 font-size: 0.85rem !important;
+                color: white !important;
             }
             
             .location-badge {
                 font-size: 0.7rem !important;
                 padding: 4px 8px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .btn-hero {
@@ -956,7 +945,7 @@
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
                     <!-- Logo image -->
-                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'">
+                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <div class="brand-text">
                         <h1 class="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle">
@@ -1281,10 +1270,10 @@
                                     </div>
                                     
                                     <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">20,000</div>
+                                        <div class="service-price">20,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary book-btn-pulse" onclick="bookService('visite-tassinère')">
+                                        <button class="btn btn-primary" onclick="bookService('visite-tassinère')">
                                             <i class="fas fa-calendar-check me-1"></i> Réserver
                                         </button>
                                         <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Visite du Village de Tassinère', 20000)">
@@ -1353,10 +1342,10 @@
                                     </div>
                                     
                                     <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">40,000</div>
+                                        <div class="service-price">40,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary book-btn-pulse" onclick="bookService('langue-barbarie')">
+                                        <button class="btn btn-primary" onclick="bookService('langue-barbarie')">
                                             <i class="fas fa-calendar-check me-1"></i> Réserver
                                         </button>
                                         <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Parc National de la Langue de Barbarie', 40000)">
@@ -1420,10 +1409,10 @@
                                     </div>
                                     
                                     <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">30,000</div>
+                                        <div class="service-price">30,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary book-btn-pulse" onclick="bookService('croisiere')">
+                                        <button class="btn btn-primary" onclick="bookService('croisiere')">
                                             <i class="fas fa-calendar-check me-1"></i> Réserver
                                         </button>
                                         <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Croisière Coucher de Soleil', 30000)">
@@ -1472,7 +1461,7 @@
                                                     <span class="ms-2 small">4.8/5 (67 avis)</span>
                                                 </div>
                                             </div>
-                                            <div class="treatment-price">25,000</div>
+                                            <div class="treatment-price">25,000 XOF</div>
                                         </div>
                                         <div class="offer-buttons mt-3">
                                             <button class="btn btn-primary btn-sm" onclick="bookService('massage-traditionnel')">
@@ -1501,7 +1490,7 @@
                                                     <span class="ms-2 small">5.0/5 (58 avis)</span>
                                                 </div>
                                             </div>
-                                            <div class="treatment-price">20,000</div>
+                                            <div class="treatment-price">20,000 XOF</div>
                                         </div>
                                         <div class="offer-buttons mt-3">
                                             <button class="btn btn-primary btn-sm" onclick="bookService('hammam')">
@@ -1546,7 +1535,7 @@
                                     <h4>Salle Tassinère</h4>
                                     <p>Salle de réunion équipée pour vos séminaires au cœur du Gandiol.</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="service-price">50,000 / jour</div>
+                                        <div class="service-price">50,000 XOF / jour</div>
                                     </div>
                                     <div class="offer-buttons mt-3">
                                         <button class="btn btn-primary" onclick="bookService('salle-tassinère')">
@@ -1573,7 +1562,7 @@
                                 <i class="fas fa-plane-arrival text-primary fa-3x"></i>
                                 <h5>Transfert Aéroport Saint-Louis</h5>
                                 <p>Départ de Tassinère</p>
-                                <div class="service-price mb-2">25,000</div>
+                                <div class="service-price mb-2">25,000 XOF</div>
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('transfer-aeroport')">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1590,7 +1579,7 @@
                                 <i class="fas fa-car text-primary fa-3x"></i>
                                 <h5>Voiture avec Chauffeur</h5>
                                 <p>Visite de Saint-Louis et environs</p>
-                                <div class="service-price mb-2">85,000 / jour</div>
+                                <div class="service-price mb-2">85,000 XOF / jour</div>
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('voiture-chauffeur')">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1607,7 +1596,7 @@
                                 <i class="fas fa-ship text-primary fa-3x"></i>
                                 <h5>Pirogue - Langue de Barbarie</h5>
                                 <p>Départ de Tassinère</p>
-                                <div class="service-price mb-2">15,000</div>
+                                <div class="service-price mb-2">15,000 XOF</div>
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('pirogue')">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1760,7 +1749,7 @@
                             <div id="availability-result" class="d-none">
                                 <div class="alert alert-success">
                                     <h6>Chambre disponible!</h6>
-                                    <p>Prix total pour votre séjour: <span id="total-price" class="price-display">125,000</span></p>
+                                    <p>Prix total pour votre séjour: <span id="total-price" class="price-display">125,000 XOF</span></p>
                                     <small class="text-muted">Taxes et service inclus</small>
                                 </div>
                             </div>
@@ -1829,7 +1818,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'">
+                            <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <h3><i class="fas fa-crown"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
                         </div>
                         <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
@@ -1971,7 +1960,7 @@
                     <div class="text-center py-4">
                         <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
                         <h5>Réservation: ${service.name}</h5>
-                        <p class="mb-2">Prix: <span class="price-display">${service.price.toLocaleString()}</span></p>
+                        <p class="mb-2">Prix: <span class="price-display">${service.price.toLocaleString()} XOF</span></p>
                         <p class="mb-3">Durée: ${service.duration}</p>
                         <div class="d-flex gap-2 justify-content-center">
                             <button class="btn btn-primary" onclick="alert('Réservation confirmée! Vous serez contacté.'); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
@@ -2081,7 +2070,7 @@
             if (checkAvailabilityBtn && availabilityResult) {
                 checkAvailabilityBtn.addEventListener('click', function() {
                     availabilityResult.classList.remove('d-none');
-                    document.getElementById('total-price').textContent = '125,000';
+                    document.getElementById('total-price').textContent = '125,000 XOF';
                 });
             }
             

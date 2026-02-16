@@ -10,15 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Styles généraux */
+        /* ===== STYLES GÉNÉRAUX ===== */
         :root {
             --primary-color: #025ba5;
-            --secondary-color: #e0e0e0;      /* Gris clair au lieu du jaune */
+            --secondary-color: #e0e0e0;
             --accent-color: #c53030;
             --dark-color: #025ba5;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-            --yellow-color: #FFD700;          /* Jaune pour le bouton réserver */
+            --yellow-color: #FFD700;
             --transition: all 0.3s ease;
             --border-radius: 10px;
             --box-shadow: 0 5px 15px rgba(0,0,0,0.08);
@@ -35,7 +35,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            padding-top: 80px; /* Ajusté pour la navbar réduite */
+            padding-top: 80px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -44,7 +44,7 @@
         }
 
         .section-padding {
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
         .bg-light {
@@ -73,9 +73,9 @@
         .btn-outline-primary:hover {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
+            color: white;
         }
 
-        /* Bouton WhatsApp */
         .btn-whatsapp {
             background-color: #25D366;
             color: white !important;
@@ -89,12 +89,12 @@
             transform: translateY(-2px);
         }
 
-        /* Navigation avec logo - TAILLE RÉDUITE comme sur l'accueil */
+        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À L'ORIGINAL) ===== */
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 5px 0; /* Réduit de 10px à 5px */
-            min-height: 70px; /* Hauteur fixe plus compacte */
+            padding: 5px 0;
+            min-height: 70px;
         }
 
         .navbar-brand {
@@ -107,15 +107,15 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px; /* Réduit de 12px à 8px */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 45px; /* Réduit de 50px à 45px */
-            height: 45px; /* Réduit de 50px à 45px */
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--secondary-color); /* Gris clair au lieu du jaune */
+            border: 2px solid var(--secondary-color);
             background-color: white;
         }
 
@@ -125,22 +125,22 @@
         }
 
         .hotel-name {
-            color: white; /* Blanc sur fond bleu */
-            font-size: 1.4rem; /* Réduit de 1.6rem à 1.4rem */
+            color: white;
+            font-size: 1.4rem;
             margin: 0;
             line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: rgba(255,255,255,0.9);
-            font-size: 0.75rem; /* Réduit de 0.8rem à 0.75rem */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
             color: rgba(255,255,255,0.9) !important;
             font-weight: 500;
-            padding: 6px 12px !important; /* Réduit de 8px 15px à 6px 12px */
+            padding: 6px 12px !important;
             margin: 0 2px;
             transition: var(--transition);
             font-size: 0.9rem;
@@ -148,14 +148,13 @@
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important; /* Blanc pur au hover */
+            color: white !important;
             opacity: 0.9;
         }
 
-        /* BOUTON RÉSERVER - FOND JAUNE comme sur l'accueil */
         .btn-reservation {
-            background-color: var(--yellow-color) !important; /* Fond jaune */
-            color: var(--primary-color) !important; /* Texte bleu */
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
@@ -163,147 +162,136 @@
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important; /* Jaune plus foncé au hover */
+            background-color: #e6c200 !important;
             color: var(--primary-color) !important;
             transform: translateY(-2px);
         }
 
-        /* Header Chambres - COLLÉ À LA NAVBAR, SANS FOND BLANC, TEXTE DESCENDU */
+        /* ===== HERO PLUS PETIT ===== */
         .room-hero {
-            background: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 300px; /* Réduit de 400px à 300px */
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
             text-align: center;
             margin-top: 0;
             position: relative;
         }
 
-        /* Overlay sombre pour améliorer la lisibilité du texte blanc */
-        .room-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
         .hero-content {
-            width: 100%;
             max-width: 800px;
-            margin: 0 auto 60px;
-            position: relative;
-            z-index: 2;
+            padding: 0 20px;
         }
 
         .hero-title {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2.5rem; /* Réduit de 3rem à 2.5rem */
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease;
         }
 
         .hero-subtitle {
             color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
         .location-badge {
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 8px 15px;
+            padding: 6px 14px; /* Réduit de 8px 16px à 6px 14px */
             border-radius: 30px;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            font-size: 0.85rem; /* Réduit de 0.9rem à 0.85rem */
+            margin-bottom: 15px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease 0.6s both;
         }
 
-        .btn-hero {
-            padding: 12px 30px;
-            margin: 5px 10px;
-            font-size: 1rem;
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn-outline-light {
-            color: white !important;
-            border-color: white !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn-outline-light:hover {
-            background-color: rgba(255,255,255,0.2);
-            color: white !important;
-            border-color: white !important;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Section header */
+        /* ===== SECTION HEADER ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px; /* Réduit de 40px à 30px */
         }
 
         .section-header h2 {
             color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 2rem; /* Réduit de 2.2rem à 2rem */
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; /* Ajusté */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px; /* Réduit de 60px à 50px */
+            height: 3px;
+            background: var(--yellow-color);
         }
 
         .section-header p {
             color: #666;
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* Réduit de 1rem à 0.95rem */
             max-width: 700px;
-            margin: 0 auto;
+            margin: 10px auto 0;
         }
 
-        /* Statistiques en temps réel */
-        .stat-item {
-            background: white;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--box-shadow-hover);
-        }
-
-        .stat-item h3 {
-            color: var(--primary-color);
-            margin: 10px 0;
-        }
-
-        /* Filtres */
+        /* ===== FILTRES ===== */
         .filter-card {
             background: white;
             border-radius: var(--border-radius);
-            padding: 25px;
+            padding: 15px; /* Réduit de 20px à 15px */
             box-shadow: var(--box-shadow);
-            margin-bottom: 30px;
+            margin-bottom: 25px; /* Réduit de 30px à 25px */
+            border: 1px solid #eaeaea;
         }
 
-        /* Cartes de chambres - REVUES */
+        .filter-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px; /* Réduit de 15px à 12px */
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem; /* Plus petit */
+        }
+
+        /* ===== CARTES DE CHAMBRES AVEC IMAGES PLUS PETITES ===== */
         .room-card {
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
             overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 25px; /* Réduit de 30px à 25px */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eaeaea;
         }
 
@@ -312,447 +300,472 @@
             box-shadow: var(--box-shadow-hover);
         }
 
-        .room-card img {
+        .room-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 240px; /* Réduit de 320px à 240px */
+            max-height: 240px; /* Hauteur max fixe */
+            background-color: #f5f5f5;
+        }
+
+        .room-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.5s ease;
-            border-radius: 8px;
         }
 
-        .room-card:hover img {
-            transform: scale(1.03);
+        .room-card:hover .room-image-wrapper img {
+            transform: scale(1.05);
         }
 
-        .room-details h3 {
+        .room-badge {
+            position: absolute;
+            top: 12px; /* Ajusté */
+            right: 12px; /* Ajusté */
+            padding: 4px 12px; /* Réduit de 6px 15px à 4px 12px */
+            border-radius: 30px;
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .room-badge.economique { background: linear-gradient(135deg, #4a5568, #718096); color: white; }
+        .room-badge.confort { background: linear-gradient(135deg, var(--yellow-color), #e6c200); color: var(--dark-color); }
+        .room-badge.luxe { background: linear-gradient(135deg, var(--accent-color), #e53e3e); color: white; }
+        .room-badge.prestige { background: linear-gradient(135deg, #1a365d, #2d3748); color: white; }
+
+        .room-view-badge {
+            position: absolute;
+            top: 12px; /* Ajusté */
+            left: 12px; /* Ajusté */
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 10px; /* Réduit de 4px 12px à 4px 10px */
+            border-radius: 20px;
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+
+        .room-view-badge i {
+            margin-right: 3px;
+        }
+
+        .room-content {
+            padding: 18px; /* Réduit de 25px à 18px */
+        }
+
+        .room-title {
             color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Réduit de 1.8rem à 1.5rem */
+            margin-bottom: 6px; /* Réduit de 10px à 6px */
         }
 
-        .room-details .lead {
+        .room-description {
             color: #666;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            margin-bottom: 10px; /* Réduit de 15px à 10px */
+            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            line-height: 1.5;
         }
 
-        /* Badge prix amélioré */
-        .room-price-tag {
+        .room-price {
             background: linear-gradient(135deg, var(--yellow-color), #e6c200);
             color: var(--dark-color);
-            padding: 12px 25px;
+            padding: 6px 15px; /* Réduit de 10px 20px à 6px 15px */
             border-radius: 30px;
             font-weight: bold;
             display: inline-block;
-            margin: 15px 0;
-            position: relative;
-            overflow: hidden;
-            font-size: 1.4rem;
+            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
+            font-size: 1.2rem; /* Réduit de 1.4rem à 1.2rem */
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
         }
 
-        .room-price-tag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.7s;
+        .room-price small {
+            font-size: 0.65rem; /* Réduit de 0.75rem à 0.65rem */
+            font-weight: normal;
+            display: block;
+            color: #666;
         }
 
-        .room-card:hover .room-price-tag::before {
-            left: 100%;
-        }
-
-        .room-price-tag::after {
-            content: " XOF/nuit";
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        
-        .room-feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-        
-        .room-feature-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-        
-        .room-feature-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .room-feature-list i {
-            color: var(--primary-color);
-            margin-right: 12px;
-            width: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .room-amenities {
+        .room-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 20px 0;
+            gap: 6px; /* Réduit de 10px à 6px */
+            margin: 10px 0; /* Réduit de 15px 0 à 10px 0 */
         }
-        
-        .amenity-item {
+
+        .feature-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px;
-            background: rgba(2, 91, 165, 0.05); /* Modifié: bleu clair au lieu du jaune */
-            border-radius: 8px;
-        }
-        
-        .amenity-icon {
-            color: var(--primary-color); /* Modifié: bleu au lieu du jaune */
-            font-size: 1.2rem;
-        }
-        
-        .view-badge {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        
-        .room-comparison {
-            background-color: var(--light-green);
-        }
-        
-        .comparison-table th {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px;
-        }
-
-        .comparison-table td {
-            padding: 12px 15px;
-            vertical-align: middle;
-        }
-
-        .comparison-table tr:hover {
-            background-color: rgba(2, 91, 165, 0.05); /* Modifié: bleu clair au lieu du jaune */
-        }
-
-        .room-category-badge {
-            background: linear-gradient(45deg, var(--primary-color), #2c5282);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .room-category-badge.economique {
-            background: linear-gradient(45deg, #4a5568, #718096);
-        }
-
-        .room-category-badge.confort {
-            background: linear-gradient(45deg, var(--yellow-color), #e6c200);
-            color: var(--dark-color);
-        }
-
-        .room-category-badge.luxe {
-            background: linear-gradient(45deg, var(--accent-color), #e53e3e);
-        }
-
-        .room-category-badge.prestige {
-            background: linear-gradient(45deg, #1a365d, #2d3748);
-        }
-
-        .price-display {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-        
-        .price-display::after {
-            content: " XOF";
-            font-weight: 600;
-            color: var(--accent-color);
-            font-size: 1rem;
-        }
-
-        .currency-badge {
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 10px auto;
-            display: inline-block;
-        }
-
-        .senegal-flag-icon {
-            display: inline-block;
-            margin-right: 5px;
-        }
-
-        /* Avis et notations améliorés */
-        .review-badge {
-            background: linear-gradient(135deg, rgba(2, 91, 165, 0.05), rgba(2, 91, 165, 0.02)); /* Modifié: bleu clair */
-            border-left: 4px solid var(--primary-color); /* Modifié: bleu au lieu du jaune */
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .review-badge p {
-            margin-bottom: 5px;
-            font-style: italic;
-        }
-
-        /* Bouton de réservation amélioré */
-        .book-btn-pulse {
-            background: linear-gradient(135deg, var(--primary-color), #024a84);
-            border: none;
-            padding: 12px 30px;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .book-btn-pulse:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(2, 91, 165, 0.3);
-        }
-
-        /* Galerie améliorée */
-        .gallery-thumbnail {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .gallery-thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Chambre indisponible */
-        .unavailable {
-            opacity: 0.8;
-            position: relative;
-        }
-
-        .unavailable::after {
-            content: 'COMPLET';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-15deg);
-            background: var(--accent-color);
-            color: white;
-            padding: 15px 40px;
+            gap: 5px; /* Réduit de 8px à 5px */
+            padding: 4px; /* Réduit de 6px à 4px */
+            background: rgba(2, 91, 165, 0.05);
             border-radius: 5px;
-            font-weight: bold;
-            z-index: 10;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            opacity: 0.9;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Carrousel amélioré */
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            width: 16px;
+        }
+
+        .feature-text {
+            font-size: 0.75rem; /* Réduit de 0.85rem à 0.75rem */
+            color: var(--dark-color);
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3px; /* Réduit de 5px à 3px */
+        }
+
+        .amenities-list li {
+            padding: 3px 0; /* Réduit de 4px à 3px */
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Réduit de 8px à 5px */
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            border-bottom: 1px dashed #eee;
+        }
+
+        .amenities-list i {
+            color: var(--primary-color);
+            width: 14px;
+            font-size: 0.7rem;
+        }
+
+        .review-badge {
+            background: linear-gradient(135deg, rgba(2, 91, 165, 0.05), rgba(2, 91, 165, 0.02));
+            border-left: 3px solid var(--primary-color);
+            padding: 8px; /* Réduit de 12px à 8px */
+            border-radius: 5px;
+            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 3px;
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 3px;
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+        }
+
+        /* Boutons plus compacts */
+        .room-content .btn {
+            padding: 5px 12px;
+            font-size: 0.75rem;
+        }
+
+        .room-content .btn i {
+            margin-right: 4px;
+            font-size: 0.7rem;
+        }
+
+        /* ===== CAROUSEL AJUSTÉ ===== */
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 100%;
+        }
+
+        .carousel-indicators {
+            margin-bottom: 5px;
+        }
+
         .carousel-indicators button {
-            width: 12px;
-            height: 12px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            margin: 0 5px;
-            background-color: var(--primary-color) !important;
-            opacity: 0.5;
-        }
-
-        .carousel-indicators button.active {
-            opacity: 1;
-            transform: scale(1.2);
+            margin: 0 2px;
         }
 
         .carousel-control-prev,
         .carousel-control-next {
-            width: 5%;
-            opacity: 0.8;
+            width: 25px;
+            height: 25px;
+            opacity: 0.5;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
         }
+
+        .carousel-control-prev { left: 5px; }
+        .carousel-control-next { right: 5px; }
 
         .carousel-control-prev:hover,
         .carousel-control-next:hover {
             opacity: 1;
+            background: rgba(0,0,0,0.5);
         }
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            padding: 12px;
-            background-size: 60%;
+            width: 12px;
+            height: 12px;
         }
 
-        /* Footer - harmonisé avec l'accueil */
+        /* ===== TABLEAU COMPARATIF PLUS COMPACT ===== */
+        .comparison-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px 0; /* Réduit de 40px à 30px */
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px; /* Réduit de 12px à 8px */
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .comparison-table td {
+            padding: 6px 8px; /* Réduit de 10px à 6px */
+            vertical-align: middle;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .feature-yes { color: #28a745; }
+        .feature-no { color: #dc3545; }
+
+        /* ===== FAQ PLUS COMPACTE ===== */
+        .faq-section {
+            padding: 30px 0; /* Réduit de 40px à 30px */
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 8px; /* Réduit de 10px à 8px */
+            border-radius: 8px !important;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 12px; /* Réduit de 15px à 12px */
+            font-size: 0.85rem; /* Réduit de 0.95rem à 0.85rem */
+        }
+
+        .accordion-body {
+            padding: 12px; /* Réduit de 15px à 12px */
+            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+        }
+
+        /* ===== CTA PLUS COMPACT ===== */
+        .cta-section {
+            background: linear-gradient(rgba(2, 91, 165, 0.9), rgba(2, 91, 165, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 40px 0; /* Réduit de 50px à 40px */
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title { 
+            font-size: 1.8rem; /* Réduit de 2rem à 1.8rem */ 
+            margin-bottom: 10px; 
+        }
+        
+        .cta-text { 
+            font-size: 1rem; /* Réduit de 1.1rem à 1rem */ 
+            margin-bottom: 15px; 
+            opacity: 0.9; 
+        }
+
+        .cta-buttons .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODAL RÉSERVATION ===== */
+        .modal-header.bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .btn-close-white {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+        
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .modal-lg {
+            max-width: 700px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-body .form-label {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .modal-body .form-control,
+        .modal-body .form-select {
+            font-size: 0.85rem;
+            padding: 6px 12px;
+        }
+
+        /* ===== FOOTER (IDENTIQUE À L'ORIGINAL) ===== */
         .footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 30px 0 20px;
+            padding: 40px 0 15px;
             font-size: 0.9rem;
         }
 
         .footer-about h3 {
-            color: white; /* Modifié: blanc sur fond bleu */
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
         .footer-links h4,
         .footer-contact h4,
         .footer-newsletter h4 {
-            color: white; /* Modifié: blanc sur fond bleu */
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
 
         .footer-links ul li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .footer-links ul li a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
             transition: var(--transition);
-        }
-
-        .footer-links ul li a:hover {
-            color: white;
-            padding-left: 5px;
+            font-size: 0.85rem;
         }
 
         .footer-contact p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: rgba(255,255,255,0.8);
-        }
-
-        .footer-contact i {
-            color: white; /* Modifié: icônes blanches */
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .social-links {
-            margin-top: 15px;
+            font-size: 0.85rem;
         }
 
         .social-links a {
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            font-size: 0.9rem;
             display: inline-block;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
             text-align: center;
-            line-height: 35px;
-            margin-right: 10px;
+            color: white;
+            margin-right: 5px;
             transition: var(--transition);
         }
 
         .social-links a:hover {
-            background-color: white; /* Fond blanc au hover */
-            color: var(--primary-color); /* Texte bleu au hover */
+            background: white;
+            color: var(--primary-color);
             transform: translateY(-3px);
         }
 
-        .footer-newsletter .input-group {
-            margin-top: 10px;
-        }
-
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 15px;
             margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
             text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
         }
 
-        .footer-bottom a {
-            color: white; /* Modifié: blanc */
-            text-decoration: none;
+        /* ===== ANIMATIONS ===== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
-        .footer-bottom a:hover {
-            text-decoration: underline;
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Modal */
-        .modal-content {
-            border-radius: 10px;
-            overflow: hidden;
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .room-image-wrapper {
+                min-height: 220px;
+                max-height: 220px;
+            }
         }
 
-        .modal-header {
-            background-color: var(--primary-color);
-            color: white;
-            border-bottom: none;
-            padding: 20px;
-        }
-
-        .modal-title {
-            color: white;
-        }
-
-        .btn-close {
-            filter: invert(1);
-        }
-
-        /* Responsive pour la nouvelle taille de navbar */
         @media (max-width: 992px) {
-            .room-card {
-                margin-bottom: 30px;
-                padding: 20px;
+            body {
+                padding-top: 80px;
             }
             
-            .room-amenities {
-                grid-template-columns: repeat(2, 1fr);
+            .room-image-wrapper {
+                min-height: 200px;
+                max-height: 200px;
+            }
+            
+            .room-title {
+                font-size: 1.4rem;
             }
             
             .hero-title {
                 font-size: 2.2rem;
             }
             
-            .room-details h3 {
-                font-size: 1.6rem;
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .room-hero {
+                height: 280px;
+            }
+            
+            .amenities-list {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 70px; /* Ajusté pour mobile */
+                padding-top: 70px;
             }
             
             .navbar {
-                padding: 4px 0 !important;
+                padding: 4px 0;
                 min-height: 60px;
             }
             
@@ -762,162 +775,90 @@
             }
             
             .hotel-name {
-                font-size: 1.2rem !important;
-            }
-            
-            .hotel-subtitle {
-                font-size: 0.65rem !important;
-            }
-            
-            .navbar-nav .nav-link {
-                padding: 8px 15px !important;
+                font-size: 1.2rem;
             }
             
             .room-hero {
-                height: 400px !important;
-                padding: 0 15px !important;
-                margin-top: 0 !important;
-            }
-            
-            .hero-content {
-                padding: 20px 10px !important;
-                margin-bottom: 30px !important;
+                height: 250px;
             }
             
             .hero-title {
-                font-size: 2rem !important;
-                color: white !important;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem !important;
-                color: white !important;
-            }
-            
-            .location-badge {
-                font-size: 0.8rem !important;
-                color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
-            }
-            
-            .room-card {
-                padding: 20px;
-            }
-            
-            .room-amenities {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-header h2 {
                 font-size: 1.8rem;
             }
             
-            .room-price-tag {
-                font-size: 1.2rem;
-                padding: 10px 20px;
+            .hero-subtitle {
+                font-size: 0.9rem;
             }
             
-            .footer {
-                text-align: center;
+            .section-header h2 {
+                font-size: 1.6rem;
             }
             
-            .social-links {
-                justify-content: center;
-                display: flex;
+            .room-image-wrapper {
+                min-height: 180px;
+                max-height: 180px;
             }
             
-            .carousel-control-prev,
-            .carousel-control-next {
-                width: 10%;
+            .room-content {
+                padding: 15px;
             }
             
-            .btn-outline-light {
-                color: white !important;
-                border-color: white !important;
+            .room-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                margin: 3px 0;
             }
         }
 
         @media (max-width: 576px) {
-            body {
-                padding-top: 65px;
+            .room-hero {
+                height: 200px;
             }
             
-            .navbar {
-                min-height: 55px;
+            .hero-title {
+                font-size: 1.5rem;
             }
             
-            .room-details .btn-primary {
+            .hero-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .location-badge {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            
+            .room-image-wrapper {
+                min-height: 160px;
+                max-height: 160px;
+            }
+            
+            .room-price {
+                font-size: 1rem;
+                padding: 4px 12px;
+            }
+            
+            .room-content .btn {
                 width: 100%;
-                margin-top: 15px;
-            }
-            
-            .room-hero {
-                height: 350px !important;
-            }
-            
-            .hero-title {
-                font-size: 1.8rem !important;
-            }
-            
-            .logo-image {
-                width: 32px;
-                height: 32px;
-            }
-            
-            .hotel-name {
-                font-size: 1.1rem !important;
-            }
-            
-            .room-price-tag {
-                font-size: 1.3rem;
-                padding: 8px 15px;
-            }
-            
-            .filter-card .row > div {
-                margin-bottom: 15px;
-            }
-            
-            .room-feature-list li {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            body {
-                padding-top: 60px;
-            }
-            
-            .navbar {
-                min-height: 50px;
-            }
-            
-            .room-hero {
-                height: 320px !important;
-            }
-            
-            .logo-image {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .hotel-name {
-                font-size: 1rem !important;
-            }
-            
-            .hero-title {
-                font-size: 1.6rem !important;
+                margin-bottom: 3px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation avec logo - TAILLE RÉDUITE comme sur l'accueil -->
+    <!-- ===== NAVIGATION (STRICTEMENT IDENTIQUE À L'ORIGINAL) ===== -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo image - Placeholder avec une image de couronne/hôtel -->
-                    <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" onerror="this.style.display='none';">
+                    <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" loading="lazy" onerror="this.style.display='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle">
@@ -970,491 +911,304 @@
         </div>
     </nav>
 
-    <!-- Hero Section Chambres - COLLÉ À LA NAVBAR, SANS FOND BLANC, TEXTE DESCENDU -->
+    <!-- ===== HERO PLUS PETIT ===== -->
     <header class="room-hero">
         <div class="container hero-content">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h1 class="hero-title">Chambres & Suites</h1>
-                    <p class="hero-subtitle">Confort authentique aux portes de la Langue de Barbarie et du fleuve Sénégal</p>
-                    <div class="location-badge">
-                        <i class="fas fa-bed"></i> Toutes nos chambres climatisées avec décor sénégalais
-                    </div>
-                </div>
+            <h1 class="hero-title">Chambres & Suites</h1>
+            <p class="hero-subtitle">Confort moderne et authenticité sénégalaise</p>
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i> Tassinère, Gandiol - Saint-Louis 🇸🇳
             </div>
         </div>
     </header>
 
-    
-    <!-- Liste des Chambres -->
-    <section class="section-padding">
+    <!-- ===== INTRODUCTION ===== -->
+    <section class="section-padding" style="padding: 40px 0;">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Hébergements <span class="senegal-flag-icon">🇸🇳</span></h2>
-                <p>Découvrez nos chambres et suites à Tassinère, commune de Ndiébène Gandiol</p>
-                <div class="currency-badge">Tous les prix en XOF (Franc CFA) - Petit déjeuner inclus</div>
+                <h2>Nos Hébergements</h2>
+                <p>Découvrez nos chambres alliant confort et décoration locale</p>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="alert alert-info py-2" style="font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Prix en XOF - Petit-déjeuner inclus
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            
-            
-            <!-- Chambre Standard REVUE -->
-            <div class="room-card">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-6">
-                        <div class="position-relative">
-                            <div id="carouselStandard" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="0" class="active"></button>
-                                    <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner rounded">
-                                    <div class="carousel-item active">
-                                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Standard - Vue d'ensemble">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Standard - Salle de bain">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Standard - Détail décoration">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselStandard" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselStandard" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+    <!-- ===== FILTRES ===== -->
+    <section class="container">
+        <div class="filter-card animate-on-scroll">
+            <div class="filter-title">
+                <i class="fas fa-sliders-h"></i>
+                <h5 class="mb-0">Filtrer les chambres</h5>
+            </div>
+            <div class="row g-2">
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-type" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all">Type</option>
+                        <option value="economique">Économique</option>
+                        <option value="confort">Confort</option>
+                        <option value="luxe">Luxe</option>
+                        <option value="prestige">Prestige</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-price" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all">Prix</option>
+                        <option value="70000">-70k XOF</option>
+                        <option value="100000">-100k XOF</option>
+                        <option value="200000">-200k XOF</option>
+                        <option value="500000">-500k XOF</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-view" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all">Vue</option>
+                        <option value="jardin">Jardin</option>
+                        <option value="piscine">Piscine</option>
+                        <option value="panoramique">Panoramique</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-capacity" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all">Capacité</option>
+                        <option value="2">2 pers</option>
+                        <option value="3">3 pers</option>
+                        <option value="4">4 pers</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LISTE DES CHAMBRES (IMAGES PLUS PETITES) ===== -->
+    <section class="container" id="rooms-list">
+        <!-- STANDARD -->
+        <div class="room-card animate-on-scroll" data-type="economique" data-price="65000" data-view="jardin" data-capacity="2">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                    <div class="room-image-wrapper">
+                        <div id="carouselStandard" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="2"></button>
                             </div>
-                            <div class="view-badge position-absolute top-0 end-0 m-3">
-                                <i class="fas fa-eye"></i> Vue jardin
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100">
+                                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Chambre Standard" loading="lazy">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Salle de bain" loading="lazy">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Décoration" loading="lazy">
+                                </div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselStandard" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselStandard" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
+                        <span class="room-badge economique">Standard</span>
+                        <span class="room-view-badge"><i class="fas fa-tree"></i> Jardin</span>
                     </div>
-                    <div class="col-md-6">
-                        <div class="room-details">
-                            <div class="room-category-badge economique">Économique</div>
-                            <h3>Chambre Standard</h3>
-                            <p class="lead">Chambre confortable idéale pour les courts séjours. Équipée d'un lit double et décorée avec des tissus wax traditionnels, elle offre tout le confort nécessaire pour un séjour agréable à Gandiol.</p>
-                            
-                            <div class="room-price-tag">65,000</div>
-                            
-                            <div class="room-amenities">
-                                <div class="amenity-item">
-                                    <i class="fas fa-ruler amenity-icon"></i>
-                                    <span>25 m²</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-user-friends amenity-icon"></i>
-                                    <span>2 personnes</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-bed amenity-icon"></i>
-                                    <span>Lit double 160x200</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-wifi amenity-icon"></i>
-                                    <span>Wi-Fi gratuit</span>
-                                </div>
-                            </div>
-                            
-                            <h5>Équipements inclus:</h5>
-                            <ul class="room-feature-list">
-                                <li><i class="fas fa-check text-success"></i> Climatisation individuelle</li>
-                                <li><i class="fas fa-check text-success"></i> TV écran plat 40" avec chaînes internationales</li>
-                                <li><i class="fas fa-check text-success"></i> Mini-bar avec eau minérale</li>
-                                <li><i class="fas fa-check text-success"></i> Salle de bain privée avec douche</li>
-                                <li><i class="fas fa-check text-success"></i> Coffre-fort électronique</li>
-                                <li><i class="fas fa-check text-success"></i> Plateau de courtoisie thé/café</li>
-                                <li><i class="fas fa-check text-success"></i> Téléphone direct</li>
-                            </ul>
-                            
-                            <!-- Avis et notations -->
-                            <div class="mt-4">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </span>
-                                        <span class="ms-2 small">4.5/5 (128 avis)</span>
-                                    </div>
-                                    <button class="btn btn-link btn-sm p-0 text-primary" onclick="openReviews('standard')">
-                                        <i class="fas fa-comment"></i> Lire les avis
-                                    </button>
-                                </div>
-                                <div class="review-badge">
-                                    <p class="mb-2"><strong>Dernier avis:</strong> "Chambre très confortable avec une décoration locale charmante. Personnel très attentionné. Calme et reposant à Tassinère."</p>
-                                    <p class="mb-0 small text-muted">- Marie D., Janvier 2024</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <button class="btn btn-primary book-btn-pulse" onclick="bookRoom('standard')">
-                                    <i class="fas fa-calendar-check"></i> Réserver cette chambre
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="openGallery('standard')">
-                                    <i class="fas fa-images"></i> Plus de photos
-                                </button>
-                            </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="room-content">
+                        <h2 class="room-title">Chambre Standard</h2>
+                        <p class="room-description">Confortable et chaleureuse avec décoration wax traditionnelle.</p>
+                        <div class="room-price">65,000 XOF <small>/nuit</small></div>
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text">25 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text">2 pers</span></div>
+                            <div class="feature-item"><i class="fas fa-wifi feature-icon"></i><span class="feature-text">Wi-Fi</span></div>
+                            <div class="feature-item"><i class="fas fa-snowflake feature-icon"></i><span class="feature-text">Clim</span></div>
+                        </div>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle text-success"></i> TV 40"</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Mini-bar</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Coffre-fort</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Douche</li>
+                        </ul>
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5</div>
+                            <p class="review-text">"Chambre confortable et calme"</p>
+                            <div class="review-author">- Marie D.</div>
+                        </div>
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('standard')"><i class="fas fa-calendar-check"></i> Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('standard')"><i class="fas fa-images"></i> Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('standard')"><i class="fab fa-whatsapp"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Chambre Deluxe REVUE -->
-            <div class="room-card">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-6 order-md-2">
-                        <div class="position-relative">
-                            <div id="carouselDeluxe" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="0" class="active"></button>
-                                    <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner rounded">
-                                    <div class="carousel-item active">
-                                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Deluxe - Vue piscine">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Deluxe - Balcon">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Chambre Deluxe - Salle de bain">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDeluxe" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselDeluxe" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+        </div>
+
+        <!-- DELUXE -->
+        <div class="room-card animate-on-scroll" data-type="confort" data-price="95000" data-view="piscine" data-capacity="2">
+            <div class="row g-0">
+                <div class="col-lg-5 order-lg-2">
+                    <div class="room-image-wrapper">
+                        <div id="carouselDeluxe" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="2"></button>
                             </div>
-                            <div class="view-badge position-absolute top-0 start-0 m-3" style="background: var(--accent-color);">
-                                <i class="fas fa-eye"></i> Vue piscine
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Chambre Deluxe"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Balcon"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Salle de bain"></div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDeluxe" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselDeluxe" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
+                        <span class="room-badge confort">Deluxe</span>
+                        <span class="room-view-badge"><i class="fas fa-swimming-pool"></i> Piscine</span>
                     </div>
-                    <div class="col-md-6 order-md-1">
-                        <div class="room-details">
-                            <div class="room-category-badge confort">Confort</div>
-                            <h3>Chambre Deluxe</h3>
-                            <p class="lead">Chambre spacieuse avec lit king-size et balcon privé offrant une vue sur la piscine et les jardins tropicaux. Décoration africaine contemporaine et équipements premium.</p>
-                            
-                            <div class="room-price-tag">95,000</div>
-                            
-                            <div class="room-amenities">
-                                <div class="amenity-item">
-                                    <i class="fas fa-ruler amenity-icon"></i>
-                                    <span>35 m²</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-user-friends amenity-icon"></i>
-                                    <span>2 personnes</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-bed amenity-icon"></i>
-                                    <span>Lit king-size 180x200</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-wind amenity-icon"></i>
-                                    <span>Balcon privé</span>
-                                </div>
-                            </div>
-                            
-                            <h5>Équipements premium:</h5>
-                            <ul class="room-feature-list">
-                                <li><i class="fas fa-check text-success"></i> Climatisation silencieuse haute performance</li>
-                                <li><i class="fas fa-check text-success"></i> Smart TV 55" écran plat avec Netflix</li>
-                                <li><i class="fas fa-check text-success"></i> Mini-bar premium entièrement équipé</li>
-                                <li><i class="fas fa-check text-success"></i> Salle de bain marbre avec baignoire et douche italienne</li>
-                                <li><i class="fas fa-check text-success"></i> Coffre-fort numérique grand format</li>
-                                <li><i class="fas fa-check text-success"></i> Machine à café Nespresso avec capsules</li>
-                                <li><i class="fas fa-check text-success"></i> Peignoir et pantoufles en coton égyptien</li>
-                                <li><i class="fas fa-check text-success"></i> Service de concierge 24h/24</li>
-                            </ul>
-                            
-                            <!-- Avis et notations -->
-                            <div class="mt-4">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                        <span class="ms-2 small">5.0/5 (245 avis)</span>
-                                    </div>
-                                    <button class="btn btn-link btn-sm p-0 text-primary" onclick="openReviews('deluxe')">
-                                        <i class="fas fa-comment"></i> Lire les avis
-                                    </button>
-                                </div>
-                                <div class="review-badge">
-                                    <p class="mb-2"><strong>Dernier avis:</strong> "Superbe chambre avec une vue magnifique sur la piscine. Le calme de Gandiol est reposant et le service impeccable!"</p>
-                                    <p class="mb-0 small text-muted">- Pierre L., Février 2024</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <button class="btn btn-primary book-btn-pulse" onclick="bookRoom('deluxe')">
-                                    <i class="fas fa-calendar-check"></i> Réserver cette chambre
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="openGallery('deluxe')">
-                                    <i class="fas fa-images"></i> Plus de photos
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="open360View('deluxe')">
-                                    <i class="fas fa-360-degrees"></i> Visite 360°
-                                </button>
-                            </div>
+                </div>
+                <div class="col-lg-7 order-lg-1">
+                    <div class="room-content">
+                        <h2 class="room-title">Chambre Deluxe</h2>
+                        <p class="room-description">Spacieuse avec balcon privé et vue sur la piscine.</p>
+                        <div class="room-price">95,000 XOF <small>/nuit</small></div>
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text">35 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2 pers</span></div>
+                            <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text">Balcon</span></div>
+                            <div class="feature-item"><i class="fas fa-coffee"></i><span class="feature-text">Nespresso</span></div>
+                        </div>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle text-success"></i> Smart TV 55"</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Baignoire</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Peignoir</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Concierge</li>
+                        </ul>
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5.0</div>
+                            <p class="review-text">"Vue magnifique, service impeccable"</p>
+                            <div class="review-author">- Pierre L.</div>
+                        </div>
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('deluxe')"><i class="fas fa-calendar-check"></i> Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('deluxe')"><i class="fas fa-images"></i> Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('deluxe')"><i class="fab fa-whatsapp"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Suite Prestige REVUE -->
-            <div class="room-card">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-6">
-                        <div class="position-relative">
-                            <div id="carouselSuite" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="0" class="active"></button>
-                                    <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="2"></button>
-                                </div>
-                                <div class="carousel-inner rounded">
-                                    <div class="carousel-item active">
-                                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Prestige - Séjour">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Prestige - Chambre">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Prestige - Jacuzzi">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuite" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselSuite" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+        </div>
+
+        <!-- SUITE PRESTIGE -->
+        <div class="room-card animate-on-scroll" data-type="luxe" data-price="150000" data-view="panoramique" data-capacity="3">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                    <div class="room-image-wrapper">
+                        <div id="carouselSuite" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="2"></button>
                             </div>
-                            <div class="view-badge position-absolute top-0 end-0 m-3">
-                                <i class="fas fa-eye"></i> Vue panoramique jardin
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Suite Prestige"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Chambre"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Jacuzzi"></div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuite" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselSuite" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
+                        <span class="room-badge luxe">Prestige</span>
+                        <span class="room-view-badge"><i class="fas fa-mountain"></i> Panorama</span>
                     </div>
-                    <div class="col-md-6">
-                        <div class="room-details">
-                            <div class="room-category-badge luxe">Luxe</div>
-                            <h3>Suite Prestige</h3>
-                            <p class="lead">Suite spacieuse avec séjour séparé, décoration africaine contemporaine et vue panoramique sur les jardins tropicaux. Parfaite pour les séjours en amoureux ou les voyages d'affaires.</p>
-                            
-                            <div class="room-price-tag">150,000</div>
-                            
-                            <div class="room-amenities">
-                                <div class="amenity-item">
-                                    <i class="fas fa-ruler amenity-icon"></i>
-                                    <span>50 m²</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-user-friends amenity-icon"></i>
-                                    <span>2-3 personnes</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-bed amenity-icon"></i>
-                                    <span>Lit king-size 200x200</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-couch amenity-icon"></i>
-                                    <span>Séjour indépendant</span>
-                                </div>
-                            </div>
-                            
-                            <h5>Équipements exclusifs:</h5>
-                            <ul class="room-feature-list">
-                                <li><i class="fas fa-check text-success"></i> Séjour avec canapé convertible et fauteuils</li>
-                                <li><i class="fas fa-check text-success"></i> 2 TV écran plat 65" Smart TV avec Apple TV</li>
-                                <li><i class="fas fa-check text-success"></i> Mini-bar entièrement stocké (vin, champagne)</li>
-                                <li><i class="fas fa-check text-success"></i> Salle de bain luxe en marbre avec jacuzzi double</li>
-                                <li><i class="fas fa-check text-success"></i> Bureau exécutif avec imprimante WIFI</li>
-                                <li><i class="fas fa-check text-success"></i> Machine à café Nespresso premium et thé selection</li>
-                                <li><i class="fas fa-check text-success"></i> Service de majordome dédié</li>
-                                <li><i class="fas fa-check text-success"></i> Accès VIP au lounge Executive avec petit-déjeuner</li>
-                            </ul>
-                            
-                            <!-- Avis et notations -->
-                            <div class="mt-4">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                        <span class="ms-2 small">5.0/5 (182 avis)</span>
-                                    </div>
-                                    <button class="btn btn-link btn-sm p-0 text-primary" onclick="openReviews('suite')">
-                                        <i class="fas fa-comment"></i> Lire les avis
-                                    </button>
-                                </div>
-                                <div class="review-badge">
-                                    <p class="mb-2"><strong>Dernier avis:</strong> "Une expérience exceptionnelle! Le calme de Gandiol et le confort de la suite sont parfaits pour se ressourcer. Service impeccable."</p>
-                                    <p class="mb-0 small text-muted">- Aminata S., Mars 2024</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <button class="btn btn-primary book-btn-pulse" onclick="bookRoom('suite')">
-                                    <i class="fas fa-calendar-check"></i> Réserver cette suite
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="openGallery('suite')">
-                                    <i class="fas fa-images"></i> Plus de photos
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="open360View('suite')">
-                                    <i class="fas fa-360-degrees"></i> Visite 360°
-                                </button>
-                            </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="room-content">
+                        <h2 class="room-title">Suite Prestige</h2>
+                        <p class="room-description">Séjour indépendant avec jacuzzi et vue panoramique.</p>
+                        <div class="room-price">150,000 XOF <small>/nuit</small></div>
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text">50 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2-3 pers</span></div>
+                            <div class="feature-item"><i class="fas fa-hot-tub"></i><span class="feature-text">Jacuzzi</span></div>
+                            <div class="feature-item"><i class="fas fa-couch"></i><span class="feature-text">Séjour</span></div>
+                        </div>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle text-success"></i> 2 TV 65"</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Champagne</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Majordome</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Lounge VIP</li>
+                        </ul>
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5.0</div>
+                            <p class="review-text">"Expérience exceptionnelle"</p>
+                            <div class="review-author">- Aminata S.</div>
+                        </div>
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('suite')"><i class="fas fa-calendar-check"></i> Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('suite')"><i class="fas fa-images"></i> Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('suite')"><i class="fab fa-whatsapp"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Suite Royale REVUE -->
-            <div class="room-card unavailable">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-6 order-md-2">
-                        <div class="position-relative">
-                            <div id="carouselPresidentielle" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselPresidentielle" data-bs-slide-to="0" class="active"></button>
-                                    <button type="button" data-bs-target="#carouselPresidentielle" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#carouselPresidentielle" data-bs-slide-to="2"></button>
-                                    <button type="button" data-bs-target="#carouselPresidentielle" data-bs-slide-to="3"></button>
-                                </div>
-                                <div class="carousel-inner rounded">
-                                    <div class="carousel-item active">
-                                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Royale - Terrasse">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Royale - Salon">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Royale - Chambre">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://images.unsplash.com/photo-1589310243389-96a5483213a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                             class="d-block w-100" alt="Suite Royale - Salle de bain">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPresidentielle" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselPresidentielle" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+        </div>
+
+        <!-- SUITE ROYALE -->
+        <div class="room-card animate-on-scroll" data-type="prestige" data-price="450000" data-view="panoramique" data-capacity="4">
+            <div class="row g-0">
+                <div class="col-lg-5 order-lg-2">
+                    <div class="room-image-wrapper">
+                        <div id="carouselRoyale" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselRoyale" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselRoyale" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselRoyale" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carouselRoyale" data-bs-slide-to="3"></button>
                             </div>
-                            <div class="view-badge position-absolute top-0 start-0 m-3" style="background: linear-gradient(45deg, var(--accent-color), #e53e3e);">
-                                <i class="fas fa-crown"></i> Vue 360° Gandiol
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Suite Royale"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Salon"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Chambre"></div>
+                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1589310243389-96a5483213a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Salle de bain"></div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoyale" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselRoyale" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
+                        <span class="room-badge prestige">Royale</span>
+                        <span class="room-view-badge"><i class="fas fa-crown"></i> Vue 360°</span>
                     </div>
-                    <div class="col-md-6 order-md-1">
-                        <div class="room-details">
-                            <div class="room-category-badge prestige">Prestige</div>
-                            <h3>Suite Royale</h3>
-                            <p class="lead">Suite d'exception sur deux niveaux avec terrasse panoramique de 40 m². Vue à 360° sur Gandiol, les jardins tropicaux et la Langue de Barbarie. Décoration africaine de luxe avec œuvres d'art originales.</p>
-                            
-                            <div class="room-price-tag">450,000</div>
-                            
-                            <div class="room-amenities">
-                                <div class="amenity-item">
-                                    <i class="fas fa-ruler amenity-icon"></i>
-                                    <span>180 m²</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-user-friends amenity-icon"></i>
-                                    <span>4 personnes</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-bed amenity-icon"></i>
-                                    <span>2 Lits king-size</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <i class="fas fa-utensils amenity-icon"></i>
-                                    <span>2 Salles à manger</span>
-                                </div>
-                            </div>
-                            
-                            <h5>Prestations exclusives:</h5>
-                            <ul class="room-feature-list">
-                                <li><i class="fas fa-check text-success"></i> Terrasse privée de 40 m² avec salon extérieur et jacuzzi</li>
-                                <li><i class="fas fa-check text-success"></i> Salon réception avec piano à queue (sur demande)</li>
-                                <li><i class="fas fa-check text-success"></i> 3 TV écran plat 75" 8K avec cinéma maison</li>
-                                <li><i class="fas fa-check text-success"></i> Système audio BOSE haut de gamme</li>
-                                <li><i class="fas fa-check text-success"></i> Cuisine équipée avec chef privé (optionnel)</li>
-                                <li><i class="fas fa-check text-success"></i> 3 salles de bain luxe avec hammam privé</li>
-                                <li><i class="fas fa-check text-success"></i> Service de majordome 24h/24 dédié</li>
-                                <li><i class="fas fa-check text-success"></i> Transfert limousine VIP inclus (aéroport/hôtel)</li>
-                                <li><i class="fas fa-check text-success"></i> Dîner privé avec chef personnel dans la suite</li>
-                                <li><i class="fas fa-check text-success"></i> Accès exclusif au spa privé de l'hôtel</li>
-                            </ul>
-                            
-                            <!-- Avis et notations -->
-                            <div class="mt-4">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <div>
-                                        <span class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                        <span class="ms-2 small">5.0/5 (47 avis)</span>
-                                    </div>
-                                    <button class="btn btn-link btn-sm p-0 text-primary" onclick="openReviews('presidentielle')">
-                                        <i class="fas fa-comment"></i> Lire les avis
-                                    </button>
-                                </div>
-                                <div class="review-badge">
-                                    <p class="mb-2"><strong>Dernier avis:</strong> "Une expérience digne des plus grands palaces. Vue incroyable sur Gandiol, service exceptionnel, tout était parfait."</p>
-                                    <p class="mb-0 small text-muted">- Jean-Luc M., Décembre 2023</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <button class="btn btn-primary book-btn-pulse" onclick="notifyAvailability('presidentielle')">
-                                    <i class="fas fa-bell"></i> Être notifié de la disponibilité
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="openGallery('presidentielle')">
-                                    <i class="fas fa-images"></i> Plus de photos
-                                </button>
-                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="open360View('presidentielle')">
-                                    <i class="fas fa-360-degrees"></i> Visite 360°
-                                </button>
-                            </div>
+                </div>
+                <div class="col-lg-7 order-lg-1">
+                    <div class="room-content">
+                        <h2 class="room-title">Suite Royale</h2>
+                        <p class="room-description">Suite sur 2 niveaux avec terrasse panoramique de 40m².</p>
+                        <div class="room-price">450,000 XOF <small>/nuit</small></div>
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text">180 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">4 pers</span></div>
+                            <div class="feature-item"><i class="fas fa-umbrella-beach"></i><span class="feature-text">Terrasse</span></div>
+                            <div class="feature-item"><i class="fas fa-concierge-bell"></i><span class="feature-text">Majordome</span></div>
+                        </div>
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle text-success"></i> 3 TV 75"</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Hammam</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Cuisine</li>
+                            <li><i class="fas fa-check-circle text-success"></i> Limousine</li>
+                        </ul>
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5.0</div>
+                            <p class="review-text">"Séjour royal inoubliable"</p>
+                            <div class="review-author">- Famille Diouf</div>
+                        </div>
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('royale')"><i class="fas fa-calendar-check"></i> Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('royale')"><i class="fas fa-images"></i> Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('royale')"><i class="fab fa-whatsapp"></i></button>
                         </div>
                     </div>
                 </div>
@@ -1462,660 +1216,394 @@
         </div>
     </section>
 
-    <!-- Comparaison des Chambres REVUE -->
-    <section class="section-padding room-comparison">
+    <!-- Message aucun résultat -->
+    <div id="no-results" class="container text-center py-4" style="display: none;">
+        <i class="fas fa-search fa-3x text-muted mb-2"></i>
+        <h4>Aucune chambre trouvée</h4>
+        <p class="text-muted small">Essayez de modifier vos filtres pour voir plus de résultats.</p>
+        <button class="btn btn-primary btn-sm" onclick="resetFilters()">Réinitialiser les filtres</button>
+    </div>
+
+    <!-- ===== TABLEAU COMPARATIF ===== -->
+    <section class="comparison-section">
         <div class="container">
             <div class="section-header">
-                <h2>Comparatif des Tarifs <span class="senegal-flag-icon">🇸🇳</span></h2>
-                <p>Comparez nos différentes catégories pour choisir celle qui correspond à vos besoins</p>
+                <h2>Comparatif des chambres</h2>
+                <p>Choisissez l'hébergement qui correspond parfaitement à vos besoins</p>
             </div>
             <div class="table-responsive">
-                <table class="table table-hover comparison-table table-striped">
+                <table class="table comparison-table">
                     <thead>
                         <tr>
-                            <th>Type de chambre</th>
-                            <th>Prix/nuit (XOF)</th>
-                            <th>Superficie</th>
-                            <th>Capacité</th>
-                            <th>Vue</th>
-                            <th>Équipements principaux</th>
-                            <th>Action</th>
+                            <th>Caractéristiques</th>
+                            <th>Standard</th>
+                            <th>Deluxe</th>
+                            <th>Prestige</th>
+                            <th>Royale</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Chambre Standard</strong><br><span class="badge bg-secondary">Économique</span></td>
-                            <td><strong class="price-display">65,000</strong><br><small class="text-muted">Petit déjeuner inclus</small></td>
-                            <td>25 m²</td>
-                            <td>2 personnes</td>
-                            <td>Jardin</td>
-                            <td>Climatisation, Wi-Fi, TV écran plat, Salle de bain</td>
-                            <td><button class="btn btn-sm btn-primary" onclick="bookRoom('standard')">Réserver</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Chambre Deluxe</strong><br><span class="badge bg-warning text-dark">Confort</span></td>
-                            <td><strong class="price-display">95,000</strong><br><small class="text-muted">Petit déjeuner inclus</small></td>
-                            <td>35 m²</td>
-                            <td>2 personnes</td>
-                            <td>Piscine</td>
-                            <td>Balcon privé, Smart TV, Machine à café, Salle de bain marbre</td>
-                            <td><button class="btn btn-sm btn-primary" onclick="bookRoom('deluxe')">Réserver</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Suite Prestige</strong><br><span class="badge bg-danger">Luxe</span></td>
-                            <td><strong class="price-display">150,000</strong><br><small class="text-muted">Petit déjeuner inclus</small></td>
-                            <td>50 m²</td>
-                            <td>2-3 personnes</td>
-                            <td>Panoramique jardin</td>
-                            <td>Séjour indépendant, Jacuzzi, 2 TV 65", Service majordome</td>
-                            <td><button class="btn btn-sm btn-primary" onclick="bookRoom('suite')">Réserver</button></td>
-                        </tr>
-                        <tr class="unavailable">
-                            <td><strong>Suite Royale</strong><br><span class="badge bg-dark">Prestige</span></td>
-                            <td><strong class="price-display">450,000</strong><br><small class="text-muted">Tout inclus</small></td>
-                            <td>180 m²</td>
-                            <td>4 personnes</td>
-                            <td>360° Gandiol</td>
-                            <td>Terrasse privée, Jacuzzi, Cuisine, 3 salles de bain, Majordome 24h</td>
-                            <td><button class="btn btn-sm btn-secondary" onclick="notifyAvailability('presidentielle')">Complet</button></td>
-                        </tr>
+                        <tr><td><strong>Prix/nuit</strong></td><td><strong>65,000 XOF</strong></td><td><strong>95,000 XOF</strong></td><td><strong>150,000 XOF</strong></td><td><strong>450,000 XOF</strong></td></tr>
+                        <tr><td>Superficie</td><td>25 m²</td><td>35 m²</td><td>50 m²</td><td>180 m²</td></tr>
+                        <tr><td>Capacité</td><td>2 pers</td><td>2 pers</td><td>2-3 pers</td><td>4 pers</td></tr>
+                        <tr><td>Vue</td><td>Jardin</td><td>Piscine</td><td>Panoramique</td><td>360°</td></tr>
+                        <tr><td>Balcon/Terrasse</td><td><i class="fas fa-times feature-no"></i></td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Terrasse 40m²</td></tr>
+                        <tr><td>TV</td><td>40"</td><td>55" Smart</td><td>2x 65"</td><td>3x 75" 8K</td></tr>
+                        <tr><td>Bain</td><td>Douche</td><td>Baignoire</td><td>Jacuzzi</td><td>3 sdb + hammam</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- Footer Les Résidences du Lawmar - Gandiol - HARMONISÉ AVEC L'ACCUEIL -->
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions fréquentes</h2>
+                <p>Tout ce que vous devez savoir sur nos chambres</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">Petit-déjeuner inclus ?</button></h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Oui, buffet sénégalais et continental de 7h à 10h.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Heures d'arrivée/départ ?</button></h3>
+                            <div id="faq2" class="accordion-collapse collapse"><div class="accordion-body">Check-in 14h, check-out 11h. Possibilité de late check-out selon disponibilité.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">Piscine accessible ?</button></h3>
+                            <div id="faq3" class="accordion-collapse collapse"><div class="accordion-body">Oui, de 8h à 20h. Serviettes fournies.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Offre spéciale séjour</h2>
+            <p class="cta-text">Réservez 3 nuits et profitez d'une demi-pension offerte.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#bookingModal"><i class="fas fa-gift"></i> Réserver</a>
+                <a href="#" class="btn btn-outline-light btn-sm" onclick="bookRoomViaWhatsApp('offre')"><i class="fab fa-whatsapp"></i> Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL RÉSERVATION AMÉLIORÉ ===== -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="bookingModalLabel">
+                        <i class="fas fa-calendar-check me-2"></i> Réserver votre séjour
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info mb-3 p-2" style="font-size: 0.9rem;">
+                        <i class="fas fa-info-circle me-2"></i> 
+                        Chambre sélectionnée : <strong id="modal-room-display">Chambre Standard</strong>
+                    </div>
+                    
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <input type="hidden" id="selected-room" name="room" value="Chambre Standard">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label for="checkin" class="form-label small fw-bold">Date d'arrivée *</label>
+                                <input type="date" class="form-control form-control-sm" id="checkin" name="checkin" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="checkout" class="form-label small fw-bold">Date de départ *</label>
+                                <input type="date" class="form-control form-control-sm" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <label for="adults" class="form-label small fw-bold">Adultes *</label>
+                                <select class="form-select form-select-sm" id="adults" name="adults" required>
+                                    <option value="1">1</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <label for="children" class="form-label small fw-bold">Enfants</label>
+                                <select class="form-select form-select-sm" id="children" name="children">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <label for="children-ages" class="form-label small fw-bold">Âges enfants</label>
+                                <input type="text" class="form-control form-control-sm" id="children-ages" placeholder="Ex: 3,5,8">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label for="name" class="form-label small fw-bold">Nom complet *</label>
+                                <input type="text" class="form-control form-control-sm" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="email" class="form-label small fw-bold">Email *</label>
+                                <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label for="phone" class="form-label small fw-bold">Téléphone (WhatsApp) *</label>
+                            <input type="tel" class="form-control form-control-sm" id="phone" name="phone" required placeholder="+221 77 123 45 67">
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label for="message" class="form-label small fw-bold">Message</label>
+                            <textarea class="form-control form-control-sm" id="message" name="message" rows="2" placeholder="Demandes spéciales..."></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label small" for="terms">J'accepte les CGV</label>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fab fa-whatsapp me-1"></i> Envoyer via WhatsApp
+                            </button>
+                            <small class="text-muted text-center mt-1 small">Réponse sous 24h</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER (IDENTIQUE À L'ORIGINAL) ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="footer-about">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" onerror="this.style.display='none';">
-                            <h3><i class="fas fa-crown"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
-                        </div>
-                        <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
+            <div class="row g-4">
+                <div class="col-md-4 footer-about">
+                    <h3>Lawmar Les Résidences</h3>
+                    <p>Hôtel de charme à Tassinère, Gandiol. Authenticité et confort au bord de l'eau.</p>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footer-links">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="chambres.html">Chambres</a></li>
-                            <li><a href="restauration.html">Restauration</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="galerie.html">Galerie</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
+                <div class="col-md-2 footer-links">
+                    <h4>Liens</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Chambres</a></li>
+                        <li><a href="#">Restauration</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-contact">
-                        <h4>Contact</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</p>
-                        <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
-                        <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
-                        <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
-                        <p><i class="fas fa-envelope"></i> diopelhadji11@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +221 77 995 20 20</p>
-                        <p><i class="fas fa-money-bill-wave"></i> Paiements: XOF - Wave - Orange Money</p>
-                    </div>
+                <div class="col-md-3 footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Tassinère, Gandiol, Saint-Louis</p>
+                    <p><i class="fas fa-phone me-2"></i> +221 77 123 45 67</p>
+                    <p><i class="fas fa-envelope me-2"></i> contact@lawmar.sn</p>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-newsletter">
-                        <h4>Newsletter</h4>
-                        <p>Recevez nos offres spéciales et actualités de Gandiol</p>
-                        <form id="newsletter-form">
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Votre email" required>
-                                <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
-                        <div class="mt-3">
-                            <small><i class="fas fa-info-circle"></i> Au cœur du Gandiol, aux portes de la Langue de Barbarie</small>
-                        </div>
+                <div class="col-md-3 footer-newsletter">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Lawmar Hôtel Les Résidences - Gandiol. Tous droits réservés. | 
-                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
-                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Accès personnel</a></p>
+                <p class="mb-0">&copy; 2025 Lawmar Les Résidences. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal de Réservation -->
-    <div class="modal fade" id="bookingModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Réservation en ligne - Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="booking-engine">
-                        <form id="booking-form">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle"></i> Tous les prix sont en XOF (Franc CFA)
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="checkin" class="form-label">Date d'arrivée</label>
-                                    <input type="date" class="form-control" id="checkin" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="checkout" class="form-label">Date de départ</label>
-                                    <input type="date" class="form-control" id="checkout" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="adults" class="form-label">Adultes</label>
-                                    <select class="form-select" id="adults">
-                                        <option value="1">1</option>
-                                        <option value="2" selected>2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="children" class="form-label">Enfants</label>
-                                    <select class="form-select" id="children">
-                                        <option value="0" selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="room-type" class="form-label">Type de chambre</label>
-                                    <select class="form-select" id="room-type">
-                                        <option value="standard">Chambre Standard</option>
-                                        <option value="deluxe">Chambre Deluxe</option>
-                                        <option value="suite">Suite Prestige</option>
-                                        <option value="presidentielle">Suite Royale</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Services additionnels</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="transfer">
-                                    <label class="form-check-label" for="transfer">
-                                        Transfert aéroport de Saint-Louis (+25,000 XOF)
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="excursion">
-                                    <label class="form-check-label" for="excursion">
-                                        Excursion Langue de Barbarie (+25,000 XOF/pers)
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <button type="button" class="btn btn-secondary" id="check-availability">Vérifier la disponibilité</button>
-                            </div>
-                            <div id="availability-result" class="d-none">
-                                <div class="alert alert-success">
-                                    <h6>Chambre disponible!</h6>
-                                    <p>Prix total pour votre séjour: <span id="total-price" class="price-display">0</span></p>
-                                    <small class="text-muted">Taxes et service inclus</small>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="guest-name" class="form-label">Nom complet</label>
-                                        <input type="text" class="form-control" id="guest-name" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="guest-email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="guest-email" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="guest-phone" class="form-label">Téléphone</label>
-                                        <input type="tel" class="form-control" id="guest-phone" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="payment-method" class="form-label">Paiement</label>
-                                        <select class="form-select" id="payment-method">
-                                            <option value="wave">Wave Sénégal</option>
-                                            <option value="orange">Orange Money</option>
-                                            <option value="free">Free Money</option>
-                                            <option value="card">Carte bancaire</option>
-                                            <option value="cash">Sur place</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary" id="confirm-booking">Confirmer la réservation</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Galerie Photos -->
-    <div class="modal fade" id="galleryModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="galleryModalLabel">Galerie photos</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="galleryModalBody">
-                    <!-- Le contenu sera injecté par JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Avis -->
-    <div class="modal fade" id="reviewsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reviewsModalLabel">Avis des clients</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="reviewsModalBody">
-                    <!-- Le contenu sera injecté par JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Notification disponibilité -->
-    <div class="modal fade" id="availabilityNotificationModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Notification de disponibilité</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="notification-form">
-                        <div class="mb-3">
-                            <label for="notification-room" class="form-label">Chambre</label>
-                            <input type="text" class="form-control" id="notification-room" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="notification-email" class="form-label">Votre email</label>
-                            <input type="email" class="form-control" id="notification-email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="notification-phone" class="form-label">Votre téléphone</label>
-                            <input type="tel" class="form-control" id="notification-phone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="notification-dates" class="form-label">Dates souhaitées (optionnel)</label>
-                            <input type="text" class="form-control" id="notification-dates" placeholder="Ex: 15-20 mai 2024">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Être notifié</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Connexion Admin -->
-    <div class="modal fade" id="adminLoginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Connexion personnel</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="admin-login-form">
-                        <div class="mb-3">
-                            <label for="admin-email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="admin-email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="admin-password" class="form-label">Mot de passe</label>
-                            <input type="password" class="form-control" id="admin-password" required>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select" id="admin-role">
-                                <option value="reception">Réceptionniste</option>
-                                <option value="serveur">Serveur</option>
-                                <option value="cuisine">Cuisine</option>
-                                <option value="guide">Guide touristique</option>
-                                <option value="manager">Manager</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Numéro WhatsApp de l'hôtel
+        // Numéro WhatsApp
         const WHATSAPP_NUMBER = "221779952020";
-        
-        // Données des chambres
-        const roomData = {
-            standard: {
-                name: "Chambre Standard",
-                price: 65000,
-                size: "25 m²",
-                view: "Jardin",
-                capacity: "2 personnes",
-                features: ["Wi-Fi gratuit", "Climatisation", "TV écran plat", "Mini-bar", "Salle de bain privée"],
-                images: [
-                    {src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Vue d\'ensemble'},
-                    {src: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Salle de bain'},
-                    {src: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Détail décoration'}
-                ],
-                reviews: [
-                    {name: "Marie D.", date: "Janvier 2024", rating: 4.5, comment: "Chambre très confortable avec une décoration locale charmante. Personnel très attentionné. Calme et reposant à Tassinère."},
-                    {name: "Paul M.", date: "Décembre 2023", rating: 5, comment: "Excellent rapport qualité-prix. Petit déjeuner délicieux."}
-                ]
-            },
-            deluxe: {
-                name: "Chambre Deluxe",
-                price: 95000,
-                size: "35 m²",
-                view: "Piscine",
-                capacity: "2 personnes",
-                features: ["Wi-Fi gratuit", "Climatisation silencieuse", "Smart TV 55\"", "Balcon privé", "Machine à café Nespresso"],
-                images: [
-                    {src: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Vue piscine'},
-                    {src: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Balcon privé'},
-                    {src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Salle de bain'}
-                ],
-                reviews: [
-                    {name: "Pierre L.", date: "Février 2024", rating: 5, comment: "Superbe chambre avec une vue magnifique sur la piscine. Le calme de Gandiol est reposant et le service impeccable!"},
-                    {name: "Sophie R.", date: "Janvier 2024", rating: 5, comment: "Le balcon privé avec vue sur la piscine au coucher du soleil est inoubliable."}
-                ]
-            },
-            suite: {
-                name: "Suite Prestige",
-                price: 150000,
-                size: "50 m²",
-                view: "Panoramique jardin",
-                capacity: "2-3 personnes",
-                features: ["Wi-Fi gratuit", "Séjour indépendant", "2 TV 65\"", "Jacuzzi", "Service majordome"],
-                images: [
-                    {src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Séjour'},
-                    {src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Chambre'},
-                    {src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Jacuzzi'}
-                ],
-                reviews: [
-                    {name: "Aminata S.", date: "Mars 2024", rating: 5, comment: "Une expérience exceptionnelle! Le calme de Gandiol et le confort de la suite sont parfaits pour se ressourcer. Service impeccable."},
-                    {name: "Thomas B.", date: "Février 2024", rating: 5, comment: "Le service de majordome est un vrai plus. Suite spacieuse et très bien équipée."}
-                ]
-            },
-            presidentielle: {
-                name: "Suite Royale",
-                price: 450000,
-                size: "180 m²",
-                view: "360° Gandiol",
-                capacity: "4 personnes",
-                features: ["Wi-Fi gratuit", "Terrasse privée 40 m²", "3 TV 75\" 8K", "Jacuzzi extérieur", "Chef personnel"],
-                images: [
-                    {src: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Terrasse'},
-                    {src: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Salon'},
-                    {src: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Chambre principale'},
-                    {src: 'https://images.unsplash.com/photo-1589310243389-96a5483213a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', alt: 'Salle de bain'}
-                ],
-                reviews: [
-                    {name: "Jean-Luc M.", date: "Décembre 2023", rating: 5, comment: "Une expérience digne des plus grands palaces. Vue incroyable sur Gandiol, service exceptionnel, tout était parfait."},
-                    {name: "Fatou D.", date: "Novembre 2023", rating: 5, comment: "Pour notre anniversaire de mariage, cette suite était parfaite. Le dîner privé avec le chef était mémorable."}
-                ]
-            }
-        };
 
-        // Fonction pour réserver une chambre spécifique
-        function bookRoom(roomType) {
-            const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
-            
-            const roomTypeSelect = document.getElementById('room-type');
-            if (roomTypeSelect) {
-                roomTypeSelect.value = roomType;
-            }
-            
-            bookingModal.show();
-        }
-
-        // Fonction pour réserver via WhatsApp
-        function bookRoomViaWhatsApp(roomType) {
-            const room = roomData[roomType];
-            const message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite réserver la chambre : *${room.name}*\nPrix : *${room.price.toLocaleString()} XOF/nuit*\n\nPourriez-vous m'indiquer les disponibilités ?\n\nMerci!`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Fonction pour ouvrir la galerie
-        function openGallery(roomType) {
-            const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
-            const modalTitle = document.getElementById('galleryModalLabel');
-            const modalBody = document.getElementById('galleryModalBody');
-            
-            const room = roomData[roomType];
-            modalTitle.textContent = `Galerie - ${room.name}`;
-            
-            const imagesHtml = room.images.map((img, index) => `
-                <div class="col-md-6 mb-3">
-                    <div class="gallery-thumbnail">
-                        <img src="${img.src}" alt="${img.alt}" class="img-fluid rounded shadow-sm" 
-                             style="cursor: pointer" onclick="window.open('${img.src}', '_blank')">
-                        <p class="text-center mt-2 small text-muted">${img.alt}</p>
-                    </div>
-                </div>
-            `).join('');
-            
-            modalBody.innerHTML = `
-                <div class="row g-3">
-                    ${imagesHtml}
-                </div>
-                <div class="text-center mt-4">
-                    <button class="btn btn-primary" onclick="bookRoom('${roomType}')">
-                        <i class="fas fa-calendar-check"></i> Réserver cette chambre
-                    </button>
-                    <button class="btn btn-whatsapp mt-2" onclick="bookRoomViaWhatsApp('${roomType}')">
-                        <i class="fab fa-whatsapp"></i> Réserver via WhatsApp
-                    </button>
-                </div>
-            `;
-            
-            galleryModal.show();
-        }
-
-        // Fonction pour ouvrir les avis
-        function openReviews(roomType) {
-            const reviewsModal = new bootstrap.Modal(document.getElementById('reviewsModal'));
-            const modalTitle = document.getElementById('reviewsModalLabel');
-            const modalBody = document.getElementById('reviewsModalBody');
-            
-            const room = roomData[roomType];
-            modalTitle.textContent = `Avis - ${room.name}`;
-            
-            const reviewsHtml = room.reviews.map(review => `
-                <div class="review-badge mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <div>
-                            <span class="text-warning">
-                                ${generateStars(review.rating)}
-                            </span>
-                            <strong class="ms-2">${review.name}</strong>
-                        </div>
-                        <span class="text-muted small">${review.date}</span>
-                    </div>
-                    <p class="mb-0">${review.comment}</p>
-                </div>
-            `).join('');
-            
-            modalBody.innerHTML = `
-                <div class="row">
-                    <div class="col-12">
-                        ${reviewsHtml}
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <button class="btn btn-primary" onclick="bookRoom('${roomType}')">
-                        <i class="fas fa-calendar-check"></i> Réserver cette chambre
-                    </button>
-                    <button class="btn btn-whatsapp mt-2" onclick="bookRoomViaWhatsApp('${roomType}')">
-                        <i class="fab fa-whatsapp"></i> Réserver via WhatsApp
-                    </button>
-                </div>
-            `;
-            
-            reviewsModal.show();
-        }
-
-        // Fonction pour générer les étoiles
-        function generateStars(rating) {
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                if (i <= Math.floor(rating)) {
-                    stars += '<i class="fas fa-star"></i>';
-                } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
-                    stars += '<i class="fas fa-star-half-alt"></i>';
-                } else {
-                    stars += '<i class="far fa-star"></i>';
-                }
-            }
-            return stars;
-        }
-
-        // Fonction pour notification de disponibilité
-        function notifyAvailability(roomType) {
-            const notificationModal = new bootstrap.Modal(document.getElementById('availabilityNotificationModal'));
-            const roomInput = document.getElementById('notification-room');
-            
-            roomInput.value = roomData[roomType].name;
-            notificationModal.show();
-        }
-
-        // Fonction pour visite 360° (simulation)
-        function open360View(roomType) {
-            alert(`Visite virtuelle 360° de la ${roomData[roomType].name} - Fonctionnalité à venir!`);
-        }
-
-        // Filtrage des chambres (désactivé car pas d'interface de filtres dans ce code)
-        function filterRooms() {
-            // Fonction vide car pas d'interface de filtres
-        }
-
-        // Mettre à jour les statistiques en temps réel (désactivé car pas d'interface)
-        function updateStats() {
-            // Fonction vide car pas d'interface
-        }
-
-        // Setup des événements
-        document.addEventListener('DOMContentLoaded', function() {
-            setupEventListeners();
-            initializeCarousels();
-        });
-
-        function setupEventListeners() {
-            // Vérification de disponibilité
-            const checkAvailabilityBtn = document.getElementById('check-availability');
-            const availabilityResult = document.getElementById('availability-result');
-            
-            if (checkAvailabilityBtn) {
-                checkAvailabilityBtn.addEventListener('click', function() {
-                    const roomType = document.getElementById('room-type').value;
-                    const checkin = document.getElementById('checkin').value;
-                    const checkout = document.getElementById('checkout').value;
-                    
-                    if (!checkin || !checkout) {
-                        alert('Veuillez sélectionner les dates d\'arrivée et de départ.');
-                        return;
-                    }
-                    
-                    const prices = {
-                        'standard': 65000,
-                        'deluxe': 95000,
-                        'suite': 150000,
-                        'presidentielle': 450000
-                    };
-                    
-                    const basePrice = prices[roomType] || 65000;
-                    document.getElementById('total-price').textContent = basePrice.toLocaleString();
-                    availabilityResult.classList.remove('d-none');
-                });
-            }
-            
-            // Soumission formulaire réservation
-            const bookingForm = document.getElementById('booking-form');
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Réservation envoyée avec succès! Vous recevrez un email de confirmation.');
-                    const bookingModal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-                    bookingModal.hide();
-                });
-            }
-            
-            // Soumission newsletter
-            const newsletterForm = document.getElementById('newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Merci pour votre inscription à notre newsletter!');
-                    newsletterForm.reset();
-                });
-            }
-            
-            // Soumission notification disponibilité
-            const notificationForm = document.getElementById('notification-form');
-            if (notificationForm) {
-                notificationForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Nous vous notifierons dès que cette chambre sera disponible!');
-                    const notificationModal = bootstrap.Modal.getInstance(document.getElementById('availabilityNotificationModal'));
-                    notificationModal.hide();
-                });
-            }
-            
-            // Soumission admin login
-            const adminLoginForm = document.getElementById('admin-login-form');
-            if (adminLoginForm) {
-                adminLoginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Connexion réussie! Redirection en cours...');
-                    const adminModal = bootstrap.Modal.getInstance(document.getElementById('adminLoginModal'));
-                    adminModal.hide();
-                });
-            }
-        }
-
-        function initializeCarousels() {
-            const carousels = document.querySelectorAll('.carousel');
-            carousels.forEach(carousel => {
-                new bootstrap.Carousel(carousel, {
-                    interval: 5000,
-                    wrap: true,
-                    pause: 'hover'
-                });
+        // Animation scroll
+        function animateOnScroll() {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('animated');
             });
+        }
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Filtres
+        function filterRooms() {
+            const type = document.getElementById('filter-type').value;
+            const price = document.getElementById('filter-price').value;
+            const view = document.getElementById('filter-view').value;
+            const capacity = document.getElementById('filter-capacity').value;
+
+            let visible = 0;
+            document.querySelectorAll('.room-card').forEach(room => {
+                let ok = true;
+                if (type !== 'all' && room.dataset.type !== type) ok = false;
+                if (price !== 'all' && parseInt(room.dataset.price) > parseInt(price)) ok = false;
+                if (view !== 'all' && room.dataset.view !== view) ok = false;
+                if (capacity !== 'all' && parseInt(room.dataset.capacity) < parseInt(capacity)) ok = false;
+                room.style.display = ok ? 'block' : 'none';
+                if (ok) visible++;
+            });
+            document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-type').value = 'all';
+            document.getElementById('filter-price').value = 'all';
+            document.getElementById('filter-view').value = 'all';
+            document.getElementById('filter-capacity').value = 'all';
+            filterRooms();
+        }
+
+        // Variables pour la réservation
+        let selectedRoom = '';
+
+        // Fonction de réservation
+        function bookRoom(room) {
+            selectedRoom = room;
+            
+            const roomNames = {
+                'standard': 'Chambre Standard',
+                'deluxe': 'Chambre Deluxe',
+                'suite': 'Suite Prestige',
+                'royale': 'Suite Royale'
+            };
+            
+            document.getElementById('selected-room').value = roomNames[room] || room;
+            document.getElementById('modal-room-display').textContent = roomNames[room] || room;
+            
+            const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+            modal.show();
+        }
+
+        function openGallery(room) {
+            alert(`Galerie ${room}`);
+        }
+
+        function bookRoomViaWhatsApp(room) {
+            const roomNames = {
+                'standard': 'Chambre Standard',
+                'deluxe': 'Chambre Deluxe',
+                'suite': 'Suite Prestige',
+                'royale': 'Suite Royale',
+                'offre': "l'offre spéciale"
+            };
+            
+            const message = `Bonjour Lawmar, je souhaite réserver ${roomNames[room] || room}.`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         function changeLanguage(lang) {
-            alert('Changement de langue vers ' + lang + ' - Fonctionnalité à implémenter');
+            alert(`Langue changée en ${lang}`);
         }
+
+        // Fonction pour soumettre le formulaire
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const formData = {
+                room: document.getElementById('selected-room').value,
+                checkin: document.getElementById('checkin').value,
+                checkout: document.getElementById('checkout').value,
+                adults: document.getElementById('adults').value,
+                children: document.getElementById('children').value,
+                childrenAges: document.getElementById('children-ages').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            if (!formData.checkin || !formData.checkout || !formData.name || !formData.email || !formData.phone) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+            
+            const formatDate = (dateStr) => {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('fr-FR');
+            };
+            
+            const start = new Date(formData.checkin);
+            const end = new Date(formData.checkout);
+            const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+            
+            const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
+━━━━━━━━━━━━━━━━━━
+🏨 Chambre: ${formData.room}
+📅 Arrivée: ${formatDate(formData.checkin)}
+📅 Départ: ${formatDate(formData.checkout)}
+🌙 Nuits: ${nights}
+👥 Adultes: ${formData.adults}
+👶 Enfants: ${formData.children} ${formData.childrenAges ? `(${formData.childrenAges} ans)` : ''}
+━━━━━━━━━━━━━━━━━━
+👤 Nom: ${formData.name}
+📧 Email: ${formData.email}
+📞 Téléphone: ${formData.phone}
+━━━━━━━━━━━━━━━━━━
+💬 Message: ${formData.message || 'Aucun'}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            
+            bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+            
+            alert('✓ Demande envoyée ! Vous serez contacté sous 24h.');
+            
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Remplir les dates par défaut
+        window.addEventListener('load', function() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formatDate = (date) => {
+                return date.toISOString().split('T')[0];
+            };
+            
+            if (document.getElementById('checkin')) {
+                document.getElementById('checkin').value = formatDate(today);
+                document.getElementById('checkin').min = formatDate(today);
+            }
+            if (document.getElementById('checkout')) {
+                document.getElementById('checkout').value = formatDate(tomorrow);
+                document.getElementById('checkout').min = formatDate(tomorrow);
+            }
+        });
+
+        // Validation des dates
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            
+            if (checkin && checkout) {
+                checkin.addEventListener('change', function() {
+                    checkout.min = this.value;
+                    if (checkout.value < this.value) {
+                        const nextDay = new Date(this.value);
+                        nextDay.setDate(nextDay.getDate() + 1);
+                        checkout.value = nextDay.toISOString().split('T')[0];
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
