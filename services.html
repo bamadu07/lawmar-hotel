@@ -180,12 +180,12 @@
             transform: translateY(-2px);
         }
 
-        /* Header Services - MODIFIÉ COMME L'ACCUEIL : OVERLAY SOMBRE, TEXTE BLANC EN BAS */
+        /* Header Services - MODIFIÉ COMME L'ACCUEIL : TAILLE RÉDUITE, OVERLAY SOMBRE, TEXTE BLANC EN BAS */
         .services-hero {
-            background: url('https://images.unsplash.com/photo-1541976598-5d4f4f3d0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 350px; /* Réduit de 500px à 350px */
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -208,23 +208,24 @@
         .hero-content {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto 40px; /* Réduit de 60px à 40px */
             position: relative;
             z-index: 2;
+            padding: 0 20px;
         }
 
         .hero-title {
             color: white !important;
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* Réduit de 2.5rem à 2.2rem */
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
             color: white !important;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
@@ -232,18 +233,18 @@
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white !important;
-            padding: 8px 15px;
+            padding: 6px 12px; /* Réduit de 8px 15px à 6px 12px */
             border-radius: 30px;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            font-size: 0.85rem; /* Réduit de 0.9rem à 0.85rem */
+            margin-bottom: 15px; /* Réduit de 25px à 15px */
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
         }
 
         .btn-hero {
-            padding: 12px 30px;
-            margin: 5px 10px;
-            font-size: 1rem;
+            padding: 10px 25px; /* Réduit de 12px 30px à 10px 25px */
+            margin: 5px 8px;
+            font-size: 0.95rem; /* Réduit de 1rem à 0.95rem */
         }
 
         .btn-outline-light {
@@ -262,7 +263,7 @@
             display: flex;
             gap: 10px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 15px; /* Réduit de 20px à 15px */
         }
 
         /* Section header */
@@ -699,29 +700,29 @@
             }
             
             .services-hero {
-                height: 400px !important;
+                height: 280px !important; /* Réduit de 400px à 280px */
                 padding: 0 15px !important;
             }
             
             .hero-content {
-                margin-bottom: 40px !important;
+                margin-bottom: 30px !important; /* Réduit de 40px à 30px */
             }
             
             .hero-title {
-                font-size: 1.8rem !important;
+                font-size: 1.6rem !important; /* Réduit de 1.8rem à 1.6rem */
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 1rem !important;
+                font-size: 0.9rem !important; /* Réduit de 1rem à 0.9rem */
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.8rem !important;
-                padding: 6px 12px !important;
+                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
+                padding: 5px 10px !important; /* Réduit de 6px 12px à 5px 10px */
                 width: 90%;
-                margin: 0 auto 20px !important;
+                margin: 0 auto 15px !important; /* Réduit de 20px à 15px */
                 white-space: normal;
                 line-height: 1.4;
                 color: white !important;
@@ -730,17 +731,18 @@
             
             .hero-buttons-container {
                 flex-direction: column !important;
-                gap: 10px !important;
+                gap: 8px !important; /* Réduit de 10px à 8px */
                 width: 100% !important;
+                margin-top: 10px !important; /* Ajouté pour espacement */
             }
             
             .btn-hero {
                 display: block !important;
                 width: 90% !important;
-                max-width: 250px !important;
+                max-width: 220px !important; /* Réduit de 250px à 220px */
                 margin: 0 auto !important;
-                padding: 10px 20px !important;
-                font-size: 0.9rem !important;
+                padding: 8px 16px !important; /* Réduit de 10px 20px à 8px 16px */
+                font-size: 0.85rem !important; /* Réduit de 0.9rem à 0.85rem */
             }
             
             .section-header h2 {
@@ -815,7 +817,7 @@
             }
             
             .services-hero {
-                height: 380px !important;
+                height: 240px !important; /* Réduit de 380px à 240px */
             }
             
             .logo-image {
@@ -828,19 +830,19 @@
             }
             
             .hero-title {
-                font-size: 1.6rem !important;
+                font-size: 1.4rem !important; /* Réduit de 1.6rem à 1.4rem */
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.9rem !important;
+                font-size: 0.8rem !important; /* Réduit de 0.9rem à 0.8rem */
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.75rem !important;
+                font-size: 0.7rem !important;
+                padding: 4px 8px !important;
                 width: 100%;
-                padding: 5px 10px !important;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
             }
@@ -848,9 +850,9 @@
             .btn-hero {
                 display: block !important;
                 width: 100% !important;
-                max-width: 220px !important;
-                padding: 8px 16px !important;
-                font-size: 0.85rem !important;
+                max-width: 200px !important; /* Réduit de 220px à 200px */
+                padding: 7px 14px !important; /* Réduit de 8px 16px à 7px 14px */
+                font-size: 0.8rem !important; /* Réduit de 0.85rem à 0.8rem */
             }
             
             .section-header h2 {
@@ -892,7 +894,7 @@
             }
             
             .services-hero {
-                height: 350px !important;
+                height: 200px !important; /* Réduit de 350px à 200px */
             }
             
             .logo-image {
@@ -905,26 +907,26 @@
             }
             
             .hero-title {
-                font-size: 1.4rem !important;
+                font-size: 1.2rem !important; /* Réduit de 1.4rem à 1.2rem */
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.85rem !important;
+                font-size: 0.75rem !important; /* Réduit de 0.85rem à 0.75rem */
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.7rem !important;
-                padding: 4px 8px !important;
+                font-size: 0.65rem !important; /* Réduit de 0.7rem à 0.65rem */
+                padding: 3px 6px !important;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
             }
             
             .btn-hero {
-                padding: 7px 14px !important;
-                font-size: 0.8rem !important;
-                max-width: 200px !important;
+                padding: 6px 12px !important; /* Réduit de 7px 14px à 6px 12px */
+                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
+                max-width: 180px !important; /* Réduit de 200px à 180px */
             }
             
             .excursion-card h4 {
@@ -998,7 +1000,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section Services - MODIFIÉ COMME L'ACCUEIL : OVERLAY SOMBRE, TEXTE EN BAS -->
+    <!-- Hero Section Services - MODIFIÉ COMME L'ACCUEIL : TAILLE RÉDUITE, OVERLAY SOMBRE, TEXTE EN BAS -->
     <header class="services-hero">
         <div class="container hero-content">
             <div class="row justify-content-center">

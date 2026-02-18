@@ -4,38 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chambres & Suites - Lawmar Les Résidences - Gandiol 🇸🇳</title>
+    
+    <!-- ===== STYLES EXTERNES ===== -->
+    <!-- Bootstrap 5 pour la mise en page responsive -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts pour les polices élégantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ===== STYLES INTERNES ===== -->
     <style>
-        /* ===== STYLES GÉNÉRAUX ===== */
+        /* ===== VARIABLES CSS (pour une maintenance facile) ===== */
         :root {
-            --primary-color: #025ba5;
-            --secondary-color: #e0e0e0;
-            --accent-color: #c53030;
-            --dark-color: #025ba5;
-            --light-color: #f7fafc;
-            --light-green: #f0fff4;
-            --yellow-color: #FFD700;
-            --transition: all 0.3s ease;
-            --border-radius: 10px;
-            --box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --box-shadow-hover: 0 15px 30px rgba(0,0,0,0.15);
+            --primary-color: #025ba5;      /* Bleu principal de la marque */
+            --secondary-color: #e0e0e0;     /* Gris clair pour les bordures */
+            --accent-color: #c53030;        /* Rouge pour les badges et prix */
+            --dark-color: #025ba5;           /* Texte foncé (bleu foncé) */
+            --light-color: #f7fafc;          /* Fond clair */
+            --light-green: #f0fff4;           /* Fond pour les sections alternatives */
+            --yellow-color: #FFD700;          /* Jaune pour le bouton réserver et badges */
+            --transition: all 0.3s ease;      /* Animation uniforme */
+            --border-radius: 10px;             /* Arrondi des cartes */
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.08);        /* Ombre légère */
+            --box-shadow-hover: 0 15px 30px rgba(0,0,0,0.15); /* Ombre au survol */
         }
 
+        /* ===== RESET CSS ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* ===== STYLES GÉNÉRAUX ===== */
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            padding-top: 80px;
+            padding-top: 80px; /* Espace pour la navbar fixe */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -51,6 +61,7 @@
             background-color: var(--light-color) !important;
         }
 
+        /* ===== BOUTONS ===== */
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -62,7 +73,7 @@
         .btn-primary:hover {
             background-color: #024a84;
             border-color: #024a84;
-            transform: translateY(-2px);
+            transform: translateY(-2px); /* Effet de survol */
         }
 
         .btn-outline-primary {
@@ -76,6 +87,7 @@
             color: white;
         }
 
+        /* Bouton WhatsApp spécifique */
         .btn-whatsapp {
             background-color: #25D366;
             color: white !important;
@@ -89,7 +101,7 @@
             transform: translateY(-2px);
         }
 
-        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À L'ORIGINAL) ===== */
+        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À L'ACCUEIL) ===== */
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -152,6 +164,7 @@
             opacity: 0.9;
         }
 
+        /* Bouton réserver jaune */
         .btn-reservation {
             background-color: var(--yellow-color) !important;
             color: var(--primary-color) !important;
@@ -167,31 +180,44 @@
             transform: translateY(-2px);
         }
 
-        /* ===== HERO PLUS PETIT ===== */
+        /* ===== SECTION 1: HERO - VERSION RÉDUITE COMME L'ACCUEIL ===== */
         .room-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 300px; /* Réduit de 400px à 300px */
+            height: 350px; /* Réduit de 500px à 350px */
             display: flex;
-            align-items: center;
+            align-items: flex-end; /* Texte en bas comme sur l'accueil */
             justify-content: center;
             text-align: center;
             margin-top: 0;
             position: relative;
         }
 
+        .room-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Overlay sombre comme sur l'accueil */
+            z-index: 1;
+        }
+
         .hero-content {
+            width: 100%;
             max-width: 800px;
-            padding: 0 20px;
+            margin: 0 auto 40px; /* Réduit de 60px à 40px */
+            position: relative;
+            z-index: 2;
         }
 
         .hero-title {
             color: white;
-            font-size: 2.5rem; /* Réduit de 3rem à 2.5rem */
+            font-size: 2.2rem; /* Réduit de 2.5rem à 2.2rem */
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Réduit de 15px à 10px */
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             animation: fadeInDown 1s ease;
         }
@@ -199,7 +225,7 @@
         .hero-subtitle {
             color: white;
             font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Réduit de 20px à 15px */
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
             animation: fadeInUp 1s ease 0.3s both;
         }
@@ -208,15 +234,16 @@
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 6px 14px; /* Réduit de 8px 16px à 6px 14px */
+            padding: 6px 12px; /* Réduit de 8px 15px à 6px 12px */
             border-radius: 30px;
             font-size: 0.85rem; /* Réduit de 0.9rem à 0.85rem */
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
             animation: fadeIn 1s ease 0.6s both;
         }
 
+        /* Animations pour le hero */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -232,45 +259,46 @@
             to { opacity: 1; }
         }
 
-        /* ===== SECTION HEADER ===== */
+        /* ===== SECTION 2: EN-TÊTE DE SECTION ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 30px; /* Réduit de 40px à 30px */
+            margin-bottom: 30px;
         }
 
         .section-header h2 {
             color: var(--primary-color);
-            font-size: 2rem; /* Réduit de 2.2rem à 2rem */
+            font-size: 2rem;
             margin-bottom: 10px;
             position: relative;
             display: inline-block;
         }
 
+        /* Ligne décorative sous le titre */
         .section-header h2::after {
             content: '';
             position: absolute;
-            bottom: -8px; /* Ajusté */
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px; /* Réduit de 60px à 50px */
+            width: 50px;
             height: 3px;
             background: var(--yellow-color);
         }
 
         .section-header p {
             color: #666;
-            font-size: 0.95rem; /* Réduit de 1rem à 0.95rem */
+            font-size: 0.95rem;
             max-width: 700px;
             margin: 10px auto 0;
         }
 
-        /* ===== FILTRES ===== */
+        /* ===== SECTION 3: FILTRES ===== */
         .filter-card {
             background: white;
             border-radius: var(--border-radius);
-            padding: 15px; /* Réduit de 20px à 15px */
+            padding: 15px;
             box-shadow: var(--box-shadow);
-            margin-bottom: 25px; /* Réduit de 30px à 25px */
+            margin-bottom: 25px;
             border: 1px solid #eaeaea;
         }
 
@@ -278,19 +306,19 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 12px; /* Réduit de 15px à 12px */
+            margin-bottom: 12px;
             color: var(--primary-color);
             font-weight: 600;
-            font-size: 0.95rem; /* Plus petit */
+            font-size: 0.95rem;
         }
 
-        /* ===== CARTES DE CHAMBRES AVEC IMAGES PLUS PETITES ===== */
+        /* ===== SECTION 4: CARTES DE CHAMBRES ===== */
         .room-card {
             background-color: white;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            margin-bottom: 25px; /* Réduit de 30px à 25px */
+            margin-bottom: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eaeaea;
         }
@@ -300,12 +328,13 @@
             box-shadow: var(--box-shadow-hover);
         }
 
+        /* Conteneur d'image avec carrousel */
         .room-image-wrapper {
             position: relative;
             overflow: hidden;
             height: 100%;
-            min-height: 240px; /* Réduit de 320px à 240px */
-            max-height: 240px; /* Hauteur max fixe */
+            min-height: 240px;
+            max-height: 240px;
             background-color: #f5f5f5;
         }
 
@@ -317,35 +346,38 @@
         }
 
         .room-card:hover .room-image-wrapper img {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Zoom léger au survol */
         }
 
+        /* Badges pour le type de chambre */
         .room-badge {
             position: absolute;
-            top: 12px; /* Ajusté */
-            right: 12px; /* Ajusté */
-            padding: 4px 12px; /* Réduit de 6px 15px à 4px 12px */
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-size: 0.7rem;
             font-weight: 600;
             z-index: 2;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
+        /* Couleurs différentes selon le type */
         .room-badge.economique { background: linear-gradient(135deg, #4a5568, #718096); color: white; }
         .room-badge.confort { background: linear-gradient(135deg, var(--yellow-color), #e6c200); color: var(--dark-color); }
         .room-badge.luxe { background: linear-gradient(135deg, var(--accent-color), #e53e3e); color: white; }
         .room-badge.prestige { background: linear-gradient(135deg, #1a365d, #2d3748); color: white; }
 
+        /* Badge pour la vue */
         .room-view-badge {
             position: absolute;
-            top: 12px; /* Ajusté */
-            left: 12px; /* Ajusté */
+            top: 12px;
+            left: 12px;
             background: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 4px 10px; /* Réduit de 4px 12px à 4px 10px */
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-size: 0.7rem;
             backdrop-filter: blur(5px);
             z-index: 2;
         }
@@ -354,84 +386,88 @@
             margin-right: 3px;
         }
 
+        /* Contenu de la carte */
         .room-content {
-            padding: 18px; /* Réduit de 25px à 18px */
+            padding: 18px;
         }
 
         .room-title {
             color: var(--primary-color);
-            font-size: 1.5rem; /* Réduit de 1.8rem à 1.5rem */
-            margin-bottom: 6px; /* Réduit de 10px à 6px */
+            font-size: 1.5rem;
+            margin-bottom: 6px;
         }
 
         .room-description {
             color: #666;
-            margin-bottom: 10px; /* Réduit de 15px à 10px */
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            margin-bottom: 10px;
+            font-size: 0.8rem;
             line-height: 1.5;
         }
 
+        /* Prix avec fond jaune dégradé */
         .room-price {
             background: linear-gradient(135deg, var(--yellow-color), #e6c200);
             color: var(--dark-color);
-            padding: 6px 15px; /* Réduit de 10px 20px à 6px 15px */
+            padding: 6px 15px;
             border-radius: 30px;
             font-weight: bold;
             display: inline-block;
-            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
-            font-size: 1.2rem; /* Réduit de 1.4rem à 1.2rem */
+            margin: 8px 0;
+            font-size: 1.2rem;
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
         }
 
         .room-price small {
-            font-size: 0.65rem; /* Réduit de 0.75rem à 0.65rem */
+            font-size: 0.65rem;
             font-weight: normal;
             display: block;
             color: #666;
         }
 
+        /* Caractéristiques principales */
         .room-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 6px; /* Réduit de 10px à 6px */
-            margin: 10px 0; /* Réduit de 15px 0 à 10px 0 */
+            gap: 6px;
+            margin: 10px 0;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 5px; /* Réduit de 8px à 5px */
-            padding: 4px; /* Réduit de 6px à 4px */
+            gap: 5px;
+            padding: 4px;
             background: rgba(2, 91, 165, 0.05);
             border-radius: 5px;
         }
 
         .feature-icon {
             color: var(--primary-color);
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            font-size: 0.8rem;
             width: 16px;
         }
 
         .feature-text {
-            font-size: 0.75rem; /* Réduit de 0.85rem à 0.75rem */
+            font-size: 0.75rem;
             color: var(--dark-color);
         }
 
+        /* Liste des équipements */
         .amenities-list {
             list-style: none;
             padding: 0;
-            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
+            margin: 8px 0;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 3px; /* Réduit de 5px à 3px */
+            gap: 3px;
         }
 
         .amenities-list li {
-            padding: 3px 0; /* Réduit de 4px à 3px */
+            padding: 3px 0;
             display: flex;
             align-items: center;
-            gap: 5px; /* Réduit de 8px à 5px */
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            gap: 5px;
+            font-size: 0.7rem;
             border-bottom: 1px dashed #eee;
         }
 
@@ -441,33 +477,34 @@
             font-size: 0.7rem;
         }
 
+        /* Badge d'avis */
         .review-badge {
             background: linear-gradient(135deg, rgba(2, 91, 165, 0.05), rgba(2, 91, 165, 0.02));
             border-left: 3px solid var(--primary-color);
-            padding: 8px; /* Réduit de 12px à 8px */
+            padding: 8px;
             border-radius: 5px;
-            margin: 8px 0; /* Réduit de 15px 0 à 8px 0 */
+            margin: 8px 0;
         }
 
         .stars {
             color: #ffc107;
             margin-bottom: 3px;
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-size: 0.7rem;
         }
 
         .review-text {
             font-style: italic;
             margin-bottom: 3px;
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-size: 0.7rem;
         }
 
         .review-author {
             font-weight: 600;
             color: var(--primary-color);
-            font-size: 0.7rem; /* Réduit de 0.8rem à 0.7rem */
+            font-size: 0.7rem;
         }
 
-        /* Boutons plus compacts */
+        /* Boutons dans les cartes */
         .room-content .btn {
             padding: 5px 12px;
             font-size: 0.75rem;
@@ -478,7 +515,7 @@
             font-size: 0.7rem;
         }
 
-        /* ===== CAROUSEL AJUSTÉ ===== */
+        /* ===== CARROUSEL D'IMAGES ===== */
         .carousel,
         .carousel-inner,
         .carousel-item {
@@ -522,10 +559,10 @@
             height: 12px;
         }
 
-        /* ===== TABLEAU COMPARATIF PLUS COMPACT ===== */
+        /* ===== SECTION 5: TABLEAU COMPARATIF ===== */
         .comparison-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 30px 0; /* Réduit de 40px à 30px */
+            padding: 30px 0;
         }
 
         .comparison-table {
@@ -533,20 +570,20 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            font-size: 0.8rem;
         }
 
         .comparison-table th {
             background-color: var(--primary-color);
             color: white;
-            padding: 8px; /* Réduit de 12px à 8px */
+            padding: 8px;
             font-weight: 600;
             text-align: center;
             font-size: 0.85rem;
         }
 
         .comparison-table td {
-            padding: 6px 8px; /* Réduit de 10px à 6px */
+            padding: 6px 8px;
             vertical-align: middle;
             text-align: center;
             border-bottom: 1px solid #eaeaea;
@@ -555,14 +592,14 @@
         .feature-yes { color: #28a745; }
         .feature-no { color: #dc3545; }
 
-        /* ===== FAQ PLUS COMPACTE ===== */
+        /* ===== SECTION 6: FAQ ===== */
         .faq-section {
-            padding: 30px 0; /* Réduit de 40px à 30px */
+            padding: 30px 0;
         }
 
         .accordion-item {
             border: none;
-            margin-bottom: 8px; /* Réduit de 10px à 8px */
+            margin-bottom: 8px;
             border-radius: 8px !important;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -572,34 +609,34 @@
             font-weight: 600;
             color: var(--primary-color);
             background-color: white;
-            padding: 12px; /* Réduit de 15px à 12px */
-            font-size: 0.85rem; /* Réduit de 0.95rem à 0.85rem */
+            padding: 12px;
+            font-size: 0.85rem;
         }
 
         .accordion-body {
-            padding: 12px; /* Réduit de 15px à 12px */
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            padding: 12px;
+            font-size: 0.8rem;
         }
 
-        /* ===== CTA PLUS COMPACT ===== */
+        /* ===== SECTION 7: CTA ===== */
         .cta-section {
             background: linear-gradient(rgba(2, 91, 165, 0.9), rgba(2, 91, 165, 0.9)), 
                         url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            padding: 40px 0; /* Réduit de 50px à 40px */
+            padding: 40px 0;
             color: white;
             text-align: center;
         }
 
         .cta-title { 
-            font-size: 1.8rem; /* Réduit de 2rem à 1.8rem */ 
+            font-size: 1.8rem;
             margin-bottom: 10px; 
         }
         
         .cta-text { 
-            font-size: 1rem; /* Réduit de 1.1rem à 1rem */ 
-            margin-bottom: 15px; 
+            font-size: 1rem;
+            margin-bottom: 15px;
             opacity: 0.9; 
         }
 
@@ -608,7 +645,7 @@
             font-size: 0.9rem;
         }
 
-        /* ===== MODAL RÉSERVATION ===== */
+        /* ===== SECTION 8: MODAL DE RÉSERVATION ===== */
         .modal-header.bg-primary {
             background-color: var(--primary-color) !important;
         }
@@ -641,7 +678,7 @@
             padding: 6px 12px;
         }
 
-        /* ===== FOOTER (IDENTIQUE À L'ORIGINAL) ===== */
+        /* ===== SECTION 9: FOOTER ===== */
         .footer {
             background-color: var(--primary-color);
             color: white;
@@ -663,6 +700,11 @@
             margin-bottom: 15px;
         }
 
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
         .footer-links ul li {
             margin-bottom: 5px;
         }
@@ -672,6 +714,11 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 0.85rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
         }
 
         .footer-contact p {
@@ -708,7 +755,7 @@
             text-align: center;
         }
 
-        /* ===== ANIMATIONS ===== */
+        /* ===== ANIMATIONS AU SCROLL ===== */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -720,7 +767,7 @@
             transform: translateY(0);
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== STYLES RESPONSIVE POUR LE HEADER RÉDUIT ===== */
         @media (max-width: 1200px) {
             .room-image-wrapper {
                 min-height: 220px;
@@ -743,15 +790,15 @@
             }
             
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem !important;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1rem !important;
             }
             
             .room-hero {
-                height: 280px;
+                height: 300px !important; /* Réduit de 400px à 300px */
             }
             
             .amenities-list {
@@ -779,15 +826,24 @@
             }
             
             .room-hero {
-                height: 250px;
+                height: 280px !important; /* Réduit de 350px à 280px */
             }
             
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem !important; /* Réduit de 1.8rem à 1.6rem */
+                color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.9rem !important; /* Réduit de 1rem à 0.9rem */
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
+                padding: 4px 10px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .section-header h2 {
@@ -819,20 +875,24 @@
 
         @media (max-width: 576px) {
             .room-hero {
-                height: 200px;
+                height: 240px !important; /* Réduit de 300px à 240px */
             }
             
             .hero-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem !important; /* Réduit de 1.6rem à 1.4rem */
+                color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.8rem;
+                font-size: 0.8rem !important; /* Réduit de 0.9rem à 0.8rem */
+                color: white !important;
             }
             
             .location-badge {
-                font-size: 0.7rem;
-                padding: 4px 10px;
+                font-size: 0.7rem !important;
+                padding: 3px 8px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .room-image-wrapper {
@@ -850,12 +910,38 @@
                 margin-bottom: 3px;
             }
         }
+
+        @media (max-width: 375px) {
+            .room-hero {
+                height: 200px !important; /* Réduit de 250px à 200px */
+            }
+            
+            .hero-title {
+                font-size: 1.2rem !important; /* Réduit de 1.4rem à 1.2rem */
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.7rem !important;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.65rem !important;
+                padding: 2px 6px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION (STRICTEMENT IDENTIQUE À L'ORIGINAL) ===== -->
+
+    <!-- ===== SECTION 1: NAVIGATION ===== -->
+    <!-- Barre de navigation fixe avec logo et menu -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
+            <!-- Logo et nom de l'hôtel -->
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
                     <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" loading="lazy" onerror="this.style.display='none';">
@@ -867,9 +953,13 @@
                     </div>
                 </div>
             </a>
+            
+            <!-- Bouton menu mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Liens de navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -893,9 +983,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="admin.html">Admin</a>
                     </li>
+                    <!-- Bouton réserver jaune -->
                     <li class="nav-item">
                         <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">Réserver</a>
                     </li>
+                    <!-- Sélecteur de langue -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-globe"></i> FR
@@ -911,7 +1003,8 @@
         </div>
     </nav>
 
-    <!-- ===== HERO PLUS PETIT ===== -->
+    <!-- ===== SECTION 2: HERO - VERSION RÉDUITE COMME L'ACCUEIL ===== -->
+    <!-- Grande image d'accueil avec titre et localisation -->
     <header class="room-hero">
         <div class="container hero-content">
             <h1 class="hero-title">Chambres & Suites</h1>
@@ -922,7 +1015,8 @@
         </div>
     </header>
 
-    <!-- ===== INTRODUCTION ===== -->
+    <!-- ===== SECTION 3: INTRODUCTION ===== -->
+    <!-- Brève présentation de la section chambres -->
     <section class="section-padding" style="padding: 40px 0;">
         <div class="container">
             <div class="section-header">
@@ -939,7 +1033,8 @@
         </div>
     </section>
 
-    <!-- ===== FILTRES ===== -->
+    <!-- ===== SECTION 4: FILTRES ===== -->
+    <!-- Système de filtres pour trier les chambres -->
     <section class="container">
         <div class="filter-card animate-on-scroll">
             <div class="filter-title">
@@ -947,6 +1042,7 @@
                 <h5 class="mb-0">Filtrer les chambres</h5>
             </div>
             <div class="row g-2">
+                <!-- Filtre par type -->
                 <div class="col-md-3 col-6">
                     <select class="form-select form-select-sm" id="filter-type" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
                         <option value="all">Type</option>
@@ -956,6 +1052,7 @@
                         <option value="prestige">Prestige</option>
                     </select>
                 </div>
+                <!-- Filtre par prix -->
                 <div class="col-md-3 col-6">
                     <select class="form-select form-select-sm" id="filter-price" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
                         <option value="all">Prix</option>
@@ -965,6 +1062,7 @@
                         <option value="500000">-500k XOF</option>
                     </select>
                 </div>
+                <!-- Filtre par vue -->
                 <div class="col-md-3 col-6">
                     <select class="form-select form-select-sm" id="filter-view" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
                         <option value="all">Vue</option>
@@ -973,6 +1071,7 @@
                         <option value="panoramique">Panoramique</option>
                     </select>
                 </div>
+                <!-- Filtre par capacité -->
                 <div class="col-md-3 col-6">
                     <select class="form-select form-select-sm" id="filter-capacity" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
                         <option value="all">Capacité</option>
@@ -985,13 +1084,16 @@
         </div>
     </section>
 
-    <!-- ===== LISTE DES CHAMBRES (IMAGES PLUS PETITES) ===== -->
+    <!-- ===== SECTION 5: LISTE DES CHAMBRES ===== -->
+    <!-- 4 cartes de chambres avec carrousels d'images -->
     <section class="container" id="rooms-list">
-        <!-- STANDARD -->
+
+        <!-- CHAMBRE STANDARD (Type: économique) -->
         <div class="room-card animate-on-scroll" data-type="economique" data-price="65000" data-view="jardin" data-capacity="2">
             <div class="row g-0">
                 <div class="col-lg-5">
                     <div class="room-image-wrapper">
+                        <!-- Carrousel d'images pour cette chambre -->
                         <div id="carouselStandard" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselStandard" data-bs-slide-to="0" class="active"></button>
@@ -1012,6 +1114,7 @@
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselStandard" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselStandard" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
+                        <!-- Badges -->
                         <span class="room-badge economique">Standard</span>
                         <span class="room-view-badge"><i class="fas fa-tree"></i> Jardin</span>
                     </div>
@@ -1020,24 +1123,34 @@
                     <div class="room-content">
                         <h2 class="room-title">Chambre Standard</h2>
                         <p class="room-description">Confortable et chaleureuse avec décoration wax traditionnelle.</p>
+                        
+                        <!-- Prix -->
                         <div class="room-price">65,000 XOF <small>/nuit</small></div>
+                        
+                        <!-- Caractéristiques principales -->
                         <div class="room-features">
                             <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text">25 m²</span></div>
                             <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text">2 pers</span></div>
                             <div class="feature-item"><i class="fas fa-wifi feature-icon"></i><span class="feature-text">Wi-Fi</span></div>
                             <div class="feature-item"><i class="fas fa-snowflake feature-icon"></i><span class="feature-text">Clim</span></div>
                         </div>
+                        
+                        <!-- Liste des équipements -->
                         <ul class="amenities-list">
                             <li><i class="fas fa-check-circle text-success"></i> TV 40"</li>
                             <li><i class="fas fa-check-circle text-success"></i> Mini-bar</li>
                             <li><i class="fas fa-check-circle text-success"></i> Coffre-fort</li>
                             <li><i class="fas fa-check-circle text-success"></i> Douche</li>
                         </ul>
+                        
+                        <!-- Avis client -->
                         <div class="review-badge">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.5</div>
                             <p class="review-text">"Chambre confortable et calme"</p>
                             <div class="review-author">- Marie D.</div>
                         </div>
+                        
+                        <!-- Boutons d'action -->
                         <div class="d-flex gap-1 flex-wrap">
                             <button class="btn btn-primary btn-sm" onclick="bookRoom('standard')"><i class="fas fa-calendar-check"></i> Réserver</button>
                             <button class="btn btn-outline-primary btn-sm" onclick="openGallery('standard')"><i class="fas fa-images"></i> Photos</button>
@@ -1048,11 +1161,12 @@
             </div>
         </div>
 
-        <!-- DELUXE -->
+        <!-- CHAMBRE DELUXE (Type: confort) -->
         <div class="room-card animate-on-scroll" data-type="confort" data-price="95000" data-view="piscine" data-capacity="2">
             <div class="row g-0">
                 <div class="col-lg-5 order-lg-2">
                     <div class="room-image-wrapper">
+                        <!-- Carrousel pour Deluxe -->
                         <div id="carouselDeluxe" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselDeluxe" data-bs-slide-to="0" class="active"></button>
@@ -1103,11 +1217,12 @@
             </div>
         </div>
 
-        <!-- SUITE PRESTIGE -->
+        <!-- SUITE PRESTIGE (Type: luxe) -->
         <div class="room-card animate-on-scroll" data-type="luxe" data-price="150000" data-view="panoramique" data-capacity="3">
             <div class="row g-0">
                 <div class="col-lg-5">
                     <div class="room-image-wrapper">
+                        <!-- Carrousel pour Prestige -->
                         <div id="carouselSuite" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselSuite" data-bs-slide-to="0" class="active"></button>
@@ -1158,11 +1273,12 @@
             </div>
         </div>
 
-        <!-- SUITE ROYALE -->
+        <!-- SUITE ROYALE (Type: prestige) -->
         <div class="room-card animate-on-scroll" data-type="prestige" data-price="450000" data-view="panoramique" data-capacity="4">
             <div class="row g-0">
                 <div class="col-lg-5 order-lg-2">
                     <div class="room-image-wrapper">
+                        <!-- Carrousel pour Royale -->
                         <div id="carouselRoyale" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselRoyale" data-bs-slide-to="0" class="active"></button>
@@ -1216,7 +1332,7 @@
         </div>
     </section>
 
-    <!-- Message aucun résultat -->
+    <!-- Message quand aucun résultat de filtre -->
     <div id="no-results" class="container text-center py-4" style="display: none;">
         <i class="fas fa-search fa-3x text-muted mb-2"></i>
         <h4>Aucune chambre trouvée</h4>
@@ -1224,7 +1340,8 @@
         <button class="btn btn-primary btn-sm" onclick="resetFilters()">Réinitialiser les filtres</button>
     </div>
 
-    <!-- ===== TABLEAU COMPARATIF ===== -->
+    <!-- ===== SECTION 6: TABLEAU COMPARATIF ===== -->
+    <!-- Tableau comparatif des 4 chambres -->
     <section class="comparison-section">
         <div class="container">
             <div class="section-header">
@@ -1256,7 +1373,8 @@
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
+    <!-- ===== SECTION 7: FAQ ===== -->
+    <!-- Questions fréquentes sur les chambres -->
     <section class="faq-section">
         <div class="container">
             <div class="section-header">
@@ -1266,17 +1384,44 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="accordion" id="faqAccordion">
+                        <!-- Question 1 -->
                         <div class="accordion-item">
-                            <h3 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">Petit-déjeuner inclus ?</button></h3>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Oui, buffet sénégalais et continental de 7h à 10h.</div></div>
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Petit-déjeuner inclus ?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Oui, buffet sénégalais et continental de 7h à 10h.
+                                </div>
+                            </div>
                         </div>
+                        <!-- Question 2 -->
                         <div class="accordion-item">
-                            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Heures d'arrivée/départ ?</button></h3>
-                            <div id="faq2" class="accordion-collapse collapse"><div class="accordion-body">Check-in 14h, check-out 11h. Possibilité de late check-out selon disponibilité.</div></div>
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Heures d'arrivée/départ ?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    Check-in 14h, check-out 11h. Possibilité de late check-out selon disponibilité.
+                                </div>
+                            </div>
                         </div>
+                        <!-- Question 3 -->
                         <div class="accordion-item">
-                            <h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">Piscine accessible ?</button></h3>
-                            <div id="faq3" class="accordion-collapse collapse"><div class="accordion-body">Oui, de 8h à 20h. Serviettes fournies.</div></div>
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Piscine accessible ?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    Oui, de 8h à 20h. Serviettes fournies.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1284,19 +1429,25 @@
         </div>
     </section>
 
-    <!-- ===== CTA ===== -->
+    <!-- ===== SECTION 8: CTA ===== -->
+    <!-- Appel à l'action pour une offre spéciale -->
     <section class="cta-section">
         <div class="container">
             <h2 class="cta-title">Offre spéciale séjour</h2>
             <p class="cta-text">Réservez 3 nuits et profitez d'une demi-pension offerte.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#bookingModal"><i class="fas fa-gift"></i> Réserver</a>
-                <a href="#" class="btn btn-outline-light btn-sm" onclick="bookRoomViaWhatsApp('offre')"><i class="fab fa-whatsapp"></i> Contact</a>
+                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                    <i class="fas fa-gift"></i> Réserver
+                </a>
+                <a href="#" class="btn btn-outline-light btn-sm" onclick="bookRoomViaWhatsApp('offre')">
+                    <i class="fab fa-whatsapp"></i> Contact
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== MODAL RÉSERVATION AMÉLIORÉ ===== -->
+    <!-- ===== SECTION 9: MODAL DE RÉSERVATION ===== -->
+    <!-- Fenêtre pop-up pour réserver une chambre -->
     <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -1307,14 +1458,18 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <!-- Affichage de la chambre sélectionnée -->
                     <div class="alert alert-info mb-3 p-2" style="font-size: 0.9rem;">
                         <i class="fas fa-info-circle me-2"></i> 
                         Chambre sélectionnée : <strong id="modal-room-display">Chambre Standard</strong>
                     </div>
                     
+                    <!-- Formulaire de réservation -->
                     <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <!-- Champ caché pour la chambre -->
                         <input type="hidden" id="selected-room" name="room" value="Chambre Standard">
                         
+                        <!-- Dates -->
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <label for="checkin" class="form-label small fw-bold">Date d'arrivée *</label>
@@ -1326,6 +1481,7 @@
                             </div>
                         </div>
                         
+                        <!-- Nombre de personnes -->
                         <div class="row">
                             <div class="col-md-4 mb-2">
                                 <label for="adults" class="form-label small fw-bold">Adultes *</label>
@@ -1351,6 +1507,7 @@
                             </div>
                         </div>
                         
+                        <!-- Coordonnées -->
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <label for="name" class="form-label small fw-bold">Nom complet *</label>
@@ -1362,21 +1519,25 @@
                             </div>
                         </div>
                         
+                        <!-- Téléphone -->
                         <div class="mb-2">
                             <label for="phone" class="form-label small fw-bold">Téléphone (WhatsApp) *</label>
                             <input type="tel" class="form-control form-control-sm" id="phone" name="phone" required placeholder="+221 77 123 45 67">
                         </div>
                         
+                        <!-- Message -->
                         <div class="mb-2">
                             <label for="message" class="form-label small fw-bold">Message</label>
                             <textarea class="form-control form-control-sm" id="message" name="message" rows="2" placeholder="Demandes spéciales..."></textarea>
                         </div>
                         
+                        <!-- Conditions -->
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="terms" required>
                             <label class="form-check-label small" for="terms">J'accepte les CGV</label>
                         </div>
                         
+                        <!-- Bouton d'envoi -->
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-sm">
                                 <i class="fab fa-whatsapp me-1"></i> Envoyer via WhatsApp
@@ -1389,60 +1550,131 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER (IDENTIQUE À L'ORIGINAL) ===== -->
+    <!-- ===== MODAL CONNEXION ADMIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label small">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label small">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select form-select-sm" id="admin-role">
+                                <option value="reception">Réceptionniste</option>
+                                <option value="serveur">Serveur</option>
+                                <option value="cuisine">Cuisine</option>
+                                <option value="guide">Guide touristique</option>
+                                <option value="manager">Manager</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECTION 10: FOOTER ===== -->
+    <!-- Pied de page avec toutes les informations -->
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
+                <!-- À propos -->
                 <div class="col-md-4 footer-about">
-                    <h3>Lawmar Les Résidences</h3>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" style="width: 45px; height: 45px;" onerror="this.style.display='none';">
+                        <h3><i class="fas fa-crown me-2"></i> LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
+                    </div>
                     <p>Hôtel de charme à Tassinère, Gandiol. Authenticité et confort au bord de l'eau.</p>
-                </div>
-                <div class="col-md-2 footer-links">
-                    <h4>Liens</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Chambres</a></li>
-                        <li><a href="#">Restauration</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 footer-contact">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> Tassinère, Gandiol, Saint-Louis</p>
-                    <p><i class="fas fa-phone me-2"></i> +221 77 123 45 67</p>
-                    <p><i class="fas fa-envelope me-2"></i> contact@lawmar.sn</p>
-                </div>
-                <div class="col-md-3 footer-newsletter">
-                    <h4>Suivez-nous</h4>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
+                
+                <!-- Liens rapides -->
+                <div class="col-md-2 footer-links">
+                    <h4>Liens</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="chambres.html">Chambres</a></li>
+                        <li><a href="restauration.html">Restauration</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html" target="_blank"><i class="fas fa-lock me-1"></i> Administration</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-md-3 footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal 🇸🇳</p>
+                    <p><i class="fas fa-phone me-2"></i> +221 77 995 20 20</p>
+                    <p><i class="fas fa-phone me-2"></i> +221 77 291 72 15</p>
+                    <p><i class="fas fa-envelope me-2"></i> residencelawmar@gmail.com</p>
+                    <p><i class="fab fa-whatsapp me-2"></i> WhatsApp: +221 77 995 20 20</p>
+                    <p><i class="fas fa-money-bill-wave me-2"></i> Paiements: XOF - Wave - Orange Money</p>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="col-md-3 footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Recevez nos offres spéciales</p>
+                    <form id="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            
+            <!-- Copyright -->
             <div class="footer-bottom">
-                <p class="mb-0">&copy; 2025 Lawmar Les Résidences. Tous droits réservés.</p>
+                <p class="mb-0">&copy; 2025 Lawmar Les Résidences. Tous droits réservés. | 
+                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Accès personnel</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
+    <!-- ===== SCRIPTS JAVASCRIPT ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Numéro WhatsApp
+        // ===== CONSTANTES =====
+        // Numéro WhatsApp de l'hôtel
         const WHATSAPP_NUMBER = "221779952020";
 
-        // Animation scroll
+        // ===== ANIMATION AU SCROLL =====
+        // Ajoute la classe 'animated' aux éléments visibles
         function animateOnScroll() {
             document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('animated');
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('animated');
+                }
             });
         }
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
 
-        // Filtres
+        // ===== SYSTÈME DE FILTRES =====
+        // Filtre les chambres selon les critères sélectionnés
         function filterRooms() {
             const type = document.getElementById('filter-type').value;
             const price = document.getElementById('filter-price').value;
@@ -1456,12 +1688,16 @@
                 if (price !== 'all' && parseInt(room.dataset.price) > parseInt(price)) ok = false;
                 if (view !== 'all' && room.dataset.view !== view) ok = false;
                 if (capacity !== 'all' && parseInt(room.dataset.capacity) < parseInt(capacity)) ok = false;
+                
                 room.style.display = ok ? 'block' : 'none';
                 if (ok) visible++;
             });
+            
+            // Affiche le message si aucun résultat
             document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
         }
 
+        // Réinitialise tous les filtres
         function resetFilters() {
             document.getElementById('filter-type').value = 'all';
             document.getElementById('filter-price').value = 'all';
@@ -1470,13 +1706,17 @@
             filterRooms();
         }
 
-        // Variables pour la réservation
+        // ===== FONCTIONS DE RÉSERVATION =====
         let selectedRoom = '';
 
-        // Fonction de réservation
+        /**
+         * Ouvre le modal de réservation pour une chambre spécifique
+         * @param {string} room - Identifiant de la chambre
+         */
         function bookRoom(room) {
             selectedRoom = room;
             
+            // Correspondance entre identifiant et nom affiché
             const roomNames = {
                 'standard': 'Chambre Standard',
                 'deluxe': 'Chambre Deluxe',
@@ -1491,10 +1731,18 @@
             modal.show();
         }
 
+        /**
+         * Ouvre la galerie de la chambre (simulation)
+         * @param {string} room - Identifiant de la chambre
+         */
         function openGallery(room) {
-            alert(`Galerie ${room}`);
+            alert(`Galerie ${room} - Fonctionnalité à implémenter`);
         }
 
+        /**
+         * Réserve une chambre via WhatsApp (message simple)
+         * @param {string} room - Identifiant de la chambre
+         */
         function bookRoomViaWhatsApp(room) {
             const roomNames = {
                 'standard': 'Chambre Standard',
@@ -1509,14 +1757,22 @@
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
+        /**
+         * Change la langue du site (simulation)
+         * @param {string} lang - Code de langue ('fr', 'en', 'wo')
+         */
         function changeLanguage(lang) {
-            alert(`Langue changée en ${lang}`);
+            alert(`Langue changée en ${lang} - Fonctionnalité à implémenter`);
         }
 
-        // Fonction pour soumettre le formulaire
+        /**
+         * Soumet le formulaire de réservation et envoie les détails par WhatsApp
+         * @param {Event} event - L'événement de soumission
+         */
         function submitBooking(event) {
             event.preventDefault();
             
+            // Récupération des données du formulaire
             const formData = {
                 room: document.getElementById('selected-room').value,
                 checkin: document.getElementById('checkin').value,
@@ -1530,20 +1786,24 @@
                 message: document.getElementById('message').value
             };
             
+            // Validation des champs obligatoires
             if (!formData.checkin || !formData.checkout || !formData.name || !formData.email || !formData.phone) {
                 alert('Veuillez remplir tous les champs obligatoires');
                 return;
             }
             
+            // Formatage des dates pour l'affichage
             const formatDate = (dateStr) => {
                 const date = new Date(dateStr);
                 return date.toLocaleDateString('fr-FR');
             };
             
+            // Calcul du nombre de nuits
             const start = new Date(formData.checkin);
             const end = new Date(formData.checkout);
             const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
             
+            // Construction du message WhatsApp structuré
             const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
 ━━━━━━━━━━━━━━━━━━
 🏨 Chambre: ${formData.room}
@@ -1559,16 +1819,20 @@
 ━━━━━━━━━━━━━━━━━━
 💬 Message: ${formData.message || 'Aucun'}`;
             
+            // Ouverture de WhatsApp
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
             
+            // Fermeture du modal
             bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
             
+            // Message de confirmation
             alert('✓ Demande envoyée ! Vous serez contacté sous 24h.');
             
+            // Réinitialisation du formulaire
             document.getElementById('bookingForm').reset();
         }
 
-        // Remplir les dates par défaut
+        // ===== INITIALISATION DES DATES =====
         window.addEventListener('load', function() {
             const today = new Date();
             const tomorrow = new Date(today);
@@ -1578,6 +1842,7 @@
                 return date.toISOString().split('T')[0];
             };
             
+            // Pré-remplir les dates avec aujourd'hui et demain
             if (document.getElementById('checkin')) {
                 document.getElementById('checkin').value = formatDate(today);
                 document.getElementById('checkin').min = formatDate(today);
@@ -1588,7 +1853,8 @@
             }
         });
 
-        // Validation des dates
+        // ===== VALIDATION DES DATES =====
+        // Empêche la date de départ d'être antérieure à la date d'arrivée
         document.addEventListener('DOMContentLoaded', function() {
             const checkin = document.getElementById('checkin');
             const checkout = document.getElementById('checkout');
@@ -1601,6 +1867,26 @@
                         nextDay.setDate(nextDay.getDate() + 1);
                         checkout.value = nextDay.toISOString().split('T')[0];
                     }
+                });
+            }
+
+            // ===== FORMULAIRE NEWSLETTER =====
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('✅ Merci pour votre inscription à la newsletter !');
+                    this.reset();
+                });
+            }
+
+            // ===== FORMULAIRE ADMIN =====
+            const adminLoginForm = document.getElementById('admin-login-form');
+            if (adminLoginForm) {
+                adminLoginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('✅ Connexion réussie !');
+                    bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
                 });
             }
         });

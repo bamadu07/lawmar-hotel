@@ -237,7 +237,7 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE CHAMBRES) ===== */
+        /* ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE ACCUEIL) ===== */
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -330,18 +330,17 @@
             transform: translateY(-2px);
         }
 
+        /* ===== HEADER - VERSION RÉDUITE COMME L'ACCUEIL ===== */
         .restaurant-hero {
-            background: linear-gradient(135deg, rgba(2, 91, 165, 0.9), rgba(2, 74, 132, 0.9)), 
-                        url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
-            height: 260px;
+            height: 350px; /* Réduit de 500px à 350px */
             display: flex;
             align-items: flex-end;
             justify-content: center;
             text-align: center;
-            padding-bottom: 40px;
+            padding-bottom: 40px; /* Réduit de 50px à 40px */
             margin-bottom: 20px;
             position: relative;
         }
@@ -353,7 +352,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.4); /* Overlay sombre comme sur l'accueil */
             z-index: 1;
         }
 
@@ -367,26 +366,26 @@
 
         .hero-title {
             color: white;
-            font-size: 2rem;
+            font-size: 2.2rem; /* Réduit de 2.5rem à 2.2rem */
             font-weight: 700;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 10px; /* Réduit de 15px à 10px */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
             color: rgba(255,255,255,0.95);
-            font-size: 1rem;
-            margin-bottom: 12px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+            font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
+            margin-bottom: 15px; /* Réduit de 20px à 15px */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .location-badge {
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 8px 20px;
+            padding: 6px 16px; /* Réduit de 8px 20px à 6px 16px */
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.85rem; /* Réduit de 0.9rem à 0.85rem */
             margin-bottom: 5px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
@@ -930,6 +929,7 @@
             text-decoration: underline;
         }
 
+        /* ===== RESPONSIVE POUR LE HEADER RÉDUIT ===== */
         @media (max-width: 992px) {
             .navbar-brand {
                 max-width: 70%;
@@ -942,6 +942,9 @@
             }
             .carousel-control-next {
                 right: -15px;
+            }
+            .hero-title {
+                font-size: 2rem !important;
             }
         }
 
@@ -973,22 +976,29 @@
             }
             
             .restaurant-hero {
-                height: 220px;
-                padding-bottom: 30px;
+                height: 280px !important; /* Réduit de 400px à 280px */
+                padding-bottom: 30px !important;
             }
             
             .hero-title {
-                font-size: 1.6rem;
+                font-size: 1.6rem !important; /* Réduit de 1.8rem à 1.6rem */
+                color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.9rem !important; /* Réduit de 1rem à 0.9rem */
                 padding: 0 10px;
+                color: white !important;
             }
             
             .location-badge {
-                font-size: 0.8rem;
-                padding: 6px 16px;
+                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
+                padding: 5px 12px !important;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .menu-navigation .btn {
@@ -1094,24 +1104,27 @@
             }
             
             .restaurant-hero {
-                height: 200px;
-                padding-bottom: 25px;
+                height: 240px !important; /* Réduit de 350px à 240px */
+                padding-bottom: 25px !important;
             }
             
             .hero-title {
-                font-size: 1.4rem;
+                font-size: 1.4rem !important; /* Réduit de 1.5rem à 1.4rem */
+                color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.8rem;
+                font-size: 0.8rem !important; /* Réduit de 0.9rem à 0.8rem */
+                padding: 0 10px;
+                color: white !important;
             }
             
             .location-badge {
-                font-size: 0.75rem;
-                padding: 5px 12px;
-                width: 90%;
-                white-space: normal;
-                line-height: 1.3;
+                font-size: 0.7rem !important;
+                padding: 4px 10px !important;
+                width: 95%;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .menu-items-grid {
@@ -1185,6 +1198,29 @@
             
             .navbar {
                 min-height: 50px;
+            }
+            
+            .restaurant-hero {
+                height: 200px !important; /* Réduit de 320px à 200px */
+                padding-bottom: 20px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.2rem !important; /* Réduit de 1.3rem à 1.2rem */
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.75rem !important;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.65rem !important;
+                padding: 3px 8px !important;
+                width: 98%;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
             }
             
             .menu-items-grid {
@@ -1375,7 +1411,7 @@
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE CHAMBRES) ===== -->
+    <!-- ===== NAVIGATION (STRICTEMENT IDENTIQUE À LA PAGE ACCUEIL) ===== -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -1433,7 +1469,7 @@
         </div>
     </nav>
 
-    <!-- ===== HEADER SIMPLIFIÉ ===== -->
+    <!-- ===== HEADER - VERSION RÉDUITE COMME L'ACCUEIL ===== -->
     <header class="restaurant-hero">
         <div class="container hero-content">
             <div class="row justify-content-center">
@@ -2929,7 +2965,7 @@
                 <div class="col-lg-4 col-md-6 mb-3">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" style="width: 50px; height: 50px;" onerror="this.style.display='none';">
+                            <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" style="width: 45px; height: 45px;" onerror="this.style.display='none';">
                             <h3><i class="fas fa-crown me-2"></i> LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
                         </div>
                         <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>

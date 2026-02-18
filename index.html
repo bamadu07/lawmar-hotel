@@ -15,7 +15,7 @@
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-            --yellow-color: #FFD700; /* Nouvelle couleur jaune pour le bouton réserver */
+            --yellow-color: #FFD700;
             --transition: all 0.3s ease;
         }
 
@@ -29,7 +29,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            padding-top: 80px; /* Ajusté pour la nouvelle hauteur de navbar */
+            padding-top: 80px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -70,7 +70,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Bouton WhatsApp */
         .btn-whatsapp {
             background-color: #25D366;
             color: white !important;
@@ -95,12 +94,11 @@
             border-color: #25D366;
         }
 
-        /* Navigation avec logo - TAILLE REVUE */
         .navbar {
             background-color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 5px 0; /* Réduit de 10px à 5px */
-            min-height: 70px; /* Hauteur fixe plus compacte */
+            padding: 5px 0;
+            min-height: 70px;
         }
 
         .navbar-brand {
@@ -113,12 +111,12 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px; /* Réduit de 12px à 8px */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 45px; /* Réduit de 50px à 45px */
-            height: 45px; /* Réduit de 50px à 45px */
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--secondary-color);
@@ -132,24 +130,24 @@
 
         .hotel-name {
             color: white;
-            font-size: 1.4rem; /* Réduit de 1.6rem à 1.4rem */
+            font-size: 1.4rem;
             margin: 0;
             line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: rgba(255,255,255,0.9);
-            font-size: 0.75rem; /* Réduit de 0.8rem à 0.75rem */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
             color: rgba(255,255,255,0.9) !important;
             font-weight: 500;
-            padding: 6px 12px !important; /* Réduit de 8px 15px à 6px 12px */
+            padding: 6px 12px !important;
             margin: 0 2px;
             transition: var(--transition);
-            font-size: 0.9rem; /* Ajouté pour cohérence */
+            font-size: 0.9rem;
         }
 
         .navbar-nav .nav-link:hover,
@@ -158,10 +156,9 @@
             opacity: 0.9;
         }
 
-        /* BOUTON RÉSERVER - FOND JAUNE AJOUTÉ */
         .btn-reservation {
-            background-color: var(--yellow-color) !important; /* Fond jaune */
-            color: var(--primary-color) !important; /* Texte bleu */
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
@@ -169,19 +166,18 @@
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important; /* Jaune plus foncé au hover */
+            background-color: #e6c200 !important;
             color: var(--primary-color) !important;
             transform: translateY(-2px);
         }
 
-        /* Header Saint-Louis */
         .saint-louis-hero {
-            background: url('https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: url('images/vue1.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 350px;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
             text-align: center;
             margin-top: 0;
@@ -202,23 +198,24 @@
         .hero-content {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
+            padding: 0 20px;
         }
 
         .hero-title {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
             color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
@@ -226,18 +223,18 @@
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 30px;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
         }
 
         .btn-hero {
-            padding: 12px 30px;
-            margin: 5px 10px;
-            font-size: 1rem;
+            padding: 10px 25px;
+            margin: 5px 8px;
+            font-size: 0.95rem;
         }
 
         .btn-outline-light {
@@ -252,7 +249,6 @@
             border-color: white !important;
         }
 
-        /* Container pour les boutons dans les cartes */
         .offer-buttons {
             display: flex;
             gap: 8px;
@@ -266,7 +262,6 @@
             white-space: nowrap;
         }
 
-        /* Section header */
         .section-header {
             text-align: center;
             margin-bottom: 30px;
@@ -285,7 +280,6 @@
             margin: 0 auto;
         }
 
-        /* Cartes offres spéciales */
         .special-offer-card {
             background: white;
             border-radius: 8px;
@@ -365,7 +359,6 @@
             font-size: 0.8rem;
         }
 
-        /* Styles spécifiques pour Saint-Louis */
         .senegal-flag-icon {
             display: inline-block;
             margin-right: 5px;
@@ -452,7 +445,6 @@
             color: var(--secondary-color);
         }
 
-        /* Section restauration */
         .restauration-section {
             background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
                         url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
@@ -506,7 +498,6 @@
             font-size: 0.9rem;
         }
 
-        /* Carousel avis */
         .reviews-carousel {
             position: relative;
             padding: 20px 0;
@@ -603,7 +594,6 @@
             background-size: 60%;
         }
 
-        /* Footer */
         .footer {
             background-color: var(--primary-color);
             color: white;
@@ -701,7 +691,6 @@
             text-decoration: underline;
         }
 
-        /* Modal */
         .modal-content {
             border-radius: 10px;
             overflow: hidden;
@@ -722,10 +711,9 @@
             filter: invert(1);
         }
 
-        /* Responsive pour la nouvelle taille de navbar */
         @media (max-width: 768px) {
             body {
-                padding-top: 70px; /* Ajusté pour mobile */
+                padding-top: 70px;
             }
             
             .navbar {
@@ -747,49 +735,39 @@
             }
             
             .navbar-nav .nav-link {
-                padding: 8px 15px !important; /* Plus d'espace en mobile pour le touch */
+                padding: 8px 15px !important;
             }
             
             .saint-louis-hero {
-                height: 400px !important;
+                height: 280px !important;
                 padding: 0 10px !important;
                 margin-top: 0 !important;
             }
             
             .hero-content {
-                padding: 20px 10px !important;
-                margin-bottom: 30px !important;
+                padding: 15px 10px !important;
             }
             
             .hero-title {
-                font-size: 1.5rem !important;
+                font-size: 1.4rem !important;
                 margin-bottom: 8px !important;
-                line-height: 1.3;
                 color: white !important;
             }
             
             .hero-subtitle {
                 font-size: 0.9rem !important;
-                margin-bottom: 15px !important;
-                line-height: 1.4;
-                padding: 0 5px;
+                margin-bottom: 10px !important;
                 color: white !important;
             }
             
             .location-badge {
-                padding: 6px 12px !important;
-                font-size: 0.8rem !important;
-                margin-bottom: 15px !important;
+                padding: 5px 10px !important;
+                font-size: 0.75rem !important;
+                margin-bottom: 10px !important;
+                width: auto;
                 display: inline-block;
-                width: 90%;
-                white-space: normal;
-                line-height: 1.3;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
-            }
-            
-            .location-badge i {
-                margin-right: 5px;
             }
             
             .hero-buttons-container {
@@ -797,16 +775,16 @@
                 flex-direction: column !important;
                 gap: 8px !important;
                 width: 100% !important;
-                margin-top: 10px !important;
+                margin-top: 5px !important;
             }
             
             .btn-hero {
                 display: block !important;
                 width: 90% !important;
-                max-width: 250px !important;
+                max-width: 220px !important;
                 margin: 0 auto !important;
-                padding: 10px 15px !important;
-                font-size: 0.85rem !important;
+                padding: 8px 12px !important;
+                font-size: 0.8rem !important;
             }
             
             .section-header h2 {
@@ -890,7 +868,7 @@
             }
             
             .saint-louis-hero {
-                height: 350px !important;
+                height: 240px !important;
             }
             
             .logo-image {
@@ -903,25 +881,22 @@
             }
             
             .hero-title {
-                font-size: 1.3rem !important;
+                font-size: 1.2rem !important;
             }
             
             .hero-subtitle {
-                font-size: 0.85rem !important;
-                padding: 0;
+                font-size: 0.8rem !important;
             }
             
             .location-badge {
-                font-size: 0.75rem !important;
-                width: 100%;
-                padding: 5px 10px !important;
+                font-size: 0.7rem !important;
+                padding: 4px 8px !important;
             }
             
             .btn-hero {
-                padding: 8px 12px !important;
-                font-size: 0.8rem !important;
-                width: 100% !important;
-                max-width: 220px !important;
+                padding: 6px 10px !important;
+                font-size: 0.75rem !important;
+                max-width: 200px !important;
             }
             
             .offer-image,
@@ -966,7 +941,7 @@
             }
             
             .saint-louis-hero {
-                height: 320px !important;
+                height: 200px !important;
             }
             
             .logo-image {
@@ -979,21 +954,22 @@
             }
             
             .hero-title {
-                font-size: 1.2rem !important;
+                font-size: 1rem !important;
             }
             
             .hero-subtitle {
-                font-size: 0.8rem !important;
-            }
-            
-            .location-badge {
                 font-size: 0.7rem !important;
             }
             
+            .location-badge {
+                font-size: 0.6rem !important;
+                padding: 3px 6px !important;
+            }
+            
             .btn-hero {
-                padding: 7px 10px !important;
-                font-size: 0.75rem !important;
-                max-width: 200px !important;
+                padding: 5px 8px !important;
+                font-size: 0.7rem !important;
+                max-width: 180px !important;
             }
             
             .offer-buttons .btn {
@@ -1007,7 +983,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation avec logo - TAILLE RÉDUITE -->
+    <!-- Navigation avec logo -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -1048,7 +1024,7 @@
                         <a class="nav-link" href="admin.html">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">Réserver</a>
+                        <a class="nav-link btn-reservation" href="chambres.html">Réserver</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
@@ -1110,7 +1086,7 @@
                                 <small><i class="fas fa-check"></i> Dîner gastronomique</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Weekend Découverte Gandiol', 236000)">
@@ -1137,7 +1113,7 @@
                                 <small><i class="fas fa-check"></i> Guide naturaliste</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Forfait Langue de Barbarie', 382500)">
@@ -1163,7 +1139,7 @@
                                 <small><i class="fas fa-check"></i> Bureau équipé</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Séjour Affaires - 120,000 XOF/nuit', 120000)">
@@ -1190,7 +1166,7 @@
                                 <small><i class="fas fa-check"></i> Petit-déjeuner au lit</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Romance à Gandiol', 135000)">
@@ -1216,7 +1192,7 @@
                                 <small><i class="fas fa-check"></i> Animations incluses</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Escape Famille - 85,000 XOF/nuit', 85000)">
@@ -1243,7 +1219,7 @@
                                 <small><i class="fas fa-check"></i> Soins du corps</small>
                             </div>
                             <div class="offer-buttons">
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                <a href="chambres.html" class="btn btn-primary">
                                     <i class="fas fa-calendar-check me-1"></i> Réserver
                                 </a>
                                 <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Spa & Bien-être', 224000)">
@@ -1318,9 +1294,9 @@
                             <p class="small">Riz au poisson, légumes frais, épices traditionnelles</p>
                             <div class="dish-price">12,500 XOF</div>
                             <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="orderRestaurant('Thieboudienne Royal', 12500)">
+                                <a href="restauration.html" class="btn btn-primary btn-sm">
                                     <i class="fas fa-utensils me-1"></i> Commander
-                                </button>
+                                </a>
                                 <button class="btn btn-whatsapp btn-sm" onclick="orderViaWhatsApp('Thieboudienne Royal', 12500)">
                                     <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                 </button>
@@ -1336,9 +1312,9 @@
                             <p class="small">Agneau mijoté dans une sauce arachide, riz blanc</p>
                             <div class="dish-price">14,000 XOF</div>
                             <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="orderRestaurant('Mafé d\'Agneau', 14000)">
+                                <a href="restauration.html" class="btn btn-primary btn-sm">
                                     <i class="fas fa-utensils me-1"></i> Commander
-                                </button>
+                                </a>
                                 <button class="btn btn-whatsapp btn-sm" onclick="orderViaWhatsApp('Mafé d\'Agneau', 14000)">
                                     <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                 </button>
@@ -1354,9 +1330,9 @@
                             <p class="small">Poulet mariné au citron, oignons caramélisés</p>
                             <div class="dish-price">11,000 XOF</div>
                             <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="orderRestaurant('Yassa de Poulet', 11000)">
+                                <a href="restauration.html" class="btn btn-primary btn-sm">
                                     <i class="fas fa-utensils me-1"></i> Commander
-                                </button>
+                                </a>
                                 <button class="btn btn-whatsapp btn-sm" onclick="orderViaWhatsApp('Yassa de Poulet', 11000)">
                                     <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                 </button>
@@ -1372,9 +1348,9 @@
                             <p class="small">Crevettes, langoustines, huîtres, poissons grillés</p>
                             <div class="dish-price">25,000 XOF</div>
                             <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="orderRestaurant('Plateau de Fruits de Mer', 25000)">
+                                <a href="restauration.html" class="btn btn-primary btn-sm">
                                     <i class="fas fa-utensils me-1"></i> Commander
-                                </button>
+                                </a>
                                 <button class="btn btn-whatsapp btn-sm" onclick="orderViaWhatsApp('Plateau de Fruits de Mer', 25000)">
                                     <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                 </button>
@@ -1386,7 +1362,7 @@
         </div>
     </section>
 
-    <!-- Attractions Locales -->
+    <!-- Attractions Locales - Sans boutons -->
     <section class="section-padding local-attractions">
         <div class="container">
             <div class="section-header">
@@ -1401,14 +1377,6 @@
                             <h6>Visite de Tassinère</h6>
                             <p class="small mb-2">Découverte du village et de l'artisanat local</p>
                             <div class="price-display">25,000</div>
-                            <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="bookExcursion('Visite de Tassinère', 25000)">
-                                    <i class="fas fa-map-marked-alt me-1"></i> Réserver
-                                </button>
-                                <button class="btn btn-whatsapp btn-sm" onclick="excursionViaWhatsApp('Visite de Tassinère', 25000)">
-                                    <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1419,14 +1387,6 @@
                             <h6>Excursion Langue de Barbarie</h6>
                             <p class="small mb-2">Parc national et oiseaux migrateurs</p>
                             <div class="price-display">45,000</div>
-                            <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="bookExcursion('Excursion Langue de Barbarie', 45000)">
-                                    <i class="fas fa-map-marked-alt me-1"></i> Réserver
-                                </button>
-                                <button class="btn btn-whatsapp btn-sm" onclick="excursionViaWhatsApp('Excursion Langue de Barbarie', 45000)">
-                                    <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1437,14 +1397,6 @@
                             <h6>Croisière fleuve Sénégal</h6>
                             <p class="small mb-2">Coucher de soleil et dîner à bord</p>
                             <div class="price-display">35,000</div>
-                            <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="bookExcursion('Croisière fleuve Sénégal', 35000)">
-                                    <i class="fas fa-map-marked-alt me-1"></i> Réserver
-                                </button>
-                                <button class="btn btn-whatsapp btn-sm" onclick="excursionViaWhatsApp('Croisière fleuve Sénégal', 35000)">
-                                    <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1455,14 +1407,6 @@
                             <h6>Atelier cuisine sénégalaise</h6>
                             <p class="small mb-2">Apprenez à préparer le thieboudienne</p>
                             <div class="price-display">30,000</div>
-                            <div class="offer-buttons">
-                                <button class="btn btn-primary btn-sm" onclick="bookExcursion('Atelier cuisine sénégalaise', 30000)">
-                                    <i class="fas fa-map-marked-alt me-1"></i> Réserver
-                                </button>
-                                <button class="btn btn-whatsapp btn-sm" onclick="excursionViaWhatsApp('Atelier cuisine sénégalaise', 30000)">
-                                    <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1496,125 +1440,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Modal de Réservation Gandiol -->
-    <div class="modal fade" id="bookingModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Réservation en ligne - Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="booking-engine">
-                        <form id="booking-form">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle"></i> Tous les prix sont en XOF (Franc CFA)
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="checkin" class="form-label">Date d'arrivée</label>
-                                    <input type="date" class="form-control" id="checkin" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="checkout" class="form-label">Date de départ</label>
-                                    <input type="date" class="form-control" id="checkout" required>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="adults" class="form-label">Adultes</label>
-                                    <select class="form-select" id="adults">
-                                        <option value="1">1</option>
-                                        <option value="2" selected>2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="children" class="form-label">Enfants</label>
-                                    <select class="form-select" id="children">
-                                        <option value="0" selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="room-type" class="form-label">Type de chambre</label>
-                                    <select class="form-select" id="room-type">
-                                        <option value="standard">Chambre Standard</option>
-                                        <option value="deluxe">Chambre Deluxe</option>
-                                        <option value="suite">Suite Vue</option>
-                                        <option value="presidentielle">Suite Présidentielle</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Services additionnels</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="transfer">
-                                    <label class="form-check-label" for="transfer">
-                                        Transfert aéroport de Saint-Louis (+25,000 XOF)
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="excursion">
-                                    <label class="form-check-label" for="excursion">
-                                        Excursion Langue de Barbarie (+25,000 XOF/pers)
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <button type="button" class="btn btn-primary" id="check-availability">Vérifier la disponibilité</button>
-                            </div>
-                            <div id="availability-result" class="d-none">
-                                <div class="alert alert-success">
-                                    <h6>Chambre disponible!</h6>
-                                    <p>Prix total pour votre séjour: <span id="total-price" class="price-display">0</span></p>
-                                    <small class="text-muted">Taxes et service inclus</small>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="guest-name" class="form-label">Nom complet</label>
-                                        <input type="text" class="form-control" id="guest-name" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="guest-email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="guest-email" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="guest-phone" class="form-label">Téléphone</label>
-                                        <input type="tel" class="form-control" id="guest-phone" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="payment-method" class="form-label">Paiement</label>
-                                        <select class="form-select" id="payment-method">
-                                            <option value="wave">Wave Sénégal</option>
-                                            <option value="orange">Orange Money</option>
-                                            <option value="free">Free Money</option>
-                                            <option value="card">Carte bancaire</option>
-                                            <option value="cash">Sur place</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3 d-flex gap-2">
-                                    <button type="submit" class="btn btn-primary flex-grow-1" id="confirm-booking">
-                                        <i class="fas fa-calendar-check me-2"></i> Confirmer la réservation
-                                    </button>
-                                    <button type="button" class="btn btn-whatsapp flex-grow-1" onclick="redirectToWhatsAppBooking()">
-                                        <i class="fab fa-whatsapp me-2"></i> Réserver via WhatsApp
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer Les Résidences du Lawmar - Gandiol -->
     <footer class="footer">
@@ -1734,11 +1559,6 @@
             console.log(`Réservation WhatsApp initiée: ${offerName}`);
         }
         
-        // Fonction pour commander restaurant
-        function orderRestaurant(dishName, price) {
-            alert(`Commande de ${dishName} à ${price.toLocaleString()} XOF ajoutée au panier`);
-        }
-        
         // Fonction pour commander restaurant via WhatsApp
         function orderViaWhatsApp(dishName, price) {
             const message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite commander : *${dishName}*\nPrix : *${price.toLocaleString()} XOF*\n\nPourriez-vous me dire si c'est disponible ?\n\nMerci!`;
@@ -1746,41 +1566,6 @@
             const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
             
             window.open(whatsappURL, '_blank');
-        }
-        
-        // Fonction pour réserver excursion
-        function bookExcursion(excursionName, price) {
-            alert(`Réservation de ${excursionName} à ${price.toLocaleString()} XOF`);
-        }
-        
-        // Fonction pour réserver excursion via WhatsApp
-        function excursionViaWhatsApp(excursionName, price) {
-            const message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite réserver l'excursion : *${excursionName}*\nPrix : *${price.toLocaleString()} XOF*\n\nPourriez-vous m'indiquer les disponibilités ?\n\nMerci!`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-        }
-        
-        // Fonction pour rediriger vers WhatsApp depuis le modal
-        function redirectToWhatsAppBooking() {
-            const checkin = document.getElementById('checkin').value;
-            const checkout = document.getElementById('checkout').value;
-            const adults = document.getElementById('adults').value;
-            const children = document.getElementById('children').value;
-            const roomType = document.getElementById('room-type').value;
-            
-            let message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite faire une réservation :\n\n`;
-            message += `*Dates* : ${checkin || 'Non spécifié'} au ${checkout || 'Non spécifié'}\n`;
-            message += `*Personnes* : ${adults} adultes, ${children} enfants\n`;
-            message += `*Type de chambre* : ${roomType}\n\n`;
-            message += `Pourriez-vous m'aider avec la réservation ?\n\nMerci!`;
-            
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-            $('#bookingModal').modal('hide');
         }
         
         // Données spécifiques Gandiol
@@ -1883,25 +1668,6 @@
         }
 
         function setupEventListeners() {
-            const checkAvailabilityBtn = document.getElementById('check-availability');
-            const availabilityResult = document.getElementById('availability-result');
-            
-            if (checkAvailabilityBtn) {
-                checkAvailabilityBtn.addEventListener('click', function() {
-                    availabilityResult.classList.remove('d-none');
-                    document.getElementById('total-price').textContent = '125,000';
-                });
-            }
-            
-            const bookingForm = document.getElementById('booking-form');
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Réservation envoyée avec succès! Vous recevrez un email de confirmation.');
-                    $('#bookingModal').modal('hide');
-                });
-            }
-            
             const newsletterForm = document.getElementById('newsletter-form');
             if (newsletterForm) {
                 newsletterForm.addEventListener('submit', function(e) {
