@@ -711,7 +711,7 @@
     <div id="loginPage" class="login-page">
         <div class="login-container">
             <div class="login-header">
-                <img src="https://via.placeholder.com/100x100/025ba5/ffffff?text=LAW" alt="Lawmar Logo">
+                <img src="images/logo1.png" alt="Lawmar Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%23025ba5\'/%3E%3Ctext x=\'50\' y=\'68\' font-size=\'50\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'Arial\'%3ELAW%3C/text%3E%3C/svg%3E'">
                 <h2>Lawmar PMS</h2>
                 <p>Les Résidences du Lawmar - Gandiol 🇸🇳</p>
             </div>
@@ -726,7 +726,7 @@
                     <label><i class="fas fa-user me-2"></i>Nom d'utilisateur</label>
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required autofocus>
+                        <input type="text" class="form-control" id="username" placeholder="admin / reception / restaurant" required autofocus>
                     </div>
                 </div>
                 
@@ -734,7 +734,7 @@
                     <label><i class="fas fa-lock me-2"></i>Mot de passe</label>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+                        <input type="password" class="form-control" id="password" placeholder="lawmar2024!" required>
                     </div>
                 </div>
                 
@@ -744,10 +744,10 @@
             </form>
             
             <div class="demo-credentials">
-                <p><i class="fas fa-info-circle me-2" style="color: var(--primary);"></i><strong>Comptes de démonstration :</strong></p>
-                <p>👑 <strong>admin</strong> / <strong>admin123</strong> (Manager)</p>
-                <p>🏨 <strong>reception</strong> / <strong>reception123</strong> (Réception)</p>
-                <p>🍽️ <strong>restaurant</strong> / <strong>restaurant123</strong> (Restaurant)</p>
+                <p><i class="fas fa-info-circle me-2" style="color: var(--primary);"></i><strong>Accès sécurisé :</strong></p>
+                <p>👑 <strong>admin</strong> / <strong>lawmar2024!</strong> (Manager)</p>
+                <p>🏨 <strong>reception</strong> / <strong>lawmar2024!</strong> (Réception)</p>
+                <p>🍽️ <strong>restaurant</strong> / <strong>lawmar2024!</strong> (Restaurant)</p>
             </div>
         </div>
     </div>
@@ -763,7 +763,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <img src="images/logo1.png" alt="Lawmar" class="logo-img" onerror="this.src='https://via.placeholder.com/50x50/025ba5/ffffff?text=LAW'">
+                    <img src="images/logo1.png" alt="Lawmar" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23025ba5\'/%3E%3Ctext x=\'25\' y=\'35\' font-size=\'28\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'Arial\'%3ELAW%3C/text%3E%3C/svg%3E'">
                     <div class="logo-text">
                         <h1>LAWMAR PMS</h1>
                         <p>Les Résidences du Lawmar</p>
@@ -876,15 +876,6 @@
 
     <!-- Notification Center -->
     <div class="notification-center" id="notification-center"></div>
-
-    <!-- Modal Container -->
-    <div class="modal fade" id="globalModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content modal-content-modern" id="modal-content">
-                <!-- Contenu dynamique -->
-            </div>
-        </div>
-    </div>
 
     <!-- Reservation Modal -->
     <div class="modal fade" id="reservationModal" tabindex="-1">
@@ -1064,17 +1055,16 @@
 
     <script>
         // ============================================
-        // GESTION DE LA CONNEXION SIMPLIFIÉE
+        // AUTHENTIFICATION OBLIGATOIRE
         // ============================================
         
-        // Utilisateurs de démonstration
         const users = [
-            { username: 'admin', password: 'admin123', role: 'manager', name: 'Admin' },
-            { username: 'reception', password: 'reception123', role: 'reception', name: 'Réceptionniste' },
-            { username: 'restaurant', password: 'restaurant123', role: 'restaurant', name: 'Restaurateur' }
+            { username: 'admin', password: 'lawmar2024!', role: 'manager', name: 'Admin' },
+            { username: 'reception', password: 'lawmar2024!', role: 'reception', name: 'Réceptionniste' },
+            { username: 'restaurant', password: 'lawmar2024!', role: 'restaurant', name: 'Restaurateur' }
         ];
 
-        // Vérifier si déjà connecté
+        // Vérifier session
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
             document.getElementById('loginPage').style.display = 'none';
             document.getElementById('dashboard').style.display = 'flex';
@@ -1091,37 +1081,28 @@
             const alertDiv = document.getElementById('loginAlert');
             const alertMessage = document.getElementById('alertMessage');
             
-            // Désactiver le bouton
             loginBtn.disabled = true;
             loginBtn.innerHTML = '<span class="loading-spinner"></span> Connexion...';
             
             setTimeout(() => {
-                // Vérifier les identifiants
                 const user = users.find(u => u.username === username && u.password === password);
                 
                 if (user) {
-                    // Stocker la session
                     sessionStorage.setItem('isLoggedIn', 'true');
                     sessionStorage.setItem('userRole', user.role);
                     sessionStorage.setItem('userName', user.name);
                     sessionStorage.setItem('username', user.username);
                     
-                    // Cacher la page de connexion
                     document.getElementById('loginPage').style.display = 'none';
-                    
-                    // Afficher le dashboard
                     document.getElementById('dashboard').style.display = 'flex';
                     
-                    // Initialiser l'application
                     initializeApp();
                     
                     showNotification(`Bienvenue ${user.name} !`, 'success');
                 } else {
-                    // Réactiver le bouton
                     loginBtn.disabled = false;
                     loginBtn.innerHTML = 'Se connecter';
                     
-                    // Afficher l'erreur
                     alertMessage.textContent = 'Nom d\'utilisateur ou mot de passe incorrect';
                     alertDiv.style.display = 'block';
                     
@@ -1144,7 +1125,6 @@
         // ============================================
         
         let appData = {
-            // Réservations hôtel
             bookings: [
                 { id: 'BK001', guest: 'Marie Diouf', room: 'Suite Prestige', roomNumber: 301, checkin: '2026-02-20', checkout: '2026-02-25', adults: 2, children: 1, status: 'confirmed', total: 750000, phone: '+221 77 123 45 67', email: 'marie.diouf@gmail.com', prepaid: 225000, specialRequests: 'Chambre calme' },
                 { id: 'BK002', guest: 'Pierre Martin', room: 'Chambre Deluxe', roomNumber: 201, checkin: '2026-02-18', checkout: '2026-02-22', adults: 2, children: 0, status: 'checked-in', total: 380000, phone: '+221 78 234 56 78', email: 'pierre.martin@yahoo.fr', prepaid: 114000, specialRequests: '' },
@@ -1155,7 +1135,6 @@
                 { id: 'BK007', guest: 'Sophie Diallo', room: 'Chambre Standard', roomNumber: 101, checkin: '2026-02-23', checkout: '2026-02-27', adults: 2, children: 1, status: 'pending', total: 260000, phone: '+221 78 789 01 23', email: 'sophie.diallo@gmail.com', prepaid: 0, specialRequests: '' },
             ],
 
-            // Commandes restaurant
             restaurantOrders: [
                 { id: 'R001', table: 5, guest: 'Marie Diouf', items: [{ name: 'Thieboudienne', qty: 2, price: 12500 }, { name: 'Jus de bissap', qty: 2, price: 3500 }], total: 32000, status: 'paid', roomCharge: true, roomNumber: 301, roomId: 'BK001', time: '12:30', date: '2026-02-20' },
                 { id: 'R002', table: 3, guest: 'Pierre Martin', items: [{ name: 'Yassa Poulet', qty: 1, price: 11000 }, { name: 'Pastels', qty: 1, price: 8000 }], total: 19000, status: 'pending', roomCharge: false, roomId: null, time: '19:15', date: '2026-02-20' },
@@ -1166,7 +1145,6 @@
                 { id: 'R007', table: 6, guest: 'Sophie Diallo', items: [{ name: 'Pastels', qty: 2, price: 8000 }, { name: 'Jus de gingembre', qty: 1, price: 3500 }], total: 19500, status: 'pending', roomCharge: false, roomId: null, time: '12:45', date: '2026-02-20' },
             ],
 
-            // Clients
             guests: [
                 { id: 'G001', name: 'Marie Diouf', email: 'marie.diouf@gmail.com', phone: '+221 77 123 45 67', stays: 3, preferences: 'Chambre calme, oreillers fermes', totalSpent: 1850000, lastStay: '2026-02-20' },
                 { id: 'G002', name: 'Pierre Martin', email: 'pierre.martin@yahoo.fr', phone: '+221 78 234 56 78', stays: 1, preferences: 'Petit-déjeuner continental', totalSpent: 380000, lastStay: '2026-02-18' },
@@ -1175,7 +1153,6 @@
                 { id: 'G005', name: 'Fatou Ndiaye', email: 'fatou.ndiaye@gmail.com', phone: '+221 77 567 89 01', stays: 1, preferences: 'Chambre proche piscine', totalSpent: 380000, lastStay: '2026-02-19' },
             ],
 
-            // Stocks
             stock: [
                 { id: 'S001', name: 'Riz', category: 'épicerie', quantity: 25, unit: 'kg', threshold: 10, expiry: '2026-04-01', supplier: 'Marché Gandiol', price: 650 },
                 { id: 'S002', name: 'Poisson frais', category: 'poissonnerie', quantity: 5, unit: 'kg', threshold: 8, expiry: '2026-02-22', supplier: 'Pêcheurs Tassinère', price: 2500 },
@@ -1184,7 +1161,6 @@
                 { id: 'S005', name: 'Huile', category: 'épicerie', quantity: 15, unit: 'L', threshold: 5, expiry: '2026-05-01', supplier: 'Saint-Louis', price: 1200 },
             ],
 
-            // Employés
             employees: [
                 { id: 'E001', name: 'Oumar Diallo', role: 'serveur', department: 'restaurant', phone: '+221 77 111 22 33', schedule: 'Lun-Ven 8h-17h', email: 'oumar.diallo@lawmar.sn' },
                 { id: 'E002', name: 'Fatou Ndiaye', role: 'réceptionniste', department: 'reception', phone: '+221 77 444 55 66', schedule: 'Mar-Sam 14h-22h', email: 'fatou.ndiaye@lawmar.sn' },
@@ -1192,7 +1168,6 @@
                 { id: 'E004', name: 'Aminata Fall', role: 'manager', department: 'direction', phone: '+221 77 999 00 11', schedule: 'Lun-Ven 9h-18h', email: 'aminata.fall@lawmar.sn' },
             ],
 
-            // Dépenses
             expenses: [
                 { id: 'EX001', date: '2026-02-15', category: 'électricité', amount: 85000, description: 'Facture Senelec', paid: true, dueDate: '2026-02-28' },
                 { id: 'EX002', date: '2026-02-10', category: 'achats', amount: 125000, description: 'Approvisionnement restaurant', paid: true, dueDate: '2026-02-20' },
@@ -1200,7 +1175,6 @@
                 { id: 'EX004', date: '2026-02-20', category: 'salaire', amount: 450000, description: 'Salaires février', paid: true, dueDate: '2026-02-28' },
             ],
 
-            // Chambres
             rooms: [
                 { number: 101, type: 'Standard', price: 65000, status: 'available' },
                 { number: 102, type: 'Standard', price: 65000, status: 'occupied', guest: 'Aminata Ba' },
@@ -1241,19 +1215,16 @@
             }
         };
 
-        // ========== ÉTAT DE L'APPLICATION ==========
         let currentRole = sessionStorage.getItem('userRole') || 'reception';
         let currentModule = 'dashboard';
         let charts = {};
         let currentInvoice = null;
         let invoiceCounter = 1;
 
-        // ========== FONCTIONS PRINCIPALES ==========
+        // ========== INITIALISATION ==========
         function initializeApp() {
-            // Afficher la date
             updateDate();
             
-            // Mettre à jour l'affichage utilisateur
             const userName = sessionStorage.getItem('userName') || 'Utilisateur';
             const userRole = sessionStorage.getItem('userRole') || 'reception';
             
@@ -1262,16 +1233,9 @@
                 userRole === 'reception' ? 'Réception' : 'Restaurant';
             document.getElementById('userInitials').textContent = userName.charAt(0).toUpperCase();
             
-            // Mettre à jour les badges
             updateBadges();
-            
-            // Charger le dashboard
             loadDashboard();
-            
-            // Configurer les formulaires
             setupForms();
-            
-            // Initialiser les écouteurs
             initEventListeners();
         }
 
@@ -1287,9 +1251,7 @@
         }
 
         function initEventListeners() {
-            setInterval(() => {
-                refreshData();
-            }, 30000);
+            setInterval(() => { refreshData(); }, 30000);
 
             document.getElementById('chargeToRoom')?.addEventListener('change', function(e) {
                 document.getElementById('roomSelectionDiv').style.display = e.target.checked ? 'block' : 'none';
@@ -1414,24 +1376,16 @@
             
             if (module === 'dashboard') {
                 content.innerHTML = renderDashboard();
-                setTimeout(() => {
-                    initCharts();
-                }, 100);
+                setTimeout(() => { initCharts(); }, 100);
             } else if (module === 'calendar') {
                 content.innerHTML = renderCalendar();
-                setTimeout(() => {
-                    initCalendar();
-                }, 100);
+                setTimeout(() => { initCalendar(); }, 100);
             } else if (module === 'bookings') {
                 content.innerHTML = renderBookings();
-                setTimeout(() => {
-                    initDataTable('#bookings-table');
-                }, 100);
+                setTimeout(() => { initDataTable('#bookings-table'); }, 100);
             } else if (module === 'orders') {
                 content.innerHTML = renderOrders();
-                setTimeout(() => {
-                    initDataTable('#orders-table');
-                }, 100);
+                setTimeout(() => { initDataTable('#orders-table'); }, 100);
             } else if (module === 'rooms') {
                 content.innerHTML = renderRooms();
             } else if (module === 'guests') {
@@ -1444,15 +1398,13 @@
                 content.innerHTML = renderInvoices();
             } else if (module === 'reports') {
                 content.innerHTML = renderReports();
-                setTimeout(() => {
-                    initReportsCharts();
-                }, 100);
+                setTimeout(() => { initReportsCharts(); }, 100);
             } else if (module === 'expenses') {
                 content.innerHTML = renderExpenses();
             }
         }
 
-        // ========== RENDU DES MODULES ==========
+        // ========== FONCTIONS DE RENDU ==========
         function renderDashboard() {
             const stats = appData.stats;
             
@@ -1469,55 +1421,29 @@
                 <div class="stats-grid">
                     <div class="stat-card-modern">
                         <div class="stat-header">
-                            <div class="stat-icon-modern primary">
-                                <i class="fas fa-hotel"></i>
-                            </div>
+                            <div class="stat-icon-modern primary"><i class="fas fa-hotel"></i></div>
                             <span class="badge-modern badge-info">${stats.occupiedRooms}/${stats.totalRooms}</span>
                         </div>
                         <div class="stat-value-modern">${stats.occupancyRate}%</div>
                         <div class="stat-label-modern">Taux d'occupation</div>
-                        <div class="stat-trend">
-                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +8%</span>
-                            <span>vs hier</span>
-                        </div>
+                        <div class="stat-trend"><span class="trend-up"><i class="fas fa-arrow-up"></i> +8%</span><span>vs hier</span></div>
                         <small class="text-muted">Arrivées: ${stats.checkinsToday} | Départs: ${stats.checkoutsToday}</small>
                     </div>
-                    
                     <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern success">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                        </div>
+                        <div class="stat-header"><div class="stat-icon-modern success"><i class="fas fa-chart-line"></i></div></div>
                         <div class="stat-value-modern">${(stats.hotelRevenue / 1000000).toFixed(1)}M</div>
                         <div class="stat-label-modern">CA Hôtel (XOF)</div>
-                        <div class="stat-trend">
-                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +15%</span>
-                            <span>ce mois</span>
-                        </div>
+                        <div class="stat-trend"><span class="trend-up"><i class="fas fa-arrow-up"></i> +15%</span><span>ce mois</span></div>
                     </div>
-                    
                     <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern warning">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                        </div>
+                        <div class="stat-header"><div class="stat-icon-modern warning"><i class="fas fa-utensils"></i></div></div>
                         <div class="stat-value-modern">${(stats.restaurantRevenue / 1000).toFixed(0)}k</div>
                         <div class="stat-label-modern">CA Restaurant (XOF)</div>
-                        <div class="stat-trend">
-                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +5%</span>
-                            <span>vs hier</span>
-                        </div>
+                        <div class="stat-trend"><span class="trend-up"><i class="fas fa-arrow-up"></i> +5%</span><span>vs hier</span></div>
                         <small class="text-muted">${stats.pendingOrders} commandes en cours</small>
                     </div>
-                    
                     <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern danger">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                        </div>
+                        <div class="stat-header"><div class="stat-icon-modern danger"><i class="fas fa-exclamation-triangle"></i></div></div>
                         <div class="stat-value-modern">${stats.lowStock}</div>
                         <div class="stat-label-modern">Alertes stock</div>
                         <small class="text-muted">Produits sous seuil</small>
@@ -1526,18 +1452,11 @@
                 
                 <div class="charts-grid">
                     <div class="chart-card">
-                        <div class="chart-header">
-                            <h3><i class="fas fa-chart-bar"></i> Occupation 7 derniers jours</h3>
-                            <i class="fas fa-ellipsis-h"></i>
-                        </div>
+                        <div class="chart-header"><h3><i class="fas fa-chart-bar"></i> Occupation 7 derniers jours</h3><i class="fas fa-ellipsis-h"></i></div>
                         <canvas id="occupancy-chart" style="height: 250px;"></canvas>
                     </div>
-                    
                     <div class="chart-card">
-                        <div class="chart-header">
-                            <h3><i class="fas fa-chart-pie"></i> Répartition des revenus</h3>
-                            <i class="fas fa-ellipsis-h"></i>
-                        </div>
+                        <div class="chart-header"><h3><i class="fas fa-chart-pie"></i> Répartition des revenus</h3><i class="fas fa-ellipsis-h"></i></div>
                         <canvas id="revenue-chart" style="height: 250px;"></canvas>
                     </div>
                 </div>
@@ -1555,124 +1474,35 @@
                 <div class="room-grid">
                     ${appData.rooms.filter(r => r.status === 'available').slice(0, 4).map(room => `
                         <div class="room-card available" onclick="quickReserve(${room.number})">
-                            <div class="d-flex justify-content-between">
-                                <span class="room-number">Ch. ${room.number}</span>
-                                <span class="badge-modern badge-success">Disponible</span>
-                            </div>
-                            <div class="room-type">${room.type}</div>
-                            <div class="room-price">${room.price.toLocaleString()} XOF/nuit</div>
-                        </div>
-                    `).join('')}
+                            <div class="d-flex justify-content-between"><span class="room-number">Ch. ${room.number}</span><span class="badge-modern badge-success">Disponible</span></div>
+                            <div class="room-type">${room.type}</div><div class="room-price">${room.price.toLocaleString()} XOF/nuit</div>
+                        </div>`).join('')}
                 </div>
                 
                 <div class="row">
                     <div class="col-md-6">
                         <div class="table-card">
-                            <div class="table-header">
-                                <h3><i class="fas fa-sign-in-alt" style="color: #28a745;"></i> Arrivées aujourd'hui</h3>
-                                <span class="badge-modern badge-success">${todayCheckins.length}</span>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Client</th>
-                                            <th>Chambre</th>
-                                            <th>Heure</th>
-                                            <th>Statut</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${todayCheckins.length ? todayCheckins.map(b => `
-                                            <tr>
-                                                <td><strong>${b.guest}</strong></td>
-                                                <td>${b.room}</td>
-                                                <td>14:00</td>
-                                                <td><span class="badge-modern badge-info">Attente</span></td>
-                                                <td><button class="btn-icon" onclick="checkIn('${b.id}')"><i class="fas fa-check"></i></button></td>
-                                            </tr>
-                                        `).join('') : '<tr><td colspan="5" class="text-center">Aucune arrivée aujourd\'hui</td></tr>'}
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="table-header"><h3><i class="fas fa-sign-in-alt" style="color: #28a745;"></i> Arrivées aujourd'hui</h3><span class="badge-modern badge-success">${todayCheckins.length}</span></div>
+                            <table class="table"><thead><tr><th>Client</th><th>Chambre</th><th>Heure</th><th>Statut</th><th>Action</th></tr></thead><tbody>
+                                ${todayCheckins.length ? todayCheckins.map(b => `<tr><td><strong>${b.guest}</strong></td><td>${b.room}</td><td>14:00</td><td><span class="badge-modern badge-info">Attente</span></td><td><button class="btn-icon" onclick="checkIn('${b.id}')"><i class="fas fa-check"></i></button></td></tr>`).join('') : '<tr><td colspan="5" class="text-center">Aucune arrivée aujourd\'hui</td></tr>'}
+                            </tbody></table>
                         </div>
                     </div>
-                    
                     <div class="col-md-6">
                         <div class="table-card">
-                            <div class="table-header">
-                                <h3><i class="fas fa-sign-out-alt" style="color: #dc3545;"></i> Départs aujourd'hui</h3>
-                                <span class="badge-modern badge-danger">${todayCheckouts.length}</span>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Client</th>
-                                            <th>Chambre</th>
-                                            <th>Heure</th>
-                                            <th>Facture</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${todayCheckouts.length ? todayCheckouts.map(b => `
-                                            <tr>
-                                                <td><strong>${b.guest}</strong></td>
-                                                <td>${b.room}</td>
-                                                <td>11:00</td>
-                                                <td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td>
-                                                <td><button class="btn-icon" onclick="checkOut('${b.id}')"><i class="fas fa-check"></i></button></td>
-                                            </tr>
-                                        `).join('') : '<tr><td colspan="5" class="text-center">Aucun départ aujourd\'hui</td></tr>'}
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="table-header"><h3><i class="fas fa-sign-out-alt" style="color: #dc3545;"></i> Départs aujourd'hui</h3><span class="badge-modern badge-danger">${todayCheckouts.length}</span></div>
+                            <table class="table"><thead><tr><th>Client</th><th>Chambre</th><th>Heure</th><th>Facture</th><th>Action</th></tr></thead><tbody>
+                                ${todayCheckouts.length ? todayCheckouts.map(b => `<tr><td><strong>${b.guest}</strong></td><td>${b.room}</td><td>11:00</td><td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td><td><button class="btn-icon" onclick="checkOut('${b.id}')"><i class="fas fa-check"></i></button></td></tr>`).join('') : '<tr><td colspan="5" class="text-center">Aucun départ aujourd\'hui</td></tr>'}
+                            </tbody></table>
                         </div>
                     </div>
                 </div>
                 
                 <div class="table-card mt-3">
-                    <div class="table-header">
-                        <h3><i class="fas fa-calendar-alt"></i> Prochaines réservations</h3>
-                        <button class="btn-modern primary" onclick="openReservationModal()">
-                            <i class="fas fa-plus"></i> Nouvelle réservation
-                        </button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table" id="dashboard-bookings-table">
-                            <thead>
-                                <tr>
-                                    <th>N°</th>
-                                    <th>Client</th>
-                                    <th>Chambre</th>
-                                    <th>Arrivée</th>
-                                    <th>Départ</th>
-                                    <th>Montant</th>
-                                    <th>Statut</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${appData.bookings.slice(0, 5).map(b => `
-                                    <tr>
-                                        <td><strong>${b.id}</strong></td>
-                                        <td>${b.guest}<br><small>${b.phone}</small></td>
-                                        <td>${b.room}</td>
-                                        <td>${formatDate(b.checkin)}</td>
-                                        <td>${formatDate(b.checkout)}</td>
-                                        <td>${(b.total / 1000).toFixed(0)}k XOF</td>
-                                        <td><span class="badge-modern ${getStatusClass(b.status)}">${getStatusLabel(b.status)}</span></td>
-                                        <td>
-                                            <button class="btn-icon" onclick="viewBooking('${b.id}')"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button>
-                                        </td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="table-header"><h3><i class="fas fa-calendar-alt"></i> Prochaines réservations</h3><button class="btn-modern primary" onclick="openReservationModal()"><i class="fas fa-plus"></i> Nouvelle réservation</button></div>
+                    <table class="table" id="dashboard-bookings-table"><thead><tr><th>N°</th><th>Client</th><th>Chambre</th><th>Arrivée</th><th>Départ</th><th>Montant</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+                        ${appData.bookings.slice(0, 5).map(b => `<tr><td><strong>${b.id}</strong></td><td>${b.guest}<br><small>${b.phone}</small></td><td>${b.room}</td><td>${formatDate(b.checkin)}</td><td>${formatDate(b.checkout)}</td><td>${(b.total / 1000).toFixed(0)}k XOF</td><td><span class="badge-modern ${getStatusClass(b.status)}">${getStatusLabel(b.status)}</span></td><td><button class="btn-icon" onclick="viewBooking('${b.id}')"><i class="fas fa-eye"></i></button><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td></tr>`).join('')}
+                    </tbody></table>
                 </div>
             `;
         }
@@ -1685,46 +1515,10 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="table-card">
-                            <div class="table-header">
-                                <h3><i class="fas fa-utensils"></i> Commandes en cours</h3>
-                                <button class="btn-modern primary" onclick="openOrderModal()">
-                                    <i class="fas fa-plus"></i> Nouvelle commande
-                                </button>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table" id="dashboard-orders-table">
-                                    <thead>
-                                        <tr>
-                                            <th>N°</th>
-                                            <th>Table</th>
-                                            <th>Client</th>
-                                            <th>Articles</th>
-                                            <th>Total</th>
-                                            <th>Heure</th>
-                                            <th>Statut</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${appData.restaurantOrders.slice(0, 5).map(o => `
-                                            <tr>
-                                                <td><strong>${o.id}</strong></td>
-                                                <td><span class="badge-modern badge-info">Table ${o.table}</span></td>
-                                                <td>${o.guest || 'Anonyme'}</td>
-                                                <td>${o.items.length} article(s)</td>
-                                                <td>${(o.total / 1000).toFixed(0)}k XOF</td>
-                                                <td>${o.time}</td>
-                                                <td><span class="badge-modern ${o.status === 'paid' ? 'badge-success' : o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${getOrderStatusLabel(o.status)}</span></td>
-                                                <td>
-                                                    <button class="btn-icon" onclick="viewOrder('${o.id}')"><i class="fas fa-eye"></i></button>
-                                                    ${o.status === 'preparing' ? `<button class="btn-icon success" onclick="markOrderReady('${o.id}')"><i class="fas fa-check"></i></button>` : ''}
-                                                    <button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-invoice"></i></button>
-                                                </td>
-                                            </tr>
-                                        `).join('')}
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div class="table-header"><h3><i class="fas fa-utensils"></i> Commandes en cours</h3><button class="btn-modern primary" onclick="openOrderModal()"><i class="fas fa-plus"></i> Nouvelle commande</button></div>
+                            <table class="table" id="dashboard-orders-table"><thead><tr><th>N°</th><th>Table</th><th>Client</th><th>Articles</th><th>Total</th><th>Heure</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+                                ${appData.restaurantOrders.slice(0, 5).map(o => `<tr><td><strong>${o.id}</strong></td><td><span class="badge-modern badge-info">Table ${o.table}</span></td><td>${o.guest || 'Anonyme'}</td><td>${o.items.length} article(s)</td><td>${(o.total / 1000).toFixed(0)}k XOF</td><td>${o.time}</td><td><span class="badge-modern ${o.status === 'paid' ? 'badge-success' : o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${getOrderStatusLabel(o.status)}</span></td><td><button class="btn-icon" onclick="viewOrder('${o.id}')"><i class="fas fa-eye"></i></button>${o.status === 'preparing' ? `<button class="btn-icon success" onclick="markOrderReady('${o.id}')"><i class="fas fa-check"></i></button>` : ''}<button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-invoice"></i></button></td></tr>`).join('')}
+                            </tbody></table>
                         </div>
                     </div>
                     
@@ -1732,20 +1526,7 @@
                         <div class="table-card">
                             <h3><i class="fas fa-fire"></i> En cuisine</h3>
                             <div class="kitchen-orders">
-                                ${preparing.map(o => `
-                                    <div class="kitchen-card">
-                                        <div class="kitchen-header">
-                                            <span class="table-number">Table ${o.table}</span>
-                                            <span class="timer"><i class="far fa-clock"></i> ${calculateTimeSince(o.time)}</span>
-                                        </div>
-                                        <ul class="kitchen-items">
-                                            ${o.items.map(item => `<li>${item.qty}x ${item.name}</li>`).join('')}
-                                        </ul>
-                                        <button class="btn-modern success btn-sm w-100" onclick="markOrderReady('${o.id}')">
-                                            <i class="fas fa-check"></i> Prêt
-                                        </button>
-                                    </div>
-                                `).join('')}
+                                ${preparing.map(o => `<div class="kitchen-card"><div class="kitchen-header"><span class="table-number">Table ${o.table}</span><span class="timer"><i class="far fa-clock"></i> ${calculateTimeSince(o.time)}</span></div><ul class="kitchen-items">${o.items.map(item => `<li>${item.qty}x ${item.name}</li>`).join('')}</ul><button class="btn-modern success btn-sm w-100" onclick="markOrderReady('${o.id}')"><i class="fas fa-check"></i> Prêt</button></div>`).join('')}
                                 ${preparing.length === 0 ? '<p class="text-muted text-center">Aucune commande en cuisine</p>' : ''}
                             </div>
                         </div>
@@ -1753,10 +1534,7 @@
                         <div class="table-card mt-3">
                             <h3><i class="fas fa-chart-simple"></i> Statistiques du jour</h3>
                             <canvas id="restaurant-stats" style="height: 200px;"></canvas>
-                            <div class="mt-3">
-                                <p><strong>Total encaissé:</strong> ${(appData.restaurantOrders.filter(o => o.status === 'paid').reduce((sum, o) => sum + o.total, 0) / 1000).toFixed(0)}k XOF</p>
-                                <p><strong>Commandes imputées:</strong> ${appData.restaurantOrders.filter(o => o.roomCharge).length}</p>
-                            </div>
+                            <div class="mt-3"><p><strong>Total encaissé:</strong> ${(appData.restaurantOrders.filter(o => o.status === 'paid').reduce((sum, o) => sum + o.total, 0) / 1000).toFixed(0)}k XOF</p><p><strong>Commandes imputées:</strong> ${appData.restaurantOrders.filter(o => o.roomCharge).length}</p></div>
                         </div>
                     </div>
                 </div>
@@ -1770,118 +1548,20 @@
             
             return `
                 <div class="stats-grid">
-                    <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern primary">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                        </div>
-                        <div class="stat-value-modern">${(totalRevenue / 1000000).toFixed(1)}M</div>
-                        <div class="stat-label-modern">CA Total (XOF)</div>
-                    </div>
-                    
-                    <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern success">
-                                <i class="fas fa-coins"></i>
-                            </div>
-                        </div>
-                        <div class="stat-value-modern">${(profit / 1000000).toFixed(1)}M</div>
-                        <div class="stat-label-modern">Bénéfice net</div>
-                    </div>
-                    
-                    <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern warning">
-                                <i class="fas fa-users"></i>
-                            </div>
-                        </div>
-                        <div class="stat-value-modern">${appData.employees.length}</div>
-                        <div class="stat-label-modern">Employés</div>
-                    </div>
-                    
-                    <div class="stat-card-modern">
-                        <div class="stat-header">
-                            <div class="stat-icon-modern danger">
-                                <i class="fas fa-file-invoice"></i>
-                            </div>
-                        </div>
-                        <div class="stat-value-modern">${appData.expenses.filter(e => !e.paid).length}</div>
-                        <div class="stat-label-modern">Factures impayées</div>
-                    </div>
+                    <div class="stat-card-modern"><div class="stat-header"><div class="stat-icon-modern primary"><i class="fas fa-chart-line"></i></div></div><div class="stat-value-modern">${(totalRevenue / 1000000).toFixed(1)}M</div><div class="stat-label-modern">CA Total (XOF)</div></div>
+                    <div class="stat-card-modern"><div class="stat-header"><div class="stat-icon-modern success"><i class="fas fa-coins"></i></div></div><div class="stat-value-modern">${(profit / 1000000).toFixed(1)}M</div><div class="stat-label-modern">Bénéfice net</div></div>
+                    <div class="stat-card-modern"><div class="stat-header"><div class="stat-icon-modern warning"><i class="fas fa-users"></i></div></div><div class="stat-value-modern">${appData.employees.length}</div><div class="stat-label-modern">Employés</div></div>
+                    <div class="stat-card-modern"><div class="stat-header"><div class="stat-icon-modern danger"><i class="fas fa-file-invoice"></i></div></div><div class="stat-value-modern">${appData.expenses.filter(e => !e.paid).length}</div><div class="stat-label-modern">Factures impayées</div></div>
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3><i class="fas fa-chart-bar"></i> Performance mensuelle</h3>
-                            <canvas id="performance-chart" style="height: 250px;"></canvas>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3><i class="fas fa-file-invoice"></i> Dernières factures</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>N°</th>
-                                            <th>Client</th>
-                                            <th>Montant</th>
-                                            <th>Statut</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${appData.bookings.slice(0, 5).map(b => `
-                                            <tr>
-                                                <td>${b.id}</td>
-                                                <td>${b.guest}</td>
-                                                <td>${(b.total / 1000).toFixed(0)}k XOF</td>
-                                                <td><span class="badge-modern badge-success">Payée</span></td>
-                                                <td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td>
-                                            </tr>
-                                        `).join('')}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-md-6"><div class="table-card"><h3><i class="fas fa-chart-bar"></i> Performance mensuelle</h3><canvas id="performance-chart" style="height: 250px;"></canvas></div></div>
+                    <div class="col-md-6"><div class="table-card"><h3><i class="fas fa-file-invoice"></i> Dernières factures</h3><table class="table"><thead><tr><th>N°</th><th>Client</th><th>Montant</th><th>Statut</th><th>Action</th></tr></thead><tbody>${appData.bookings.slice(0, 5).map(b => `<tr><td>${b.id}</td><td>${b.guest}</td><td>${(b.total / 1000).toFixed(0)}k XOF</td><td><span class="badge-modern badge-success">Payée</span></td><td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td></tr>`).join('')}</tbody></table></div></div>
                 </div>
                 
                 <div class="row mt-3">
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3><i class="fas fa-exclamation-triangle"></i> Alertes stock</h3>
-                            ${appData.stock.filter(s => s.quantity <= s.threshold).map(s => `
-                                <div class="alert alert-warning d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong>${s.name}</strong> - ${s.quantity} ${s.unit} restants
-                                        <br><small>Seuil: ${s.threshold} ${s.unit}</small>
-                                    </div>
-                                    <button class="btn-modern warning btn-sm" onclick="orderStock('${s.id}')">
-                                        Commander
-                                    </button>
-                                </div>
-                            `).join('') || '<p class="text-muted">Aucune alerte stock</p>'}
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3><i class="fas fa-calendar-check"></i> Équipe aujourd'hui</h3>
-                            ${appData.employees.map(e => `
-                                <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded">
-                                    <div>
-                                        <strong>${e.name}</strong>
-                                        <br><small>${e.role}</small>
-                                    </div>
-                                    <span class="badge-modern badge-success">Présent</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+                    <div class="col-md-6"><div class="table-card"><h3><i class="fas fa-exclamation-triangle"></i> Alertes stock</h3>${appData.stock.filter(s => s.quantity <= s.threshold).map(s => `<div class="alert alert-warning d-flex justify-content-between align-items-center"><div><strong>${s.name}</strong> - ${s.quantity} ${s.unit} restants<br><small>Seuil: ${s.threshold} ${s.unit}</small></div><button class="btn-modern warning btn-sm" onclick="orderStock('${s.id}')">Commander</button></div>`).join('') || '<p class="text-muted">Aucune alerte stock</p>'}</div></div>
+                    <div class="col-md-6"><div class="table-card"><h3><i class="fas fa-calendar-check"></i> Équipe aujourd'hui</h3>${appData.employees.map(e => `<div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded"><div><strong>${e.name}</strong><br><small>${e.role}</small></div><span class="badge-modern badge-success">Présent</span></div>`).join('')}</div></div>
                 </div>
             `;
         }
@@ -1889,50 +1569,10 @@
         function renderBookings() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-hotel"></i> Toutes les réservations</h3>
-                        <button class="btn-modern primary" onclick="openReservationModal()">
-                            <i class="fas fa-plus"></i> Nouvelle réservation
-                        </button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table" id="bookings-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Client</th>
-                                    <th>Chambre</th>
-                                    <th>Arrivée</th>
-                                    <th>Départ</th>
-                                    <th>Adultes</th>
-                                    <th>Enfants</th>
-                                    <th>Total</th>
-                                    <th>Statut</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${appData.bookings.map(b => `
-                                    <tr>
-                                        <td>${b.id}</td>
-                                        <td>${b.guest}<br><small>${b.phone}</small></td>
-                                        <td>${b.room}</td>
-                                        <td>${formatDate(b.checkin)}</td>
-                                        <td>${formatDate(b.checkout)}</td>
-                                        <td>${b.adults}</td>
-                                        <td>${b.children}</td>
-                                        <td>${(b.total / 1000).toFixed(0)}k XOF</td>
-                                        <td><span class="badge-modern ${getStatusClass(b.status)}">${getStatusLabel(b.status)}</span></td>
-                                        <td>
-                                            <button class="btn-icon" onclick="viewBooking('${b.id}')"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button>
-                                            <button class="btn-icon danger" onclick="deleteBooking('${b.id}')"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="table-header"><h3><i class="fas fa-hotel"></i> Toutes les réservations</h3><button class="btn-modern primary" onclick="openReservationModal()"><i class="fas fa-plus"></i> Nouvelle réservation</button></div>
+                    <div class="table-responsive"><table class="table" id="bookings-table"><thead><tr><th>ID</th><th>Client</th><th>Chambre</th><th>Arrivée</th><th>Départ</th><th>Adultes</th><th>Enfants</th><th>Total</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+                        ${appData.bookings.map(b => `<tr><td>${b.id}</td><td>${b.guest}<br><small>${b.phone}</small></td><td>${b.room}</td><td>${formatDate(b.checkin)}</td><td>${formatDate(b.checkout)}</td><td>${b.adults}</td><td>${b.children}</td><td>${(b.total / 1000).toFixed(0)}k XOF</td><td><span class="badge-modern ${getStatusClass(b.status)}">${getStatusLabel(b.status)}</span></td><td><button class="btn-icon" onclick="viewBooking('${b.id}')"><i class="fas fa-eye"></i></button><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button><button class="btn-icon danger" onclick="deleteBooking('${b.id}')"><i class="fas fa-trash"></i></button></td></tr>`).join('')}
+                    </tbody></table></div>
                 </div>
             `;
         }
@@ -1940,49 +1580,10 @@
         function renderOrders() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-utensils"></i> Commandes restaurant</h3>
-                        <button class="btn-modern primary" onclick="openOrderModal()">
-                            <i class="fas fa-plus"></i> Nouvelle commande
-                        </button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table" id="orders-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Table</th>
-                                    <th>Client</th>
-                                    <th>Articles</th>
-                                    <th>Total</th>
-                                    <th>Heure</th>
-                                    <th>Statut</th>
-                                    <th>Imputation</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${appData.restaurantOrders.map(o => `
-                                    <tr>
-                                        <td>${o.id}</td>
-                                        <td><span class="badge-modern badge-info">${o.table}</span></td>
-                                        <td>${o.guest || 'Anonyme'}</td>
-                                        <td>${o.items.map(i => `${i.qty}x ${i.name}`).join(', ')}</td>
-                                        <td>${(o.total / 1000).toFixed(0)}k XOF</td>
-                                        <td>${o.time}</td>
-                                        <td><span class="badge-modern ${o.status === 'paid' ? 'badge-success' : o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${getOrderStatusLabel(o.status)}</span></td>
-                                        <td>${o.roomCharge ? `<i class="fas fa-hotel text-primary"></i> Ch. ${o.roomNumber}` : '-'}</td>
-                                        <td>
-                                            <button class="btn-icon" onclick="viewOrder('${o.id}')"><i class="fas fa-eye"></i></button>
-                                            ${o.status === 'preparing' ? `<button class="btn-icon success" onclick="markOrderReady('${o.id}')"><i class="fas fa-check"></i></button>` : ''}
-                                            <button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-invoice"></i></button>
-                                            <button class="btn-icon danger" onclick="deleteOrder('${o.id}')"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="table-header"><h3><i class="fas fa-utensils"></i> Commandes restaurant</h3><button class="btn-modern primary" onclick="openOrderModal()"><i class="fas fa-plus"></i> Nouvelle commande</button></div>
+                    <div class="table-responsive"><table class="table" id="orders-table"><thead><tr><th>ID</th><th>Table</th><th>Client</th><th>Articles</th><th>Total</th><th>Heure</th><th>Statut</th><th>Imputation</th><th>Actions</th></tr></thead><tbody>
+                        ${appData.restaurantOrders.map(o => `<tr><td>${o.id}</td><td><span class="badge-modern badge-info">${o.table}</span></td><td>${o.guest || 'Anonyme'}</td><td>${o.items.map(i => `${i.qty}x ${i.name}`).join(', ')}</td><td>${(o.total / 1000).toFixed(0)}k XOF</td><td>${o.time}</td><td><span class="badge-modern ${o.status === 'paid' ? 'badge-success' : o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${getOrderStatusLabel(o.status)}</span></td><td>${o.roomCharge ? `<i class="fas fa-hotel text-primary"></i> Ch. ${o.roomNumber}` : '-'}</td><td><button class="btn-icon" onclick="viewOrder('${o.id}')"><i class="fas fa-eye"></i></button>${o.status === 'preparing' ? `<button class="btn-icon success" onclick="markOrderReady('${o.id}')"><i class="fas fa-check"></i></button>` : ''}<button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-invoice"></i></button><button class="btn-icon danger" onclick="deleteOrder('${o.id}')"><i class="fas fa-trash"></i></button></td></tr>`).join('')}
+                    </tbody></table></div>
                 </div>
             `;
         }
@@ -1990,177 +1591,33 @@
         function renderRooms() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-door-open"></i> Gestion des chambres</h3>
-                        <button class="btn-modern primary" onclick="openRoomModal()">
-                            <i class="fas fa-plus"></i> Ajouter chambre
-                        </button>
-                    </div>
-                    
-                    <div class="room-grid">
-                        ${appData.rooms.map(room => `
-                            <div class="room-card ${room.status}" onclick="viewRoom(${room.number})">
-                                <div class="d-flex justify-content-between">
-                                    <span class="room-number">Ch. ${room.number}</span>
-                                    <span class="badge-modern ${room.status === 'available' ? 'badge-success' : room.status === 'occupied' ? 'badge-info' : room.status === 'reserved' ? 'badge-warning' : 'badge-danger'}">
-                                        ${room.status === 'available' ? 'Disponible' : room.status === 'occupied' ? 'Occupée' : room.status === 'reserved' ? 'Réservée' : 'Maintenance'}
-                                    </span>
-                                </div>
-                                <div class="room-type">${room.type}</div>
-                                <div class="room-price">${room.price.toLocaleString()} XOF/nuit</div>
-                                ${room.guest ? `<small class="text-muted">Occupé par: ${room.guest}</small>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="mt-4">
-                        <h4>Légende</h4>
-                        <div class="d-flex gap-3">
-                            <span><span class="badge-modern badge-success">Disponible</span></span>
-                            <span><span class="badge-modern badge-info">Occupée</span></span>
-                            <span><span class="badge-modern badge-warning">Réservée</span></span>
-                            <span><span class="badge-modern badge-danger">Maintenance</span></span>
-                        </div>
-                    </div>
+                    <div class="table-header"><h3><i class="fas fa-door-open"></i> Gestion des chambres</h3><button class="btn-modern primary" onclick="openRoomModal()"><i class="fas fa-plus"></i> Ajouter chambre</button></div>
+                    <div class="room-grid">${appData.rooms.map(room => `<div class="room-card ${room.status}" onclick="viewRoom(${room.number})"><div class="d-flex justify-content-between"><span class="room-number">Ch. ${room.number}</span><span class="badge-modern ${room.status === 'available' ? 'badge-success' : room.status === 'occupied' ? 'badge-info' : room.status === 'reserved' ? 'badge-warning' : 'badge-danger'}">${room.status === 'available' ? 'Disponible' : room.status === 'occupied' ? 'Occupée' : room.status === 'reserved' ? 'Réservée' : 'Maintenance'}</span></div><div class="room-type">${room.type}</div><div class="room-price">${room.price.toLocaleString()} XOF/nuit</div>${room.guest ? `<small class="text-muted">Occupé par: ${room.guest}</small>` : ''}</div>`).join('')}</div>
+                    <div class="mt-4"><h4>Légende</h4><div class="d-flex gap-3"><span><span class="badge-modern badge-success">Disponible</span></span><span><span class="badge-modern badge-info">Occupée</span></span><span><span class="badge-modern badge-warning">Réservée</span></span><span><span class="badge-modern badge-danger">Maintenance</span></span></div></div>
                 </div>
             `;
         }
 
         function renderCalendar() {
-            return `
-                <div class="table-card">
-                    <div id="calendar" style="height: 600px;"></div>
-                </div>
-            `;
+            return `<div class="table-card"><div id="calendar" style="height: 600px;"></div></div>`;
         }
 
         function renderGuests() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-users"></i> Fiches clients</h3>
-                        <button class="btn-modern primary" onclick="openGuestModal()">
-                            <i class="fas fa-user-plus"></i> Nouveau client
-                        </button>
-                    </div>
-                    
-                    ${appData.guests.map(g => `
-                        <div class="card mb-3 p-3">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>${g.name}</h5>
-                                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> ${g.email}</p>
-                                    <p class="mb-1"><i class="fas fa-phone me-2"></i> ${g.phone}</p>
-                                </div>
-                                <div class="col-md-2">
-                                    <strong>Séjours: ${g.stays}</strong><br>
-                                    <small>Dép. totale: ${(g.totalSpent / 1000000).toFixed(1)}M XOF</small>
-                                </div>
-                                <div class="col-md-4">
-                                    <strong>Préférences:</strong>
-                                    <p>${g.preferences}</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <strong>Dernier séjour:</strong> ${formatDate(g.lastStay)}
-                                    <div class="mt-2">
-                                        <button class="btn-icon" onclick="viewGuest('${g.id}')"><i class="fas fa-eye"></i></button>
-                                        <button class="btn-icon" onclick="generateGuestInvoice('${g.id}')"><i class="fas fa-file-pdf"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('')}
+                    <div class="table-header"><h3><i class="fas fa-users"></i> Fiches clients</h3><button class="btn-modern primary" onclick="openGuestModal()"><i class="fas fa-user-plus"></i> Nouveau client</button></div>
+                    ${appData.guests.map(g => `<div class="card mb-3 p-3"><div class="row"><div class="col-md-3"><h5>${g.name}</h5><p class="mb-1"><i class="fas fa-envelope me-2"></i> ${g.email}</p><p class="mb-1"><i class="fas fa-phone me-2"></i> ${g.phone}</p></div><div class="col-md-2"><strong>Séjours: ${g.stays}</strong><br><small>Dép. totale: ${(g.totalSpent / 1000000).toFixed(1)}M XOF</small></div><div class="col-md-4"><strong>Préférences:</strong><p>${g.preferences}</p></div><div class="col-md-3"><strong>Dernier séjour:</strong> ${formatDate(g.lastStay)}<div class="mt-2"><button class="btn-icon" onclick="viewGuest('${g.id}')"><i class="fas fa-eye"></i></button><button class="btn-icon" onclick="generateGuestInvoice('${g.id}')"><i class="fas fa-file-pdf"></i></button></div></div></div></div>`).join('')}
                 </div>
-                
-                <div class="table-card mt-3">
-                    <h3><i class="fas fa-history"></i> Historique des séjours</h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Client</th>
-                                <th>Période</th>
-                                <th>Chambre</th>
-                                <th>Montant</th>
-                                <th>Facture</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${appData.bookings.map(b => `
-                                <tr>
-                                    <td>${b.guest}</td>
-                                    <td>${formatDate(b.checkin)} - ${formatDate(b.checkout)}</td>
-                                    <td>${b.room}</td>
-                                    <td>${(b.total / 1000).toFixed(0)}k XOF</td>
-                                    <td>
-                                        <button class="btn-icon" onclick="showInvoice('${b.id}')">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>
+                <div class="table-card mt-3"><h3><i class="fas fa-history"></i> Historique des séjours</h3><table class="table"><thead><tr><th>Client</th><th>Période</th><th>Chambre</th><th>Montant</th><th>Facture</th></tr></thead><tbody>${appData.bookings.map(b => `<tr><td>${b.guest}</td><td>${formatDate(b.checkin)} - ${formatDate(b.checkout)}</td><td>${b.room}</td><td>${(b.total / 1000).toFixed(0)}k XOF</td><td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td></tr>`).join('')}</tbody></table></div>
             `;
         }
 
         function renderStock() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-boxes"></i> Gestion des stocks</h3>
-                        <button class="btn-modern primary" onclick="openStockModal()">
-                            <i class="fas fa-plus"></i> Ajouter article
-                        </button>
-                    </div>
-                    
-                    <div class="row mb-4">
-                        <div class="col-md-3">
-                            <div class="stat-card-modern p-3">
-                                <div class="stat-value-modern">${appData.stock.length}</div>
-                                <div class="stat-label-modern">Total articles</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-card-modern p-3">
-                                <div class="stat-value-modern text-warning">${appData.stock.filter(s => s.quantity <= s.threshold).length}</div>
-                                <div class="stat-label-modern">Alertes</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Article</th>
-                                <th>Catégorie</th>
-                                <th>Quantité</th>
-                                <th>Seuil</th>
-                                <th>Expiration</th>
-                                <th>Fournisseur</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${appData.stock.map(s => `
-                                <tr class="${s.quantity <= s.threshold ? 'table-warning' : ''}">
-                                    <td><strong>${s.name}</strong></td>
-                                    <td>${s.category}</td>
-                                    <td>${s.quantity} ${s.unit}</td>
-                                    <td>${s.threshold} ${s.unit}</td>
-                                    <td>
-                                        ${s.expiry ? formatDate(s.expiry) : '-'}
-                                        ${s.expiry && new Date(s.expiry) < new Date() ? '<span class="badge-modern badge-danger">Périmé</span>' : ''}
-                                    </td>
-                                    <td>${s.supplier}</td>
-                                    <td>
-                                        <button class="btn-icon" onclick="editStock('${s.id}')"><i class="fas fa-edit"></i></button>
-                                        <button class="btn-icon" onclick="orderStock('${s.id}')"><i class="fas fa-shopping-cart"></i></button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                    <div class="table-header"><h3><i class="fas fa-boxes"></i> Gestion des stocks</h3><button class="btn-modern primary" onclick="openStockModal()"><i class="fas fa-plus"></i> Ajouter article</button></div>
+                    <div class="row mb-4"><div class="col-md-3"><div class="stat-card-modern p-3"><div class="stat-value-modern">${appData.stock.length}</div><div class="stat-label-modern">Total articles</div></div></div><div class="col-md-3"><div class="stat-card-modern p-3"><div class="stat-value-modern text-warning">${appData.stock.filter(s => s.quantity <= s.threshold).length}</div><div class="stat-label-modern">Alertes</div></div></div></div>
+                    <table class="table"><thead><tr><th>Article</th><th>Catégorie</th><th>Quantité</th><th>Seuil</th><th>Expiration</th><th>Fournisseur</th><th>Actions</th></tr></thead><tbody>${appData.stock.map(s => `<tr class="${s.quantity <= s.threshold ? 'table-warning' : ''}"><td><strong>${s.name}</strong></td><td>${s.category}</td><td>${s.quantity} ${s.unit}</td><td>${s.threshold} ${s.unit}</td><td>${s.expiry ? formatDate(s.expiry) : '-'}${s.expiry && new Date(s.expiry) < new Date() ? '<span class="badge-modern badge-danger">Périmé</span>' : ''}</td><td>${s.supplier}</td><td><button class="btn-icon" onclick="editStock('${s.id}')"><i class="fas fa-edit"></i></button><button class="btn-icon" onclick="orderStock('${s.id}')"><i class="fas fa-shopping-cart"></i></button></td></tr>`).join('')}</tbody></table>
                 </div>
             `;
         }
@@ -2168,62 +1625,9 @@
         function renderStaff() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-users-cog"></i> Personnel</h3>
-                        <button class="btn-modern primary" onclick="openEmployeeModal()">
-                            <i class="fas fa-user-plus"></i> Ajouter employé
-                        </button>
-                    </div>
-                    
-                    <div class="row mb-4">
-                        <div class="col-md-3">
-                            <div class="stat-card-modern p-3">
-                                <div class="stat-value-modern">${appData.employees.length}</div>
-                                <div class="stat-label-modern">Total employés</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-card-modern p-3">
-                                <div class="stat-value-modern">${appData.employees.filter(e => e.department === 'restaurant').length}</div>
-                                <div class="stat-label-modern">Restaurant</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-card-modern p-3">
-                                <div class="stat-value-modern">${appData.employees.filter(e => e.department === 'reception').length}</div>
-                                <div class="stat-label-modern">Réception</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Rôle</th>
-                                <th>Département</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
-                                <th>Planning</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${appData.employees.map(e => `
-                                <tr>
-                                    <td><strong>${e.name}</strong></td>
-                                    <td>${e.role}</td>
-                                    <td>${e.department}</td>
-                                    <td>${e.phone}</td>
-                                    <td>${e.email}</td>
-                                    <td>${e.schedule}</td>
-                                    <td>
-                                        <button class="btn-icon" onclick="editEmployee('${e.id}')"><i class="fas fa-edit"></i></button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                    <div class="table-header"><h3><i class="fas fa-users-cog"></i> Personnel</h3><button class="btn-modern primary" onclick="openEmployeeModal()"><i class="fas fa-user-plus"></i> Ajouter employé</button></div>
+                    <div class="row mb-4"><div class="col-md-3"><div class="stat-card-modern p-3"><div class="stat-value-modern">${appData.employees.length}</div><div class="stat-label-modern">Total employés</div></div></div><div class="col-md-3"><div class="stat-card-modern p-3"><div class="stat-value-modern">${appData.employees.filter(e => e.department === 'restaurant').length}</div><div class="stat-label-modern">Restaurant</div></div></div><div class="col-md-3"><div class="stat-card-modern p-3"><div class="stat-value-modern">${appData.employees.filter(e => e.department === 'reception').length}</div><div class="stat-label-modern">Réception</div></div></div></div>
+                    <table class="table"><thead><tr><th>Nom</th><th>Rôle</th><th>Département</th><th>Téléphone</th><th>Email</th><th>Planning</th><th>Actions</th></tr></thead><tbody>${appData.employees.map(e => `<tr><td><strong>${e.name}</strong></td><td>${e.role}</td><td>${e.department}</td><td>${e.phone}</td><td>${e.email}</td><td>${e.schedule}</td><td><button class="btn-icon" onclick="editEmployee('${e.id}')"><i class="fas fa-edit"></i></button></td></tr>`).join('')}</tbody></table>
                 </div>
             `;
         }
@@ -2231,52 +1635,11 @@
         function renderInvoices() {
             return `
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-file-invoice"></i> Factures</h3>
-                        <button class="btn-modern primary" onclick="generateNewInvoice()">
-                            <i class="fas fa-plus"></i> Nouvelle facture
-                        </button>
-                    </div>
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>N° Facture</th>
-                                <th>Client</th>
-                                <th>Date</th>
-                                <th>Montant</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${appData.bookings.map((b, idx) => `
-                                <tr>
-                                    <td><strong>FAC-${String(idx+1).padStart(4,'0')}</strong></td>
-                                    <td>${b.guest}</td>
-                                    <td>${formatDate(b.checkout)}</td>
-                                    <td>${(b.total / 1000).toFixed(0)}k XOF</td>
-                                    <td><span class="badge-modern ${b.status === 'checked-out' ? 'badge-success' : 'badge-warning'}">${b.status === 'checked-out' ? 'Payée' : 'En attente'}</span></td>
-                                    <td>
-                                        <button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                            
-                            ${appData.restaurantOrders.filter(o => !o.roomCharge).map((o, idx) => `
-                                <tr>
-                                    <td><strong>FAC-REST-${String(idx+1).padStart(3,'0')}</strong></td>
-                                    <td>${o.guest || 'Client restaurant'}</td>
-                                    <td>${formatDate(o.date)}</td>
-                                    <td>${(o.total / 1000).toFixed(0)}k XOF</td>
-                                    <td><span class="badge-modern badge-success">Payée</span></td>
-                                    <td>
-                                        <button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-pdf"></i></button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                    <div class="table-header"><h3><i class="fas fa-file-invoice"></i> Factures</h3><button class="btn-modern primary" onclick="generateNewInvoice()"><i class="fas fa-plus"></i> Nouvelle facture</button></div>
+                    <table class="table"><thead><tr><th>N° Facture</th><th>Client</th><th>Date</th><th>Montant</th><th>Statut</th><th>Actions</th></tr></thead><tbody>
+                        ${appData.bookings.map((b, idx) => `<tr><td><strong>FAC-${String(idx+1).padStart(4,'0')}</strong></td><td>${b.guest}</td><td>${formatDate(b.checkout)}</td><td>${(b.total / 1000).toFixed(0)}k XOF</td><td><span class="badge-modern ${b.status === 'checked-out' ? 'badge-success' : 'badge-warning'}">${b.status === 'checked-out' ? 'Payée' : 'En attente'}</span></td><td><button class="btn-icon" onclick="showInvoice('${b.id}')"><i class="fas fa-file-pdf"></i></button></td></tr>`).join('')}
+                        ${appData.restaurantOrders.filter(o => !o.roomCharge).map((o, idx) => `<tr><td><strong>FAC-REST-${String(idx+1).padStart(3,'0')}</strong></td><td>${o.guest || 'Client restaurant'}</td><td>${formatDate(o.date)}</td><td>${(o.total / 1000).toFixed(0)}k XOF</td><td><span class="badge-modern badge-success">Payée</span></td><td><button class="btn-icon" onclick="showOrderInvoice('${o.id}')"><i class="fas fa-file-pdf"></i></button></td></tr>`).join('')}
+                    </tbody></table>
                 </div>
             `;
         }
@@ -2284,55 +1647,12 @@
         function renderReports() {
             return `
                 <div class="stats-grid">
-                    <div class="stat-card-modern">
-                        <div class="stat-value-modern">${(appData.stats.hotelRevenue / 1000000).toFixed(1)}M</div>
-                        <div class="stat-label-modern">CA Hôtel</div>
-                    </div>
-                    <div class="stat-card-modern">
-                        <div class="stat-value-modern">${(appData.stats.restaurantRevenue / 1000000).toFixed(1)}M</div>
-                        <div class="stat-label-modern">CA Restaurant</div>
-                    </div>
-                    <div class="stat-card-modern">
-                        <div class="stat-value-modern">${(appData.expenses.reduce((sum, e) => sum + e.amount, 0) / 1000000).toFixed(1)}M</div>
-                        <div class="stat-label-modern">Dépenses</div>
-                    </div>
+                    <div class="stat-card-modern"><div class="stat-value-modern">${(appData.stats.hotelRevenue / 1000000).toFixed(1)}M</div><div class="stat-label-modern">CA Hôtel</div></div>
+                    <div class="stat-card-modern"><div class="stat-value-modern">${(appData.stats.restaurantRevenue / 1000000).toFixed(1)}M</div><div class="stat-label-modern">CA Restaurant</div></div>
+                    <div class="stat-card-modern"><div class="stat-value-modern">${(appData.expenses.reduce((sum, e) => sum + e.amount, 0) / 1000000).toFixed(1)}M</div><div class="stat-label-modern">Dépenses</div></div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3>Performance mensuelle</h3>
-                            <canvas id="monthly-report-chart" style="height: 300px;"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="table-card">
-                            <h3>Répartition des revenus</h3>
-                            <canvas id="report-pie-chart" style="height: 300px;"></canvas>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="table-card mt-3">
-                    <h3>Export de données</h3>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <button class="btn-modern primary w-100 mb-2" onclick="exportData('hotel')">
-                                <i class="fas fa-file-excel"></i> Export Hôtel
-                            </button>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn-modern primary w-100 mb-2" onclick="exportData('restaurant')">
-                                <i class="fas fa-file-excel"></i> Export Restaurant
-                            </button>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn-modern primary w-100 mb-2" onclick="exportData('financial')">
-                                <i class="fas fa-file-pdf"></i> Rapport financier
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <div class="row"><div class="col-md-6"><div class="table-card"><h3>Performance mensuelle</h3><canvas id="monthly-report-chart" style="height: 300px;"></canvas></div></div><div class="col-md-6"><div class="table-card"><h3>Répartition des revenus</h3><canvas id="report-pie-chart" style="height: 300px;"></canvas></div></div></div>
+                <div class="table-card mt-3"><h3>Export de données</h3><div class="row"><div class="col-md-3"><button class="btn-modern primary w-100 mb-2" onclick="exportData('hotel')"><i class="fas fa-file-excel"></i> Export Hôtel</button></div><div class="col-md-3"><button class="btn-modern primary w-100 mb-2" onclick="exportData('restaurant')"><i class="fas fa-file-excel"></i> Export Restaurant</button></div><div class="col-md-3"><button class="btn-modern primary w-100 mb-2" onclick="exportData('financial')"><i class="fas fa-file-pdf"></i> Rapport financier</button></div></div></div>
             `;
         }
 
@@ -2342,58 +1662,17 @@
             
             return `
                 <div class="stats-grid">
-                    <div class="stat-card-modern">
-                        <div class="stat-value-modern">${(totalPaid / 1000).toFixed(0)}k</div>
-                        <div class="stat-label-modern">Dépenses payées</div>
-                    </div>
-                    <div class="stat-card-modern">
-                        <div class="stat-value-modern text-warning">${(totalUnpaid / 1000).toFixed(0)}k</div>
-                        <div class="stat-label-modern">À payer</div>
-                    </div>
+                    <div class="stat-card-modern"><div class="stat-value-modern">${(totalPaid / 1000).toFixed(0)}k</div><div class="stat-label-modern">Dépenses payées</div></div>
+                    <div class="stat-card-modern"><div class="stat-value-modern text-warning">${(totalUnpaid / 1000).toFixed(0)}k</div><div class="stat-label-modern">À payer</div></div>
                 </div>
-                
                 <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-coins"></i> Liste des dépenses</h3>
-                        <button class="btn-modern primary" onclick="openExpenseModal()">
-                            <i class="fas fa-plus"></i> Nouvelle dépense
-                        </button>
-                    </div>
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Catégorie</th>
-                                <th>Description</th>
-                                <th>Montant</th>
-                                <th>Échéance</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${appData.expenses.map(e => `
-                                <tr>
-                                    <td>${formatDate(e.date)}</td>
-                                    <td>${e.category}</td>
-                                    <td>${e.description}</td>
-                                    <td><strong>${(e.amount / 1000).toFixed(0)}k XOF</strong></td>
-                                    <td>${formatDate(e.dueDate)}</td>
-                                    <td><span class="badge-modern ${e.paid ? 'badge-success' : 'badge-warning'}">${e.paid ? 'Payée' : 'En attente'}</span></td>
-                                    <td>
-                                        <button class="btn-icon" onclick="editExpense('${e.id}')"><i class="fas fa-edit"></i></button>
-                                        ${!e.paid ? `<button class="btn-icon success" onclick="markAsPaid('${e.id}')"><i class="fas fa-check"></i></button>` : ''}
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                    <div class="table-header"><h3><i class="fas fa-coins"></i> Liste des dépenses</h3><button class="btn-modern primary" onclick="openExpenseModal()"><i class="fas fa-plus"></i> Nouvelle dépense</button></div>
+                    <table class="table"><thead><tr><th>Date</th><th>Catégorie</th><th>Description</th><th>Montant</th><th>Échéance</th><th>Statut</th><th>Actions</th></tr></thead><tbody>${appData.expenses.map(e => `<tr><td>${formatDate(e.date)}</td><td>${e.category}</td><td>${e.description}</td><td><strong>${(e.amount / 1000).toFixed(0)}k XOF</strong></td><td>${formatDate(e.dueDate)}</td><td><span class="badge-modern ${e.paid ? 'badge-success' : 'badge-warning'}">${e.paid ? 'Payée' : 'En attente'}</span></td><td><button class="btn-icon" onclick="editExpense('${e.id}')"><i class="fas fa-edit"></i></button>${!e.paid ? `<button class="btn-icon success" onclick="markAsPaid('${e.id}')"><i class="fas fa-check"></i></button>` : ''}</td></tr>`).join('')}</tbody></table>
                 </div>
             `;
         }
 
-        // ========== GESTION DES RÉSERVATIONS ==========
+        // ========== FONCTIONS MÉTIER ==========
         function submitReservation() {
             const guestName = document.getElementById('guestName').value;
             const guestPhone = document.getElementById('guestPhone').value;
@@ -2435,7 +1714,7 @@
             room.guest = guestName;
             
             if (!appData.guests.some(g => g.phone === guestPhone)) {
-                const newGuest = {
+                appData.guests.push({
                     id: 'G' + String(appData.guests.length + 1).padStart(3, '0'),
                     name: guestName,
                     email: guestEmail,
@@ -2444,40 +1723,29 @@
                     preferences: specialRequests,
                     totalSpent: total,
                     lastStay: checkin
-                };
-                appData.guests.push(newGuest);
+                });
             }
             
             bootstrap.Modal.getInstance(document.getElementById('reservationModal')).hide();
-            
             updateBadges();
             updateRoomSelectors();
             loadModule('bookings');
-            
             showNotification(`Réservation créée pour ${guestName}`, 'success');
         }
 
         function deleteBooking(id) {
-            if (!confirm('Êtes-vous sûr de vouloir supprimer cette réservation ?')) return;
-            
+            if (!confirm('Supprimer cette réservation ?')) return;
             const booking = appData.bookings.find(b => b.id === id);
-            if (!booking) return;
-            
-            const room = appData.rooms.find(r => r.number === booking.roomNumber);
-            if (room) {
-                room.status = 'available';
-                room.guest = null;
+            if (booking) {
+                const room = appData.rooms.find(r => r.number === booking.roomNumber);
+                if (room) { room.status = 'available'; room.guest = null; }
             }
-            
             appData.bookings = appData.bookings.filter(b => b.id !== id);
-            
             updateBadges();
             loadModule('bookings');
-            
             showNotification('Réservation supprimée', 'success');
         }
 
-        // ========== GESTION DES COMMANDES ==========
         function addOrderItem() {
             const orderItems = document.getElementById('orderItems');
             const newItem = document.createElement('div');
@@ -2531,7 +1799,6 @@
             if (selectedOption && selectedOption.dataset.price) {
                 priceDisplay.textContent = parseInt(selectedOption.dataset.price).toLocaleString();
             }
-            
             calculateOrderTotal();
         }
 
@@ -2541,12 +1808,10 @@
                 const select = item.querySelector('.item-select');
                 const qty = item.querySelector('.item-qty');
                 const selectedOption = select.options[select.selectedIndex];
-                
                 if (selectedOption && selectedOption.dataset.price) {
                     total += parseInt(selectedOption.dataset.price) * parseInt(qty.value || 1);
                 }
             });
-            
             document.getElementById('orderTotal').textContent = total.toLocaleString();
         }
 
@@ -2561,38 +1826,27 @@
                 const select = item.querySelector('.item-select');
                 const qty = item.querySelector('.item-qty');
                 const selectedOption = select.options[select.selectedIndex];
-                
                 if (selectedOption && selectedOption.value) {
-                    items.push({
-                        name: selectedOption.value,
-                        qty: parseInt(qty.value),
-                        price: parseInt(selectedOption.dataset.price)
-                    });
+                    items.push({ name: selectedOption.value, qty: parseInt(qty.value), price: parseInt(selectedOption.dataset.price) });
                 }
             });
             
-            if (items.length === 0) {
-                showNotification('Veuillez ajouter au moins un article', 'error');
-                return;
-            }
+            if (items.length === 0) { showNotification('Veuillez ajouter au moins un article', 'error'); return; }
             
             const total = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
             
             let roomId = null;
             if (chargeToRoom && roomNumber) {
                 const booking = appData.bookings.find(b => b.roomNumber === roomNumber && b.status === 'checked-in');
-                if (booking) {
-                    roomId = booking.id;
-                }
+                if (booking) roomId = booking.id;
             }
             
             const newId = 'R' + String(appData.restaurantOrders.length + 1).padStart(3, '0');
-            
             const now = new Date();
             const time = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
             const date = now.toISOString().split('T')[0];
             
-            const newOrder = {
+            appData.restaurantOrders.push({
                 id: newId,
                 table: parseInt(tableNumber),
                 guest: guestName || 'Anonyme',
@@ -2604,157 +1858,59 @@
                 roomId: roomId,
                 time: time,
                 date: date
-            };
-            
-            appData.restaurantOrders.push(newOrder);
+            });
             
             bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
-            
             updateBadges();
             loadModule('orders');
-            
             showNotification(`Commande table ${tableNumber} enregistrée`, 'success');
         }
 
         function deleteOrder(id) {
-            if (!confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) return;
-            
+            if (!confirm('Supprimer cette commande ?')) return;
             appData.restaurantOrders = appData.restaurantOrders.filter(o => o.id !== id);
-            
             updateBadges();
             loadModule('orders');
-            
             showNotification('Commande supprimée', 'success');
         }
 
         function markOrderReady(id) {
             const order = appData.restaurantOrders.find(o => o.id === id);
-            if (order) {
-                order.status = 'paid';
-                loadModule(currentModule);
-                showNotification(`Commande table ${order.table} prête`, 'success');
-            }
+            if (order) { order.status = 'paid'; loadModule(currentModule); showNotification(`Commande table ${order.table} prête`, 'success'); }
         }
 
-        // ========== GESTION DES FACTURES ==========
+        // ========== FACTURES ==========
         function showInvoice(id) {
             const booking = appData.bookings.find(b => b.id === id);
             if (!booking) return;
             
             const roomOrders = appData.restaurantOrders.filter(o => o.roomId === id);
             const roomOrdersTotal = roomOrders.reduce((sum, o) => sum + o.total, 0);
-            
             const total = booking.total + roomOrdersTotal;
             const paid = booking.prepaid + roomOrdersTotal;
             
             const invoiceHTML = `
                 <div class="invoice-preview" id="invoice-preview">
                     <div class="invoice-header">
-                        <div>
-                            <img src="https://via.placeholder.com/80x80/025ba5/ffffff?text=LAW" alt="Lawmar" class="invoice-logo">
-                        </div>
-                        <div>
-                            <h1 class="invoice-title">FACTURE</h1>
-                            <p>N° FAC-${String(invoiceCounter).padStart(4,'0')}</p>
-                        </div>
+                        <div><img src="images/logo1.png" alt="Lawmar" class="invoice-logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\' viewBox=\'0 0 80 80\'%3E%3Crect width=\'80\' height=\'80\' fill=\'%23025ba5\'/%3E%3Ctext x=\'40\' y=\'53\' font-size=\'40\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'Arial\'%3ELAW%3C/text%3E%3C/svg%3E'"></div>
+                        <div><h1 class="invoice-title">FACTURE</h1><p>N° FAC-${String(invoiceCounter).padStart(4,'0')}</p></div>
                     </div>
-                    
                     <div class="invoice-details">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5>Émetteur</h5>
-                                <p>
-                                    <strong>Lawmar Les Résidences</strong><br>
-                                    Gandiol, Saint-Louis, Sénégal<br>
-                                    NINEA: 12345678<br>
-                                    Tél: +221 33 123 45 67
-                                </p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <h5>Client</h5>
-                                <p>
-                                    <strong>${booking.guest}</strong><br>
-                                    Tél: ${booking.phone}<br>
-                                    Email: ${booking.email}
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <p><strong>Date de facture:</strong> ${formatDate(new Date().toISOString())}</p>
-                                <p><strong>Période:</strong> ${formatDate(booking.checkin)} au ${formatDate(booking.checkout)}</p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <p><strong>Chambre:</strong> ${booking.room}</p>
-                                <p><strong>Statut:</strong> ${getStatusLabel(booking.status)}</p>
-                            </div>
-                        </div>
+                        <div class="row"><div class="col-6"><h5>Émetteur</h5><p><strong>Lawmar Les Résidences</strong><br>Gandiol, Saint-Louis, Sénégal<br>NINEA: 12345678<br>Tél: +221 33 123 45 67</p></div><div class="col-6 text-end"><h5>Client</h5><p><strong>${booking.guest}</strong><br>Tél: ${booking.phone}<br>Email: ${booking.email}</p></div></div>
+                        <div class="row mt-3"><div class="col-6"><p><strong>Date de facture:</strong> ${formatDate(new Date().toISOString())}</p><p><strong>Période:</strong> ${formatDate(booking.checkin)} au ${formatDate(booking.checkout)}</p></div><div class="col-6 text-end"><p><strong>Chambre:</strong> ${booking.room}</p><p><strong>Statut:</strong> ${getStatusLabel(booking.status)}</p></div></div>
                     </div>
-                    
-                    <table class="invoice-table">
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Quantité</th>
-                                <th>Prix unitaire</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Hébergement - ${booking.room}</td>
-                                <td>${Math.ceil((new Date(booking.checkout) - new Date(booking.checkin)) / (1000*60*60*24))} nuits</td>
-                                <td>${(booking.total / Math.ceil((new Date(booking.checkout) - new Date(booking.checkin)) / (1000*60*60*24))).toLocaleString()} XOF</td>
-                                <td>${booking.total.toLocaleString()} XOF</td>
-                            </tr>
-                            ${roomOrders.map(o => `
-                                <tr>
-                                    <td colspan="4">
-                                        <strong>Commande Restaurant - Table ${o.table} (${o.time})</strong>
-                                    </td>
-                                </tr>
-                                ${o.items.map(item => `
-                                    <tr>
-                                        <td style="padding-left: 30px;">${item.name}</td>
-                                        <td>${item.qty}</td>
-                                        <td>${item.price.toLocaleString()} XOF</td>
-                                        <td>${(item.price * item.qty).toLocaleString()} XOF</td>
-                                    </tr>
-                                `).join('')}
-                            `).join('')}
-                        </tbody>
-                    </table>
-                    
-                    <div class="row">
-                        <div class="col-6">
-                            <h5>Récapitulatif des paiements</h5>
-                            <p>Acompte versé: ${booking.prepaid.toLocaleString()} XOF</p>
-                            <p>Commandes imputées: ${roomOrdersTotal.toLocaleString()} XOF</p>
-                            <p><strong>Total payé: ${paid.toLocaleString()} XOF</strong></p>
-                        </div>
-                        <div class="col-6">
-                            <div class="invoice-total">
-                                <p>Total TTC: ${total.toLocaleString()} XOF</p>
-                                <p>Déjà payé: ${paid.toLocaleString()} XOF</p>
-                                <hr>
-                                <p><strong>Reste à payer: ${(total - paid).toLocaleString()} XOF</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 text-center text-muted">
-                        <small>Merci de votre séjour à Lawmar Les Résidences - À bientôt !</small>
-                    </div>
+                    <table class="invoice-table"><thead><tr><th>Description</th><th>Quantité</th><th>Prix unitaire</th><th>Total</th></tr></thead><tbody>
+                        <tr><td>Hébergement - ${booking.room}</td><td>${Math.ceil((new Date(booking.checkout) - new Date(booking.checkin)) / (1000*60*60*24))} nuits</td><td>${(booking.total / Math.ceil((new Date(booking.checkout) - new Date(booking.checkin)) / (1000*60*60*24))).toLocaleString()} XOF</td><td>${booking.total.toLocaleString()} XOF</td></tr>
+                        ${roomOrders.map(o => `<tr><td colspan="4"><strong>Commande Restaurant - Table ${o.table} (${o.time})</strong></td></tr>${o.items.map(item => `<tr><td style="padding-left: 30px;">${item.name}</td><td>${item.qty}</td><td>${item.price.toLocaleString()} XOF</td><td>${(item.price * item.qty).toLocaleString()} XOF</td></tr>`).join('')}`).join('')}
+                    </tbody></table>
+                    <div class="row"><div class="col-6"><h5>Récapitulatif des paiements</h5><p>Acompte versé: ${booking.prepaid.toLocaleString()} XOF</p><p>Commandes imputées: ${roomOrdersTotal.toLocaleString()} XOF</p><p><strong>Total payé: ${paid.toLocaleString()} XOF</strong></p></div><div class="col-6"><div class="invoice-total"><p>Total TTC: ${total.toLocaleString()} XOF</p><p>Déjà payé: ${paid.toLocaleString()} XOF</p><hr><p><strong>Reste à payer: ${(total - paid).toLocaleString()} XOF</strong></p></div></div></div>
+                    <div class="mt-4 text-center text-muted"><small>Merci de votre séjour à Lawmar Les Résidences - À bientôt !</small></div>
                 </div>
             `;
             
             document.getElementById('invoiceContent').innerHTML = invoiceHTML;
             currentInvoice = booking;
-            
-            const invoiceModal = new bootstrap.Modal(document.getElementById('invoiceModal'));
-            invoiceModal.show();
-            
+            new bootstrap.Modal(document.getElementById('invoiceModal')).show();
             invoiceCounter++;
         }
 
@@ -2765,218 +1921,92 @@
             const invoiceHTML = `
                 <div class="invoice-preview" id="invoice-preview">
                     <div class="invoice-header">
-                        <div>
-                            <img src="https://via.placeholder.com/80x80/025ba5/ffffff?text=LAW" alt="Lawmar" class="invoice-logo">
-                        </div>
-                        <div>
-                            <h1 class="invoice-title">FACTURE RESTAURANT</h1>
-                            <p>N° FAC-REST-${String(invoiceCounter).padStart(4,'0')}</p>
-                        </div>
+                        <div><img src="images/logo1.png" alt="Lawmar" class="invoice-logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\' viewBox=\'0 0 80 80\'%3E%3Crect width=\'80\' height=\'80\' fill=\'%23025ba5\'/%3E%3Ctext x=\'40\' y=\'53\' font-size=\'40\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'Arial\'%3ELAW%3C/text%3E%3C/svg%3E'"></div>
+                        <div><h1 class="invoice-title">FACTURE RESTAURANT</h1><p>N° FAC-REST-${String(invoiceCounter).padStart(4,'0')}</p></div>
                     </div>
-                    
                     <div class="invoice-details">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5>Émetteur</h5>
-                                <p>
-                                    <strong>Lawmar Les Résidences - Restaurant</strong><br>
-                                    Gandiol, Saint-Louis, Sénégal<br>
-                                    NINEA: 12345678<br>
-                                    Tél: +221 33 123 45 67
-                                </p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <h5>Client</h5>
-                                <p>
-                                    <strong>${order.guest || 'Client restaurant'}</strong><br>
-                                    Table: ${order.table}
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <p><strong>Date de facture:</strong> ${formatDate(new Date().toISOString())}</p>
-                                <p><strong>Heure:</strong> ${order.time}</p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <p><strong>Statut:</strong> <span class="badge-modern ${order.status === 'paid' ? 'badge-success' : 'badge-warning'}">${getOrderStatusLabel(order.status)}</span></p>
-                                ${order.roomCharge ? `<p><strong>Imputé à la chambre:</strong> ${order.roomNumber}</p>` : ''}
-                            </div>
-                        </div>
+                        <div class="row"><div class="col-6"><h5>Émetteur</h5><p><strong>Lawmar Les Résidences - Restaurant</strong><br>Gandiol, Saint-Louis, Sénégal<br>NINEA: 12345678<br>Tél: +221 33 123 45 67</p></div><div class="col-6 text-end"><h5>Client</h5><p><strong>${order.guest || 'Client restaurant'}</strong><br>Table: ${order.table}</p></div></div>
+                        <div class="row mt-3"><div class="col-6"><p><strong>Date de facture:</strong> ${formatDate(new Date().toISOString())}</p><p><strong>Heure:</strong> ${order.time}</p></div><div class="col-6 text-end"><p><strong>Statut:</strong> <span class="badge-modern ${order.status === 'paid' ? 'badge-success' : 'badge-warning'}">${getOrderStatusLabel(order.status)}</span></p>${order.roomCharge ? `<p><strong>Imputé à la chambre:</strong> ${order.roomNumber}</p>` : ''}</div></div>
                     </div>
-                    
-                    <table class="invoice-table">
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Quantité</th>
-                                <th>Prix unitaire</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${order.items.map(item => `
-                                <tr>
-                                    <td>${item.name}</td>
-                                    <td>${item.qty}</td>
-                                    <td>${item.price.toLocaleString()} XOF</td>
-                                    <td>${(item.price * item.qty).toLocaleString()} XOF</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                    
-                    <div class="invoice-total">
-                        <p><strong>Total à payer: ${order.total.toLocaleString()} XOF</strong></p>
-                    </div>
-                    
-                    <div class="mt-4 text-center text-muted">
-                        <small>Merci de votre visite au restaurant Lawmar !</small>
-                    </div>
+                    <table class="invoice-table"><thead><tr><th>Description</th><th>Quantité</th><th>Prix unitaire</th><th>Total</th></tr></thead><tbody>${order.items.map(item => `<tr><td>${item.name}</td><td>${item.qty}</td><td>${item.price.toLocaleString()} XOF</td><td>${(item.price * item.qty).toLocaleString()} XOF</td></tr>`).join('')}</tbody></table>
+                    <div class="invoice-total"><p><strong>Total à payer: ${order.total.toLocaleString()} XOF</strong></p></div>
+                    <div class="mt-4 text-center text-muted"><small>Merci de votre visite au restaurant Lawmar !</small></div>
                 </div>
             `;
             
             document.getElementById('invoiceContent').innerHTML = invoiceHTML;
             currentInvoice = order;
-            
-            const invoiceModal = new bootstrap.Modal(document.getElementById('invoiceModal'));
-            invoiceModal.show();
-            
+            new bootstrap.Modal(document.getElementById('invoiceModal')).show();
             invoiceCounter++;
         }
 
         function downloadInvoicePDF() {
-            if (!currentInvoice) {
-                showNotification('Aucune facture à télécharger', 'error');
-                return;
-            }
+            if (!currentInvoice) { showNotification('Aucune facture à télécharger', 'error'); return; }
             
             const invoiceElement = document.getElementById('invoice-preview');
-            
             showNotification('Génération du PDF en cours...', 'info');
             
-            html2canvas(invoiceElement, {
-                scale: 2,
-                backgroundColor: '#ffffff',
-                logging: false,
-                allowTaint: true,
-                useCORS: true
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                
-                try {
-                    // CORRECTION: Utilisation correcte de jsPDF
-                    const pdf = new jspdf.jsPDF({
-                        orientation: 'portrait',
-                        unit: 'mm',
-                        format: 'a4'
-                    });
-                    
-                    const imgWidth = 210;
-                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                    
-                    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-                    
-                    const fileName = `facture_${currentInvoice.guest || 'restaurant'}_${new Date().toISOString().split('T')[0]}.pdf`;
-                    pdf.save(fileName);
-                    
-                    showNotification('Facture téléchargée avec succès', 'success');
-                } catch (error) {
-                    console.error('Erreur jsPDF:', error);
+            html2canvas(invoiceElement, { scale: 2, backgroundColor: '#ffffff', logging: false, allowTaint: true, useCORS: true })
+                .then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    try {
+                        const pdf = new jspdf.jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                        const imgWidth = 210;
+                        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                        const fileName = `facture_${currentInvoice.guest || 'restaurant'}_${new Date().toISOString().split('T')[0]}.pdf`;
+                        pdf.save(fileName);
+                        showNotification('Facture téléchargée avec succès', 'success');
+                    } catch (error) {
+                        console.error('Erreur jsPDF:', error);
+                        showNotification('Erreur lors de la génération du PDF', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur html2canvas:', error);
                     showNotification('Erreur lors de la génération du PDF', 'error');
-                }
-            }).catch(error => {
-                console.error('Erreur html2canvas:', error);
-                showNotification('Erreur lors de la génération du PDF', 'error');
-            });
+                });
         }
 
-        // ========== FONCTIONS UTILITAIRES ==========
-        function formatDate(dateStr) {
-            if (!dateStr) return '-';
-            const d = new Date(dateStr);
-            return d.toLocaleDateString('fr-FR');
-        }
-
-        function calculateTimeSince(timeStr) {
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            const orderTime = new Date();
-            orderTime.setHours(hours, minutes, 0);
-            
-            const now = new Date();
-            const diffMinutes = Math.floor((now - orderTime) / (1000 * 60));
-            
-            if (diffMinutes < 60) {
-                return `${diffMinutes} min`;
-            } else {
-                return `${Math.floor(diffMinutes / 60)}h ${diffMinutes % 60}min`;
+        function checkIn(id) {
+            const booking = appData.bookings.find(b => b.id === id);
+            if (booking) {
+                booking.status = 'checked-in';
+                const room = appData.rooms.find(r => r.number === booking.roomNumber);
+                if (room) room.status = 'occupied';
+                loadModule(currentModule);
+                showNotification(`Check-in effectué pour ${booking.guest}`, 'success');
             }
         }
 
-        function getStatusLabel(status) {
-            const labels = {
-                'confirmed': 'Confirmée',
-                'checked-in': 'En cours',
-                'checked-out': 'Terminée',
-                'pending': 'En attente'
-            };
-            return labels[status] || status;
+        function checkOut(id) {
+            const booking = appData.bookings.find(b => b.id === id);
+            if (booking) {
+                booking.status = 'checked-out';
+                const room = appData.rooms.find(r => r.number === booking.roomNumber);
+                if (room) { room.status = 'available'; room.guest = null; }
+                loadModule(currentModule);
+                showNotification(`Check-out effectué pour ${booking.guest}`, 'success');
+                showInvoice(id);
+            }
         }
 
-        function getStatusClass(status) {
-            const classes = {
-                'confirmed': 'badge-success',
-                'checked-in': 'badge-info',
-                'checked-out': 'badge-secondary',
-                'pending': 'badge-warning'
-            };
-            return classes[status] || 'badge-info';
-        }
-
-        function getOrderStatusLabel(status) {
-            const labels = {
-                'paid': 'Payée',
-                'preparing': 'En préparation',
-                'pending': 'En attente'
-            };
-            return labels[status] || status;
-        }
-
-        function showNotification(message, type = 'success') {
-            const container = document.getElementById('notification-center');
-            const notification = document.createElement('div');
-            notification.className = `notification-item`;
-            notification.style.borderLeftColor = type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#ffc107';
-            
-            const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : type === 'info' ? 'fa-info-circle' : 'fa-exclamation-triangle';
-            
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas ${icon}" style="color: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#ffc107'};"></i>
-                    <span>${message}</span>
-                </div>
-            `;
-            
-            container.appendChild(notification);
-            
+        function quickReserve(roomNumber) {
+            openReservationModal();
             setTimeout(() => {
-                notification.remove();
-            }, 4000);
+                document.getElementById('roomSelect').value = roomNumber;
+                calculateEstimatedTotal();
+            }, 500);
         }
 
         function openReservationModal() {
             updateRoomSelectors();
-            
             const today = new Date().toISOString().split('T')[0];
             const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
-            
             document.getElementById('checkinDate').value = today;
             document.getElementById('checkoutDate').value = tomorrow;
             document.getElementById('estimatedTotal').textContent = '0';
-            
-            const modal = new bootstrap.Modal(document.getElementById('reservationModal'));
-            modal.show();
+            new bootstrap.Modal(document.getElementById('reservationModal')).show();
         }
 
         function openOrderModal() {
@@ -3012,211 +2042,78 @@
             `;
             document.getElementById('roomSelectionDiv').style.display = 'none';
             document.getElementById('orderTotal').textContent = '0';
-            
             updateRoomSelectors();
-            
-            const modal = new bootstrap.Modal(document.getElementById('orderModal'));
-            modal.show();
+            new bootstrap.Modal(document.getElementById('orderModal')).show();
         }
 
-        function quickReserve(roomNumber) {
-            openReservationModal();
-            setTimeout(() => {
-                document.getElementById('roomSelect').value = roomNumber;
-                calculateEstimatedTotal();
-            }, 500);
+        // ========== FONCTIONS UTILITAIRES ==========
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            return new Date(dateStr).toLocaleDateString('fr-FR');
         }
 
-        function checkIn(id) {
-            const booking = appData.bookings.find(b => b.id === id);
-            if (booking) {
-                booking.status = 'checked-in';
-                
-                const room = appData.rooms.find(r => r.number === booking.roomNumber);
-                if (room) {
-                    room.status = 'occupied';
-                }
-                
-                loadModule(currentModule);
-                showNotification(`Check-in effectué pour ${booking.guest}`, 'success');
-            }
+        function calculateTimeSince(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            const orderTime = new Date(); orderTime.setHours(hours, minutes, 0);
+            const now = new Date();
+            const diffMinutes = Math.floor((now - orderTime) / (1000 * 60));
+            if (diffMinutes < 60) return `${diffMinutes} min`;
+            return `${Math.floor(diffMinutes / 60)}h ${diffMinutes % 60}min`;
         }
 
-        function checkOut(id) {
-            const booking = appData.bookings.find(b => b.id === id);
-            if (booking) {
-                booking.status = 'checked-out';
-                
-                const room = appData.rooms.find(r => r.number === booking.roomNumber);
-                if (room) {
-                    room.status = 'available';
-                    room.guest = null;
-                }
-                
-                loadModule(currentModule);
-                showNotification(`Check-out effectué pour ${booking.guest}`, 'success');
-                
-                showInvoice(id);
-            }
+        function getStatusLabel(status) {
+            const labels = { 'confirmed': 'Confirmée', 'checked-in': 'En cours', 'checked-out': 'Terminée', 'pending': 'En attente' };
+            return labels[status] || status;
         }
 
-        function viewBooking(id) {
-            showNotification(`Consultation réservation ${id}`, 'info');
+        function getStatusClass(status) {
+            const classes = { 'confirmed': 'badge-success', 'checked-in': 'badge-info', 'checked-out': 'badge-secondary', 'pending': 'badge-warning' };
+            return classes[status] || 'badge-info';
         }
 
-        function viewOrder(id) {
-            showNotification(`Consultation commande ${id}`, 'info');
+        function getOrderStatusLabel(status) {
+            const labels = { 'paid': 'Payée', 'preparing': 'En préparation', 'pending': 'En attente' };
+            return labels[status] || status;
         }
 
-        function viewRoom(number) {
-            const room = appData.rooms.find(r => r.number === number);
-            if (room) {
-                showNotification(`Chambre ${number} - ${room.type} (${room.status})`, 'info');
-            }
-        }
-
-        function viewGuest(id) {
-            showNotification(`Consultation client ${id}`, 'info');
-        }
-
-        function editStock(id) {
-            showNotification(`Modification article ${id}`, 'info');
-        }
-
-        function editEmployee(id) {
-            showNotification(`Modification employé ${id}`, 'info');
-        }
-
-        function editExpense(id) {
-            showNotification(`Modification dépense ${id}`, 'info');
-        }
-
-        function orderStock(id) {
-            showNotification(`Commande fournisseur pour article ${id}`, 'success');
-        }
-
-        function markAsPaid(id) {
-            const expense = appData.expenses.find(e => e.id === id);
-            if (expense) {
-                expense.paid = true;
-                loadModule('expenses');
-                showNotification(`Dépense ${expense.description} marquée comme payée`, 'success');
-            }
-        }
-
-        function generateNewInvoice() {
-            showNotification('Création d\'une nouvelle facture', 'info');
-        }
-
-        function generateGuestInvoice(id) {
-            showNotification(`Génération facture client ${id}`, 'info');
-        }
-
-        function exportData(type) {
-            showNotification(`Export ${type} généré`, 'success');
-        }
-
-        function openRoomModal() {
-            showNotification('Fonction d\'ajout de chambre à venir', 'info');
-        }
-
-        function openGuestModal() {
-            showNotification('Fonction d\'ajout de client à venir', 'info');
-        }
-
-        function openStockModal() {
-            showNotification('Fonction d\'ajout de stock à venir', 'info');
-        }
-
-        function openEmployeeModal() {
-            showNotification('Fonction d\'ajout d\'employé à venir', 'info');
-        }
-
-        function openExpenseModal() {
-            showNotification('Fonction d\'ajout de dépense à venir', 'info');
+        function showNotification(message, type = 'success') {
+            const container = document.getElementById('notification-center');
+            const notification = document.createElement('div');
+            notification.className = 'notification-item';
+            notification.style.borderLeftColor = type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#ffc107';
+            const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : type === 'info' ? 'fa-info-circle' : 'fa-exclamation-triangle';
+            notification.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;"><i class="fas ${icon}" style="color: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#ffc107'};"></i><span>${message}</span></div>`;
+            container.appendChild(notification);
+            setTimeout(() => { notification.remove(); }, 4000);
         }
 
         function initCharts() {
-            Object.values(charts).forEach(chart => {
-                if (chart) chart.destroy();
-            });
+            Object.values(charts).forEach(chart => { if (chart) chart.destroy(); });
             charts = {};
-
             if (document.getElementById('occupancy-chart')) {
                 charts.occupancy = new Chart(document.getElementById('occupancy-chart'), {
                     type: 'line',
-                    data: {
-                        labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-                        datasets: [{
-                            label: 'Taux d\'occupation %',
-                            data: [65, 70, 75, 80, 85, 90, 78],
-                            borderColor: '#025ba5',
-                            backgroundColor: 'rgba(2, 91, 165, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { display: false } }
-                    }
+                    data: { labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'], datasets: [{ label: 'Taux d\'occupation %', data: [65, 70, 75, 80, 85, 90, 78], borderColor: '#025ba5', backgroundColor: 'rgba(2, 91, 165, 0.1)', tension: 0.4, fill: true }] },
+                    options: { responsive: true, plugins: { legend: { display: false } } }
                 });
             }
-            
             if (document.getElementById('revenue-chart')) {
                 charts.revenue = new Chart(document.getElementById('revenue-chart'), {
                     type: 'doughnut',
-                    data: {
-                        labels: ['Hôtel', 'Restaurant'],
-                        datasets: [{
-                            data: [appData.stats.hotelRevenue, appData.stats.restaurantRevenue],
-                            backgroundColor: ['#025ba5', '#d4af37'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { position: 'bottom' } }
-                    }
+                    data: { labels: ['Hôtel', 'Restaurant'], datasets: [{ data: [appData.stats.hotelRevenue, appData.stats.restaurantRevenue], backgroundColor: ['#025ba5', '#d4af37'], borderWidth: 0 }] },
+                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
                 });
             }
-            
             if (document.getElementById('restaurant-stats')) {
                 charts.restaurant = new Chart(document.getElementById('restaurant-stats'), {
                     type: 'doughnut',
-                    data: {
-                        labels: ['Payées', 'En préparation', 'En attente'],
-                        datasets: [{
-                            data: [
-                                appData.restaurantOrders.filter(o => o.status === 'paid').length,
-                                appData.restaurantOrders.filter(o => o.status === 'preparing').length,
-                                appData.restaurantOrders.filter(o => o.status === 'pending').length
-                            ],
-                            backgroundColor: ['#28a745', '#ffc107', '#025ba5'],
-                            borderWidth: 0
-                        }]
-                    }
+                    data: { labels: ['Payées', 'En préparation', 'En attente'], datasets: [{ data: [appData.restaurantOrders.filter(o => o.status === 'paid').length, appData.restaurantOrders.filter(o => o.status === 'preparing').length, appData.restaurantOrders.filter(o => o.status === 'pending').length], backgroundColor: ['#28a745', '#ffc107', '#025ba5'], borderWidth: 0 }] }
                 });
             }
-            
             if (document.getElementById('performance-chart')) {
                 charts.performance = new Chart(document.getElementById('performance-chart'), {
                     type: 'bar',
-                    data: {
-                        labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'],
-                        datasets: [
-                            {
-                                label: 'Hôtel (k XOF)',
-                                data: [850, 920, 1100, 980],
-                                backgroundColor: '#025ba5'
-                            },
-                            {
-                                label: 'Restaurant (k XOF)',
-                                data: [320, 380, 410, 390],
-                                backgroundColor: '#d4af37'
-                            }
-                        ]
-                    }
+                    data: { labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'], datasets: [{ label: 'Hôtel (k XOF)', data: [850, 920, 1100, 980], backgroundColor: '#025ba5' }, { label: 'Restaurant (k XOF)', data: [320, 380, 410, 390], backgroundColor: '#d4af37' }] }
                 });
             }
         }
@@ -3225,34 +2122,13 @@
             if (document.getElementById('monthly-report-chart')) {
                 new Chart(document.getElementById('monthly-report-chart'), {
                     type: 'bar',
-                    data: {
-                        labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'],
-                        datasets: [
-                            {
-                                label: 'Hôtel (k XOF)',
-                                data: [850, 920, 1100, 980],
-                                backgroundColor: '#025ba5'
-                            },
-                            {
-                                label: 'Restaurant (k XOF)',
-                                data: [320, 380, 410, 390],
-                                backgroundColor: '#d4af37'
-                            }
-                        ]
-                    }
+                    data: { labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'], datasets: [{ label: 'Hôtel (k XOF)', data: [850, 920, 1100, 980], backgroundColor: '#025ba5' }, { label: 'Restaurant (k XOF)', data: [320, 380, 410, 390], backgroundColor: '#d4af37' }] }
                 });
             }
-            
             if (document.getElementById('report-pie-chart')) {
                 new Chart(document.getElementById('report-pie-chart'), {
                     type: 'pie',
-                    data: {
-                        labels: ['Hôtel', 'Restaurant', 'Autres'],
-                        datasets: [{
-                            data: [70, 25, 5],
-                            backgroundColor: ['#025ba5', '#d4af37', '#6c757d']
-                        }]
-                    }
+                    data: { labels: ['Hôtel', 'Restaurant', 'Autres'], datasets: [{ data: [70, 25, 5], backgroundColor: ['#025ba5', '#d4af37', '#6c757d'] }] }
                 });
             }
         }
@@ -3260,46 +2136,44 @@
         function initCalendar() {
             const calendarEl = document.getElementById('calendar');
             if (calendarEl) {
-                const calendar = new FullCalendar.Calendar(calendarEl, {
+                new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
                     locale: 'fr',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    },
-                    events: appData.bookings.map(b => ({
-                        title: `${b.guest} - ${b.room}`,
-                        start: b.checkin,
-                        end: b.checkout,
-                        color: '#025ba5'
-                    }))
-                });
-                calendar.render();
+                    headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay' },
+                    events: appData.bookings.map(b => ({ title: `${b.guest} - ${b.room}`, start: b.checkin, end: b.checkout, color: '#025ba5' }))
+                }).render();
             }
         }
 
         function initDataTable(tableId) {
             if ($(tableId).length && $.fn.DataTable) {
-                if ($(tableId).hasClass('dataTable')) {
-                    $(tableId).DataTable().destroy();
-                }
-                
-                $(tableId).DataTable({
-                    language: {
-                        url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
-                    },
-                    pageLength: 10,
-                    responsive: true
-                });
+                if ($(tableId).hasClass('dataTable')) $(tableId).DataTable().destroy();
+                $(tableId).DataTable({ language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json' }, pageLength: 10, responsive: true });
             }
         }
 
-        function loadDashboard() {
-            loadModule('dashboard');
-        }
+        function loadDashboard() { loadModule('dashboard'); }
 
-        // ========== EXPOSITION DES FONCTIONS GLOBALES ==========
+        // ========== FONCTIONS D'INTERFACE (notifications) ==========
+        function viewBooking(id) { showNotification(`Consultation réservation ${id}`, 'info'); }
+        function viewOrder(id) { showNotification(`Consultation commande ${id}`, 'info'); }
+        function viewRoom(number) { showNotification(`Chambre ${number}`, 'info'); }
+        function viewGuest(id) { showNotification(`Consultation client ${id}`, 'info'); }
+        function editStock(id) { showNotification(`Modification article ${id}`, 'info'); }
+        function editEmployee(id) { showNotification(`Modification employé ${id}`, 'info'); }
+        function editExpense(id) { showNotification(`Modification dépense ${id}`, 'info'); }
+        function orderStock(id) { showNotification(`Commande fournisseur pour article ${id}`, 'success'); }
+        function markAsPaid(id) { const expense = appData.expenses.find(e => e.id === id); if(expense) { expense.paid = true; loadModule('expenses'); showNotification('Dépense marquée payée', 'success'); } }
+        function generateNewInvoice() { showNotification('Création d\'une nouvelle facture', 'info'); }
+        function generateGuestInvoice(id) { showNotification(`Génération facture client ${id}`, 'info'); }
+        function exportData(type) { showNotification(`Export ${type} généré`, 'success'); }
+        function openRoomModal() { showNotification('Ajout de chambre (simulé)', 'info'); }
+        function openGuestModal() { showNotification('Ajout de client (simulé)', 'info'); }
+        function openStockModal() { showNotification('Ajout de stock (simulé)', 'info'); }
+        function openEmployeeModal() { showNotification('Ajout d\'employé (simulé)', 'info'); }
+        function openExpenseModal() { showNotification('Ajout de dépense (simulé)', 'info'); }
+
+        // Exposer les fonctions globales
         window.logout = logout;
         window.loadModule = loadModule;
         window.switchRole = switchRole;
@@ -3331,11 +2205,10 @@
         window.orderStock = orderStock;
         window.markAsPaid = markAsPaid;
         window.generateNewInvoice = generateNewInvoice;
-        window.exportData = exportData;
         window.generateGuestInvoice = generateGuestInvoice;
+        window.exportData = exportData;
     </script>
     
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
