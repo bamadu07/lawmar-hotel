@@ -10,11 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Styles généraux - IDENTIQUE À LA PAGE D'ACCUEIL */
+        /* ===== PALETTE OFFICIELLE ===== */
         :root {
-            --primary-color: #025ba5;
-            --secondary-color: #d4af37;
-            --accent-color: #c53030;
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
+            --accent-rouge: #c53030;
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
@@ -35,7 +36,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: var(--dark-color);
-            padding-top: 80px;
+            padding-top: 60px; /* Réduit de 80px à 60px */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -47,36 +48,39 @@
             padding: 30px 0;
         }
 
-        .bg-light {
-            background-color: var(--light-color) !important;
+        .bg-sable {
+            background-color: var(--sable) !important;
         }
 
+        /* ===== BOUTONS ===== */
         .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 8px 20px;
+            background-color: var(--indigo);
+            border-color: var(--indigo);
+            padding: 6px 16px; /* Réduit */
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Réduit */
         }
 
         .btn-primary:hover {
-            background-color: #024a84;
-            border-color: #024a84;
+            background-color: #15304f;
+            border-color: #15304f;
             transform: translateY(-2px);
         }
 
         .btn-outline-primary {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
+            color: var(--indigo);
+            border-color: var(--indigo);
+            padding: 5px 12px; /* Réduit */
+            font-size: 0.8rem; /* Réduit */
         }
 
         .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+            background-color: var(--indigo);
+            border-color: var(--indigo);
+            color: white;
         }
 
-        /* Bouton WhatsApp */
         .btn-whatsapp {
             background-color: #25D366;
             color: white !important;
@@ -90,23 +94,12 @@
             transform: translateY(-2px);
         }
 
-        .btn-whatsapp-outline {
-            color: #25D366;
-            border-color: #25D366;
-        }
-
-        .btn-whatsapp-outline:hover {
-            background-color: #25D366;
-            color: white !important;
-            border-color: #25D366;
-        }
-
-        /* Navigation avec logo - TAILLE REVUE - IDENTIQUE ACCUEIL */
+        /* ===== NAVIGATION RÉDUITE ===== */
         .navbar {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 5px 0 !important;
-            min-height: 70px;
+            background-color: white !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 2px 0 !important;
+            min-height: 55px; /* Réduit de 70px à 55px */
         }
 
         .navbar-brand {
@@ -119,15 +112,14 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px; /* Réduit */
         }
 
         .logo-image {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 35px; /* Réduit de 45px à 35px */
+            height: 35px; /* Réduit de 45px à 35px */
             object-fit: cover;
-            border: 2px solid var(--secondary-color);
+            border: 1px solid var(--sable);
             background-color: white;
         }
 
@@ -137,55 +129,70 @@
         }
 
         .hotel-name {
-            color: white;
-            font-size: 1.4rem;
+            color: var(--indigo) !important;
+            font-size: 1.2rem; /* Réduit de 1.4rem à 1.2rem */
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .hotel-subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.75rem;
+            color: var(--dark-color) !important;
+            font-size: 0.65rem; /* Réduit de 0.75rem à 0.65rem */
             font-weight: 300;
         }
 
         .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.9) !important;
+            color: var(--indigo) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
+            padding: 4px 10px !important; /* Réduit */
             margin: 0 2px;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important;
-            opacity: 0.9;
+            color: var(--indigo) !important;
+            opacity: 1;
+            border-bottom: 2px solid var(--vert);
         }
 
-        /* BOUTON RÉSERVER - FOND JAUNE AJOUTÉ - IDENTIQUE ACCUEIL */
         .btn-reservation {
             background-color: var(--yellow-color) !important;
-            color: var(--primary-color) !important;
+            color: var(--indigo) !important;
             border-radius: 5px;
             font-weight: 600;
-            padding: 6px 15px !important;
+            padding: 4px 12px !important; /* Réduit */
             border: none;
+            font-size: 0.8rem !important;
         }
 
         .btn-reservation:hover {
             background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            color: var(--indigo) !important;
             transform: translateY(-2px);
         }
 
-        /* Header Services - MODIFIÉ COMME L'ACCUEIL : TAILLE RÉDUITE, OVERLAY SOMBRE, TEXTE BLANC EN BAS */
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--sable);
+        }
+
+        .dropdown-item {
+            color: var(--indigo) !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-color);
+            color: var(--indigo) !important;
+        }
+
+        /* ===== HERO SECTION RÉDUITE ===== */
         .services-hero {
             background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 350px; /* Réduit de 500px à 350px */
+            height: 300px; /* Réduit de 350px à 300px */
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -208,7 +215,7 @@
         .hero-content {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 40px; /* Réduit de 60px à 40px */
+            margin: 0 auto 30px; /* Réduit */
             position: relative;
             z-index: 2;
             padding: 0 20px;
@@ -216,16 +223,16 @@
 
         .hero-title {
             color: white !important;
-            font-size: 2.2rem; /* Réduit de 2.5rem à 2.2rem */
+            font-size: 2rem; /* Réduit de 2.2rem à 2rem */
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
             color: white !important;
-            font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
-            margin-bottom: 15px;
+            font-size: 1rem; /* Réduit de 1.1rem à 1rem */
+            margin-bottom: 12px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
@@ -233,18 +240,18 @@
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white !important;
-            padding: 6px 12px; /* Réduit de 8px 15px à 6px 12px */
+            padding: 5px 10px; /* Réduit */
             border-radius: 30px;
-            font-size: 0.85rem; /* Réduit de 0.9rem à 0.85rem */
-            margin-bottom: 15px; /* Réduit de 25px à 15px */
+            font-size: 0.8rem; /* Réduit */
+            margin-bottom: 12px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
         }
 
         .btn-hero {
-            padding: 10px 25px; /* Réduit de 12px 30px à 10px 25px */
-            margin: 5px 8px;
-            font-size: 0.95rem; /* Réduit de 1rem à 0.95rem */
+            padding: 8px 20px; /* Réduit */
+            margin: 3px 6px;
+            font-size: 0.9rem; /* Réduit */
         }
 
         .btn-outline-light {
@@ -261,55 +268,55 @@
 
         .hero-buttons-container {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
-            margin-top: 15px; /* Réduit de 20px à 15px */
+            margin-top: 10px;
         }
 
-        /* Section header */
+        /* ===== SECTION HEADER ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px; /* Réduit */
         }
 
         .section-header h2 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 12px;
+            color: var(--indigo);
+            font-size: 1.8rem; /* Réduit de 2rem à 1.8rem */
+            margin-bottom: 10px;
         }
 
         .section-header p {
             color: #666;
-            font-size: 1rem;
+            font-size: 0.95rem; /* Réduit */
             max-width: 700px;
             margin: 0 auto;
         }
 
-        /* Badge prix - CORRIGÉ : PLUS DE DOUBLE SUFFIXE */
+        /* ===== PRIX ===== */
         .service-price {
             font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            color: var(--indigo);
+            font-size: 1rem; /* Réduit */
         }
 
         .price-display {
             font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            color: var(--indigo);
+            font-size: 1rem; /* Réduit */
         }
 
         .currency-badge {
-            background-color: var(--secondary-color);
+            background-color: var(--sable);
             color: var(--dark-color);
-            padding: 5px 15px;
+            padding: 4px 12px; /* Réduit */
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Réduit */
             font-weight: bold;
-            margin: 10px auto;
+            margin: 8px auto;
             display: inline-block;
         }
 
-        /* Cartes excursions */
+        /* ===== CARTES EXCURSIONS ===== */
         .excursion-card {
             background: white;
             border-radius: var(--border-radius);
@@ -318,17 +325,17 @@
             height: 100%;
             border: 1px solid rgba(0,0,0,0.1);
             box-shadow: var(--box-shadow);
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Réduit */
         }
         
         .excursion-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--box-shadow-hover);
-            border-color: var(--primary-color);
+            border-color: var(--indigo);
         }
         
         .excursion-image {
-            height: 160px;
+            height: 140px; /* Réduit de 160px à 140px */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -347,49 +354,49 @@
         }
         
         .excursion-duration {
-            background: var(--secondary-color);
+            background: var(--sable);
             color: var(--dark-color);
-            padding: 3px 8px;
+            padding: 2px 6px; /* Réduit */
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 0.7rem; /* Réduit */
             font-weight: bold;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .offer-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent-color);
+            top: 8px;
+            right: 8px;
+            background-color: var(--accent-rouge);
             color: white;
-            padding: 4px 12px;
+            padding: 3px 8px; /* Réduit */
             border-radius: 15px;
             font-weight: 600;
             z-index: 2;
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* Réduit */
         }
 
-        /* Boutons dans les cartes */
+        /* ===== BOUTONS DANS LES CARTES ===== */
         .offer-buttons {
             display: flex;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px; /* Réduit */
+            margin-top: 8px;
         }
 
         .offer-buttons .btn {
             flex: 1;
-            padding: 8px 12px;
-            font-size: 0.85rem;
+            padding: 6px 8px; /* Réduit */
+            font-size: 0.8rem; /* Réduit */
             white-space: nowrap;
         }
 
-        /* Spa treatment */
+        /* ===== SPA ===== */
         .spa-treatment {
-            background: var(--light-green);
+            background: var(--sable);
             border-radius: var(--border-radius);
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 12px; /* Réduit */
+            margin-bottom: 12px;
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
         }
@@ -402,16 +409,16 @@
         .treatment-price {
             text-align: right;
             font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            color: var(--indigo);
+            font-size: 1rem; /* Réduit */
         }
         
-        /* Conference room */
+        /* ===== SALLE DE CONFÉRENCE ===== */
         .conference-room {
-            border: 1px solid var(--primary-color);
+            border: 1px solid var(--indigo);
             border-radius: var(--border-radius);
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             transition: var(--transition);
             background: white;
         }
@@ -422,23 +429,23 @@
         }
         
         .room-capacity {
-            background: var(--accent-color);
+            background: var(--accent-rouge);
             color: white;
-            padding: 4px 12px;
+            padding: 3px 8px; /* Réduit */
             border-radius: 15px;
             font-weight: bold;
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.75rem; /* Réduit */
         }
         
-        /* Transfer option */
+        /* ===== TRANSFERTS ===== */
         .transfer-option {
             background: white;
             border-radius: var(--border-radius);
-            padding: 15px;
+            padding: 12px; /* Réduit */
             text-align: center;
-            margin-bottom: 15px;
-            border-left: 3px solid var(--primary-color);
+            margin-bottom: 12px;
+            border-left: 3px solid var(--indigo);
             transition: var(--transition);
             height: 100%;
             border: 1px solid rgba(0,0,0,0.1);
@@ -449,32 +456,32 @@
             box-shadow: var(--box-shadow-hover);
         }
         
-        /* Tabs */
+        /* ===== TABS ===== */
         .nav-tabs .nav-link {
             color: var(--dark-color);
             font-weight: 500;
-            padding: 12px 20px;
+            padding: 10px 16px; /* Réduit */
             border: none;
             border-bottom: 2px solid transparent;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Réduit */
         }
 
         .nav-tabs .nav-link.active {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
+            color: var(--indigo);
+            border-bottom: 2px solid var(--indigo);
             background-color: transparent;
         }
 
         .nav-tabs .nav-link:hover {
-            color: var(--primary-color);
+            color: var(--indigo);
         }
 
-        /* Carousel */
+        /* ===== CAROUSEL ===== */
         .carousel-indicators button {
-            width: 8px;
-            height: 8px;
+            width: 6px; /* Réduit */
+            height: 6px; /* Réduit */
             border-radius: 50%;
-            margin: 0 4px;
+            margin: 0 3px;
         }
 
         .carousel-control-prev,
@@ -484,29 +491,44 @@
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            background-color: var(--primary-color);
+            background-color: var(--indigo);
             border-radius: 50%;
-            padding: 12px;
+            padding: 8px; /* Réduit */
             background-size: 60%;
         }
 
-        /* Filtres */
+        /* ===== FILTRES ===== */
         .filter-card {
             background: white;
             border-radius: var(--border-radius);
-            padding: 20px;
+            padding: 15px; /* Réduit */
             box-shadow: var(--box-shadow);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Présentation Hôtel */
+        .filter-card h5 {
+            font-size: 1rem; /* Réduit */
+            margin-bottom: 10px;
+        }
+
+        .form-label {
+            font-size: 0.85rem; /* Réduit */
+            margin-bottom: 4px;
+        }
+
+        .form-select, .form-control {
+            font-size: 0.85rem; /* Réduit */
+            padding: 4px 8px; /* Réduit */
+        }
+
+        /* ===== PRÉSENTATION HÔTEL ===== */
         .hotel-presentation {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #024a84 100%);
+            background: linear-gradient(135deg, var(--indigo) 0%, #15304f 100%);
             color: white;
             border-radius: var(--border-radius);
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .hotel-presentation .row {
@@ -514,44 +536,65 @@
         }
 
         .hotel-presentation-content {
-            padding: 30px;
+            padding: 25px; /* Réduit */
         }
 
         .hotel-presentation-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem; /* Réduit */
+            margin-bottom: 12px;
             color: white;
         }
 
         .hotel-presentation-content .lead {
-            font-size: 1.1rem;
+            font-size: 1rem; /* Réduit */
             color: rgba(255,255,255,0.95);
         }
 
         .hotel-presentation-image {
-            height: 350px;
+            height: 300px; /* Réduit de 350px à 300px */
             background-size: cover;
             background-position: center;
         }
 
-        /* Avis et notations */
-        .review-badge {
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 3px solid var(--secondary-color);
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 15px;
+        .text-warning-custom {
+            color: var(--yellow-color) !important;
         }
 
-        /* Gandiol spécifique */
-        .gandiol-badge {
-            background-color: var(--light-green);
-            color: var(--primary-color);
-            border-left: 3px solid var(--secondary-color);
-            padding: 10px 15px;
+        /* ===== AVIS CLIENTS ===== */
+        .review-badge {
+            background: #f8f9fa;
+            border-left: 3px solid var(--indigo);
+            padding: 12px; /* Réduit */
             border-radius: 4px;
-            font-size: 0.85rem;
-            margin-top: 10px;
+            margin-bottom: 12px;
+        }
+
+        .google-reviews {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 15px; /* Réduit */
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .google-rating {
+            color: #4285F4;
+            font-size: 1rem; /* Réduit */
+        }
+
+        .google-stars {
+            color: #FBBC05;
+        }
+
+        /* ===== GANDIOL SPÉCIFIQUE ===== */
+        .gandiol-badge {
+            background-color: var(--sable);
+            color: var(--indigo);
+            border-left: 3px solid var(--vert);
+            padding: 8px 12px; /* Réduit */
+            border-radius: 4px;
+            font-size: 0.8rem; /* Réduit */
+            margin-top: 8px;
         }
         
         .senegal-flag-icon {
@@ -559,26 +602,28 @@
             margin-right: 5px;
         }
 
-        /* Footer - IDENTIQUE ACCUEIL */
+        /* ===== FOOTER BLANC AVEC EMAILS ===== */
         .footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0 20px;
-            font-size: 0.9rem;
+            background-color: white !important;
+            color: var(--indigo) !important;
+            padding: 25px 0 15px; /* Réduit */
+            font-size: 0.85rem; /* Réduit */
+            border-top: 2px solid var(--sable);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
 
         .footer-about h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            color: var(--indigo) !important;
+            font-size: 1.3rem; /* Réduit */
+            margin-bottom: 12px;
         }
 
         .footer-links h4,
         .footer-contact h4,
         .footer-newsletter h4 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            color: var(--indigo) !important;
+            font-size: 1.1rem; /* Réduit */
+            margin-bottom: 15px;
         }
 
         .footer-links ul {
@@ -587,171 +632,216 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 8px;
+            margin-bottom: 5px; /* Réduit */
         }
 
         .footer-links ul li a {
-            color: rgba(255,255,255,0.8);
+            color: var(--indigo) !important;
             text-decoration: none;
             transition: var(--transition);
+            opacity: 0.8;
+            font-size: 0.85rem; /* Réduit */
         }
 
         .footer-links ul li a:hover {
-            color: white;
+            color: var(--indigo) !important;
+            opacity: 1;
             padding-left: 5px;
+            border-left: 2px solid var(--vert);
         }
 
         .footer-contact p {
-            margin-bottom: 10px;
-            color: rgba(255,255,255,0.8);
+            margin-bottom: 6px; /* Réduit */
+            color: var(--indigo) !important;
+            opacity: 0.8;
+            font-size: 0.85rem; /* Réduit */
         }
 
         .footer-contact i {
-            color: white;
-            margin-right: 10px;
-            width: 20px;
+            color: var(--indigo) !important;
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        .email-list {
+            margin: 8px 0;
+        }
+        
+        .email-list p {
+            margin-bottom: 4px;
+            font-size: 0.85rem;
         }
 
         .social-links {
-            margin-top: 15px;
+            margin-top: 12px;
         }
 
         .social-links a {
             display: inline-block;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
+            width: 32px; /* Réduit */
+            height: 32px; /* Réduit */
+            background-color: var(--sable) !important;
+            color: var(--indigo) !important;
             border-radius: 50%;
             text-align: center;
-            line-height: 35px;
-            margin-right: 10px;
+            line-height: 32px; /* Réduit */
+            margin-right: 8px;
             transition: var(--transition);
+            font-size: 0.9rem; /* Réduit */
         }
 
         .social-links a:hover {
-            background-color: white;
-            color: var(--primary-color);
+            background-color: var(--indigo) !important;
+            color: white !important;
             transform: translateY(-3px);
         }
 
         .footer-newsletter .input-group {
-            margin-top: 10px;
+            margin-top: 8px;
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--vert);
+            border-color: var(--vert);
+            color: white !important;
+            padding: 4px 10px; /* Réduit */
+            font-size: 0.85rem; /* Réduit */
+        }
+
+        .footer-newsletter .btn-primary:hover {
+            background-color: #1e3f35;
+            border-color: #1e3f35;
+        }
+
+        .footer-newsletter .form-control {
+            border: 1px solid var(--sable);
+            font-size: 0.85rem; /* Réduit */
+            padding: 4px 8px; /* Réduit */
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
-            margin-top: 20px;
+            border-top: 1px solid var(--sable) !important;
+            padding-top: 12px;
+            margin-top: 15px;
             text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
+            color: var(--indigo) !important;
+            font-size: 0.8rem; /* Réduit */
+            opacity: 0.8;
         }
 
         .footer-bottom a {
-            color: white;
+            color: var(--indigo) !important;
             text-decoration: none;
+            font-weight: 500;
         }
 
         .footer-bottom a:hover {
             text-decoration: underline;
+            color: var(--vert) !important;
         }
 
-        /* OPTIMISATIONS MOBILES - IDENTIQUES À L'ACCUEIL */
+        .footer-logo-image {
+            width: 45px; /* Réduit */
+            height: 45px; /* Réduit */
+            object-fit: cover;
+            border: 1px solid var(--sable);
+            background-color: white;
+        }
+
+        /* ===== OPTIMISATIONS MOBILES ===== */
         @media (max-width: 992px) {
             .excursion-card {
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
             
             .hero-title {
-                font-size: 2rem !important;
+                font-size: 1.8rem !important;
             }
             
             .hotel-presentation-content {
-                padding: 25px;
+                padding: 20px;
             }
             
             .hotel-presentation-image {
-                height: 300px;
+                height: 250px;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 70px;
+                padding-top: 55px;
             }
             
             .navbar {
-                padding: 4px 0 !important;
-                min-height: 60px;
+                min-height: 50px;
             }
             
             .logo-image {
-                width: 38px;
-                height: 38px;
+                width: 32px;
+                height: 32px;
             }
             
             .hotel-name {
-                font-size: 1.2rem !important;
+                font-size: 1rem !important;
             }
             
             .hotel-subtitle {
-                font-size: 0.65rem !important;
+                font-size: 0.6rem !important;
             }
             
             .services-hero {
-                height: 280px !important; /* Réduit de 400px à 280px */
+                height: 250px !important;
                 padding: 0 15px !important;
             }
             
             .hero-content {
-                margin-bottom: 30px !important; /* Réduit de 40px à 30px */
+                margin-bottom: 25px !important;
             }
             
             .hero-title {
-                font-size: 1.6rem !important; /* Réduit de 1.8rem à 1.6rem */
+                font-size: 1.5rem !important;
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.9rem !important; /* Réduit de 1rem à 0.9rem */
+                font-size: 0.85rem !important;
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
-                padding: 5px 10px !important; /* Réduit de 6px 12px à 5px 10px */
+                font-size: 0.7rem !important;
+                padding: 4px 8px !important;
                 width: 90%;
-                margin: 0 auto 15px !important; /* Réduit de 20px à 15px */
+                margin: 0 auto 12px !important;
                 white-space: normal;
-                line-height: 1.4;
+                line-height: 1.3;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
             }
             
             .hero-buttons-container {
                 flex-direction: column !important;
-                gap: 8px !important; /* Réduit de 10px à 8px */
+                gap: 6px !important;
                 width: 100% !important;
-                margin-top: 10px !important; /* Ajouté pour espacement */
+                margin-top: 8px !important;
             }
             
             .btn-hero {
                 display: block !important;
                 width: 90% !important;
-                max-width: 220px !important; /* Réduit de 250px à 220px */
+                max-width: 200px !important;
                 margin: 0 auto !important;
-                padding: 8px 16px !important; /* Réduit de 10px 20px à 8px 16px */
-                font-size: 0.85rem !important; /* Réduit de 0.9rem à 0.85rem */
+                padding: 6px 12px !important;
+                font-size: 0.8rem !important;
             }
             
             .section-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
             .section-header p {
-                font-size: 0.95rem;
-                padding: 0 15px;
+                font-size: 0.9rem;
+                padding: 0 12px;
             }
             
             .footer {
@@ -769,102 +859,20 @@
             }
             
             .carousel-control-prev {
-                left: -10px;
+                left: -5px;
             }
             
             .carousel-control-next {
-                right: -10px;
+                right: -5px;
             }
             
             .nav-tabs .nav-link {
-                padding: 10px 12px;
-                font-size: 0.8rem;
+                padding: 8px 10px;
+                font-size: 0.75rem;
             }
             
             .hotel-presentation-content {
-                padding: 20px;
-            }
-            
-            .hotel-presentation-image {
-                height: 250px;
-            }
-            
-            .excursion-image {
-                height: 140px;
-            }
-            
-            .filter-card {
                 padding: 15px;
-            }
-            
-            .offer-buttons {
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .transfer-option {
-                margin-bottom: 15px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            body {
-                padding-top: 65px;
-            }
-            
-            .navbar {
-                min-height: 55px;
-            }
-            
-            .services-hero {
-                height: 240px !important; /* Réduit de 380px à 240px */
-            }
-            
-            .logo-image {
-                width: 32px;
-                height: 32px;
-            }
-            
-            .hotel-name {
-                font-size: 1.1rem !important;
-            }
-            
-            .hero-title {
-                font-size: 1.4rem !important; /* Réduit de 1.6rem à 1.4rem */
-                color: white !important;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.8rem !important; /* Réduit de 0.9rem à 0.8rem */
-                color: white !important;
-            }
-            
-            .location-badge {
-                font-size: 0.7rem !important;
-                padding: 4px 8px !important;
-                width: 100%;
-                color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
-            }
-            
-            .btn-hero {
-                display: block !important;
-                width: 100% !important;
-                max-width: 200px !important; /* Réduit de 220px à 200px */
-                padding: 7px 14px !important; /* Réduit de 8px 16px à 7px 14px */
-                font-size: 0.8rem !important; /* Réduit de 0.85rem à 0.8rem */
-            }
-            
-            .section-header h2 {
-                font-size: 1.4rem;
-            }
-            
-            .hotel-presentation-content h3 {
-                font-size: 1.4rem;
-            }
-            
-            .hotel-presentation-content .lead {
-                font-size: 0.95rem;
             }
             
             .hotel-presentation-image {
@@ -875,26 +883,36 @@
                 height: 120px;
             }
             
-            .filter-card .row > div {
-                margin-bottom: 10px;
+            .filter-card {
+                padding: 12px;
             }
             
-            .stat-item {
-                padding: 12px;
+            .offer-buttons {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .transfer-option {
+                margin-bottom: 12px;
+            }
+            
+            .footer-logo-image {
+                width: 40px;
+                height: 40px;
             }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 576px) {
             body {
-                padding-top: 60px;
+                padding-top: 50px;
             }
             
             .navbar {
-                min-height: 50px;
+                min-height: 45px;
             }
             
             .services-hero {
-                height: 200px !important; /* Réduit de 350px à 200px */
+                height: 200px !important;
             }
             
             .logo-image {
@@ -903,54 +921,137 @@
             }
             
             .hotel-name {
-                font-size: 1rem !important;
+                font-size: 0.9rem !important;
             }
             
             .hero-title {
-                font-size: 1.2rem !important; /* Réduit de 1.4rem à 1.2rem */
+                font-size: 1.3rem !important;
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.75rem !important; /* Réduit de 0.85rem à 0.75rem */
+                font-size: 0.8rem !important;
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.65rem !important; /* Réduit de 0.7rem à 0.65rem */
+                font-size: 0.65rem !important;
                 padding: 3px 6px !important;
+                width: 100%;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
             }
             
             .btn-hero {
-                padding: 6px 12px !important; /* Réduit de 7px 14px à 6px 12px */
-                font-size: 0.75rem !important; /* Réduit de 0.8rem à 0.75rem */
-                max-width: 180px !important; /* Réduit de 200px à 180px */
+                display: block !important;
+                width: 100% !important;
+                max-width: 180px !important;
+                padding: 5px 10px !important;
+                font-size: 0.75rem !important;
+            }
+            
+            .section-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .hotel-presentation-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .hotel-presentation-content .lead {
+                font-size: 0.9rem;
+            }
+            
+            .hotel-presentation-image {
+                height: 180px;
+            }
+            
+            .excursion-image {
+                height: 100px;
+            }
+            
+            .filter-card .row > div {
+                margin-bottom: 8px;
+            }
+            
+            .footer-logo-image {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding-top: 45px;
+            }
+            
+            .navbar {
+                min-height: 40px;
+            }
+            
+            .services-hero {
+                height: 180px !important;
+            }
+            
+            .logo-image {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .hotel-name {
+                font-size: 0.8rem !important;
+            }
+            
+            .hero-title {
+                font-size: 1.1rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.7rem !important;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.6rem !important;
+                padding: 2px 5px !important;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+            
+            .btn-hero {
+                padding: 4px 8px !important;
+                font-size: 0.7rem !important;
+                max-width: 160px !important;
             }
             
             .excursion-card h4 {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .offer-buttons .btn {
-                font-size: 0.75rem;
-                padding: 5px 8px;
+                font-size: 0.7rem;
+                padding: 4px 6px;
+            }
+            
+            .footer-logo-image {
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation avec logo - TAILLE RÉDUITE - IDENTIQUE ACCUEIL -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Navigation réduite avec fond blanc et texte bleu -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo image -->
-                    <img src="images/logo1.png" alt="Lawmar Hôtel Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <!-- Logo officiel avec fallback -->
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/35x35/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
                     <div class="brand-text">
-                        <h1 class="hotel-name">LAWMAR</h1>
-                        <span class="hotel-subtitle">
+                        <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="nav-hotel-subtitle">
                             <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère, Gandiol
                         </span>
                     </div>
@@ -962,37 +1063,36 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="chambres.html">Chambres</a>
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="restauration.html">Restauration</a>
+                        <a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="services.html">Services</a>
+                        <a class="nav-link active" href="services.html" id="nav-services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="galerie.html">Galerie</a>
+                        <a class="nav-link" href="galerie.html" id="nav-gallery">Galerie</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html">Admin</a>
+                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">Réserver</a>
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-book">Réserver</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-globe"></i> FR
+                            <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr')">Français</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('wo')">Wolof</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr'); return false;">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">English</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1000,19 +1100,19 @@
         </div>
     </nav>
 
-    <!-- Hero Section Services - MODIFIÉ COMME L'ACCUEIL : TAILLE RÉDUITE, OVERLAY SOMBRE, TEXTE EN BAS -->
+    <!-- Hero Section Services -->
     <header class="services-hero">
         <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
-                    <h1 class="hero-title">Services & Excursions - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h1>
-                    <p class="hero-subtitle">Découvrez la Langue de Barbarie et le village de Tassinère avec nos services premium</p>
-                    <div class="location-badge mb-3">
+                    <h1 class="hero-title" id="hero-title">Services & Excursions - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h1>
+                    <p class="hero-subtitle" id="hero-subtitle">Découvrez la Langue de Barbarie et le village de Tassinère avec nos services premium</p>
+                    <div class="location-badge mb-3" id="location-badge">
                         <i class="fas fa-compass"></i> Guide certifié - Village de Tassinère, Commune de Ndiébène Gandiol
                     </div>
                     <div class="hero-buttons-container">
-                        <a href="#excursions-tab" class="btn btn-primary btn-hero" onclick="document.getElementById('excursions-tab').click();">Découvrir les excursions</a>
-                        <a href="#transfer-tab" class="btn btn-outline-light btn-hero" onclick="document.getElementById('transfer-tab').click();">Nos transports</a>
+                        <a href="#excursions-tab" class="btn btn-primary btn-hero" onclick="document.getElementById('excursions-tab').click();" id="hero-excursions">Découvrir les excursions</a>
+                        <a href="#transfer-tab" class="btn btn-outline-light btn-hero" onclick="document.getElementById('transfer-tab').click();" id="hero-transport">Nos transports</a>
                     </div>
                 </div>
             </div>
@@ -1020,9 +1120,9 @@
     </header>
 
     <!-- Badge Devise XOF -->
-    <div class="container mt-4">
+    <div class="container mt-3">
         <div class="text-center">
-            <div class="currency-badge">
+            <div class="currency-badge" id="currency-badge">
                 <i class="fas fa-money-bill-wave"></i> Tous les prix en XOF (Franc CFA) - Paiements Wave, Orange Money, Free
             </div>
         </div>
@@ -1032,25 +1132,25 @@
     <section class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h2>
-                <p>Un établissement d'exception au cœur du Gandiol, aux portes de la Langue de Barbarie</p>
+                <h2 id="hotel-title">Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="hotel-subtitle">Un établissement d'exception au cœur du Gandiol, aux portes de la Langue de Barbarie</p>
             </div>
             
             <div class="row">
                 <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h3 class="text-primary mb-3"><i class="fas fa-hotel"></i> L'Hôtel Lawmar - Gandiol</h3>
+                            <h3 class="mb-3" style="color: var(--indigo);" id="hotel-name"><i class="fas fa-hotel"></i> L'Hôtel Lawmar - Gandiol</h3>
                             
-                            <p class="lead">Situé au village de Tassinère, dans la commune de Ndiébène Gandiol, notre établissement incarne l'excellence de l'hospitalité sénégalaise alliée au luxe international.</p>
+                            <p class="lead" id="hotel-desc1">Situé au village de Tassinère, dans la commune de Ndiébène Gandiol, notre établissement incarne l'excellence de l'hospitalité sénégalaise alliée au luxe international.</p>
                             
-                            <p>Niché aux portes de la Langue de Barbarie, classée réserve de biosphère, Les Résidences du Lawmar vous offre une expérience unique où tradition et modernité se rencontrent harmonieusement, au cœur d'un environnement préservé.</p>
+                            <p id="hotel-desc2">Nichée aux portes de la Langue de Barbarie, classée réserve de biosphère, Les Résidences du Lawmar vous offre une expérience unique où tradition et modernité se rencontrent harmonieusement, au cœur d'un environnement préservé.</p>
                             
-                            <h5 class="mt-4"><i class="fas fa-crown text-secondary"></i> Notre Philosophie</h5>
-                            <p>Au Lawmar - Gandiol, nous croyons que le vrai luxe réside dans l'attention aux détails, le service personnalisé et l'authenticité des expériences. Chaque séjour est conçu pour vous faire découvrir la richesse culturelle du Gandiol et du Sénégal.</p>
+                            <h5 class="mt-4" style="color: var(--indigo);" id="hotel-philosophy-title"><i class="fas fa-crown" style="color: var(--vert);"></i> Notre Philosophie</h5>
+                            <p id="hotel-philosophy-text">Au Lawmar - Gandiol, nous croyons que le vrai luxe réside dans l'attention aux détails, le service personnalisé et l'authenticité des expériences. Chaque séjour est conçu pour vous faire découvrir la richesse culturelle du Gandiol et du Sénégal.</p>
                             
-                            <div class="alert alert-light border mt-3">
-                                <small><i class="fas fa-map-pin text-primary"></i> <strong>Notre adresse :</strong> Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal</small>
+                            <div class="alert border mt-3" style="background-color: var(--sable); border-color: var(--indigo) !important;">
+                                <small><i class="fas fa-map-pin" style="color: var(--indigo);"></i> <strong id="hotel-address-label">Notre adresse :</strong> <span id="hotel-address">Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal</span></small>
                             </div>
                         </div>
                     </div>
@@ -1058,37 +1158,37 @@
                 
                 <div class="col-lg-4">
                     <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0"><i class="fas fa-award"></i> Récompenses & Reconnaissances</h5>
+                        <div class="card-header text-white" style="background-color: var(--indigo);">
+                            <h5 class="mb-0" id="commitments-title"><i class="fas fa-star"></i> Nos engagements</h5>
                         </div>
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-trophy fa-2x text-warning"></i>
+                                    <i class="fas fa-hand-holding-heart fa-2x" style="color: var(--indigo);"></i>
                                 </div>
                                 <div>
-                                    <h6 class="mb-1">Meilleur Hôtel du Gandiol 2023</h6>
-                                    <p class="small text-muted mb-0">Prix d'Excellence Touristique</p>
+                                    <h6 class="mb-1" id="commitment1-title">Hospitalité sénégalaise</h6>
+                                    <p class="small text-muted mb-0" id="commitment1-text">La Teranga au cœur de notre service</p>
                                 </div>
                             </div>
                             
                             <div class="d-flex align-items-center mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-leaf fa-2x text-success"></i>
+                                    <i class="fas fa-leaf fa-2x" style="color: var(--vert);"></i>
                                 </div>
                                 <div>
-                                    <h6 class="mb-1">Label Éco-Hôtel</h6>
-                                    <p class="small text-muted mb-0">Certification Green Globe</p>
+                                    <h6 class="mb-1" id="commitment2-title">Respect de l'environnement</h6>
+                                    <p class="small text-muted mb-0" id="commitment2-text">Préservation de la Langue de Barbarie</p>
                                 </div>
                             </div>
                             
                             <div class="d-flex align-items-center mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-star fa-2x text-warning"></i>
+                                    <i class="fas fa-users fa-2x" style="color: #e6c200;"></i>
                                 </div>
                                 <div>
-                                    <h6 class="mb-1">4 Étoiles</h6>
-                                    <p class="small text-muted mb-0">Classement Ministère du Tourisme</p>
+                                    <h6 class="mb-1" id="commitment3-title">Emploi local</h6>
+                                    <p class="small text-muted mb-0" id="commitment3-text">100% de personnel originaire du Gandiol</p>
                                 </div>
                             </div>
                             
@@ -1097,8 +1197,8 @@
                                     <i class="fas fa-heart fa-2x text-danger"></i>
                                 </div>
                                 <div>
-                                    <h6 class="mb-1">Satisfaction Clients</h6>
-                                    <p class="small text-muted mb-0">4.8/5 sur TripAdvisor</p>
+                                    <h6 class="mb-1" id="commitment4-title">Satisfaction clients</h6>
+                                    <p class="small text-muted mb-0" id="commitment4-text">Voir les avis Google ci-dessous</p>
                                 </div>
                             </div>
                         </div>
@@ -1106,12 +1206,16 @@
                     
                     <div class="card mt-3">
                         <div class="card-body text-center">
-                            <h5 class="mb-3">Contactez-nous</h5>
-                            <p class="small mb-2"><i class="fas fa-phone text-primary"></i> +221 77 995 20 20</p>
-                            <p class="small mb-2"><i class="fas fa-phone text-primary"></i> +221 77 291 72 15</p>
-                            <p class="small mb-2"><i class="fas fa-envelope text-primary"></i> residencelawmar@gmail.com</p>
-                            <p class="small mb-3"><i class="fas fa-envelope text-primary"></i> diopelhadji11@gmail.com</p>
-                            <button class="btn btn-primary w-100" onclick="viewHotelHistory()">
+                            <h5 class="mb-3" style="color: var(--indigo);" id="contact-title">Contactez-nous</h5>
+                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--indigo);"></i> +221 77 995 20 20</p>
+                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--indigo);"></i> +221 77 291 72 15</p>
+                            
+                            <!-- EMAILS MIS À JOUR (3 adresses) -->
+                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--indigo);"></i> contact@residenceslawmar.com</p>
+                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--indigo);"></i> reservation@residencelawmar.com</p>
+                            <p class="small mb-3"><i class="fas fa-envelope" style="color: var(--indigo);"></i> residencelawmar@gmail.com</p>
+                            
+                            <button class="btn btn-primary w-100" onclick="viewHotelHistory()" id="history-btn">
                                 <i class="fas fa-book-open"></i> Notre histoire
                             </button>
                         </div>
@@ -1122,60 +1226,60 @@
     </section>
 
     <!-- Services Tabs -->
-    <section class="section-padding bg-light">
+    <section class="section-padding bg-sable">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Services à Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
-                <p>Profitez de tous les services qui font la réputation des Résidences du Lawmar</p>
+                <h2 id="services-title">Nos Services à Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="services-subtitle">Profitez de tous les services qui font la réputation des Résidences du Lawmar</p>
             </div>
 
             <!-- Filtres pour excursions -->
             <div class="row mb-4">
                 <div class="col-12">
                     <div class="filter-card">
-                        <h5 class="card-title mb-3"><i class="fas fa-filter"></i> Filtrez les services</h5>
+                        <h5 class="card-title mb-3" id="filter-title"><i class="fas fa-filter" style="color: var(--indigo);"></i> Filtrez les services</h5>
                         <div class="row g-2">
                             <div class="col-md-3">
-                                <label class="form-label">Catégorie</label>
+                                <label class="form-label" id="filter-category">Catégorie</label>
                                 <select class="form-select" id="service-category">
-                                    <option value="all">Toutes catégories</option>
-                                    <option value="excursion">Excursions</option>
-                                    <option value="spa">Spa & Bien-être</option>
-                                    <option value="business">Affaires</option>
-                                    <option value="transport">Transports</option>
+                                    <option value="all" id="filter-all">Toutes catégories</option>
+                                    <option value="excursion" id="filter-excursion">Excursions</option>
+                                    <option value="spa" id="filter-spa">Spa & Bien-être</option>
+                                    <option value="business" id="filter-business">Affaires</option>
+                                    <option value="transport" id="filter-transport">Transports</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">Durée</label>
+                                <label class="form-label" id="filter-duration">Durée</label>
                                 <select class="form-select" id="service-duration">
-                                    <option value="all">Toutes durées</option>
-                                    <option value="0-2">Moins de 2h</option>
-                                    <option value="2-4">2h à 4h</option>
-                                    <option value="4+">Plus de 4h</option>
+                                    <option value="all" id="filter-duration-all">Toutes durées</option>
+                                    <option value="0-2" id="filter-duration-2">Moins de 2h</option>
+                                    <option value="2-4" id="filter-duration-4">2h à 4h</option>
+                                    <option value="4+" id="filter-duration-4plus">Plus de 4h</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">Prix</label>
+                                <label class="form-label" id="filter-price">Prix</label>
                                 <select class="form-select" id="service-price">
-                                    <option value="all">Tous les prix</option>
-                                    <option value="0-20000">Moins de 20,000 XOF</option>
-                                    <option value="20000-50000">20,000 à 50,000 XOF</option>
-                                    <option value="50000+">Plus de 50,000 XOF</option>
+                                    <option value="all" id="filter-price-all">Tous les prix</option>
+                                    <option value="0-20000" id="filter-price-20k">Moins de 20,000 XOF</option>
+                                    <option value="20000-50000" id="filter-price-50k">20,000 à 50,000 XOF</option>
+                                    <option value="50000+" id="filter-price-50kplus">Plus de 50,000 XOF</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">Disponibilité</label>
+                                <label class="form-label" id="filter-availability">Disponibilité</label>
                                 <select class="form-select" id="service-availability">
-                                    <option value="all">Toutes disponibilités</option>
-                                    <option value="available">Disponible aujourd'hui</option>
-                                    <option value="tomorrow">Disponible demain</option>
+                                    <option value="all" id="filter-avail-all">Toutes disponibilités</option>
+                                    <option value="available" id="filter-avail-today">Disponible aujourd'hui</option>
+                                    <option value="tomorrow" id="filter-avail-tomorrow">Disponible demain</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <button class="btn btn-primary me-2" id="apply-filters"><i class="fas fa-check"></i> Appliquer</button>
-                                <button class="btn btn-outline-secondary" id="reset-filters"><i class="fas fa-redo"></i> Réinitialiser</button>
+                                <button class="btn btn-primary me-2" id="apply-filters"><i class="fas fa-check"></i> <span id="filter-apply">Appliquer</span></button>
+                                <button class="btn btn-outline-secondary" id="reset-filters"><i class="fas fa-redo"></i> <span id="filter-reset">Réinitialiser</span></button>
                             </div>
                         </div>
                     </div>
@@ -1185,22 +1289,22 @@
             <ul class="nav nav-tabs mb-3" id="servicesTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="excursions-tab" data-bs-toggle="tab" data-bs-target="#excursions" type="button">
-                        <i class="fas fa-binoculars"></i> Excursions Gandiol
+                        <i class="fas fa-binoculars" style="color: var(--indigo);"></i> <span id="tab-excursions">Excursions Gandiol</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="spa-tab" data-bs-toggle="tab" data-bs-target="#spa" type="button">
-                        <i class="fas fa-spa"></i> Spa & Bien-être
+                        <i class="fas fa-spa" style="color: var(--indigo);"></i> <span id="tab-spa">Spa & Bien-être</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business" type="button">
-                        <i class="fas fa-briefcase"></i> Affaires
+                        <i class="fas fa-briefcase" style="color: var(--indigo);"></i> <span id="tab-business">Affaires</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="transfer-tab" data-bs-toggle="tab" data-bs-target="#transfer" type="button">
-                        <i class="fas fa-car"></i> Transports
+                        <i class="fas fa-car" style="color: var(--indigo);"></i> <span id="tab-transport">Transports</span>
                     </button>
                 </li>
             </ul>
@@ -1209,14 +1313,14 @@
                 <!-- Excursions -->
                 <div class="tab-pane fade show active" id="excursions" role="tabpanel">
                     <div class="section-header">
-                        <h3>Découvrez Gandiol, Tassinère et la Langue de Barbarie</h3>
-                        <p>Excursions guidées avec nos experts locaux du Gandiol</p>
+                        <h3 id="excursions-subtitle">Découvrez Gandiol, Tassinère et la Langue de Barbarie</h3>
+                        <p id="excursions-text">Excursions guidées avec nos experts locaux du Gandiol</p>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="excursion-card">
-                                <div class="offer-badge">Recommandé</div>
+                                <div class="offer-badge" id="badge-recommended">Recommandé</div>
                                 <div class="excursion-image">
                                     <div id="carouselExcursion1" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-indicators">
@@ -1246,39 +1350,21 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="p-4">
+                                <div class="p-3">
                                     <div class="excursion-duration">
-                                        <i class="fas fa-clock"></i> 3 heures
+                                        <i class="fas fa-clock"></i> <span id="exc1-duration">3 heures</span>
                                     </div>
-                                    <h4>Visite du Village de Tassinère</h4>
-                                    <p>Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux et découverte de la vie villageoise du Gandiol.</p>
+                                    <h4 style="color: var(--indigo);" id="exc1-title">Visite du Village de Tassinère</h4>
+                                    <p class="small" id="exc1-desc">Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux et découverte de la vie villageoise du Gandiol.</p>
                                     
-                                    <div class="mt-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <div>
-                                                <span class="text-warning">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </span>
-                                                <span class="ms-2 small">4.7/5 (89 avis)</span>
-                                            </div>
-                                            <button class="btn btn-link btn-sm p-0" onclick="openServiceReviews('visite-tassinère')">
-                                                <i class="fas fa-comment"></i> Voir avis
-                                            </button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">20,000 XOF</div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="service-price" id="exc1-price">20,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary" onclick="bookService('visite-tassinère')">
-                                            <i class="fas fa-calendar-check me-1"></i> Réserver
+                                        <button class="btn btn-primary" onclick="bookService('visite-tassinère')" id="exc1-btn">
+                                            <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
                                         </button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Visite du Village de Tassinère', 20000)">
+                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Visite du Village de Tassinère', 20000)" id="exc1-wa">
                                             <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                         </button>
                                     </div>
@@ -1288,7 +1374,7 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="excursion-card">
-                                <div class="offer-badge">Populaire</div>
+                                <div class="offer-badge" id="badge-popular">Populaire</div>
                                 <div class="excursion-image">
                                     <div id="carouselExcursion2" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-indicators">
@@ -1318,39 +1404,21 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="p-4">
+                                <div class="p-3">
                                     <div class="excursion-duration">
-                                        <i class="fas fa-clock"></i> 4 heures
+                                        <i class="fas fa-clock"></i> <span id="exc2-duration">4 heures</span>
                                     </div>
-                                    <h4>Parc National de la Langue de Barbarie</h4>
-                                    <p>Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs et visite du village de pêcheurs.</p>
+                                    <h4 style="color: var(--indigo);" id="exc2-title">Parc National de la Langue de Barbarie</h4>
+                                    <p class="small" id="exc2-desc">Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs et visite du village de pêcheurs.</p>
                                     
-                                    <div class="mt-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <div>
-                                                <span class="text-warning">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                                <span class="ms-2 small">5.0/5 (124 avis)</span>
-                                            </div>
-                                            <button class="btn btn-link btn-sm p-0" onclick="openServiceReviews('langue-barbarie')">
-                                                <i class="fas fa-comment"></i> Voir avis
-                                            </button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">40,000 XOF</div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="service-price" id="exc2-price">40,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary" onclick="bookService('langue-barbarie')">
-                                            <i class="fas fa-calendar-check me-1"></i> Réserver
+                                        <button class="btn btn-primary" onclick="bookService('langue-barbarie')" id="exc2-btn">
+                                            <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
                                         </button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Parc National de la Langue de Barbarie', 40000)">
+                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Parc National de la Langue de Barbarie', 40000)" id="exc2-wa">
                                             <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                         </button>
                                     </div>
@@ -1360,7 +1428,7 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="excursion-card">
-                                <div class="offer-badge">Coup de cœur</div>
+                                <div class="offer-badge" id="badge-favorite">Coup de cœur</div>
                                 <div class="excursion-image">
                                     <div id="carouselExcursion3" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-indicators">
@@ -1385,39 +1453,21 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="p-4">
+                                <div class="p-3">
                                     <div class="excursion-duration">
-                                        <i class="fas fa-clock"></i> 2 heures
+                                        <i class="fas fa-clock"></i> <span id="exc3-duration">2 heures</span>
                                     </div>
-                                    <h4>Croisière Coucher de Soleil sur le Fleuve</h4>
-                                    <p>Navigation sur le fleuve Sénégal au coucher du soleil avec cocktail et amuse-bouches, au départ de Tassinère.</p>
+                                    <h4 style="color: var(--indigo);" id="exc3-title">Croisière Coucher de Soleil sur le Fleuve</h4>
+                                    <p class="small" id="exc3-desc">Navigation sur le fleuve Sénégal au coucher du soleil avec cocktail et amuse-bouches, au départ de Tassinère.</p>
                                     
-                                    <div class="mt-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <div>
-                                                <span class="text-warning">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                                <span class="ms-2 small">5.0/5 (156 avis)</span>
-                                            </div>
-                                            <button class="btn btn-link btn-sm p-0" onclick="openServiceReviews('croisiere')">
-                                                <i class="fas fa-comment"></i> Voir avis
-                                            </button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="service-price">30,000 XOF</div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="service-price" id="exc3-price">30,000 XOF</div>
                                     </div>
                                     <div class="offer-buttons mt-2">
-                                        <button class="btn btn-primary" onclick="bookService('croisiere')">
-                                            <i class="fas fa-calendar-check me-1"></i> Réserver
+                                        <button class="btn btn-primary" onclick="bookService('croisiere')" id="exc3-btn">
+                                            <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
                                         </button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Croisière Coucher de Soleil', 30000)">
+                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Croisière Coucher de Soleil', 30000)" id="exc3-wa">
                                             <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                         </button>
                                     </div>
@@ -1426,14 +1476,14 @@
                         </div>
                     </div>
                     
-                    <div class="alert alert-info mt-3">
-                        <h5><i class="fas fa-info-circle"></i> Informations importantes</h5>
-                        <ul class="mb-0">
-                            <li>Tous les prix incluent le guide local du Gandiol, les transports et les entrées</li>
-                            <li>Départ de l'hôtel - Village de Tassinère</li>
-                            <li>Départ minimum: 2 personnes</li>
-                            <li>Réservation 24h à l'avance recommandée</li>
-                            <li>Guide parlant français, anglais et wolof</li>
+                    <div class="alert alert-info mt-3" style="border-left: 3px solid var(--indigo);">
+                        <h5 id="exc-info-title"><i class="fas fa-info-circle" style="color: var(--indigo);"></i> Informations importantes</h5>
+                        <ul class="mb-0" id="exc-info-list">
+                            <li id="exc-info1">Tous les prix incluent le guide local du Gandiol, les transports et les entrées</li>
+                            <li id="exc-info2">Départ de l'hôtel - Village de Tassinère</li>
+                            <li id="exc-info3">Départ minimum: 2 personnes</li>
+                            <li id="exc-info4">Réservation 24h à l'avance recommandée</li>
+                            <li id="exc-info5">Guide parlant français, anglais et wolof</li>
                         </ul>
                     </div>
                 </div>
@@ -1442,34 +1492,24 @@
                 <div class="tab-pane fade" id="spa" role="tabpanel">
                     <div class="row">
                         <div class="col-md-8">
-                            <h3>Spa Lawmar - Bien-être Traditionnel</h3>
-                            <p class="lead">Détendez-vous avec nos soins aux produits naturels locaux du Gandiol.</p>
+                            <h3 style="color: var(--indigo);" id="spa-title">Spa Lawmar - Bien-être Traditionnel</h3>
+                            <p class="lead" id="spa-subtitle">Détendez-vous avec nos soins aux produits naturels locaux du Gandiol.</p>
                             
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="spa-treatment">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <div>
-                                                <h5>Massage Sénégalais Traditionnel</h5>
-                                                <p class="small mb-0">60 minutes de massage aux huiles de baobab et karité de Gandiol</p>
-                                                <div class="mt-2">
-                                                    <span class="text-warning">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </span>
-                                                    <span class="ms-2 small">4.8/5 (67 avis)</span>
-                                                </div>
+                                                <h5 style="color: var(--indigo);" id="spa1-title">Massage Sénégalais Traditionnel</h5>
+                                                <p class="small mb-0" id="spa1-desc">60 minutes de massage aux huiles de baobab et karité de Gandiol</p>
                                             </div>
-                                            <div class="treatment-price">25,000 XOF</div>
+                                            <div class="treatment-price" id="spa1-price">25,000 XOF</div>
                                         </div>
-                                        <div class="offer-buttons mt-3">
-                                            <button class="btn btn-primary btn-sm" onclick="bookService('massage-traditionnel')">
+                                        <div class="offer-buttons mt-2">
+                                            <button class="btn btn-primary btn-sm" onclick="bookService('massage-traditionnel')" id="spa1-btn">
                                                 <i class="fas fa-calendar-check me-1"></i> Réserver
                                             </button>
-                                            <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('Massage Sénégalais Traditionnel', 25000)">
+                                            <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('Massage Sénégalais Traditionnel', 25000)" id="spa1-wa">
                                                 <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                             </button>
                                         </div>
@@ -1479,26 +1519,16 @@
                                     <div class="spa-treatment">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <div>
-                                                <h5>Rituel Hammam & Gommage</h5>
-                                                <p class="small mb-0">Hammam traditionnel suivi d'un gommage au savon noir</p>
-                                                <div class="mt-2">
-                                                    <span class="text-warning">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="ms-2 small">5.0/5 (58 avis)</span>
-                                                </div>
+                                                <h5 style="color: var(--indigo);" id="spa2-title">Rituel Hammam & Gommage</h5>
+                                                <p class="small mb-0" id="spa2-desc">Hammam traditionnel suivi d'un gommage au savon noir</p>
                                             </div>
-                                            <div class="treatment-price">20,000 XOF</div>
+                                            <div class="treatment-price" id="spa2-price">20,000 XOF</div>
                                         </div>
-                                        <div class="offer-buttons mt-3">
-                                            <button class="btn btn-primary btn-sm" onclick="bookService('hammam')">
+                                        <div class="offer-buttons mt-2">
+                                            <button class="btn btn-primary btn-sm" onclick="bookService('hammam')" id="spa2-btn">
                                                 <i class="fas fa-calendar-check me-1"></i> Réserver
                                             </button>
-                                            <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('Rituel Hammam & Gommage', 20000)">
+                                            <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('Rituel Hammam & Gommage', 20000)" id="spa2-wa">
                                                 <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                             </button>
                                         </div>
@@ -1509,13 +1539,13 @@
                         
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-header bg-primary text-white">
-                                    <h5 class="mb-0"><i class="fas fa-clock"></i> Horaires Spa</h5>
+                                <div class="card-header text-white" style="background-color: var(--indigo);">
+                                    <h5 class="mb-0" id="spa-hours-title"><i class="fas fa-clock"></i> Horaires Spa</h5>
                                 </div>
                                 <div class="card-body">
-                                    <p><strong>Lundi - Vendredi:</strong><br>10h00 - 20h00</p>
-                                    <p><strong>Samedi - Dimanche:</strong><br>9h00 - 21h00</p>
-                                    <button class="btn btn-primary w-100 mt-2" onclick="bookService('spa-consultation')">
+                                    <p id="spa-hours-weekdays"><strong>Lundi - Vendredi:</strong><br>10h00 - 20h00</p>
+                                    <p id="spa-hours-weekend"><strong>Samedi - Dimanche:</strong><br>9h00 - 21h00</p>
+                                    <button class="btn btn-primary w-100 mt-2" onclick="bookService('spa-consultation')" id="spa-book-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
                                     </button>
                                 </div>
@@ -1526,24 +1556,24 @@
                 
                 <!-- Affaires -->
                 <div class="tab-pane fade" id="business" role="tabpanel">
-                    <h3>Services pour Professionnels</h3>
-                    <p class="lead">Infrastructures modernes pour vos réunions et séminaires à Gandiol.</p>
+                    <h3 style="color: var(--indigo);" id="business-title">Services pour Professionnels</h3>
+                    <p class="lead" id="business-subtitle">Infrastructures modernes pour vos réunions et séminaires à Gandiol.</p>
                     
                     <div class="row mt-3">
                         <div class="col-md-6 mb-3">
                             <div class="conference-room">
-                                <div class="p-4">
-                                    <div class="room-capacity mb-2">Jusqu'à 30 personnes</div>
-                                    <h4>Salle Tassinère</h4>
-                                    <p>Salle de réunion équipée pour vos séminaires au cœur du Gandiol.</p>
+                                <div class="p-3">
+                                    <div class="room-capacity mb-2" id="business-capacity">Jusqu'à 30 personnes</div>
+                                    <h4 style="color: var(--indigo);" id="business-room-title">Salle Tassinère</h4>
+                                    <p class="small" id="business-room-desc">Salle de réunion équipée pour vos séminaires au cœur du Gandiol.</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="service-price">50,000 XOF / jour</div>
+                                        <div class="service-price" id="business-room-price">50,000 XOF / jour</div>
                                     </div>
-                                    <div class="offer-buttons mt-3">
-                                        <button class="btn btn-primary" onclick="bookService('salle-tassinère')">
+                                    <div class="offer-buttons mt-2">
+                                        <button class="btn btn-primary" onclick="bookService('salle-tassinère')" id="business-room-btn">
                                             <i class="fas fa-calendar-check me-1"></i> Réserver
                                         </button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Salle Tassinère - Réunion/Séminaire', 50000)">
+                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Salle Tassinère - Réunion/Séminaire', 50000)" id="business-room-wa">
                                             <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                         </button>
                                     </div>
@@ -1555,21 +1585,21 @@
                 
                 <!-- Transports -->
                 <div class="tab-pane fade" id="transfer" role="tabpanel">
-                    <h3>Services de Transport - Gandiol</h3>
-                    <p class="lead">Déplacez-vous depuis Tassinère vers Saint-Louis et la région.</p>
+                    <h3 style="color: var(--indigo);" id="transport-title">Services de Transport - Gandiol</h3>
+                    <p class="lead" id="transport-subtitle">Déplacez-vous depuis Tassinère vers Saint-Louis et la région.</p>
                     
                     <div class="row mt-3">
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-plane-arrival text-primary fa-3x"></i>
-                                <h5>Transfert Aéroport Saint-Louis</h5>
-                                <p>Départ de Tassinère</p>
-                                <div class="service-price mb-2">25,000 XOF</div>
+                                <i class="fas fa-plane-arrival fa-3x" style="color: var(--indigo);"></i>
+                                <h5 style="color: var(--indigo);" id="transport-airport-title">Transfert Aéroport Saint-Louis</h5>
+                                <p class="small" id="transport-airport-desc">Départ de Tassinère</p>
+                                <div class="service-price mb-2" id="transport-airport-price">25,000 XOF</div>
                                 <div class="offer-buttons mt-2">
-                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('transfer-aeroport')">
+                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('transfer-aeroport')" id="transport-airport-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
                                     </button>
-                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Transfert Aéroport Saint-Louis', 25000)">
+                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Transfert Aéroport Saint-Louis', 25000)" id="transport-airport-wa">
                                         <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                     </button>
                                 </div>
@@ -1578,15 +1608,15 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-car text-primary fa-3x"></i>
-                                <h5>Voiture avec Chauffeur</h5>
-                                <p>Visite de Saint-Louis et environs</p>
-                                <div class="service-price mb-2">85,000 XOF / jour</div>
+                                <i class="fas fa-car fa-3x" style="color: var(--indigo);"></i>
+                                <h5 style="color: var(--indigo);" id="transport-car-title">Voiture avec Chauffeur</h5>
+                                <p class="small" id="transport-car-desc">Visite de Saint-Louis et environs</p>
+                                <div class="service-price mb-2" id="transport-car-price">85,000 XOF / jour</div>
                                 <div class="offer-buttons mt-2">
-                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('voiture-chauffeur')">
+                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('voiture-chauffeur')" id="transport-car-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
                                     </button>
-                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Voiture avec Chauffeur - Journée', 85000)">
+                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Voiture avec Chauffeur - Journée', 85000)" id="transport-car-wa">
                                         <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                     </button>
                                 </div>
@@ -1595,15 +1625,15 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-ship text-primary fa-3x"></i>
-                                <h5>Pirogue - Langue de Barbarie</h5>
-                                <p>Départ de Tassinère</p>
-                                <div class="service-price mb-2">15,000 XOF</div>
+                                <i class="fas fa-ship fa-3x" style="color: var(--indigo);"></i>
+                                <h5 style="color: var(--indigo);" id="transport-pirogue-title">Pirogue - Langue de Barbarie</h5>
+                                <p class="small" id="transport-pirogue-desc">Départ de Tassinère</p>
+                                <div class="service-price mb-2" id="transport-pirogue-price">15,000 XOF</div>
                                 <div class="offer-buttons mt-2">
-                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('pirogue')">
+                                    <button class="btn btn-primary btn-sm w-100" onclick="bookService('pirogue')" id="transport-pirogue-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
                                     </button>
-                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Pirogue - Langue de Barbarie', 15000)">
+                                    <button class="btn btn-whatsapp btn-sm w-100" onclick="reserveViaWhatsApp('Pirogue - Langue de Barbarie', 15000)" id="transport-pirogue-wa">
                                         <i class="fab fa-whatsapp me-1"></i> WhatsApp
                                     </button>
                                 </div>
@@ -1615,38 +1645,64 @@
         </div>
     </section>
 
+    <!-- Section Avis Google -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="reviews-title">Avis de nos Voyageurs <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="reviews-subtitle">Ce que nos clients disent de leur expérience à Gandiol</p>
+            </div>
+            
+            <div class="google-reviews">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fab fa-google fa-2x me-2 google-rating"></i>
+                    <h4 class="mb-0" style="color: var(--indigo);" id="reviews-google-title">Avis Google</h4>
+                </div>
+                <p class="mb-3" id="reviews-google-text">Consultez les avis vérifiés de nos clients sur Google :</p>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="https://g.page/r/CVotrePageGoogle" target="_blank" class="btn btn-outline-primary" id="reviews-google-btn">
+                            <i class="fab fa-google me-2"></i> Voir tous nos avis Google
+                        </a>
+                        <p class="small text-muted mt-2" id="reviews-google-note">Les avis sont collectés et vérifiés par Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Présentation Hôtel -->
     <section class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Les Résidences du Lawmar - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
-                <p>Découvrez notre établissement au village de Tassinère</p>
+                <h2 id="hotel-presentation-title">Les Résidences du Lawmar - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="hotel-presentation-subtitle">Découvrez notre établissement au village de Tassinère</p>
             </div>
             
             <div class="hotel-presentation">
                 <div class="row g-0">
                     <div class="col-lg-6">
                         <div class="hotel-presentation-content">
-                            <h3 class="text-white mb-3"><i class="fas fa-crown"></i> Bienvenue à Tassinère</h3>
-                            <p class="lead text-white">Situé au cœur du Gandiol, notre établissement vous offre une expérience authentique aux portes de la Langue de Barbarie.</p>
+                            <h3 class="text-white mb-3" id="presentation-welcome"><i class="fas fa-crown text-warning-custom"></i> Bienvenue à Tassinère</h3>
+                            <p class="lead text-white" id="presentation-text">Situé au cœur du Gandiol, notre établissement vous offre une expérience authentique aux portes de la Langue de Barbarie.</p>
                             
                             <div class="mt-3">
                                 <div class="row text-white">
                                     <div class="col-6 mb-2">
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-bed me-2 text-secondary"></i>
+                                            <i class="fas fa-bed me-2 text-warning-custom"></i>
                                             <div>
-                                                <h5 class="mb-0">24 Chambres</h5>
-                                                <p class="small mb-0">Suites et chambres traditionnelles</p>
+                                                <h5 class="mb-0" id="presentation-rooms">24 Chambres</h5>
+                                                <p class="small mb-0" id="presentation-rooms-text">Suites et chambres traditionnelles</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6 mb-2">
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-umbrella-beach me-2 text-secondary"></i>
+                                            <i class="fas fa-umbrella-beach me-2 text-warning-custom"></i>
                                             <div>
-                                                <h5 class="mb-0">Langue de Barbarie</h5>
-                                                <p class="small mb-0">À 5 minutes en pirogue</p>
+                                                <h5 class="mb-0" id="presentation-langue">Langue de Barbarie</h5>
+                                                <p class="small mb-0" id="presentation-langue-text">À 5 minutes en pirogue</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1654,12 +1710,16 @@
                             </div>
                             
                             <div class="mt-4">
-                                <p class="text-white small mb-1"><i class="fas fa-map-marker-alt text-secondary"></i> Village de Tassinère, Commune de Ndiébène Gandiol</p>
-                                <p class="text-white small mb-1"><i class="fas fa-phone text-secondary"></i> +221 77 995 20 20 / +221 77 291 72 15</p>
-                                <p class="text-white small"><i class="fas fa-envelope text-secondary"></i> residencelawmar@gmail.com / diopelhadji11@gmail.com</p>
+                                <p class="text-white small mb-1"><i class="fas fa-map-marker-alt text-warning-custom"></i> <span id="presentation-address">Village de Tassinère, Commune de Ndiébène Gandiol</span></p>
+                                <p class="text-white small mb-1"><i class="fas fa-phone text-warning-custom"></i> +221 77 995 20 20 / +221 77 291 72 15</p>
+                                
+                                <!-- EMAILS MIS À JOUR -->
+                                <p class="text-white small mb-1"><i class="fas fa-envelope text-warning-custom"></i> contact@residenceslawmar.com</p>
+                                <p class="text-white small mb-1"><i class="fas fa-envelope text-warning-custom"></i> reservation@residencelawmar.com</p>
+                                <p class="text-white small"><i class="fas fa-envelope text-warning-custom"></i> residencelawmar@gmail.com</p>
                             </div>
                             <div class="mt-3">
-                                <a href="https://wa.me/221779952020" class="btn btn-whatsapp" target="_blank">
+                                <a href="https://wa.me/221779952020" class="btn btn-whatsapp" target="_blank" id="presentation-wa-btn">
                                     <i class="fab fa-whatsapp"></i> Réserver sur WhatsApp
                                 </a>
                             </div>
@@ -1679,29 +1739,29 @@
     <div class="modal fade" id="bookingModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Réservation en ligne - Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                    <h5 class="modal-title" id="modal-booking-title">Réservation en ligne - Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div id="booking-engine">
                         <form id="booking-form">
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle"></i> Tous les prix sont en XOF (Franc CFA) - Paiements Wave, Orange Money, Free
+                            <div class="alert" style="background-color: var(--sable); border-left: 3px solid var(--indigo);" id="modal-booking-currency">
+                                <i class="fas fa-info-circle" style="color: var(--indigo);"></i> Tous les prix sont en XOF (Franc CFA) - Paiements Wave, Orange Money, Free
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="checkin" class="form-label">Date d'arrivée</label>
+                                    <label for="checkin" class="form-label" id="modal-checkin">Date d'arrivée</label>
                                     <input type="date" class="form-control" id="checkin" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="checkout" class="form-label">Date de départ</label>
+                                    <label for="checkout" class="form-label" id="modal-checkout">Date de départ</label>
                                     <input type="date" class="form-control" id="checkout" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <label for="adults" class="form-label">Adultes</label>
+                                    <label for="adults" class="form-label" id="modal-adults">Adultes</label>
                                     <select class="form-select" id="adults">
                                         <option value="1">1</option>
                                         <option value="2" selected>2</option>
@@ -1710,7 +1770,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="children" class="form-label">Enfants</label>
+                                    <label for="children" class="form-label" id="modal-children">Enfants</label>
                                     <select class="form-select" id="children">
                                         <option value="0" selected>0</option>
                                         <option value="1">1</option>
@@ -1719,40 +1779,40 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="room-type" class="form-label">Type de chambre</label>
+                                    <label for="room-type" class="form-label" id="modal-room-type">Type de chambre</label>
                                     <select class="form-select" id="room-type">
-                                        <option value="standard">Chambre Standard</option>
-                                        <option value="deluxe">Chambre Deluxe</option>
-                                        <option value="suite">Suite Vue</option>
+                                        <option value="standard" id="modal-room-standard">Chambre Standard</option>
+                                        <option value="deluxe" id="modal-room-deluxe">Chambre Deluxe</option>
+                                        <option value="suite" id="modal-room-suite">Suite Vue</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Services additionnels</label>
+                                <label class="form-label" id="modal-services">Services additionnels</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="transfer">
-                                    <label class="form-check-label" for="transfer">
+                                    <label class="form-check-label" for="transfer" id="modal-transfer">
                                         Transfert aéroport Saint-Louis (+25,000 XOF)
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="excursion">
-                                    <label class="form-check-label" for="excursion">
+                                    <label class="form-check-label" for="excursion" id="modal-excursion">
                                         Excursion Langue de Barbarie (+40,000 XOF/pers)
                                     </label>
                                 </div>
                             </div>
                             <div class="mb-3 d-flex gap-2">
-                                <button type="button" class="btn btn-primary" id="check-availability">Vérifier la disponibilité</button>
-                                <button type="button" class="btn btn-whatsapp" onclick="redirectToWhatsAppBooking()">
-                                    <i class="fab fa-whatsapp me-2"></i> Réserver via WhatsApp
+                                <button type="button" class="btn btn-primary" id="check-availability"><span id="modal-check-btn">Vérifier la disponibilité</span></button>
+                                <button type="button" class="btn btn-whatsapp" onclick="redirectToWhatsAppBooking()" id="modal-wa-btn">
+                                    <i class="fab fa-whatsapp me-2"></i> <span>Réserver via WhatsApp</span>
                                 </button>
                             </div>
                             <div id="availability-result" class="d-none">
                                 <div class="alert alert-success">
-                                    <h6>Chambre disponible!</h6>
-                                    <p>Prix total pour votre séjour: <span id="total-price" class="price-display">125,000 XOF</span></p>
-                                    <small class="text-muted">Taxes et service inclus</small>
+                                    <h6 id="modal-available">Chambre disponible!</h6>
+                                    <p><span id="modal-total">Prix total pour votre séjour:</span> <span id="total-price" class="price-display">125,000 XOF</span></p>
+                                    <small class="text-muted" id="modal-included">Taxes et service inclus</small>
                                 </div>
                             </div>
                         </form>
@@ -1766,24 +1826,11 @@
     <div class="modal fade" id="serviceBookingModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Réservation de service</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                    <h5 class="modal-title" id="service-modal-title">Réservation de service</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="serviceModalBody">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="serviceReviewsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Avis des clients</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="serviceReviewsBody">
                 </div>
             </div>
         </div>
@@ -1792,38 +1839,39 @@
     <div class="modal fade" id="adminLoginModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Connexion personnel</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                    <h5 class="modal-title" id="admin-modal-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="admin-login-form">
                         <div class="mb-3">
-                            <label for="admin-email" class="form-label">Email</label>
+                            <label for="admin-email" class="form-label" id="admin-email-label">Email</label>
                             <input type="email" class="form-control" id="admin-email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="admin-password" class="form-label">Mot de passe</label>
+                            <label for="admin-password" class="form-label" id="admin-password-label">Mot de passe</label>
                             <input type="password" class="form-control" id="admin-password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                        <button type="submit" class="btn btn-primary" id="admin-login-btn">Se connecter</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer - IDENTIQUE ACCUEIL -->
+    <!-- Footer BLANC avec écritures en bleu et EMAILS MIS À JOUR -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo Lawmar" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <h3><i class="fas fa-crown"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
+                            <!-- Logo officiel avec fallback -->
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/45x45/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
+                            <h3 class="mb-0"><i class="fas fa-crown" style="color: var(--indigo);"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
                         </div>
-                        <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <p style="color: var(--indigo); opacity: 0.8;" id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1834,54 +1882,60 @@
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <div class="footer-links">
-                        <h4>Navigation</h4>
+                        <h4 id="footer-nav">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="chambres.html">Chambres</a></li>
-                            <li><a href="restauration.html">Restauration</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="galerie.html">Galerie</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
+                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
+                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-contact">
-                        <h4>Contact - Gandiol</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</p>
+                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
                         <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
                         <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
-                        <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
-                        <p><i class="fas fa-envelope"></i> diopelhadji11@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +221 77 995 20 20</p>
-                        <p><i class="fas fa-money-bill-wave"></i> Paiements: XOF - Wave - Orange Money</p>
+                        
+                        <!-- EMAILS MIS À JOUR (3 adresses) -->
+                        <div class="email-list">
+                            <p><i class="fas fa-envelope"></i> contact@residenceslawmar.com</p>
+                            <p><i class="fas fa-envelope"></i> reservation@residencelawmar.com</p>
+                            <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
+                        </div>
+                        
+                        <p><i class="fab fa-whatsapp"></i> <strong id="footer-wa">WhatsApp:</strong> +221 77 995 20 20</p>
+                        <p><i class="fas fa-money-bill-wave"></i> <span id="footer-payments">Paiements: XOF - Wave - Orange Money</span></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-newsletter">
-                        <h4>Guide Touristique</h4>
-                        <p>Recevez notre guide des excursions de Gandiol et de la Langue de Barbarie</p>
+                        <h4 id="footer-guide-title">Guide Touristique</h4>
+                        <p style="color: var(--indigo); opacity: 0.8;" id="footer-guide-text">Recevez notre guide des excursions de Gandiol et de la Langue de Barbarie</p>
                         <form id="newsletter-form">
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Votre email" required>
-                                <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                <input type="email" class="form-control" placeholder="Votre email" id="footer-email-input" required>
+                                <button class="btn btn-primary" type="submit" id="footer-submit"><i class="fas fa-paper-plane"></i></button>
                             </div>
                         </form>
                         <div class="mt-3">
-                            <small><i class="fas fa-map-signs"></i> Guide certifié de Gandiol disponible</small>
+                            <small style="color: var(--indigo); opacity: 0.7;" id="footer-guide-note"><i class="fas fa-map-signs" style="color: var(--indigo);"></i> Guide certifié de Gandiol disponible</small>
                         </div>
                         <div class="mt-2">
-                            <button class="btn btn-outline-light btn-sm w-100" onclick="downloadTouristGuide()">
-                                <i class="fas fa-download"></i> Télécharger le guide
+                            <button class="btn btn-outline-primary btn-sm w-100" onclick="downloadTouristGuide()" id="footer-download-btn">
+                                <i class="fas fa-download"></i> <span>Télécharger le guide</span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Lawmar Hôtel Les Résidences - Gandiol. Tous droits réservés. | 
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
-                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Accès personnel</a>
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a>
                 </p>
             </div>
         </div>
@@ -1891,64 +1945,517 @@
     <script>
         // Numéro WhatsApp de l'hôtel
         const WHATSAPP_NUMBER = "221779952020";
+        let currentLang = 'fr';
 
         // Données des services
         const serviceData = {
             'visite-tassinère': {
-                name: "Visite du Village de Tassinère",
+                name_fr: "Visite du Village de Tassinère",
+                name_en: "Tassinère Village Visit",
                 price: 20000,
-                duration: "3 heures",
+                duration_fr: "3 heures",
+                duration_en: "3 hours",
                 category: "excursion",
-                description: "Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux.",
-                includes: ["Guide local", "Visite du village", "Rencontre artisans"],
-                reviews: [
-                    {name: "Sophie M.", date: "Mars 2024", rating: 5, comment: "Expérience authentique, accueil chaleureux des habitants."},
-                    {name: "Jean-Claude D.", date: "Février 2024", rating: 4, comment: "Très belle découverte du Gandiol."}
-                ],
-                images: [
-                    'https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-                ]
+                desc_fr: "Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux.",
+                desc_en: "Discovery of the traditional village of Tassinère, meeting with local artisans.",
+                includes_fr: ["Guide local", "Visite du village", "Rencontre artisans"],
+                includes_en: ["Local guide", "Village visit", "Meeting artisans"]
             },
             'langue-barbarie': {
-                name: "Parc National Langue de Barbarie",
+                name_fr: "Parc National Langue de Barbarie",
+                name_en: "Langue de Barbarie National Park",
                 price: 40000,
-                duration: "4 heures",
+                duration_fr: "4 heures",
+                duration_en: "4 hours",
                 category: "excursion",
-                description: "Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs.",
-                includes: ["Pirogue", "Guide naturaliste", "Pique-nique"],
-                reviews: [
-                    {name: "Thomas B.", date: "Avril 2024", rating: 5, comment: "Incroyable ! Des centaines d'oiseaux."},
-                    {name: "Aminata S.", date: "Mars 2024", rating: 5, comment: "Guide passionné, paysages magnifiques."}
-                ],
-                images: [
-                    'https://images.unsplash.com/photo-1593693399741-6e8b5c2c5a3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-                ]
+                desc_fr: "Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs.",
+                desc_en: "Canoe excursion from Tassinère, observation of migratory birds.",
+                includes_fr: ["Pirogue", "Guide naturaliste", "Pique-nique"],
+                includes_en: ["Canoe", "Naturalist guide", "Picnic"]
             },
             'croisiere': {
-                name: "Croisière Coucher de Soleil",
+                name_fr: "Croisière Coucher de Soleil",
+                name_en: "Sunset Cruise",
                 price: 30000,
-                duration: "2 heures",
+                duration_fr: "2 heures",
+                duration_en: "2 hours",
                 category: "excursion",
-                description: "Navigation sur le fleuve Sénégal au coucher du soleil, départ de Tassinère.",
-                includes: ["Croisière", "Cocktail", "Amuse-bouches"],
-                reviews: [
-                    {name: "Jean P.", date: "Avril 2024", rating: 5, comment: "Moment magique sur le fleuve."},
-                    {name: "Marie L.", date: "Mars 2024", rating: 5, comment: "Coucher de soleil inoubliable."}
-                ],
-                images: [
-                    'https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-                ]
+                desc_fr: "Navigation sur le fleuve Sénégal au coucher du soleil, départ de Tassinère.",
+                desc_en: "Cruise on the Senegal River at sunset, departure from Tassinère.",
+                includes_fr: ["Croisière", "Cocktail", "Amuse-bouches"],
+                includes_en: ["Cruise", "Cocktail", "Appetizers"]
             }
         };
 
+        // Traductions anglais/français
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'nav-home': 'Accueil',
+                'nav-residences': 'Résidences',
+                'nav-restaurant': 'Restauration',
+                'nav-services': 'Services',
+                'nav-gallery': 'Galerie',
+                'nav-contact': 'Contact',
+                'nav-admin': 'Admin',
+                'nav-book': 'Réserver',
+                'current-lang': 'FR',
+                
+                // Hero
+                'hero-title': 'Services & Excursions - Gandiol 🇸🇳',
+                'hero-subtitle': 'Découvrez la Langue de Barbarie et le village de Tassinère avec nos services premium',
+                'location-badge': 'Guide certifié - Village de Tassinère, Commune de Ndiébène Gandiol',
+                'hero-excursions': 'Découvrir les excursions',
+                'hero-transport': 'Nos transports',
+                
+                // Currency badge
+                'currency-badge': 'Tous les prix en XOF (Franc CFA) - Paiements Wave, Orange Money, Free',
+                
+                // Hotel section
+                'hotel-title': 'Les Résidences du Lawmar 🇸🇳',
+                'hotel-subtitle': 'Un établissement d\'exception au cœur du Gandiol, aux portes de la Langue de Barbarie',
+                'hotel-name': 'L\'Hôtel Lawmar - Gandiol',
+                'hotel-desc1': 'Situé au village de Tassinère, dans la commune de Ndiébène Gandiol, notre établissement incarne l\'excellence de l\'hospitalité sénégalaise alliée au luxe international.',
+                'hotel-desc2': 'Nichée aux portes de la Langue de Barbarie, classée réserve de biosphère, Les Résidences du Lawmar vous offre une expérience unique où tradition et modernité se rencontrent harmonieusement, au cœur d\'un environnement préservé.',
+                'hotel-philosophy-title': 'Notre Philosophie',
+                'hotel-philosophy-text': 'Au Lawmar - Gandiol, nous croyons que le vrai luxe réside dans l\'attention aux détails, le service personnalisé et l\'authenticité des expériences. Chaque séjour est conçu pour vous faire découvrir la richesse culturelle du Gandiol et du Sénégal.',
+                'hotel-address-label': 'Notre adresse :',
+                'hotel-address': 'Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal',
+                
+                // Commitments
+                'commitments-title': 'Nos engagements',
+                'commitment1-title': 'Hospitalité sénégalaise',
+                'commitment1-text': 'La Teranga au cœur de notre service',
+                'commitment2-title': 'Respect de l\'environnement',
+                'commitment2-text': 'Préservation de la Langue de Barbarie',
+                'commitment3-title': 'Emploi local',
+                'commitment3-text': '100% de personnel originaire du Gandiol',
+                'commitment4-title': 'Satisfaction clients',
+                'commitment4-text': 'Voir les avis Google ci-dessous',
+                
+                // Contact
+                'contact-title': 'Contactez-nous',
+                'history-btn': 'Notre histoire',
+                
+                // Services tabs
+                'services-title': 'Nos Services à Gandiol 🇸🇳',
+                'services-subtitle': 'Profitez de tous les services qui font la réputation des Résidences du Lawmar',
+                
+                // Filters
+                'filter-title': 'Filtrez les services',
+                'filter-category': 'Catégorie',
+                'filter-all': 'Toutes catégories',
+                'filter-excursion': 'Excursions',
+                'filter-spa': 'Spa & Bien-être',
+                'filter-business': 'Affaires',
+                'filter-transport': 'Transports',
+                'filter-duration': 'Durée',
+                'filter-duration-all': 'Toutes durées',
+                'filter-duration-2': 'Moins de 2h',
+                'filter-duration-4': '2h à 4h',
+                'filter-duration-4plus': 'Plus de 4h',
+                'filter-price': 'Prix',
+                'filter-price-all': 'Tous les prix',
+                'filter-price-20k': 'Moins de 20,000 XOF',
+                'filter-price-50k': '20,000 à 50,000 XOF',
+                'filter-price-50kplus': 'Plus de 50,000 XOF',
+                'filter-availability': 'Disponibilité',
+                'filter-avail-all': 'Toutes disponibilités',
+                'filter-avail-today': 'Disponible aujourd\'hui',
+                'filter-avail-tomorrow': 'Disponible demain',
+                'filter-apply': 'Appliquer',
+                'filter-reset': 'Réinitialiser',
+                
+                // Tabs
+                'tab-excursions': 'Excursions Gandiol',
+                'tab-spa': 'Spa & Bien-être',
+                'tab-business': 'Affaires',
+                'tab-transport': 'Transports',
+                
+                // Excursions tab
+                'excursions-subtitle': 'Découvrez Gandiol, Tassinère et la Langue de Barbarie',
+                'excursions-text': 'Excursions guidées avec nos experts locaux du Gandiol',
+                'badge-recommended': 'Recommandé',
+                'badge-popular': 'Populaire',
+                'badge-favorite': 'Coup de cœur',
+                'exc1-duration': '3 heures',
+                'exc1-title': 'Visite du Village de Tassinère',
+                'exc1-desc': 'Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux et découverte de la vie villageoise du Gandiol.',
+                'exc1-price': '20,000 XOF',
+                'exc2-duration': '4 heures',
+                'exc2-title': 'Parc National de la Langue de Barbarie',
+                'exc2-desc': 'Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs et visite du village de pêcheurs.',
+                'exc2-price': '40,000 XOF',
+                'exc3-duration': '2 heures',
+                'exc3-title': 'Croisière Coucher de Soleil sur le Fleuve',
+                'exc3-desc': 'Navigation sur le fleuve Sénégal au coucher du soleil avec cocktail et amuse-bouches, au départ de Tassinère.',
+                'exc3-price': '30,000 XOF',
+                
+                // Excursion info
+                'exc-info-title': 'Informations importantes',
+                'exc-info1': 'Tous les prix incluent le guide local du Gandiol, les transports et les entrées',
+                'exc-info2': 'Départ de l\'hôtel - Village de Tassinère',
+                'exc-info3': 'Départ minimum: 2 personnes',
+                'exc-info4': 'Réservation 24h à l\'avance recommandée',
+                'exc-info5': 'Guide parlant français, anglais et wolof',
+                
+                // Spa tab
+                'spa-title': 'Spa Lawmar - Bien-être Traditionnel',
+                'spa-subtitle': 'Détendez-vous avec nos soins aux produits naturels locaux du Gandiol.',
+                'spa1-title': 'Massage Sénégalais Traditionnel',
+                'spa1-desc': '60 minutes de massage aux huiles de baobab et karité de Gandiol',
+                'spa1-price': '25,000 XOF',
+                'spa2-title': 'Rituel Hammam & Gommage',
+                'spa2-desc': 'Hammam traditionnel suivi d\'un gommage au savon noir',
+                'spa2-price': '20,000 XOF',
+                'spa-hours-title': 'Horaires Spa',
+                'spa-hours-weekdays': '<strong>Lundi - Vendredi:</strong><br>10h00 - 20h00',
+                'spa-hours-weekend': '<strong>Samedi - Dimanche:</strong><br>9h00 - 21h00',
+                'spa-book-btn': 'Réserver',
+                
+                // Business tab
+                'business-title': 'Services pour Professionnels',
+                'business-subtitle': 'Infrastructures modernes pour vos réunions et séminaires à Gandiol.',
+                'business-capacity': 'Jusqu\'à 30 personnes',
+                'business-room-title': 'Salle Tassinère',
+                'business-room-desc': 'Salle de réunion équipée pour vos séminaires au cœur du Gandiol.',
+                'business-room-price': '50,000 XOF / jour',
+                
+                // Transport tab
+                'transport-title': 'Services de Transport - Gandiol',
+                'transport-subtitle': 'Déplacez-vous depuis Tassinère vers Saint-Louis et la région.',
+                'transport-airport-title': 'Transfert Aéroport Saint-Louis',
+                'transport-airport-desc': 'Départ de Tassinère',
+                'transport-airport-price': '25,000 XOF',
+                'transport-car-title': 'Voiture avec Chauffeur',
+                'transport-car-desc': 'Visite de Saint-Louis et environs',
+                'transport-car-price': '85,000 XOF / jour',
+                'transport-pirogue-title': 'Pirogue - Langue de Barbarie',
+                'transport-pirogue-desc': 'Départ de Tassinère',
+                'transport-pirogue-price': '15,000 XOF',
+                
+                // Reviews
+                'reviews-title': 'Avis de nos Voyageurs 🇸🇳',
+                'reviews-subtitle': 'Ce que nos clients disent de leur expérience à Gandiol',
+                'reviews-google-title': 'Avis Google',
+                'reviews-google-text': 'Consultez les avis vérifiés de nos clients sur Google :',
+                'reviews-google-btn': 'Voir tous nos avis Google',
+                'reviews-google-note': 'Les avis sont collectés et vérifiés par Google',
+                
+                // Hotel presentation
+                'hotel-presentation-title': 'Les Résidences du Lawmar - Gandiol 🇸🇳',
+                'hotel-presentation-subtitle': 'Découvrez notre établissement au village de Tassinère',
+                'presentation-welcome': 'Bienvenue à Tassinère',
+                'presentation-text': 'Situé au cœur du Gandiol, notre établissement vous offre une expérience authentique aux portes de la Langue de Barbarie.',
+                'presentation-rooms': '24 Chambres',
+                'presentation-rooms-text': 'Suites et chambres traditionnelles',
+                'presentation-langue': 'Langue de Barbarie',
+                'presentation-langue-text': 'À 5 minutes en pirogue',
+                'presentation-address': 'Village de Tassinère, Commune de Ndiébène Gandiol',
+                'presentation-wa-btn': 'Réserver sur WhatsApp',
+                
+                // Booking modal
+                'modal-booking-title': 'Réservation en ligne - Les Résidences du Lawmar 🇸🇳',
+                'modal-booking-currency': 'Tous les prix sont en XOF (Franc CFA) - Paiements Wave, Orange Money, Free',
+                'modal-checkin': 'Date d\'arrivée',
+                'modal-checkout': 'Date de départ',
+                'modal-adults': 'Adultes',
+                'modal-children': 'Enfants',
+                'modal-room-type': 'Type de chambre',
+                'modal-room-standard': 'Chambre Standard',
+                'modal-room-deluxe': 'Chambre Deluxe',
+                'modal-room-suite': 'Suite Vue',
+                'modal-services': 'Services additionnels',
+                'modal-transfer': 'Transfert aéroport Saint-Louis (+25,000 XOF)',
+                'modal-excursion': 'Excursion Langue de Barbarie (+40,000 XOF/pers)',
+                'modal-check-btn': 'Vérifier la disponibilité',
+                'modal-wa-btn': 'Réserver via WhatsApp',
+                'modal-available': 'Chambre disponible!',
+                'modal-total': 'Prix total pour votre séjour:',
+                'modal-included': 'Taxes et service inclus',
+                
+                // Admin modal
+                'admin-modal-title': 'Connexion personnel',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Mot de passe',
+                'admin-login-btn': 'Se connecter',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
+                'footer-nav': 'Navigation',
+                'footer-home': 'Accueil',
+                'footer-rooms': 'Chambres',
+                'footer-restaurant': 'Restauration',
+                'footer-services': 'Services',
+                'footer-gallery': 'Galerie',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
+                'footer-wa': 'WhatsApp:',
+                'footer-payments': 'Paiements: XOF - Wave - Orange Money',
+                'footer-guide-title': 'Guide Touristique',
+                'footer-guide-text': 'Recevez notre guide des excursions de Gandiol et de la Langue de Barbarie',
+                'footer-email-input': 'Votre email',
+                'footer-submit': 'Envoyer',
+                'footer-guide-note': 'Guide certifié de Gandiol disponible',
+                'footer-download-btn': 'Télécharger le guide',
+                'footer-rights': 'Tous droits réservés.',
+                'footer-admin': 'Accès personnel'
+            },
+            en: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'nav-home': 'Home',
+                'nav-residences': 'Residences',
+                'nav-restaurant': 'Restaurant',
+                'nav-services': 'Services',
+                'nav-gallery': 'Gallery',
+                'nav-contact': 'Contact',
+                'nav-admin': 'Admin',
+                'nav-book': 'Book now',
+                'current-lang': 'EN',
+                
+                // Hero
+                'hero-title': 'Services & Excursions - Gandiol 🇸🇳',
+                'hero-subtitle': 'Discover the Langue de Barbarie and Tassinère village with our premium services',
+                'location-badge': 'Certified guide - Tassinère Village, Ndiébène Gandiol Commune',
+                'hero-excursions': 'Discover excursions',
+                'hero-transport': 'Our transport',
+                
+                // Currency badge
+                'currency-badge': 'All prices in XOF (CFA Franc) - Payments Wave, Orange Money, Free',
+                
+                // Hotel section
+                'hotel-title': 'Les Résidences du Lawmar 🇸🇳',
+                'hotel-subtitle': 'An exceptional establishment in the heart of Gandiol, at the gates of the Langue de Barbarie',
+                'hotel-name': 'Lawmar Hotel - Gandiol',
+                'hotel-desc1': 'Located in the village of Tassinère, in the commune of Ndiébène Gandiol, our establishment embodies the excellence of Senegalese hospitality combined with international luxury.',
+                'hotel-desc2': 'Nestled at the gates of the Langue de Barbarie, classified as a biosphere reserve, Les Résidences du Lawmar offers you a unique experience where tradition and modernity meet harmoniously, in the heart of a preserved environment.',
+                'hotel-philosophy-title': 'Our Philosophy',
+                'hotel-philosophy-text': 'At Lawmar - Gandiol, we believe that true luxury lies in attention to detail, personalized service and authentic experiences. Each stay is designed to introduce you to the cultural richness of Gandiol and Senegal.',
+                'hotel-address-label': 'Our address:',
+                'hotel-address': 'Tassinère Village, Ndiébène Gandiol Commune, Saint-Louis, Senegal',
+                
+                // Commitments
+                'commitments-title': 'Our commitments',
+                'commitment1-title': 'Senegalese hospitality',
+                'commitment1-text': 'Teranga at the heart of our service',
+                'commitment2-title': 'Environmental respect',
+                'commitment2-text': 'Preservation of the Langue de Barbarie',
+                'commitment3-title': 'Local employment',
+                'commitment3-text': '100% staff from Gandiol',
+                'commitment4-title': 'Customer satisfaction',
+                'commitment4-text': 'See Google reviews below',
+                
+                // Contact
+                'contact-title': 'Contact us',
+                'history-btn': 'Our history',
+                
+                // Services tabs
+                'services-title': 'Our Services in Gandiol 🇸🇳',
+                'services-subtitle': 'Enjoy all the services that make the reputation of Les Résidences du Lawmar',
+                
+                // Filters
+                'filter-title': 'Filter services',
+                'filter-category': 'Category',
+                'filter-all': 'All categories',
+                'filter-excursion': 'Excursions',
+                'filter-spa': 'Spa & Wellness',
+                'filter-business': 'Business',
+                'filter-transport': 'Transport',
+                'filter-duration': 'Duration',
+                'filter-duration-all': 'All durations',
+                'filter-duration-2': 'Less than 2h',
+                'filter-duration-4': '2h to 4h',
+                'filter-duration-4plus': 'More than 4h',
+                'filter-price': 'Price',
+                'filter-price-all': 'All prices',
+                'filter-price-20k': 'Less than 20,000 XOF',
+                'filter-price-50k': '20,000 to 50,000 XOF',
+                'filter-price-50kplus': 'More than 50,000 XOF',
+                'filter-availability': 'Availability',
+                'filter-avail-all': 'All availabilities',
+                'filter-avail-today': 'Available today',
+                'filter-avail-tomorrow': 'Available tomorrow',
+                'filter-apply': 'Apply',
+                'filter-reset': 'Reset',
+                
+                // Tabs
+                'tab-excursions': 'Gandiol Excursions',
+                'tab-spa': 'Spa & Wellness',
+                'tab-business': 'Business',
+                'tab-transport': 'Transport',
+                
+                // Excursions tab
+                'excursions-subtitle': 'Discover Gandiol, Tassinère and the Langue de Barbarie',
+                'excursions-text': 'Guided excursions with our local experts from Gandiol',
+                'badge-recommended': 'Recommended',
+                'badge-popular': 'Popular',
+                'badge-favorite': 'Favorite',
+                'exc1-duration': '3 hours',
+                'exc1-title': 'Tassinère Village Visit',
+                'exc1-desc': 'Discovery of the traditional village of Tassinère, meeting with local artisans and discovery of village life in Gandiol.',
+                'exc1-price': '20,000 XOF',
+                'exc2-duration': '4 hours',
+                'exc2-title': 'Langue de Barbarie National Park',
+                'exc2-desc': 'Canoe excursion from Tassinère, observation of migratory birds and visit to the fishing village.',
+                'exc2-price': '40,000 XOF',
+                'exc3-duration': '2 hours',
+                'exc3-title': 'Sunset Cruise on the River',
+                'exc3-desc': 'Cruise on the Senegal River at sunset with cocktail and appetizers, departing from Tassinère.',
+                'exc3-price': '30,000 XOF',
+                
+                // Excursion info
+                'exc-info-title': 'Important information',
+                'exc-info1': 'All prices include local Gandiol guide, transport and entry fees',
+                'exc-info2': 'Departure from hotel - Tassinère Village',
+                'exc-info3': 'Minimum departure: 2 people',
+                'exc-info4': 'Booking 24h in advance recommended',
+                'exc-info5': 'Guide speaking French, English and Wolof',
+                
+                // Spa tab
+                'spa-title': 'Lawmar Spa - Traditional Wellness',
+                'spa-subtitle': 'Relax with our treatments using local natural products from Gandiol.',
+                'spa1-title': 'Traditional Senegalese Massage',
+                'spa1-desc': '60-minute massage with baobab and shea oils from Gandiol',
+                'spa1-price': '25,000 XOF',
+                'spa2-title': 'Hammam & Scrub Ritual',
+                'spa2-desc': 'Traditional hammam followed by a black soap scrub',
+                'spa2-price': '20,000 XOF',
+                'spa-hours-title': 'Spa Hours',
+                'spa-hours-weekdays': '<strong>Monday - Friday:</strong><br>10am - 8pm',
+                'spa-hours-weekend': '<strong>Saturday - Sunday:</strong><br>9am - 9pm',
+                'spa-book-btn': 'Book',
+                
+                // Business tab
+                'business-title': 'Business Services',
+                'business-subtitle': 'Modern facilities for your meetings and seminars in Gandiol.',
+                'business-capacity': 'Up to 30 people',
+                'business-room-title': 'Tassinère Room',
+                'business-room-desc': 'Equipped meeting room for your seminars in the heart of Gandiol.',
+                'business-room-price': '50,000 XOF / day',
+                
+                // Transport tab
+                'transport-title': 'Transport Services - Gandiol',
+                'transport-subtitle': 'Travel from Tassinère to Saint-Louis and the region.',
+                'transport-airport-title': 'Saint-Louis Airport Transfer',
+                'transport-airport-desc': 'Departure from Tassinère',
+                'transport-airport-price': '25,000 XOF',
+                'transport-car-title': 'Car with Driver',
+                'transport-car-desc': 'Visit of Saint-Louis and surroundings',
+                'transport-car-price': '85,000 XOF / day',
+                'transport-pirogue-title': 'Canoe - Langue de Barbarie',
+                'transport-pirogue-desc': 'Departure from Tassinère',
+                'transport-pirogue-price': '15,000 XOF',
+                
+                // Reviews
+                'reviews-title': 'Traveler Reviews 🇸🇳',
+                'reviews-subtitle': 'What our clients say about their experience in Gandiol',
+                'reviews-google-title': 'Google Reviews',
+                'reviews-google-text': 'Check our verified client reviews on Google:',
+                'reviews-google-btn': 'See all our Google reviews',
+                'reviews-google-note': 'Reviews are collected and verified by Google',
+                
+                // Hotel presentation
+                'hotel-presentation-title': 'Les Résidences du Lawmar - Gandiol 🇸🇳',
+                'hotel-presentation-subtitle': 'Discover our establishment in Tassinère village',
+                'presentation-welcome': 'Welcome to Tassinère',
+                'presentation-text': 'Located in the heart of Gandiol, our establishment offers you an authentic experience at the gates of the Langue de Barbarie.',
+                'presentation-rooms': '24 Rooms',
+                'presentation-rooms-text': 'Suites and traditional rooms',
+                'presentation-langue': 'Langue de Barbarie',
+                'presentation-langue-text': '5 minutes by canoe',
+                'presentation-address': 'Tassinère Village, Ndiébène Gandiol Commune',
+                'presentation-wa-btn': 'Book on WhatsApp',
+                
+                // Booking modal
+                'modal-booking-title': 'Online Booking - Les Résidences du Lawmar 🇸🇳',
+                'modal-booking-currency': 'All prices are in XOF (CFA Franc) - Payments Wave, Orange Money, Free',
+                'modal-checkin': 'Check-in date',
+                'modal-checkout': 'Check-out date',
+                'modal-adults': 'Adults',
+                'modal-children': 'Children',
+                'modal-room-type': 'Room type',
+                'modal-room-standard': 'Standard Room',
+                'modal-room-deluxe': 'Deluxe Room',
+                'modal-room-suite': 'View Suite',
+                'modal-services': 'Additional services',
+                'modal-transfer': 'Saint-Louis airport transfer (+25,000 XOF)',
+                'modal-excursion': 'Langue de Barbarie excursion (+40,000 XOF/pers)',
+                'modal-check-btn': 'Check availability',
+                'modal-wa-btn': 'Book via WhatsApp',
+                'modal-available': 'Room available!',
+                'modal-total': 'Total price for your stay:',
+                'modal-included': 'Taxes and service included',
+                
+                // Admin modal
+                'admin-modal-title': 'Staff login',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Password',
+                'admin-login-btn': 'Sign in',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
+                'footer-nav': 'Navigation',
+                'footer-home': 'Home',
+                'footer-rooms': 'Rooms',
+                'footer-restaurant': 'Restaurant',
+                'footer-services': 'Services',
+                'footer-gallery': 'Gallery',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
+                'footer-wa': 'WhatsApp:',
+                'footer-payments': 'Payments: XOF - Wave - Orange Money',
+                'footer-guide-title': 'Tourist Guide',
+                'footer-guide-text': 'Receive our guide to excursions in Gandiol and the Langue de Barbarie',
+                'footer-email-input': 'Your email',
+                'footer-submit': 'Send',
+                'footer-guide-note': 'Certified Gandiol guide available',
+                'footer-download-btn': 'Download guide',
+                'footer-rights': 'All rights reserved.',
+                'footer-admin': 'Staff access'
+            }
+        };
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Mettre à jour le texte de tous les éléments avec id
+            for (let key in translations[lang]) {
+                let element = document.getElementById(key);
+                if (element) {
+                    // Pour les éléments qui peuvent contenir du HTML
+                    if (key === 'footer-address' || key === 'spa-hours-weekdays' || key === 'spa-hours-weekend') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            }
+            
+            // Mettre à jour les attributs placeholder
+            document.getElementById('footer-email-input').placeholder = translations[lang]['footer-email-input'];
+            
+            // Mettre à jour l'attribut lang de la page
+            document.documentElement.lang = lang;
+            
+            console.log('Langue changée en ' + lang);
+        }
+
         // Fonction pour réserver via WhatsApp
         function reserveViaWhatsApp(serviceName, price) {
-            const message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe suis intéressé(e) par le service : *${serviceName}*\nPrix : *${price.toLocaleString()} XOF*\n\nPourriez-vous m'aider avec la réservation ?\n\nMerci!`;
+            const message = currentLang === 'fr' 
+                ? `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe suis intéressé(e) par le service : *${serviceName}*\nPrix : *${price.toLocaleString()} XOF*\n\nPourriez-vous m'aider avec la réservation ?\n\nMerci!`
+                : `Hello Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nI am interested in the service: *${serviceName}*\nPrice: *${price.toLocaleString()} XOF*\n\nCould you help me with the booking?\n\nThank you!`;
+            
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
             
             window.open(whatsappURL, '_blank');
-            console.log(`Réservation WhatsApp initiée: ${serviceName}`);
         }
 
         // Fonction pour réserver un service
@@ -1958,17 +2465,23 @@
             
             if (serviceData[serviceType]) {
                 const service = serviceData[serviceType];
+                const name = currentLang === 'fr' ? service.name_fr : service.name_en;
+                const duration = currentLang === 'fr' ? service.duration_fr : service.duration_en;
+                const desc = currentLang === 'fr' ? service.desc_fr : service.desc_en;
+                const includes = currentLang === 'fr' ? service.includes_fr : service.includes_en;
+                
                 modalBody.innerHTML = `
-                    <div class="text-center py-4">
-                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-                        <h5>Réservation: ${service.name}</h5>
-                        <p class="mb-2">Prix: <span class="price-display">${service.price.toLocaleString()} XOF</span></p>
-                        <p class="mb-3">Durée: ${service.duration}</p>
+                    <div class="text-center py-3">
+                        <i class="fas fa-check-circle fa-3x text-success mb-2"></i>
+                        <h5>${currentLang === 'fr' ? 'Réservation:' : 'Booking:'} ${name}</h5>
+                        <p class="mb-1">${currentLang === 'fr' ? 'Prix:' : 'Price:'} <span class="price-display">${service.price.toLocaleString()} XOF</span></p>
+                        <p class="mb-1">${currentLang === 'fr' ? 'Durée:' : 'Duration:'} ${duration}</p>
+                        <p class="small mb-2">${desc}</p>
                         <div class="d-flex gap-2 justify-content-center">
-                            <button class="btn btn-primary" onclick="alert('Réservation confirmée! Vous serez contacté.'); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
-                                <i class="fas fa-check"></i> Confirmer
+                            <button class="btn btn-primary btn-sm" onclick="alert('${currentLang === 'fr' ? 'Réservation confirmée! Vous serez contacté.' : 'Booking confirmed! You will be contacted.'}'); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
+                                <i class="fas fa-check"></i> ${currentLang === 'fr' ? 'Confirmer' : 'Confirm'}
                             </button>
-                            <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('${service.name}', ${service.price}); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
+                            <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('${name}', ${service.price}); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </button>
                         </div>
@@ -1976,37 +2489,16 @@
                 `;
             } else {
                 modalBody.innerHTML = `
-                    <div class="text-center py-4">
-                        <i class="fas fa-info-circle fa-3x text-primary mb-3"></i>
-                        <p>Service non disponible. Veuillez nous contacter directement.</p>
-                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Service non listé', 0); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
-                            <i class="fab fa-whatsapp"></i> Contacter sur WhatsApp
+                    <div class="text-center py-3">
+                        <i class="fas fa-info-circle fa-3x text-primary mb-2"></i>
+                        <p>${currentLang === 'fr' ? 'Service non disponible. Veuillez nous contacter directement.' : 'Service not available. Please contact us directly.'}</p>
+                        <button class="btn btn-whatsapp btn-sm" onclick="reserveViaWhatsApp('${currentLang === 'fr' ? 'Service non listé' : 'Unlisted service'}', 0); bootstrap.Modal.getInstance(document.getElementById('serviceBookingModal')).hide();">
+                            <i class="fab fa-whatsapp"></i> ${currentLang === 'fr' ? 'Contacter sur WhatsApp' : 'Contact on WhatsApp'}
                         </button>
                     </div>
                 `;
             }
             serviceModal.show();
-        }
-
-        // Fonction pour voir les avis
-        function openServiceReviews(serviceType) {
-            const reviewsModal = new bootstrap.Modal(document.getElementById('serviceReviewsModal'));
-            const modalBody = document.getElementById('serviceReviewsBody');
-            const service = serviceData[serviceType];
-            
-            if (service && service.reviews) {
-                const reviewsHtml = service.reviews.map(review => `
-                    <div class="review-badge">
-                        <strong>${review.name}</strong> - ${review.date}<br>
-                        <span class="text-warning">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</span>
-                        <p class="mt-2 mb-0">"${review.comment}"</p>
-                    </div>
-                `).join('');
-                modalBody.innerHTML = reviewsHtml || '<p class="text-center py-4">Aucun avis disponible</p>';
-            } else {
-                modalBody.innerHTML = '<p class="text-center py-4">Aucun avis disponible</p>';
-            }
-            reviewsModal.show();
         }
 
         // Fonction pour rediriger vers WhatsApp depuis le modal de réservation
@@ -2018,16 +2510,14 @@
             const roomType = document.getElementById('room-type').value;
             
             let roomTypeText = {
-                'standard': 'Chambre Standard',
-                'deluxe': 'Chambre Deluxe',
-                'suite': 'Suite Vue'
+                'standard': currentLang === 'fr' ? 'Chambre Standard' : 'Standard Room',
+                'deluxe': currentLang === 'fr' ? 'Chambre Deluxe' : 'Deluxe Room',
+                'suite': currentLang === 'fr' ? 'Suite Vue' : 'View Suite'
             }[roomType] || roomType;
             
-            let message = `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite faire une réservation :\n\n`;
-            message += `*Dates* : ${checkin || 'Non spécifié'} au ${checkout || 'Non spécifié'}\n`;
-            message += `*Personnes* : ${adults} adultes, ${children} enfants\n`;
-            message += `*Type de chambre* : ${roomTypeText}\n\n`;
-            message += `Pourriez-vous m'aider avec la réservation ?\n\nMerci!`;
+            let message = currentLang === 'fr'
+                ? `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite faire une réservation :\n\n*Dates* : ${checkin || 'Non spécifié'} au ${checkout || 'Non spécifié'}\n*Personnes* : ${adults} adultes, ${children} enfants\n*Type de chambre* : ${roomTypeText}\n\nPourriez-vous m'aider avec la réservation ?\n\nMerci!`
+                : `Hello Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nI would like to make a booking:\n\n*Dates* : ${checkin || 'Not specified'} to ${checkout || 'Not specified'}\n*People* : ${adults} adults, ${children} children\n*Room type* : ${roomTypeText}\n\nCould you help me with the booking?\n\nThank you!`;
             
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -2037,15 +2527,17 @@
         }
 
         function viewHotelHistory() {
-            alert('Les Résidences du Lawmar - Depuis 2010, une histoire d\'hospitalité à Tassinère, Gandiol.');
+            const msg = currentLang === 'fr' 
+                ? 'Les Résidences du Lawmar - Depuis 2010, une histoire d\'hospitalité à Tassinère, Gandiol.'
+                : 'Les Résidences du Lawmar - Since 2010, a story of hospitality in Tassinère, Gandiol.';
+            alert(msg);
         }
 
         function downloadTouristGuide() {
-            alert('Téléchargement du guide touristique de Gandiol et de la Langue de Barbarie...');
-        }
-
-        function changeLanguage(lang) {
-            alert('Changement de langue vers ' + lang + ' - Fonctionnalité à implémenter');
+            const msg = currentLang === 'fr'
+                ? 'Téléchargement du guide touristique de Gandiol et de la Langue de Barbarie...'
+                : 'Downloading the Gandiol and Langue de Barbarie tourist guide...';
+            alert(msg);
         }
 
         // Initialisation
@@ -2058,14 +2550,16 @@
             
             if (applyFiltersBtn) {
                 applyFiltersBtn.addEventListener('click', function() {
-                    alert('Filtres appliqués');
+                    const msg = currentLang === 'fr' ? 'Filtres appliqués' : 'Filters applied';
+                    alert(msg);
                 });
             }
             
             if (resetFiltersBtn) {
                 resetFiltersBtn.addEventListener('click', function() {
                     document.querySelectorAll('.form-select').forEach(s => s.value = 'all');
-                    alert('Filtres réinitialisés');
+                    const msg = currentLang === 'fr' ? 'Filtres réinitialisés' : 'Filters reset';
+                    alert(msg);
                 });
             }
             
@@ -2081,7 +2575,10 @@
             if (newsletterForm) {
                 newsletterForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    alert('Merci pour votre inscription ! Vous recevrez notre guide de Gandiol.');
+                    const msg = currentLang === 'fr' 
+                        ? 'Merci pour votre inscription ! Vous recevrez notre guide de Gandiol.'
+                        : 'Thank you for subscribing! You will receive our Gandiol guide.';
+                    alert(msg);
                     newsletterForm.reset();
                 });
             }
@@ -2091,7 +2588,8 @@
             if (adminLoginForm) {
                 adminLoginForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    alert('Connexion réussie');
+                    const msg = currentLang === 'fr' ? 'Connexion réussie' : 'Login successful';
+                    alert(msg);
                     bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
                 });
             }
