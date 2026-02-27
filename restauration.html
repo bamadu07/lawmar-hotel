@@ -240,7 +240,7 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVIGATION BLANCHE TEXTE BLEU (AVEC SOUS-MENU) ===== */
+        /* ===== NAVIGATION BLANCHE TEXTE BLEU ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -300,11 +300,11 @@
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: white !important;
-            background-color: var(--vert) !important;
+            background-color: var(--primary-color) !important;
             border-radius: 5px;
         }
         
-        /* Styles pour le sous-menu dropdown */
+        /* Styles pour le sous-menu dropdown - MODIFIÉ POUR ENLEVER LE VERT */
         .dropdown-menu {
             background-color: white;
             border: 1px solid var(--secondary-color);
@@ -323,8 +323,8 @@
         }
         
         .dropdown-item:hover {
-            background-color: var(--sable);
-            color: var(--indigo) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             padding-left: 25px;
         }
         
@@ -336,11 +336,11 @@
         .dropdown-item i {
             width: 20px;
             margin-right: 8px;
-            color: var(--vert);
+            color: var(--primary-color);
         }
         
         .dropdown-item:hover i {
-            color: var(--indigo);
+            color: white !important;
         }
         
         .dropdown-divider {
@@ -902,7 +902,7 @@
         }
         
         .subpage-header h2 i {
-            color: var(--vert);
+            color: var(--primary-color);
             margin-right: 10px;
         }
         
@@ -954,7 +954,7 @@
         .chef-signature {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            color: var(--vert);
+            color: var(--primary-color);
             font-size: 1.2rem;
         }
         
@@ -1131,11 +1131,11 @@
         }
         
         .local-product i {
-            color: var(--vert);
+            color: var(--primary-color);
             margin-right: 5px;
         }
 
-        /* ===== FOOTER BLANC TEXTE BLEU AVEC EMAILS MIS À JOUR ===== */
+        /* ===== FOOTER BLANC TEXTE BLEU ===== */
         .footer {
             background-color: white !important;
             color: var(--primary-color);
@@ -1177,7 +1177,7 @@
         .footer-links ul li a:hover {
             color: var(--indigo) !important;
             padding-left: 5px;
-            border-left: 2px solid var(--vert);
+            border-left: 2px solid var(--primary-color);
         }
 
         .footer-contact p {
@@ -1718,7 +1718,7 @@
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION BLANCHE TEXTE BLEU (AVEC SOUS-MENU RESTAURATION) ===== -->
+    <!-- ===== NAVIGATION BLANCHE TEXTE BLEU ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -2012,7 +2012,7 @@
                 
                 <!-- Section Entrées -->
                 <div id="carte-entrees" class="carte-section mt-4">
-                    <h4 class="mb-3" style="color: var(--vert);"><i class="fas fa-seedling me-2"></i> <span id="starters-section">Entrées</span></h4>
+                    <h4 class="mb-3" style="color: var(--primary-color);"><i class="fas fa-seedling me-2"></i> <span id="starters-section">Entrées</span></h4>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
@@ -2064,7 +2064,7 @@
                         <p class="chef-signature" id="chef-quote">"La cuisine sénégalaise est un voyage des sens"</p>
                         <p id="chef-bio1">Originaire de Saint-Louis, le Chef Oumar Diallo a parcouru le monde avant de revenir à Gandiol pour partager sa passion de la cuisine sénégalaise. Formé dans les plus grandes cuisines de Dakar et à l'international, il met son talent au service des produits locaux de Gandiol et de Tassinère.</p>
                         <p><i class="fas fa-medal me-2" style="color: var(--yellow-color);"></i> <span id="chef-award">Prix du meilleur chef traditionnel 2024 - Saint-Louis</span></p>
-                        <p><i class="fas fa-utensils me-2" style="color: var(--vert);"></i> <span id="chef-speciality">Spécialiste de la Thieboudienne et du Yassa</span></p>
+                        <p><i class="fas fa-utensils me-2" style="color: var(--primary-color);"></i> <span id="chef-speciality">Spécialiste de la Thieboudienne et du Yassa</span></p>
                         <p><i class="fas fa-heart me-2" style="color: var(--accent-color);"></i> <span id="chef-experience">15 ans d'expérience en cuisine sénégalaise</span></p>
                     </div>
                 </div>
@@ -2470,7 +2470,7 @@
                         
                         <div class="d-flex justify-content-between mt-3">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="continue-shopping">Continuer mes achats</button>
-                            <button type="button" class="btn btn-primary" id="step1-next" disabled id="step1-next-btn">Continuer</button>
+                            <button type="button" class="btn btn-primary" id="step1-next" disabled>Continuer</button>
                         </div>
                     </div>
 
@@ -2503,8 +2503,8 @@
                             </div>
                             
                             <div class="d-flex justify-content-between mt-3">
-                                <button type="button" class="btn btn-secondary" id="step2-back" id="step2-back-btn">← Retour</button>
-                                <button type="button" class="btn btn-primary" id="step2-next" id="step2-next-btn">Continuer vers la confirmation</button>
+                                <button type="button" class="btn btn-secondary" id="step2-back">← Retour</button>
+                                <button type="button" class="btn btn-primary" id="step2-next">Continuer vers la confirmation</button>
                             </div>
                         </form>
                     </div>
@@ -2537,8 +2537,8 @@
                         </div>
                         
                         <div class="d-flex justify-content-between mt-3">
-                            <button type="button" class="btn btn-secondary" id="step3-back" id="step3-back-btn">← Retour</button>
-                            <button type="button" class="btn btn-success" id="finalize-order" id="finalize-order-btn">
+                            <button type="button" class="btn btn-secondary" id="step3-back">← Retour</button>
+                            <button type="button" class="btn btn-success" id="finalize-order">
                                 <i class="fab fa-whatsapp me-2"></i> <span id="confirm-order">Confirmer via WhatsApp</span>
                             </button>
                         </div>
@@ -2586,7 +2586,7 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER BLANC TEXTE BLEU AVEC EMAILS MIS À JOUR ===== -->
+    <!-- ===== FOOTER BLANC TEXTE BLEU ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -2598,7 +2598,7 @@
                         </div>
                         <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
                         <div class="social-links">
-                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
                             <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
                             <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -2623,8 +2623,8 @@
                     <div class="footer-contact">
                         <h4 id="footer-contact-title">Contact - Gandiol</h4>
                         <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
-                        <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
-                        <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 291 72 15</p>
                         <p><i class="fab fa-whatsapp"></i> <span id="footer-whatsapp">WhatsApp: +221 77 995 20 20</span></p>
                         <!-- Emails professionnels -->
                         <div class="emails-pro">
@@ -2651,12 +2651,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
