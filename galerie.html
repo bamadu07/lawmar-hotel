@@ -16,7 +16,7 @@
     
     <!-- ===== STYLES INTERNES ===== -->
     <style>
-        /* ===== VARIABLES CSS ===== */
+        /* ===== VARIABLES CSS - IDENTIQUES À LA PAGE ACCUEIL ===== */
         :root {
             --primary-color: #025ba5;
             --secondary-color: #e0e0e0;
@@ -24,11 +24,11 @@
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-            
+            --yellow-color: #FFD700;
+            --transition: all 0.3s ease;
             --indigo: #1E3A5F;
             --sable: #F4EDE4;
             --vert: #2F5D50;
-            --transition: all 0.3s ease;
             --border-radius: 8px;
             --box-shadow: 0 3px 10px rgba(2, 91, 165, 0.08);
             --box-shadow-hover: 0 10px 25px rgba(2, 91, 165, 0.12);
@@ -45,7 +45,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: var(--dark-color);
-            padding-top: 60px; /* Réduit de 80px à 60px */
+            padding-top: 80px; /* Réajusté pour la navbar */
             background-color: #f8fbff;
         }
 
@@ -67,10 +67,10 @@
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
-            padding: 6px 16px; /* Réduit */
+            padding: 6px 16px;
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
         }
 
         .btn-primary:hover {
@@ -82,8 +82,8 @@
         .btn-outline-primary {
             color: var(--primary-color);
             border-color: var(--primary-color);
-            padding: 5px 12px; /* Réduit */
-            font-size: 0.8rem; /* Réduit */
+            padding: 5px 12px;
+            font-size: 0.8rem;
         }
 
         .btn-outline-primary:hover {
@@ -92,7 +92,6 @@
             color: white;
         }
 
-        /* Bouton WhatsApp */
         .btn-whatsapp {
             background-color: #25D366;
             color: white !important;
@@ -106,7 +105,6 @@
             transform: translateY(-2px);
         }
 
-        /* Bouton Facebook */
         .btn-facebook {
             background-color: #1877f2;
             border-color: #1877f2;
@@ -120,7 +118,6 @@
             transform: translateY(-2px);
         }
 
-        /* Bouton TikTok */
         .btn-tiktok {
             background-color: #000000;
             border-color: #000000;
@@ -134,7 +131,6 @@
             transform: translateY(-2px);
         }
 
-        /* Bouton Instagram avec dégradé */
         .btn-instagram {
             background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
             color: white !important;
@@ -147,12 +143,19 @@
             box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
         }
 
-        /* ===== NAVIGATION RÉDUITE ===== */
+        /* ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== */
         .navbar {
             background-color: white !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 2px 0;
-            min-height: 55px; /* Réduit de 70px à 55px */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .navbar-brand {
@@ -160,25 +163,22 @@
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 5px; /* Réduit */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 35px; /* Réduit de 45px à 35px */
-            height: 35px; /* Réduit de 45px à 35px */
-            object-fit: cover;
-            border: 1px solid var(--secondary-color);
-            background-color: white;
-            transition: var(--transition);
-        }
-
-        .logo-image:hover {
-            transform: scale(1.05);
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            border-radius: 0;
         }
 
         .brand-text {
@@ -188,47 +188,51 @@
 
         .hotel-name {
             color: var(--primary-color) !important;
-            font-size: 1.2rem; /* Réduit de 1.4rem à 1.2rem */
+            font-size: 1.4rem;
             margin: 0;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: var(--dark-color) !important;
-            font-size: 0.65rem; /* Réduit de 0.75rem à 0.65rem */
+            font-size: 0.75rem;
             font-weight: 300;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 4px 10px !important; /* Réduit */
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: var(--indigo) !important;
-            opacity: 1;
             border-bottom: 2px solid var(--vert);
         }
 
-        /* Bouton réserver jaune avec texte bleu */
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
-            padding: 4px 12px !important; /* Réduit */
-            font-size: 0.8rem !important;
-            border: none;
+            padding: 6px 15px !important;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
         }
 
@@ -246,12 +250,12 @@
             color: var(--indigo) !important;
         }
 
-        /* ===== HERO SECTION RÉDUITE ===== */
+        /* ===== HERO SECTION ===== */
         .hero-section {
             background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            min-height: 350px; /* Réduit de 400px à 350px */
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -274,14 +278,14 @@
             color: white;
             width: 100%;
             max-width: 900px;
-            padding: 30px 20px; /* Réduit */
+            padding: 30px 20px;
             position: relative;
             z-index: 2;
         }
 
         .hero-title {
             color: white;
-            font-size: 2.2rem; /* Réduit de 2.5rem à 2.2rem */
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -289,7 +293,7 @@
 
         .hero-subtitle {
             color: white;
-            font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
+            font-size: 1.1rem;
             margin-bottom: 15px;
             max-width: 700px;
             margin-left: auto;
@@ -299,7 +303,7 @@
 
         .hero-description {
             color: white;
-            font-size: 0.95rem; /* Réduit */
+            font-size: 0.95rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -307,50 +311,57 @@
             line-height: 1.5;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
             background-color: rgba(2, 91, 165, 0.3);
-            padding: 12px 20px; /* Réduit */
-            border-radius: 40px; /* Réduit */
+            padding: 12px 20px;
+            border-radius: 40px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .location-badge {
             display: inline-block;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: var(--indigo);
             color: white;
-            padding: 6px 14px; /* Réduit */
+            padding: 6px 14px;
             border-radius: 30px;
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
             margin-top: 8px;
             border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
         }
 
         /* ===== SECTION HEADER ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 25px; /* Réduit */
+            margin-bottom: 25px;
         }
 
         .section-header h2 {
             color: var(--primary-color);
-            font-size: 2rem; /* Réduit de 2.2rem à 2rem */
+            font-size: 2rem;
             margin-bottom: 10px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--vert);
+            margin: 10px auto 0;
         }
 
         .section-header p {
             color: #2a4a6e;
-            font-size: 1rem; /* Réduit de 1.1rem à 1rem */
+            font-size: 1rem;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.5;
         }
 
-        /* Style pour le texte immersif dans la section galerie */
         .gallery-description {
             background-color: rgba(255, 215, 0, 0.05);
-            padding: 20px; /* Réduit */
-            border-radius: 12px; /* Réduit */
-            margin: 15px auto 25px; /* Réduit */
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px auto 25px;
             max-width: 900px;
             border-left: 4px solid var(--yellow-color);
             font-style: italic;
@@ -358,7 +369,7 @@
         }
 
         .gallery-description p {
-            font-size: 1.05rem; /* Réduit */
+            font-size: 1.05rem;
             color: var(--indigo);
             margin-bottom: 8px;
             font-weight: 400;
@@ -376,20 +387,20 @@
 
         /* ===== FILTRES GALERIE ===== */
         .gallery-filter {
-            margin-bottom: 25px; /* Réduit */
+            margin-bottom: 25px;
         }
 
         .filter-btn {
             background-color: white;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
-            padding: 6px 16px; /* Réduit */
+            padding: 6px 16px;
             border-radius: 30px;
             margin-right: 6px;
             margin-bottom: 6px;
             transition: var(--transition);
             font-weight: 500;
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
         }
 
         .filter-btn:hover,
@@ -404,11 +415,11 @@
         /* ===== ÉLÉMENTS DE GALERIE ===== */
         .gallery-item {
             position: relative;
-            margin-bottom: 15px; /* Réduit */
+            margin-bottom: 15px;
             border-radius: var(--border-radius);
             overflow: hidden;
             cursor: pointer;
-            height: 220px; /* Réduit de 250px à 220px */
+            height: 220px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
         }
@@ -436,7 +447,7 @@
             right: 0;
             background: linear-gradient(to top, rgba(2, 91, 165, 0.95), rgba(2, 91, 165, 0.3), transparent);
             color: white;
-            padding: 15px 12px 12px; /* Réduit */
+            padding: 15px 12px 12px;
             transform: translateY(70%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -449,23 +460,23 @@
             display: inline-block;
             background-color: var(--yellow-color);
             color: var(--primary-color);
-            padding: 3px 10px; /* Réduit */
+            padding: 3px 10px;
             border-radius: 20px;
-            font-size: 0.7rem; /* Réduit */
+            font-size: 0.7rem;
             font-weight: 600;
             margin-bottom: 6px;
             letter-spacing: 0.5px;
         }
 
         .gallery-overlay h5 {
-            font-size: 0.95rem; /* Réduit */
+            font-size: 0.95rem;
             margin-bottom: 3px;
             color: white;
             font-weight: 600;
         }
 
         .gallery-overlay p {
-            font-size: 0.75rem; /* Réduit */
+            font-size: 0.75rem;
             margin-bottom: 0;
             opacity: 0.9;
             line-height: 1.3;
@@ -474,7 +485,7 @@
         /* ===== VIDÉOS ===== */
         .video-container {
             position: relative;
-            height: 280px; /* Réduit de 300px à 280px */
+            height: 280px;
             border-radius: var(--border-radius);
             overflow: hidden;
             margin-bottom: 15px;
@@ -483,7 +494,7 @@
         }
 
         .video-container-small {
-            height: 180px; /* Réduit de 200px à 180px */
+            height: 180px;
         }
 
         .video-thumbnail {
@@ -497,14 +508,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px; /* Réduit */
-            height: 60px; /* Réduit */
+            width: 60px;
+            height: 60px;
             background-color: var(--yellow-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem; /* Réduit */
+            font-size: 1.6rem;
             color: var(--primary-color);
             cursor: pointer;
             transition: var(--transition);
@@ -526,7 +537,7 @@
             background-color: var(--primary-color);
             color: white;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
-            padding: 12px 15px; /* Réduit */
+            padding: 12px 15px;
         }
 
         .video-modal .modal-body {
@@ -546,7 +557,7 @@
         .virtual-tour {
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 25px 20px; /* Réduit */
+            padding: 25px 20px;
             text-align: center;
             margin-bottom: 15px;
             box-shadow: var(--box-shadow);
@@ -561,19 +572,19 @@
         }
 
         .tour-icon {
-            font-size: 2.8rem; /* Réduit */
+            font-size: 2.8rem;
             color: var(--yellow-color);
             margin-bottom: 12px;
         }
 
         .virtual-tour h3 {
-            font-size: 1.2rem; /* Réduit */
+            font-size: 1.2rem;
             margin-bottom: 8px;
             color: var(--primary-color);
         }
 
         .virtual-tour p {
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
             margin-bottom: 15px;
             color: #4a5568;
         }
@@ -582,7 +593,7 @@
         .instagram-feed {
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 25px; /* Réduit */
+            padding: 25px;
             box-shadow: var(--box-shadow);
             border: 1px solid rgba(255, 215, 0, 0.2);
         }
@@ -592,7 +603,7 @@
             overflow: hidden;
             margin-bottom: 12px;
             transition: var(--transition);
-            height: 160px; /* Réduit de 180px à 160px */
+            height: 160px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
@@ -607,7 +618,6 @@
             object-fit: cover;
         }
 
-        /* Boutons réseaux sociaux */
         .social-buttons {
             display: flex;
             justify-content: center;
@@ -734,29 +744,28 @@
             border-radius: 30px;
         }
 
-        /* ===== FOOTER AVEC EMAILS ===== */
+        /* ===== FOOTER BLANC ===== */
         .footer {
             background-color: white !important;
             color: var(--primary-color);
-            padding: 25px 0 15px;
-            font-size: 0.8rem;
-            margin-top: 30px;
+            padding: 30px 0 20px;
+            font-size: 0.9rem;
             border-top: 2px solid var(--primary-color);
             box-shadow: 0 -5px 15px rgba(2, 91, 165, 0.05);
         }
 
         .footer-about h3 {
             color: var(--primary-color) !important;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .footer-links h4,
         .footer-contact h4,
         .footer-newsletter h4 {
             color: var(--primary-color) !important;
-            font-size: 1rem;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .footer-links ul {
@@ -765,14 +774,13 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .footer-links ul li a {
             color: var(--primary-color) !important;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 0.8rem;
         }
 
         .footer-links ul li a:hover {
@@ -782,42 +790,35 @@
         }
 
         .footer-contact p {
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             color: var(--primary-color) !important;
-            font-size: 0.8rem;
         }
 
         .footer-contact i {
             color: var(--primary-color);
-            margin-right: 6px;
-            width: 16px;
+            margin-right: 10px;
+            width: 20px;
         }
 
-        .email-list {
-            margin: 8px 0;
-        }
-        
-        .email-list p {
-            margin-bottom: 4px;
-            font-size: 0.8rem;
+        .footer-contact i:hover {
+            color: var(--indigo);
         }
 
         .social-links {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .social-links a {
             display: inline-block;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             background-color: var(--primary-color);
             color: white !important;
             border-radius: 50%;
             text-align: center;
-            line-height: 30px;
-            margin-right: 6px;
+            line-height: 35px;
+            margin-right: 10px;
             transition: var(--transition);
-            font-size: 0.9rem;
         }
 
         .social-links a:hover {
@@ -825,22 +826,34 @@
             transform: translateY(-3px);
         }
 
-        .footer-logo-image {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border: none !important;
-            border-radius: 0 !important;
-            background: transparent !important;
+        .footer-newsletter .input-group {
+            margin-top: 10px;
+        }
+
+        .footer-newsletter .input-group input {
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .footer-newsletter .btn-primary:hover {
+            background-color: var(--indigo);
+            border-color: var(--indigo);
+            transform: translateY(-2px);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(2, 91, 165, 0.2);
-            padding-top: 12px;
-            margin-top: 15px;
+            padding-top: 15px;
+            margin-top: 20px;
             text-align: center;
             color: var(--primary-color);
-            font-size: 0.75rem;
+            font-size: 0.85rem;
         }
 
         .footer-bottom a {
@@ -854,56 +867,96 @@
             text-decoration: underline;
         }
 
-        /* ===== MODALS ===== */
-        .modal-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
         }
 
-        .modal-title {
-            color: white;
-            font-size: 1rem;
+        .email-list {
+            margin: 8px 0;
+        }
+        
+        .email-list p {
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
         }
 
-        .btn-close {
-            filter: invert(1);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
+        /* ===== RESPONSIVE - IDENTIQUE À LA PAGE D'ACCUEIL ===== */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+            
             .hero-title {
                 font-size: 2rem !important;
-            }
-            .hero-description {
-                font-size: 0.9rem !important;
-                padding: 10px 15px !important;
-            }
-            .gallery-description p {
-                font-size: 0.95rem;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 55px;
+                padding-top: 70px;
             }
             
             .navbar {
-                min-height: 50px;
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
             }
             
             .logo-image {
-                width: 32px;
-                height: 32px;
+                width: 38px;
+                height: 38px;
             }
             
             .hotel-name {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
             }
             
             .hotel-subtitle {
-                font-size: 0.6rem !important;
+                font-size: 0.65rem !important;
             }
             
             .hero-section {
@@ -924,14 +977,13 @@
                 font-size: 0.85rem !important;
                 padding: 10px !important;
                 color: white !important;
-                background-color: rgba(2, 91, 165, 0.4) !important;
             }
             
             .location-badge {
                 font-size: 0.75rem !important;
                 padding: 5px 10px !important;
                 color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
+                background-color: var(--indigo) !important;
             }
             
             .gallery-item {
@@ -949,12 +1001,6 @@
                 padding: 6px 15px;
             }
             
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.6rem;
-            }
-            
             .gallery-description {
                 padding: 15px;
                 margin: 12px auto 18px;
@@ -967,7 +1013,20 @@
 
         @media (max-width: 576px) {
             body {
-                padding-top: 50px;
+                padding-top: 65px;
+            }
+            
+            .navbar {
+                min-height: 55px;
+            }
+            
+            .logo-image {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .hotel-name {
+                font-size: 1.1rem !important;
             }
             
             .hero-section {
@@ -985,15 +1044,10 @@
             .hero-description {
                 font-size: 0.8rem !important;
                 padding: 8px !important;
-                border-radius: 15px !important;
             }
             
             .section-header h2 {
                 font-size: 1.6rem;
-            }
-            
-            .section-header p {
-                font-size: 0.85rem;
             }
             
             .gallery-item {
@@ -1032,72 +1086,93 @@
                 width: 100%;
                 max-width: 200px;
             }
-            
-            .lightbox-close {
-                top: 10px;
-                right: 15px;
-                font-size: 1.8rem;
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding-top: 60px;
             }
             
-            .lightbox-nav {
-                width: 32px;
-                height: 32px;
-                font-size: 1.2rem;
+            .navbar {
+                min-height: 50px;
             }
             
-            .lightbox-prev {
-                left: 5px;
+            .logo-image {
+                width: 28px;
+                height: 28px;
             }
             
-            .lightbox-next {
-                right: 5px;
+            .hotel-name {
+                font-size: 1rem !important;
             }
             
-            .lightbox-caption {
-                bottom: 15px;
-                font-size: 0.75rem;
-                padding: 8px;
+            .hero-section {
+                min-height: 200px !important;
             }
             
-            .gallery-description {
-                padding: 12px;
+            .hero-title {
+                font-size: 1.2rem !important;
             }
             
-            .gallery-description p {
-                font-size: 0.85rem;
+            .hero-subtitle {
+                font-size: 0.75rem !important;
+            }
+            
+            .location-badge {
+                font-size: 0.65rem !important;
+                padding: 3px 6px !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== SECTION 1: NAVIGATION RÉDUITE ===== -->
+    <!-- ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/35x35/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                     <div class="brand-text">
-                        <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
-                        <span class="hotel-subtitle" id="nav-hotel-subtitle">
-                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère, Gandiol
+                        <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
                         </span>
                     </div>
                 </div>
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html" id="nav-services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="galerie.html" id="nav-gallery">Galerie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html" id="nav-contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.html" id="nav-admin">Admin</a></li>
-                    <li class="nav-item"><a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-book">Réserver</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="galerie.html" id="nav-galerie">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
@@ -1311,8 +1386,8 @@
     <div class="modal fade video-modal" id="videoPlayerModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="videoModalTitle">
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="videoModalTitle">
                         <span class="senegal-flag-icon">🇸🇳</span> <span id="videoModalCategory"></span> - <span id="videoModalName"></span>
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1331,8 +1406,8 @@
     <div class="modal fade" id="virtualTourModal" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="virtual-modal-title"><span class="senegal-flag-icon">🇸🇳</span> Visite Virtuelle 360° - Gandiol</h5>
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="virtual-modal-title"><span class="senegal-flag-icon">🇸🇳</span> Visite Virtuelle 360° - Gandiol</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -1350,8 +1425,8 @@
     <div class="modal fade" id="bookingModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="booking-title">Réservation - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h5>
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="booking-title">Réservation - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -1411,8 +1486,8 @@
     <div class="modal fade" id="adminLoginModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="admin-title">Connexion personnel</h5>
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="admin-title">Connexion personnel</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -1441,17 +1516,17 @@
         </div>
     </div>
 
-    <!-- ===== SECTION 11: FOOTER avec EMAILS MIS À JOUR ===== -->
+    <!-- ===== SECTION 11: FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-3">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo Lawmar" class="footer-logo-image" onerror="this.style.display='none';">
-                            <h3>LAWMAR</h3>
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <h3>LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
                         </div>
-                        <p class="small" id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
                         <div class="social-links">
                             <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook"></i></a>
                             <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1460,43 +1535,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-3">
+                <div class="col-lg-2 col-md-6 mb-4">
                     <div class="footer-links">
                         <h4 id="footer-nav">Navigation</h4>
                         <ul>
                             <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="Residences.html" id="footer-residences">Résidences</a></li>
                             <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
-                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="restauration.html" id="footer-restauration">Restauration</a></li>
                             <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
                             <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
                             <li><a href="contact.html" id="footer-contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-contact">
                         <h4 id="footer-contact-title">Contact - Gandiol</h4>
-                        <p class="small"><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
-                        <p class="small"><i class="fas fa-phone"></i> +221 77 995 20 20</p>
-                        <p class="small"><i class="fas fa-phone"></i> +221 77 291 72 15</p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
+                        <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
                         
                         <!-- EMAILS MIS À JOUR (3 adresses) -->
                         <div class="email-list">
-                            <p class="small"><i class="fas fa-envelope"></i> contact@residenceslawmar.com</p>
-                            <p class="small"><i class="fas fa-envelope"></i> reservation@residencelawmar.com</p>
-                            <p class="small"><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
+                            <p><i class="fas fa-envelope"></i> contact@residenceslawmar.com</p>
+                            <p><i class="fas fa-envelope"></i> reservation@residencelawmar.com</p>
+                            <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
                         </div>
                         
-                        <p class="small"><i class="fab fa-whatsapp"></i> <span id="footer-wa">WhatsApp: +221 77 995 20 20</span></p>
-                        <p class="small"><i class="fas fa-money-bill-wave"></i> <span id="footer-payments">Paiements: Wave - Orange Money</span></p>
+                        <p><i class="fab fa-whatsapp"></i> <span id="footer-wa">WhatsApp: +221 77 995 20 20</span></p>
+                        <p><i class="fas fa-money-bill-wave"></i> <span id="footer-payments">Paiements: Wave - Orange Money</span></p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-newsletter">
                         <h4 id="footer-newsletter-title">Newsletter</h4>
-                        <p class="small" id="footer-newsletter-text">Recevez nos actualités de Gandiol</p>
+                        <p id="footer-newsletter-text">Recevez nos actualités de Gandiol</p>
                         <form id="newsletter-form">
-                            <div class="input-group input-group-sm">
+                            <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
                                 <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
                             </div>
@@ -1508,12 +1585,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -1522,6 +1599,7 @@
     <script>
         // ===== CONSTANTES =====
         const WHATSAPP_NUMBER = "221779952020";
+        let currentLang = 'fr';
         
         // Données de la galerie (photos uniquement) - AVEC DESCRIPTIONS IMMERSIVES
         const galleryData = [
@@ -1541,22 +1619,22 @@
 
         let currentPhotoIndex = 0;
         let filteredPhotos = [];
-        let currentLang = 'fr';
 
         // ===== TRADUCTIONS =====
         const translations = {
             fr: {
                 // Navigation
-                'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
-                'nav-restaurant': 'Restauration',
+                'nav-hebergements': 'Hébergements',
+                'nav-restauration': 'Restauration',
                 'nav-services': 'Services',
-                'nav-gallery': 'Galerie',
+                'nav-experiences': 'Expériences',
+                'nav-galerie': 'Galerie',
                 'nav-contact': 'Contact',
-                'nav-admin': 'Admin',
-                'nav-book': 'Réserver',
+                'nav-reserver': 'Réserver',
                 'current-lang': 'FR',
                 
                 // Hero
@@ -1638,9 +1716,11 @@
                 'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Accueil',
+                'footer-residences': 'Résidences',
                 'footer-rooms': 'Chambres',
-                'footer-restaurant': 'Restauration',
+                'footer-restauration': 'Restauration',
                 'footer-services': 'Services',
+                'footer-experiences': 'Expériences',
                 'footer-gallery': 'Galerie',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
@@ -1656,16 +1736,17 @@
             },
             en: {
                 // Navigation
-                'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
-                'nav-restaurant': 'Restaurant',
+                'nav-hebergements': 'Accommodation',
+                'nav-restauration': 'Restaurant',
                 'nav-services': 'Services',
-                'nav-gallery': 'Gallery',
+                'nav-experiences': 'Experiences',
+                'nav-galerie': 'Gallery',
                 'nav-contact': 'Contact',
-                'nav-admin': 'Admin',
-                'nav-book': 'Book now',
+                'nav-reserver': 'Book now',
                 'current-lang': 'EN',
                 
                 // Hero
@@ -1747,9 +1828,11 @@
                 'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Home',
+                'footer-residences': 'Residences',
                 'footer-rooms': 'Rooms',
-                'footer-restaurant': 'Restaurant',
+                'footer-restauration': 'Restaurant',
                 'footer-services': 'Services',
+                'footer-experiences': 'Experiences',
                 'footer-gallery': 'Gallery',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
@@ -1767,9 +1850,6 @@
 
         // ===== FONCTIONS POUR LA GALERIE PHOTOS =====
         
-        /**
-         * Initialise la galerie
-         */
         function initGallery() {
             const galleryGrid = document.getElementById('gallery-grid');
             if (!galleryGrid) return;
@@ -1784,9 +1864,6 @@
             }
         }
 
-        /**
-         * Affiche les photos dans la grille
-         */
         function renderGallery(photos) {
             const galleryGrid = document.getElementById('gallery-grid');
             
@@ -1811,9 +1888,6 @@
             });
         }
 
-        /**
-         * Convertit le code catégorie en nom lisible
-         */
         function getCategoryName(category) {
             const categories = {
                 'chambres': currentLang === 'fr' ? 'Chambres' : 'Rooms',
@@ -1824,9 +1898,6 @@
             return categories[category] || category;
         }
 
-        /**
-         * Configure les filtres de la galerie
-         */
         function setupGalleryFilters() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             
@@ -1855,9 +1926,6 @@
             });
         }
 
-        /**
-         * Charge plus de photos (pagination)
-         */
         function loadMorePhotos() {
             const currentCount = document.querySelectorAll('#gallery-grid .col-md-3').length;
             const nextPhotos = filteredPhotos.slice(currentCount, currentCount + 4);
@@ -1873,9 +1941,6 @@
 
         // ===== FONCTIONS POUR LA LIGHTBOX =====
         
-        /**
-         * Ouvre la lightbox avec la photo sélectionnée
-         */
         function openLightbox(photoId) {
             const photo = galleryData.find(p => p.id === photoId);
             if (!photo) return;
@@ -1896,17 +1961,11 @@
             document.body.style.overflow = 'hidden';
         }
 
-        /**
-         * Ferme la lightbox
-         */
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        /**
-         * Change de photo dans la lightbox
-         */
         function changePhoto(direction) {
             currentPhotoIndex += direction;
             
@@ -1924,34 +1983,24 @@
             caption.innerHTML = `<strong>${title}</strong><br><small>${desc}</small>`;
         }
 
-        // ===== FONCTIONS POUR LES VIDÉOS (MP4 LOCAL) =====
+        // ===== FONCTIONS POUR LES VIDÉOS =====
         
-        /**
-         * Ouvre le modal avec le lecteur vidéo MP4
-         */
         function openVideoModal(videoSrc, category, title) {
-            // Mettre à jour le titre du modal
             document.getElementById('videoModalCategory').textContent = category;
             document.getElementById('videoModalName').textContent = title;
             
-            // Mettre à jour la source de la vidéo
             const videoSource = document.getElementById('videoSource');
             videoSource.src = videoSrc;
             
-            // Recharger la vidéo
             const videoPlayer = document.getElementById('videoPlayer');
             videoPlayer.load();
             
-            // Ouvrir le modal
             const videoModal = new bootstrap.Modal(document.getElementById('videoPlayerModal'));
             videoModal.show();
         }
 
         // ===== FONCTIONS POUR LA RÉSERVATION =====
         
-        /**
-         * Redirige vers WhatsApp depuis le modal de réservation
-         */
         function redirectToWhatsAppBooking() {
             const message = currentLang === 'fr' 
                 ? `Bonjour Lawmar Hôtel Les Résidences - Gandiol 🇸🇳\n\nJe souhaite faire une réservation.\n\nPourriez-vous m'aider avec la réservation ?\n\nMerci!`
@@ -1965,13 +2014,9 @@
             if (bookingModal) bookingModal.hide();
         }
 
-        /**
-         * Change la langue
-         */
         function changeLanguage(lang) {
             currentLang = lang;
             
-            // Mettre à jour le texte de tous les éléments avec id
             for (let key in translations[lang]) {
                 let element = document.getElementById(key);
                 if (element) {
@@ -1983,16 +2028,23 @@
                 }
             }
             
-            // Mettre à jour les attributs placeholder
-            document.getElementById('newsletter-input').placeholder = translations[lang]['newsletter-input'];
+            let newsletterInput = document.getElementById('newsletter-input');
+            if (newsletterInput) {
+                newsletterInput.placeholder = translations[lang]['newsletter-input'];
+            }
             
-            // Mettre à jour l'attribut lang de la page
             document.documentElement.lang = lang;
             
-            // Recharger la galerie avec les nouvelles traductions
+            let currentLangElement = document.getElementById('current-lang');
+            if (currentLangElement) {
+                currentLangElement.textContent = translations[lang]['current-lang'];
+            }
+            
             const galleryGrid = document.getElementById('gallery-grid');
-            galleryGrid.innerHTML = '';
-            renderGallery(filteredPhotos.slice(0, 8));
+            if (galleryGrid) {
+                galleryGrid.innerHTML = '';
+                renderGallery(filteredPhotos.slice(0, 8));
+            }
             
             console.log('Langue changée en ' + lang);
         }
@@ -2004,14 +2056,9 @@
             setupEventListeners();
         });
 
-        /**
-         * Configure tous les écouteurs d'événements
-         */
         function setupEventListeners() {
-            // Bouton charger plus
             document.getElementById('load-more-photos')?.addEventListener('click', loadMorePhotos);
             
-            // Formulaire de réservation
             document.getElementById('booking-form')?.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const msg = currentLang === 'fr' ? 'Réservation envoyée ! Vous serez contacté.' : 'Booking sent! You will be contacted.';
@@ -2019,7 +2066,6 @@
                 bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
             });
             
-            // Formulaire newsletter
             document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const msg = currentLang === 'fr' ? 'Merci pour votre inscription !' : 'Thank you for subscribing!';
@@ -2027,7 +2073,6 @@
                 this.reset();
             });
             
-            // Formulaire admin
             document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const msg = currentLang === 'fr' ? 'Connexion réussie !' : 'Login successful!';
@@ -2035,7 +2080,6 @@
                 bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
             });
             
-            // Touche Échap pour fermer la lightbox
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') closeLightbox();
             });

@@ -95,7 +95,7 @@
             transform: translateY(-2px);
         }
 
-        /* ===== NAVIGATION - SANS CERCLE AUTOUR DU LOGO ===== */
+        /* ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -103,11 +103,19 @@
             min-height: 70px;
         }
 
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px; /* Décalage vers la gauche comme sur l'accueil */
         }
 
         .logo-container {
@@ -116,14 +124,13 @@
             gap: 8px;
         }
 
-        /* Style du logo - SANS CERCLE */
         .logo-image {
             width: 45px;
             height: 45px;
             object-fit: contain;
             background: transparent;
-            border: none;
-            border-radius: 0;
+            border: none; /* SUPPRESSION DU CADRE */
+            border-radius: 0; /* SUPPRESSION DU CADRE ARRONDI */
         }
 
         .brand-text {
@@ -144,34 +151,40 @@
             font-weight: 300;
         }
 
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important;
-            background-color: var(--vert) !important;
-            border-radius: 5px;
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
         }
 
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
-            border: none;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
         }
 
@@ -829,7 +842,6 @@
             text-decoration: underline;
         }
 
-        /* Style spécifique pour le logo du footer (sans cercle) */
         .footer-logo-image {
             width: 45px;
             height: 45px;
@@ -862,15 +874,78 @@
             font-style: italic;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
+        /* ===== RESPONSIVE - IDENTIQUE À LA PAGE D'ACCUEIL ===== */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
             
-            .navbar { padding: 4px 0 !important; min-height: 60px; }
-            .logo-image { width: 38px; height: 38px; }
-            .hotel-name { font-size: 1.2rem !important; }
-            .hotel-subtitle { font-size: 0.65rem !important; }
-            .navbar-nav .nav-link { padding: 8px 15px !important; }
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { 
+                padding-top: 70px; 
+            }
+            
+            .navbar {
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hotel-name {
+                font-size: 1.2rem !important;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.65rem !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 15px !important;
+            }
             
             .room-hero { height: 280px; }
             .hero-title { font-size: 1.6rem; }
@@ -892,12 +967,31 @@
         }
 
         @media (max-width: 576px) {
-            body { padding-top: 65px; }
-            .navbar { min-height: 55px; }
-            .room-hero { height: 240px; }
-            .hero-title { font-size: 1.4rem; }
-            .logo-image { width: 32px; height: 32px; }
-            .hotel-name { font-size: 1.1rem !important; }
+            body { 
+                padding-top: 65px; 
+            }
+            
+            .navbar { 
+                min-height: 55px; 
+            }
+            
+            .room-hero { 
+                height: 240px; 
+            }
+            
+            .hero-title { 
+                font-size: 1.4rem; 
+            }
+            
+            .logo-image { 
+                width: 32px; 
+                height: 32px; 
+            }
+            
+            .hotel-name { 
+                font-size: 1.1rem !important; 
+            }
+            
             .footer-logo-image {
                 width: 32px;
                 height: 32px;
@@ -905,11 +999,27 @@
         }
 
         @media (max-width: 360px) {
-            body { padding-top: 60px; }
-            .navbar { min-height: 50px; }
-            .room-hero { height: 200px; }
-            .logo-image { width: 28px; height: 28px; }
-            .hotel-name { font-size: 1rem !important; }
+            body { 
+                padding-top: 60px; 
+            }
+            
+            .navbar { 
+                min-height: 50px; 
+            }
+            
+            .room-hero { 
+                height: 200px; 
+            }
+            
+            .logo-image { 
+                width: 28px; 
+                height: 28px; 
+            }
+            
+            .hotel-name { 
+                font-size: 1rem !important; 
+            }
+            
             .footer-logo-image {
                 width: 28px;
                 height: 28px;
@@ -919,13 +1029,12 @@
 </head>
 <body>
 
-    <!-- ===== NAVIGATION - SANS CERCLE AUTOUR DU LOGO ===== -->
+    <!-- ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo SANS cercle -->
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle" id="hotel-subtitle">
@@ -941,14 +1050,31 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="Residences.html" id="nav-residences">Résidences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html" id="nav-services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="experiences.html" id="nav-experiences">Expériences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html" id="nav-contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
@@ -1102,7 +1228,7 @@
                         <h2 class="room-title" id="room-mpal-title">Chambre Mpal</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mpal-village">Village de Mpal</span></div>
                         <p class="room-description" id="room-mpal-desc">Confortable et chaleureuse avec décoration wax traditionnelle. Idéale pour un séjour authentique.</p>
-                        <div class="room-price">25,000 XOF <small id="per-night">/nuit</small></div>
+                        
                         <div class="room-features">
                             <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text" id="size-20">20 m²</span></div>
                             <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text" id="capacity-2">2 pers</span></div>
@@ -1142,9 +1268,9 @@
                                 <button type="button" data-bs-target="#carouselMouit" data-bs-slide-to="2"></button>
                             </div>
                             <div class="carousel-inner h-100">
-                                <div class="carousel-item active h-100"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Chambre Mouit"></div>
-                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Balcon"></div>
-                                <div class="carousel-item h-100"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="d-block w-100 h-100" alt="Salle de bain"></div>
+                                <div class="carousel-item active h-100"><img src="images/cham.jpeg" class="d-block w-100 h-100" alt="Chambre Mouit"></div>
+                                <div class="carousel-item h-100"><img src="images/cham01.jpeg" class="d-block w-100 h-100" alt="Balcon"></div>
+                                <div class="carousel-item h-100"><img src="images/cham2.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMouit" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselMouit" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
@@ -1158,7 +1284,7 @@
                         <h2 class="room-title" id="room-mouit-title">Chambre Mouit</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mouit-village">Village de Mouit</span></div>
                         <p class="room-description" id="room-mouit-desc">Spacieuse avec balcon privé et vue sur la piscine. Décoration inspirée des teintes du fleuve.</p>
-                        <div class="room-price">35,000 XOF <small>/nuit</small></div>
+                       
                         <div class="room-features">
                             <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-28">28 m²</span></div>
                             <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2 pers</span></div>
@@ -1214,7 +1340,7 @@
                         <h2 class="room-title" id="room-ndiebene-title">Chambre Ndiébène</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-ndiebene-village">Village de Ndiébène Gandiol</span></div>
                         <p class="room-description" id="room-ndiebene-desc">Chambre spacieuse avec vue sur le fleuve, idéale pour les petits groupes.</p>
-                        <div class="room-price">45,000 XOF <small>/nuit</small></div>
+                        
                         <div class="room-features">
                             <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-35">35 m²</span></div>
                             <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-2-3">2-3 pers</span></div>
@@ -1263,7 +1389,7 @@
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
-                        <span class="room-badge prestige" id="badge-familiale">Familiale</span>
+                        
                         <span class="room-view-badge" id="view-garden2"><i class="fas fa-tree"></i> Vue jardin</span>
                     </div>
                 </div>
@@ -1271,8 +1397,8 @@
                     <div class="room-content">
                         <h2 class="room-title" id="room-tassine`re-title">Chambre Tassinère</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-tassine`re-village">Village de Tassinère</span></div>
-                        <p class="room-description" id="room-tassine`re-desc">Grande chambre familiale communicante, idéale pour les familles ou groupes d'amis.</p>
-                        <div class="room-price">55,000 XOF <small>/nuit</small></div>
+                        
+                        
                         <div class="room-features">
                             <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-45">45 m²</span></div>
                             <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-4">4 pers</span></div>
@@ -1546,8 +1672,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <!-- Logo SANS cercle avec classe dédiée -->
-                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                             <h3>LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
                         </div>
                         <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
@@ -1609,12 +1734,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -1623,7 +1748,7 @@
     <script>
         const WHATSAPP_NUMBER = "221779952020";
         
-        // Dictionnaire de traduction
+        // Dictionnaire de traduction (gardé identique à l'original)
         const translations = {
             fr: {
                 // Navigation
@@ -1631,6 +1756,7 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
+                'nav-hebergements': 'Hébergements',
                 'nav-restauration': 'Restauration',
                 'nav-services': 'Services',
                 'nav-experiences': 'Expériences',
@@ -1839,6 +1965,7 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
+                'nav-hebergements': 'Accommodation',
                 'nav-restauration': 'Restaurant',
                 'nav-services': 'Services',
                 'nav-experiences': 'Experiences',
@@ -2072,29 +2199,6 @@
             }
             
             console.log('Langue changée en ' + lang);
-            
-            // Notification
-            const notification = document.createElement('div');
-            notification.className = 'notification-toast';
-            notification.style.position = 'fixed';
-            notification.style.top = '100px';
-            notification.style.right = '20px';
-            notification.style.background = 'white';
-            notification.style.borderRadius = '8px';
-            notification.style.padding = '12px 20px';
-            notification.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
-            notification.style.borderLeft = '5px solid var(--accent-color)';
-            notification.style.zIndex = '9999';
-            notification.style.maxWidth = '300px';
-            notification.style.animation = 'slideIn 0.3s ease';
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 1.2rem;">🌐</div>
-                    <div style="flex-grow: 1; font-size: 0.9rem;">${lang === 'fr' ? '🇫🇷 Français sélectionné' : '🇬🇧 English selected'}</div>
-                </div>
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 2000);
         }
 
         function filterRooms() {

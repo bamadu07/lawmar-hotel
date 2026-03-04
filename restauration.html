@@ -163,17 +163,18 @@
         }
 
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
-            padding: 6px 18px !important;
-            border: none;
+            padding: 6px 15px !important;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
         }
         
@@ -240,7 +241,7 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVIGATION BLANCHE TEXTE BLEU ===== */
+        /* ===== NAVBAR STYLE (IDENTIQUE À LA PAGE D'ACCUEIL) ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -248,11 +249,19 @@
             min-height: 70px;
         }
 
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px;
         }
 
         .logo-container {
@@ -288,23 +297,44 @@
             font-weight: 300;
         }
 
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important;
-            background-color: var(--primary-color) !important;
-            border-radius: 5px;
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
         }
-        
-        /* Styles pour le sous-menu dropdown - MODIFIÉ POUR ENLEVER LE VERT */
+
+        .btn-reservation {
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            transition: var(--transition);
+        }
+
+        .btn-reservation:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            transform: translateY(-2px);
+            border-bottom: none !important;
+        }
+
         .dropdown-menu {
             background-color: white;
             border: 1px solid var(--secondary-color);
@@ -314,68 +344,28 @@
             margin-top: 5px;
             min-width: 220px;
         }
-        
+
         .dropdown-item {
             color: var(--primary-color) !important;
             padding: 8px 20px;
             font-size: 0.9rem;
             transition: var(--transition);
         }
-        
+
         .dropdown-item:hover {
             background-color: var(--primary-color) !important;
             color: white !important;
             padding-left: 25px;
         }
-        
-        .dropdown-item.active {
-            background-color: var(--primary-color);
-            color: white !important;
-        }
-        
+
         .dropdown-item i {
             width: 20px;
             margin-right: 8px;
             color: var(--primary-color);
         }
-        
+
         .dropdown-item:hover i {
             color: white !important;
-        }
-        
-        .dropdown-divider {
-            border-top: 1px solid var(--sable);
-            margin: 8px 0;
-        }
-
-        .btn-reservation {
-            background-color: var(--yellow-color) !important;
-            color: var(--primary-color) !important;
-            border-radius: 5px;
-            font-weight: 600;
-            padding: 6px 15px !important;
-            border: none;
-        }
-
-        .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
-            transform: translateY(-2px);
-        }
-        
-        .btn-admin {
-            background-color: #6c757d !important;
-            color: white !important;
-            border-radius: 5px;
-            font-weight: 600;
-            padding: 6px 15px !important;
-            border: none;
-        }
-        
-        .btn-admin:hover {
-            background-color: #5a6268 !important;
-            color: white !important;
-            transform: translateY(-2px);
         }
 
         /* ===== HEADER ===== */
@@ -1418,25 +1408,44 @@
         }
 
         /* Responsive */
-        @media (max-width: 992px) {
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
             .navbar-brand {
-                max-width: 70%;
+                margin-left: 0;
             }
-            .hotel-name {
-                font-size: 1.3rem !important;
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
             }
-            .carousel-control-prev {
-                left: -15px;
-            }
-            .carousel-control-next {
-                right: -15px;
-            }
-            .hero-title {
-                font-size: 2rem !important;
-            }
-            .chef-profile {
+            
+            .navbar-nav {
                 flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
                 text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
             }
         }
 
@@ -1718,13 +1727,12 @@
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION BLANCHE TEXTE BLEU ===== -->
+    <!-- ===== NAVIGATION IDENTIQUE À LA PAGE D'ACCUEIL ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo officiel avec fallback -->
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent; width: 50px; height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle" id="hotel-subtitle">
@@ -1742,17 +1750,13 @@
                         <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a>
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="restaurationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Restauration
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="restaurationDropdown">
-                            <li><a class="dropdown-item active" href="restauration.html"><i class="fas fa-utensils"></i> <span id="dropdown-restaurant">Restaurant</span></a></li>
-                            <li><a class="dropdown-item" href="chambres.html"><i class="fas fa-home"></i> <span id="dropdown-rooms">Hébergements</span></a></li>
-                            <li><hr class="dropdown-divider"></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="services.html" id="nav-services">Services</a>
@@ -1763,9 +1767,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#tableBookingModal" id="nav-reserver">Réserver</a>
@@ -1790,7 +1791,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <h1 class="hero-title" id="hero-title">Restaurant Le Teranga</h1>
-                    <p class="hero-subtitle" id="hero-subtitle">Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef Oumar Diallo</p>
+                    <p class="hero-subtitle" id="hero-subtitle">Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef </p>
                     <div class="location-badge" id="location-badge">
                         <i class="fas fa-utensils me-1"></i> Saveurs du Sénégal aux portes de la Langue de Barbarie
                     </div>
@@ -1808,7 +1809,7 @@
                     Notre restaurant met à l'honneur les saveurs du terroir. Poissons frais, spécialités sénégalaises, grillades et cuisine conviviale composent notre carte.
                 </p>
                 <p id="resto-desc-text">
-                    Nous privilégions les produits locaux et de saison afin d'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef Oumar Diallo, qui met son savoir-faire au service de la gastronomie sénégalaise.
+                    Nous privilégions les produits locaux et de saison afin d'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef , qui met son savoir-faire au service de la gastronomie sénégalaise.
                 </p>
                 
                 <!-- Produits locaux mis en avant -->
@@ -1863,7 +1864,7 @@
                                 <h4 id="starter-title">Entrée</h4>
                                 <p class="fw-bold" id="starter-name">Velouté de potiron de Gandiol</p>
                                 <p class="small text-muted" id="starter-desc">Potiron local, gingembre frais, lait de coco</p>
-                                <span class="special-price" id="starter-price">3,500 XOF</span>
+                                <span class="special-price" id="starter-price"> XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1874,7 +1875,7 @@
                                 <h4 id="main-title">Plat Principal</h4>
                                 <p class="fw-bold" id="main-name">Thieboudienne du Chef</p>
                                 <p class="small text-muted" id="main-desc">Riz au poisson, légumes frais de Tassinère</p>
-                                <span class="special-price" id="main-price">9,500 XOF</span>
+                                <span class="special-price" id="main-price"> XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1885,7 +1886,7 @@
                                 <h4 id="dessert-title">Dessert</h4>
                                 <p class="fw-bold" id="dessert-name">Fondant chocolat baobab</p>
                                 <p class="small text-muted" id="dessert-desc">Glace à la bouye (fruit du baobab)</p>
-                                <span class="special-price" id="dessert-price">3,000 XOF</span>
+                                <span class="special-price" id="dessert-price"> XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1916,7 +1917,7 @@
                             <h4>Thieboudienne <span class="badge bg-warning ms-2" id="national-dish">Plat national</span></h4>
                             <p class="small" id="thieb-desc">Riz au poisson, légumes frais, condiments - Recette traditionnelle</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">12,500 XOF</span>
+                                <span class="special-price"> XOF</span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Thieboudienne" data-price="12500"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -1929,7 +1930,7 @@
                             <h4>Yassa Poulet</h4>
                             <p class="small" id="yassa-desc">Poulet fermier mariné au citron, oignons confits</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">11,000 XOF</span>
+                                <span class="special-price"> XOF</span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Yassa Poulet" data-price="11000"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -1942,7 +1943,7 @@
                             <h4>Mafé d'agneau</h4>
                             <p class="small" id="mafe-desc">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">12,000 XOF</span>
+                                <span class="special-price"> XOF</span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Mafé d'agneau" data-price="12000"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -1955,7 +1956,7 @@
                             <h4>Pastels (6 pièces)</h4>
                             <p class="small" id="pastels-desc">Beignets farcis au poisson épicé de Tassinère</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">8,000 XOF</span>
+                                <span class="special-price"> XOF</span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Pastels" data-price="8000"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -1968,7 +1969,7 @@
                             <h4>Accra (10 pièces)</h4>
                             <p class="small" id="accra-desc">Beignets de haricots blancs, sauce piquante maison</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">6,500 XOF</span>
+                                <span class="special-price"></span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Accra" data-price="6500"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -1981,68 +1982,11 @@
                             <h4>Feuilles de manioc</h4>
                             <p class="small" id="manioc-desc">Feuilles de manioc au poisson fumé, huile de palme</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price">8,000 XOF</span>
+                                <span class="special-price"></span>
                                 <button class="btn btn-sm btn-order add-to-cart" data-dish="Feuilles de manioc" data-price="8000"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SECTION LA CARTE (SOUS-PAGE 3) ===== -->
-    <section id="carte" class="section-padding">
-        <div class="container">
-            <div class="restaurant-subpage">
-                <div class="subpage-header">
-                    <h2><i class="fas fa-utensils"></i> <span id="menu-title">La Carte - Restaurant Le Teranga</span></h2>
-                    <p class="text-muted" id="menu-subtitle">Explorez notre menu complet, de l'entrée au dessert</p>
-                </div>
-                
-                <!-- Navigation rapide de la carte -->
-                <div class="subpage-nav text-center">
-                    <button class="btn btn-outline-primary active" data-carte="entrees" id="menu-starters">Entrées</button>
-                    <button class="btn btn-outline-primary" data-carte="plats" id="menu-mains">Plats Principaux</button>
-                    <button class="btn btn-outline-primary" data-carte="poissons" id="menu-fish">Poissons & Fruits de mer</button>
-                    <button class="btn btn-outline-primary" data-carte="viandes" id="menu-meat">Viandes</button>
-                    <button class="btn btn-outline-primary" data-carte="desserts" id="menu-desserts">Desserts</button>
-                    <button class="btn btn-outline-primary" data-carte="boissons" id="menu-drinks">Boissons</button>
-                </div>
-                
-                <!-- Section Entrées -->
-                <div id="carte-entrees" class="carte-section mt-4">
-                    <h4 class="mb-3" style="color: var(--primary-color);"><i class="fas fa-seedling me-2"></i> <span id="starters-section">Entrées</span></h4>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                                <div><strong id="starter1-name">Salade Gandiolaise</strong> <span class="badge bg-light text-dark ms-2" id="starter1-price">8,500 XOF</span></div>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Salade Gandiolaise" data-price="8500"><i class="fas fa-cart-plus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                                <div><strong id="starter2-name">Velouté de potiron de Gandiol</strong> <span class="badge bg-light text-dark ms-2" id="starter2-price">7,500 XOF</span></div>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Velouté de potiron de Gandiol" data-price="7500"><i class="fas fa-cart-plus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                                <div><strong id="starter3-name">Brochettes de crevettes de Tassinère</strong> <span class="badge bg-light text-dark ms-2" id="starter3-price">9,500 XOF</span></div>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Brochettes de crevettes de Tassinère" data-price="9500"><i class="fas fa-cart-plus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                                <div><strong id="starter4-name">Carpaccio de thon</strong> <span class="badge bg-light text-dark ms-2" id="starter4-price">10,500 XOF</span></div>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Carpaccio de thon" data-price="10500"><i class="fas fa-cart-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <p class="text-muted" id="menu-note">Consultez la section "Menu complet" pour voir tous nos plats.</p>
                 </div>
             </div>
         </div>
@@ -2058,13 +2002,12 @@
                 </div>
                 
                 <div class="chef-profile">
-                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Chef Oumar Diallo" class="chef-image" onerror="this.src='https://via.placeholder.com/150x150/1E3A5F/ffffff?text=Chef'">
+                    <img src="images/logo1.png" alt="Chef Oumar Diallo" class="chef-image" onerror="this.src='https://via.placeholder.com/150x150/1E3A5F/ffffff?text=Chef'">
                     <div class="chef-info">
-                        <h3>Oumar Diallo</h3>
+                        <h3>Chef Cuisinier</h3>
                         <p class="chef-signature" id="chef-quote">"La cuisine sénégalaise est un voyage des sens"</p>
                         <p id="chef-bio1">Originaire de Saint-Louis, le Chef Oumar Diallo a parcouru le monde avant de revenir à Gandiol pour partager sa passion de la cuisine sénégalaise. Formé dans les plus grandes cuisines de Dakar et à l'international, il met son talent au service des produits locaux de Gandiol et de Tassinère.</p>
-                        <p><i class="fas fa-medal me-2" style="color: var(--yellow-color);"></i> <span id="chef-award">Prix du meilleur chef traditionnel 2024 - Saint-Louis</span></p>
-                        <p><i class="fas fa-utensils me-2" style="color: var(--primary-color);"></i> <span id="chef-speciality">Spécialiste de la Thieboudienne et du Yassa</span></p>
+                        
                         <p><i class="fas fa-heart me-2" style="color: var(--accent-color);"></i> <span id="chef-experience">15 ans d'expérience en cuisine sénégalaise</span></p>
                     </div>
                 </div>
@@ -2090,7 +2033,7 @@
                         <h4 id="event1-title">Soirée Thieboudienne Géante</h4>
                         <p><i class="fas fa-clock me-2"></i> <span id="event1-time">19h30 - 23h00</span></p>
                         <p id="event1-desc">Venez déguster la meilleure thieboudienne de Gandiol dans une ambiance festive avec musique traditionnelle.</p>
-                        <p class="fw-bold text-primary" id="event1-price">Prix: 15,000 XOF (plat + boisson)</p>
+                        <p class="fw-bold text-primary" id="event1-price">Prix:  XOF (plat + boisson)</p>
                         <button class="btn btn-sm btn-primary" id="event1-book">Réserver</button>
                     </div>
                 </div>
@@ -2101,10 +2044,10 @@
                         <div class="month" id="month-mar2">Mars</div>
                     </div>
                     <div class="event-details">
-                        <h4 id="event2-title">Atelier Cuisine avec le Chef Oumar</h4>
+                        <h4 id="event2-title">Atelier Cuisine avec le Chef </h4>
                         <p><i class="fas fa-clock me-2"></i> <span id="event2-time">16h00 - 19h00</span></p>
                         <p id="event2-desc">Apprenez à préparer le Yassa Poulet avec le Chef Oumar. Dégustation incluse.</p>
-                        <p class="fw-bold text-primary" id="event2-price">Prix: 25,000 XOF par personne</p>
+                        <p class="fw-bold text-primary" id="event2-price"> par personne</p>
                         <button class="btn btn-sm btn-primary" id="event2-book">S'inscrire</button>
                     </div>
                 </div>
@@ -2196,7 +2139,7 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (128 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
                     </div>
-                    <div class="menu-price">12,500</div>
+                    <div class="menu-price">0</div>
                     <div class="action-buttons">
                         <button class="btn-order add-to-cart" data-dish="Thieboudienne" data-price="12500">
                             <i class="fas fa-shopping-cart"></i> <span id="cart-btn">Panier</span>
@@ -2220,7 +2163,7 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (95 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
                     </div>
-                    <div class="menu-price">11,000</div>
+                    <div class="menu-price">0</div>
                     <div class="action-buttons">
                         <button class="btn-order add-to-cart" data-dish="Yassa Poulet" data-price="11000">
                             <i class="fas fa-shopping-cart"></i> <span>Panier</span>
@@ -2244,7 +2187,7 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (82 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
                     </div>
-                    <div class="menu-price">12,000</div>
+                    <div class="menu-price">0</div>
                     <div class="action-buttons">
                         <button class="btn-order add-to-cart" data-dish="Mafé d'agneau" data-price="12000">
                             <i class="fas fa-shopping-cart"></i> <span>Panier</span>
@@ -2593,7 +2536,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                             <h3>LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
                         </div>
                         <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
@@ -2611,10 +2554,11 @@
                         <ul>
                             <li><a href="index.html" id="footer-home">Accueil</a></li>
                             <li><a href="Residences.html" id="footer-residences">Résidences</a></li>
-                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="restauration.html" id="footer-restauration">Restauration</a></li>
+                            <li><a href="chambres.html" id="footer-hebergements">Hébergements</a></li>
                             <li><a href="services.html" id="footer-services">Services</a></li>
                             <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
-                            <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
+                            <li><a href="galerie.html" id="footer-galerie">Galerie</a></li>
                             <li><a href="contact.html" id="footer-contact">Contact</a></li>
                         </ul>
                     </div>
@@ -2671,6 +2615,40 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- ===== MODAL ADMIN LOGIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="admin-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label small" id="admin-email-label">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label small" id="admin-password-label">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select form-select-sm" id="admin-role">
+                                <option value="reception" id="admin-role-reception">Réceptionniste</option>
+                                <option value="serveur" id="admin-role-serveur">Serveur</option>
+                                <option value="cuisine" id="admin-role-cuisine">Cuisine</option>
+                                <option value="guide" id="admin-role-guide">Guide touristique</option>
+                                <option value="manager" id="admin-role-manager">Manager</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm" id="admin-login-btn">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -2689,8 +2667,8 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
-                'dropdown-restaurant': 'Restaurant',
-                'dropdown-rooms': 'Hébergements',
+                'nav-restauration': 'Restauration',
+                'nav-hebergements': 'Hébergements',
                 'nav-services': 'Services',
                 'nav-experiences': 'Expériences',
                 'nav-galerie': 'Galerie',
@@ -2751,26 +2729,6 @@
                 'pastels-desc': 'Beignets farcis au poisson épicé de Tassinère',
                 'accra-desc': 'Beignets de haricots blancs, sauce piquante maison',
                 'manioc-desc': 'Feuilles de manioc au poisson fumé, huile de palme',
-                
-                // La carte
-                'menu-title': 'La Carte - Restaurant Le Teranga',
-                'menu-subtitle': 'Explorez notre menu complet, de l\'entrée au dessert',
-                'menu-starters': 'Entrées',
-                'menu-mains': 'Plats Principaux',
-                'menu-fish': 'Poissons & Fruits de mer',
-                'menu-meat': 'Viandes',
-                'menu-desserts': 'Desserts',
-                'menu-drinks': 'Boissons',
-                'starters-section': 'Entrées',
-                'starter1-name': 'Salade Gandiolaise',
-                'starter1-price': '8,500 XOF',
-                'starter2-name': 'Velouté de potiron de Gandiol',
-                'starter2-price': '7,500 XOF',
-                'starter3-name': 'Brochettes de crevettes de Tassinère',
-                'starter3-price': '9,500 XOF',
-                'starter4-name': 'Carpaccio de thon',
-                'starter4-price': '10,500 XOF',
-                'menu-note': 'Consultez la section "Menu complet" pour voir tous nos plats.',
                 
                 // Chef
                 'chef-title': 'Notre Chef - Oumar Diallo',
@@ -2864,22 +2822,18 @@
                 'cart-summary': 'Récapitulatif de votre commande',
                 'cart-total-label': 'Total',
                 'continue-shopping': 'Continuer mes achats',
-                'step1-next-btn': 'Continuer',
                 'your-info': 'Vos coordonnées',
                 'label-name': 'Nom complet *',
                 'label-phone': 'Téléphone *',
                 'label-email': 'Email (optionnel)',
                 'label-address': 'Adresse de livraison *',
                 'label-notes': 'Instructions spéciales',
-                'step2-back-btn': '← Retour',
-                'step2-next-btn': 'Continuer vers la confirmation',
                 'confirmation-title': 'Confirmation de votre commande',
                 'whatsapp-info': 'Votre commande sera envoyée via WhatsApp pour confirmation.',
                 'summary-title': 'Récapitulatif',
                 'total-label': 'Total',
                 'your-coords': 'Vos coordonnées',
                 'whatsapp-redirect': 'En cliquant sur "Confirmer la commande", vous serez redirigé vers WhatsApp pour finaliser votre commande.',
-                'step3-back-btn': '← Retour',
                 'finalize-order-btn': 'Confirmer via WhatsApp',
                 
                 // Modal WhatsApp
@@ -2892,15 +2846,27 @@
                 'cancel-btn': 'Annuler',
                 'send-order': 'Envoyer la commande',
                 
+                // Admin modal
+                'admin-title': 'Connexion personnel',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Mot de passe',
+                'admin-role-reception': 'Réceptionniste',
+                'admin-role-serveur': 'Serveur',
+                'admin-role-cuisine': 'Cuisine',
+                'admin-role-guide': 'Guide touristique',
+                'admin-role-manager': 'Manager',
+                'admin-login-btn': 'Se connecter',
+                
                 // Footer
                 'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Accueil',
                 'footer-residences': 'Résidences',
-                'footer-restaurant': 'Restauration',
+                'footer-restauration': 'Restauration',
+                'footer-hebergements': 'Hébergements',
                 'footer-services': 'Services',
                 'footer-experiences': 'Expériences',
-                'footer-gallery': 'Galerie',
+                'footer-galerie': 'Galerie',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
                 'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
@@ -2908,7 +2874,6 @@
                 'footer-sync-note': 'Objectif : tout message reçu sur l\'une de ces adresses est accessible dans les trois boîtes.',
                 'footer-newsletter-title': 'Newsletter',
                 'footer-newsletter-text': 'Recevez nos offres spéciales et actualités',
-                'newsletter-input': 'Votre email',
                 'footer-rights': 'Tous droits réservés.',
                 'footer-admin': 'Accès personnel',
                 'view-cart': 'Voir mon panier'
@@ -2919,8 +2884,8 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
-                'dropdown-restaurant': 'Restaurant',
-                'dropdown-rooms': 'Accommodations',
+                'nav-restauration': 'Restaurant',
+                'nav-hebergements': 'Accommodations',
                 'nav-services': 'Services',
                 'nav-experiences': 'Experiences',
                 'nav-galerie': 'Gallery',
@@ -2981,26 +2946,6 @@
                 'pastels-desc': 'Stuffed fritters with spicy Tassinère fish',
                 'accra-desc': 'White bean fritters, homemade spicy sauce',
                 'manioc-desc': 'Cassava leaves with smoked fish, palm oil',
-                
-                // La carte
-                'menu-title': 'The Menu - Restaurant Le Teranga',
-                'menu-subtitle': 'Explore our complete menu, from starters to desserts',
-                'menu-starters': 'Starters',
-                'menu-mains': 'Main Courses',
-                'menu-fish': 'Fish & Seafood',
-                'menu-meat': 'Meat',
-                'menu-desserts': 'Desserts',
-                'menu-drinks': 'Drinks',
-                'starters-section': 'Starters',
-                'starter1-name': 'Gandiol Salad',
-                'starter1-price': '8,500 XOF',
-                'starter2-name': 'Gandiol pumpkin velouté',
-                'starter2-price': '7,500 XOF',
-                'starter3-name': 'Tassinère shrimp skewers',
-                'starter3-price': '9,500 XOF',
-                'starter4-name': 'Tuna carpaccio',
-                'starter4-price': '10,500 XOF',
-                'menu-note': 'Check the "Full menu" section to see all our dishes.',
                 
                 // Chef
                 'chef-title': 'Our Chef - Oumar Diallo',
@@ -3094,22 +3039,18 @@
                 'cart-summary': 'Order summary',
                 'cart-total-label': 'Total',
                 'continue-shopping': 'Continue shopping',
-                'step1-next-btn': 'Continue',
                 'your-info': 'Your information',
                 'label-name': 'Full name *',
                 'label-phone': 'Phone *',
                 'label-email': 'Email (optional)',
                 'label-address': 'Delivery address *',
                 'label-notes': 'Special instructions',
-                'step2-back-btn': '← Back',
-                'step2-next-btn': 'Continue to confirmation',
                 'confirmation-title': 'Order confirmation',
                 'whatsapp-info': 'Your order will be sent via WhatsApp for confirmation.',
                 'summary-title': 'Summary',
                 'total-label': 'Total',
                 'your-coords': 'Your contact information',
                 'whatsapp-redirect': 'By clicking "Confirm order", you will be redirected to WhatsApp to finalize your order.',
-                'step3-back-btn': '← Back',
                 'finalize-order-btn': 'Confirm via WhatsApp',
                 
                 // Modal WhatsApp
@@ -3122,15 +3063,27 @@
                 'cancel-btn': 'Cancel',
                 'send-order': 'Send order',
                 
+                // Admin modal
+                'admin-title': 'Staff login',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Password',
+                'admin-role-reception': 'Receptionist',
+                'admin-role-serveur': 'Waiter',
+                'admin-role-cuisine': 'Kitchen',
+                'admin-role-guide': 'Tour guide',
+                'admin-role-manager': 'Manager',
+                'admin-login-btn': 'Sign in',
+                
                 // Footer
                 'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Home',
                 'footer-residences': 'Residences',
-                'footer-restaurant': 'Restaurant',
+                'footer-restauration': 'Restaurant',
+                'footer-hebergements': 'Accommodations',
                 'footer-services': 'Services',
                 'footer-experiences': 'Experiences',
-                'footer-gallery': 'Gallery',
+                'footer-galerie': 'Gallery',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
                 'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
@@ -3138,7 +3091,6 @@
                 'footer-sync-note': 'Goal: any message received on one of these addresses is accessible in all three mailboxes.',
                 'footer-newsletter-title': 'Newsletter',
                 'footer-newsletter-text': 'Receive our special offers and news',
-                'newsletter-input': 'Your email',
                 'footer-rights': 'All rights reserved.',
                 'footer-admin': 'Staff access',
                 'view-cart': 'View my cart'
@@ -3369,6 +3321,13 @@
             
             scrollTopBtn.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Admin login form
+            document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Connexion réussie !');
+                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
             });
         });
     </script>

@@ -10,22 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== PALETTE OFFICIELLE ===== */
+        /* ===== VARIABLES CSS - IDENTIQUES À LA PAGE ACCUEIL ===== */
         :root {
-            --indigo: #1E3A5F;
-            --sable: #F4EDE4;
-            --vert: #2F5D50;
-            --accent-rouge: #c53030;
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;
+            --accent-color: #c53030;
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-         
+            --yellow-color: #FFD700;
             --transition: all 0.3s ease;
-            --border-radius: 8px;
-            --box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            --box-shadow-hover: 0 10px 25px rgba(0,0,0,0.12);
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
         }
 
+        /* ===== RESET CSS ===== */
         * {
             margin: 0;
             padding: 0;
@@ -34,9 +34,10 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--dark-color);
-            padding-top: 60px; /* Réduit de 80px à 60px */
+            padding-top: 80px;
+            background-color: var(--sable);
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -45,7 +46,7 @@
         }
 
         .section-padding {
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         .bg-sable {
@@ -54,30 +55,29 @@
 
         /* ===== BOUTONS ===== */
         .btn-primary {
-            background-color: var(--indigo);
-            border-color: var(--indigo);
-            padding: 6px 16px; /* Réduit */
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 20px;
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.9rem;
+            color: white;
         }
 
         .btn-primary:hover {
-            background-color: #15304f;
-            border-color: #15304f;
+            background-color: #024a84;
+            border-color: #024a84;
             transform: translateY(-2px);
         }
 
         .btn-outline-primary {
-            color: var(--indigo);
-            border-color: var(--indigo);
-            padding: 5px 12px; /* Réduit */
-            font-size: 0.8rem; /* Réduit */
+            color: var(--primary-color);
+            border-color: var(--primary-color);
         }
 
         .btn-outline-primary:hover {
-            background-color: var(--indigo);
-            border-color: var(--indigo);
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
             color: white;
         }
 
@@ -94,12 +94,19 @@
             transform: translateY(-2px);
         }
 
-        /* ===== NAVIGATION RÉDUITE ===== */
+        /* ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== */
         .navbar {
             background-color: white !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 2px 0 !important;
-            min-height: 55px; /* Réduit de 70px à 55px */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .navbar-brand {
@@ -107,20 +114,22 @@
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 5px; /* Réduit */
+            gap: 8px;
         }
 
         .logo-image {
-            width: 35px; /* Réduit de 45px à 35px */
-            height: 35px; /* Réduit de 45px à 35px */
-            object-fit: cover;
-            border: 1px solid var(--sable);
-            background-color: white;
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            border-radius: 0;
         }
 
         .brand-text {
@@ -129,57 +138,62 @@
         }
 
         .hotel-name {
-            color: var(--indigo) !important;
-            font-size: 1.2rem; /* Réduit de 1.4rem à 1.2rem */
+            color: var(--primary-color) !important;
+            font-size: 1.4rem;
             margin: 0;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: var(--dark-color) !important;
-            font-size: 0.65rem; /* Réduit de 0.75rem à 0.65rem */
+            font-size: 0.75rem;
             font-weight: 300;
         }
 
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
-            color: var(--indigo) !important;
+            color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 4px 10px !important; /* Réduit */
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
-            font-size: 0.8rem; /* Réduit de 0.9rem à 0.8rem */
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: var(--indigo) !important;
-            opacity: 1;
             border-bottom: 2px solid var(--vert);
         }
 
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
-            color: var(--indigo) !important;
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
-            padding: 4px 12px !important; /* Réduit */
-            border: none;
-            font-size: 0.8rem !important;
+            padding: 6px 15px !important;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--indigo) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
         }
 
         .dropdown-menu {
             background-color: white;
-            border: 1px solid var(--sable);
+            border: 1px solid var(--secondary-color);
         }
 
         .dropdown-item {
-            color: var(--indigo) !important;
+            color: var(--primary-color) !important;
         }
 
         .dropdown-item:hover {
@@ -187,12 +201,12 @@
             color: var(--indigo) !important;
         }
 
-        /* ===== HERO SECTION RÉDUITE ===== */
+        /* ===== HERO SECTION ===== */
         .services-hero {
             background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 300px; /* Réduit de 350px à 300px */
+            height: 350px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -215,43 +229,44 @@
         .hero-content {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 30px; /* Réduit */
+            margin: 0 auto 40px;
             position: relative;
             z-index: 2;
-            padding: 0 20px;
         }
 
         .hero-title {
-            color: white !important;
-            font-size: 2rem; /* Réduit de 2.2rem à 2rem */
+            color: white;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease;
         }
 
         .hero-subtitle {
-            color: white !important;
-            font-size: 1rem; /* Réduit de 1.1rem à 1rem */
-            margin-bottom: 12px;
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
         .location-badge {
             display: inline-block;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white !important;
-            padding: 5px 10px; /* Réduit */
+            background-color: var(--indigo);
+            color: white;
+            padding: 6px 12px;
             border-radius: 30px;
-            font-size: 0.8rem; /* Réduit */
+            font-size: 0.85rem;
             margin-bottom: 12px;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
+            border: 1px solid var(--sable);
+            animation: fadeIn 1s ease 0.6s both;
         }
 
         .btn-hero {
-            padding: 8px 20px; /* Réduit */
+            padding: 8px 20px;
             margin: 3px 6px;
-            font-size: 0.9rem; /* Réduit */
+            font-size: 0.9rem;
         }
 
         .btn-outline-light {
@@ -273,69 +288,99 @@
             margin-top: 10px;
         }
 
-        /* ===== SECTION HEADER ===== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== EN-TÊTE DE SECTION ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 25px; /* Réduit */
+            margin-bottom: 30px;
         }
 
         .section-header h2 {
-            color: var(--indigo);
-            font-size: 1.8rem; /* Réduit de 2rem à 1.8rem */
+            color: var(--primary-color);
+            font-size: 2rem;
             margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--vert);
         }
 
         .section-header p {
-            color: #666;
-            font-size: 0.95rem; /* Réduit */
+            color: var(--dark-color);
+            font-size: 0.95rem;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 10px auto 0;
+            opacity: 0.8;
         }
 
         /* ===== PRIX ===== */
         .service-price {
             font-weight: bold;
-            color: var(--indigo);
-            font-size: 1rem; /* Réduit */
+            color: var(--primary-color);
+            font-size: 1rem;
         }
 
         .price-display {
             font-weight: bold;
-            color: var(--indigo);
-            font-size: 1rem; /* Réduit */
+            color: var(--primary-color);
+            font-size: 1rem;
         }
 
         .currency-badge {
             background-color: var(--sable);
             color: var(--dark-color);
-            padding: 4px 12px; /* Réduit */
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
             font-weight: bold;
             margin: 8px auto;
             display: inline-block;
+            border: 1px solid var(--primary-color);
         }
 
         /* ===== CARTES EXCURSIONS ===== */
         .excursion-card {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             overflow: hidden;
             transition: var(--transition);
             height: 100%;
             border: 1px solid rgba(0,0,0,0.1);
-            box-shadow: var(--box-shadow);
-            margin-bottom: 15px; /* Réduit */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 15px;
         }
         
         .excursion-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--box-shadow-hover);
-            border-color: var(--indigo);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border-color: var(--primary-color);
         }
         
         .excursion-image {
-            height: 140px; /* Réduit de 160px à 140px */
+            height: 140px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -356,9 +401,9 @@
         .excursion-duration {
             background: var(--sable);
             color: var(--dark-color);
-            padding: 2px 6px; /* Réduit */
+            padding: 2px 6px;
             border-radius: 12px;
-            font-size: 0.7rem; /* Réduit */
+            font-size: 0.7rem;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 6px;
@@ -368,34 +413,34 @@
             position: absolute;
             top: 8px;
             right: 8px;
-            background-color: var(--accent-rouge);
+            background-color: var(--accent-color);
             color: white;
-            padding: 3px 8px; /* Réduit */
+            padding: 3px 8px;
             border-radius: 15px;
             font-weight: 600;
             z-index: 2;
-            font-size: 0.7rem; /* Réduit */
+            font-size: 0.7rem;
         }
 
         /* ===== BOUTONS DANS LES CARTES ===== */
         .offer-buttons {
             display: flex;
-            gap: 6px; /* Réduit */
+            gap: 6px;
             margin-top: 8px;
         }
 
         .offer-buttons .btn {
             flex: 1;
-            padding: 6px 8px; /* Réduit */
-            font-size: 0.8rem; /* Réduit */
+            padding: 6px 8px;
+            font-size: 0.8rem;
             white-space: nowrap;
         }
 
         /* ===== SPA ===== */
         .spa-treatment {
             background: var(--sable);
-            border-radius: var(--border-radius);
-            padding: 12px; /* Réduit */
+            border-radius: 8px;
+            padding: 12px;
             margin-bottom: 12px;
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
@@ -403,20 +448,20 @@
 
         .spa-treatment:hover {
             transform: translateX(5px);
-            box-shadow: var(--box-shadow-hover);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
         
         .treatment-price {
             text-align: right;
             font-weight: bold;
-            color: var(--indigo);
-            font-size: 1rem; /* Réduit */
+            color: var(--primary-color);
+            font-size: 1rem;
         }
         
         /* ===== SALLE DE CONFÉRENCE ===== */
         .conference-room {
-            border: 1px solid var(--indigo);
-            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
             overflow: hidden;
             margin-bottom: 15px;
             transition: var(--transition);
@@ -425,27 +470,27 @@
 
         .conference-room:hover {
             transform: translateY(-3px);
-            box-shadow: var(--box-shadow-hover);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
         
         .room-capacity {
-            background: var(--accent-rouge);
+            background: var(--accent-color);
             color: white;
-            padding: 3px 8px; /* Réduit */
+            padding: 3px 8px;
             border-radius: 15px;
             font-weight: bold;
             display: inline-block;
-            font-size: 0.75rem; /* Réduit */
+            font-size: 0.75rem;
         }
         
         /* ===== TRANSFERTS ===== */
         .transfer-option {
             background: white;
-            border-radius: var(--border-radius);
-            padding: 12px; /* Réduit */
+            border-radius: 8px;
+            padding: 12px;
             text-align: center;
             margin-bottom: 12px;
-            border-left: 3px solid var(--indigo);
+            border-left: 3px solid var(--primary-color);
             transition: var(--transition);
             height: 100%;
             border: 1px solid rgba(0,0,0,0.1);
@@ -453,80 +498,88 @@
 
         .transfer-option:hover {
             transform: translateY(-3px);
-            box-shadow: var(--box-shadow-hover);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
         
         /* ===== TABS ===== */
         .nav-tabs .nav-link {
             color: var(--dark-color);
             font-weight: 500;
-            padding: 10px 16px; /* Réduit */
+            padding: 10px 16px;
             border: none;
             border-bottom: 2px solid transparent;
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
         }
 
         .nav-tabs .nav-link.active {
-            color: var(--indigo);
-            border-bottom: 2px solid var(--indigo);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
             background-color: transparent;
         }
 
         .nav-tabs .nav-link:hover {
-            color: var(--indigo);
+            color: var(--primary-color);
         }
 
         /* ===== CAROUSEL ===== */
         .carousel-indicators button {
-            width: 6px; /* Réduit */
-            height: 6px; /* Réduit */
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             margin: 0 3px;
+            background-color: var(--primary-color);
         }
 
         .carousel-control-prev,
         .carousel-control-next {
             width: 5%;
+            opacity: 0.5;
         }
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            background-color: var(--indigo);
+            background-color: var(--primary-color);
             border-radius: 50%;
-            padding: 8px; /* Réduit */
+            padding: 8px;
             background-size: 60%;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
         }
 
         /* ===== FILTRES ===== */
         .filter-card {
             background: white;
-            border-radius: var(--border-radius);
-            padding: 15px; /* Réduit */
-            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             margin-bottom: 20px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--sable);
         }
 
         .filter-card h5 {
-            font-size: 1rem; /* Réduit */
+            font-size: 1rem;
             margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
         .form-label {
-            font-size: 0.85rem; /* Réduit */
+            font-size: 0.85rem;
             margin-bottom: 4px;
         }
 
         .form-select, .form-control {
-            font-size: 0.85rem; /* Réduit */
-            padding: 4px 8px; /* Réduit */
+            font-size: 0.85rem;
+            padding: 4px 8px;
         }
 
         /* ===== PRÉSENTATION HÔTEL ===== */
         .hotel-presentation {
-            background: linear-gradient(135deg, var(--indigo) 0%, #15304f 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #024a84 100%);
             color: white;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
         }
@@ -536,22 +589,22 @@
         }
 
         .hotel-presentation-content {
-            padding: 25px; /* Réduit */
+            padding: 25px;
         }
 
         .hotel-presentation-content h3 {
-            font-size: 1.6rem; /* Réduit */
+            font-size: 1.6rem;
             margin-bottom: 12px;
             color: white;
         }
 
         .hotel-presentation-content .lead {
-            font-size: 1rem; /* Réduit */
+            font-size: 1rem;
             color: rgba(255,255,255,0.95);
         }
 
         .hotel-presentation-image {
-            height: 300px; /* Réduit de 350px à 300px */
+            height: 300px;
             background-size: cover;
             background-position: center;
         }
@@ -563,23 +616,23 @@
         /* ===== AVIS CLIENTS ===== */
         .review-badge {
             background: #f8f9fa;
-            border-left: 3px solid var(--indigo);
-            padding: 12px; /* Réduit */
+            border-left: 3px solid var(--primary-color);
+            padding: 12px;
             border-radius: 4px;
             margin-bottom: 12px;
         }
 
         .google-reviews {
             background: white;
-            border-radius: var(--border-radius);
-            padding: 15px; /* Réduit */
-            box-shadow: var(--box-shadow);
-            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--sable);
         }
 
         .google-rating {
             color: #4285F4;
-            font-size: 1rem; /* Réduit */
+            font-size: 1rem;
         }
 
         .google-stars {
@@ -589,11 +642,11 @@
         /* ===== GANDIOL SPÉCIFIQUE ===== */
         .gandiol-badge {
             background-color: var(--sable);
-            color: var(--indigo);
+            color: var(--primary-color);
             border-left: 3px solid var(--vert);
-            padding: 8px 12px; /* Réduit */
+            padding: 8px 12px;
             border-radius: 4px;
-            font-size: 0.8rem; /* Réduit */
+            font-size: 0.8rem;
             margin-top: 8px;
         }
         
@@ -602,28 +655,28 @@
             margin-right: 5px;
         }
 
-        /* ===== FOOTER BLANC AVEC EMAILS ===== */
+        /* ===== FOOTER BLANC ===== */
         .footer {
             background-color: white !important;
-            color: var(--indigo) !important;
-            padding: 25px 0 15px; /* Réduit */
-            font-size: 0.85rem; /* Réduit */
-            border-top: 2px solid var(--sable);
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+            color: var(--primary-color);
+            padding: 30px 0 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 15px rgba(2, 91, 165, 0.05);
         }
 
         .footer-about h3 {
-            color: var(--indigo) !important;
-            font-size: 1.3rem; /* Réduit */
-            margin-bottom: 12px;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .footer-links h4,
         .footer-contact h4,
         .footer-newsletter h4 {
-            color: var(--indigo) !important;
-            font-size: 1.1rem; /* Réduit */
-            margin-bottom: 15px;
+            color: var(--primary-color) !important;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .footer-links ul {
@@ -632,37 +685,109 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 5px; /* Réduit */
+            margin-bottom: 8px;
         }
 
         .footer-links ul li a {
-            color: var(--indigo) !important;
+            color: var(--primary-color) !important;
             text-decoration: none;
             transition: var(--transition);
-            opacity: 0.8;
-            font-size: 0.85rem; /* Réduit */
         }
 
         .footer-links ul li a:hover {
             color: var(--indigo) !important;
-            opacity: 1;
             padding-left: 5px;
             border-left: 2px solid var(--vert);
         }
 
         .footer-contact p {
-            margin-bottom: 6px; /* Réduit */
-            color: var(--indigo) !important;
-            opacity: 0.8;
-            font-size: 0.85rem; /* Réduit */
+            margin-bottom: 10px;
+            color: var(--primary-color) !important;
         }
 
         .footer-contact i {
-            color: var(--indigo) !important;
-            margin-right: 8px;
-            width: 18px;
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
         }
 
+        .footer-contact i:hover {
+            color: var(--indigo);
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--indigo);
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter .input-group {
+            margin-top: 10px;
+        }
+
+        .footer-newsletter .input-group input {
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .footer-newsletter .btn-primary:hover {
+            background-color: var(--indigo);
+            border-color: var(--indigo);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(2, 91, 165, 0.2);
+            padding-top: 15px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
+        /* Email list dans footer */
         .email-list {
             margin: 8px 0;
         }
@@ -670,86 +795,50 @@
         .email-list p {
             margin-bottom: 4px;
             font-size: 0.85rem;
-        }
-
-        .social-links {
-            margin-top: 12px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 32px; /* Réduit */
-            height: 32px; /* Réduit */
-            background-color: var(--sable) !important;
-            color: var(--indigo) !important;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 32px; /* Réduit */
-            margin-right: 8px;
-            transition: var(--transition);
-            font-size: 0.9rem; /* Réduit */
-        }
-
-        .social-links a:hover {
-            background-color: var(--indigo) !important;
-            color: white !important;
-            transform: translateY(-3px);
-        }
-
-        .footer-newsletter .input-group {
-            margin-top: 8px;
-        }
-
-        .footer-newsletter .btn-primary {
-            background-color: var(--vert);
-            border-color: var(--vert);
-            color: white !important;
-            padding: 4px 10px; /* Réduit */
-            font-size: 0.85rem; /* Réduit */
-        }
-
-        .footer-newsletter .btn-primary:hover {
-            background-color: #1e3f35;
-            border-color: #1e3f35;
-        }
-
-        .footer-newsletter .form-control {
-            border: 1px solid var(--sable);
-            font-size: 0.85rem; /* Réduit */
-            padding: 4px 8px; /* Réduit */
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--sable) !important;
-            padding-top: 12px;
-            margin-top: 15px;
-            text-align: center;
-            color: var(--indigo) !important;
-            font-size: 0.8rem; /* Réduit */
-            opacity: 0.8;
-        }
-
-        .footer-bottom a {
-            color: var(--indigo) !important;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
-            color: var(--vert) !important;
-        }
-
-        .footer-logo-image {
-            width: 45px; /* Réduit */
-            height: 45px; /* Réduit */
-            object-fit: cover;
-            border: 1px solid var(--sable);
-            background-color: white;
+            color: var(--primary-color);
         }
 
         /* ===== OPTIMISATIONS MOBILES ===== */
-        @media (max-width: 992px) {
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+            
             .excursion-card {
                 margin-bottom: 15px;
             }
@@ -769,79 +858,75 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 55px;
+                padding-top: 70px;
             }
             
             .navbar {
-                min-height: 50px;
+                padding: 4px 0 !important;
+                min-height: 60px;
             }
             
             .logo-image {
-                width: 32px;
-                height: 32px;
+                width: 38px;
+                height: 38px;
             }
             
             .hotel-name {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
             }
             
             .hotel-subtitle {
-                font-size: 0.6rem !important;
+                font-size: 0.65rem !important;
             }
             
             .services-hero {
-                height: 250px !important;
+                height: 280px !important;
                 padding: 0 15px !important;
             }
             
             .hero-content {
-                margin-bottom: 25px !important;
+                margin-bottom: 30px !important;
             }
             
             .hero-title {
-                font-size: 1.5rem !important;
+                font-size: 1.6rem !important;
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.85rem !important;
+                font-size: 0.9rem !important;
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.7rem !important;
-                padding: 4px 8px !important;
+                font-size: 0.75rem !important;
+                padding: 5px 10px !important;
                 width: 90%;
                 margin: 0 auto 12px !important;
                 white-space: normal;
                 line-height: 1.3;
                 color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
+                background-color: var(--indigo) !important;
             }
             
             .hero-buttons-container {
                 flex-direction: column !important;
-                gap: 6px !important;
+                gap: 8px !important;
                 width: 100% !important;
-                margin-top: 8px !important;
+                margin-top: 10px !important;
             }
             
             .btn-hero {
                 display: block !important;
                 width: 90% !important;
-                max-width: 200px !important;
+                max-width: 220px !important;
                 margin: 0 auto !important;
-                padding: 6px 12px !important;
-                font-size: 0.8rem !important;
+                padding: 8px 12px !important;
+                font-size: 0.85rem !important;
             }
             
             .section-header h2 {
-                font-size: 1.5rem;
-            }
-            
-            .section-header p {
-                font-size: 0.9rem;
-                padding: 0 12px;
+                font-size: 1.6rem;
             }
             
             .footer {
@@ -853,26 +938,66 @@
                 display: flex;
             }
             
-            .carousel-control-prev,
-            .carousel-control-next {
-                width: 8%;
+            .footer-logo-image {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 65px;
             }
             
-            .carousel-control-prev {
-                left: -5px;
+            .navbar {
+                min-height: 55px;
             }
             
-            .carousel-control-next {
-                right: -5px;
+            .services-hero {
+                height: 240px !important;
             }
             
-            .nav-tabs .nav-link {
-                padding: 8px 10px;
-                font-size: 0.75rem;
+            .logo-image {
+                width: 32px;
+                height: 32px;
             }
             
-            .hotel-presentation-content {
-                padding: 15px;
+            .hotel-name {
+                font-size: 1.1rem !important;
+            }
+            
+            .hero-title {
+                font-size: 1.4rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.85rem !important;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.7rem !important;
+                padding: 4px 8px !important;
+                width: 100%;
+                color: white !important;
+                background-color: var(--indigo) !important;
+            }
+            
+            .btn-hero {
+                display: block !important;
+                width: 100% !important;
+                max-width: 200px !important;
+                padding: 6px 12px !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .section-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .hotel-presentation-content h3 {
+                font-size: 1.4rem;
             }
             
             .hotel-presentation-image {
@@ -883,32 +1008,19 @@
                 height: 120px;
             }
             
-            .filter-card {
-                padding: 12px;
-            }
-            
-            .offer-buttons {
-                flex-direction: column;
-                gap: 4px;
-            }
-            
-            .transfer-option {
-                margin-bottom: 12px;
-            }
-            
             .footer-logo-image {
-                width: 40px;
-                height: 40px;
+                width: 32px;
+                height: 32px;
             }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width: 360px) {
             body {
-                padding-top: 50px;
+                padding-top: 60px;
             }
             
             .navbar {
-                min-height: 45px;
+                min-height: 50px;
             }
             
             .services-hero {
@@ -921,170 +1033,86 @@
             }
             
             .hotel-name {
-                font-size: 0.9rem !important;
+                font-size: 1rem !important;
             }
             
             .hero-title {
-                font-size: 1.3rem !important;
+                font-size: 1.2rem !important;
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.8rem !important;
+                font-size: 0.75rem !important;
                 color: white !important;
             }
             
             .location-badge {
                 font-size: 0.65rem !important;
                 padding: 3px 6px !important;
-                width: 100%;
                 color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
+                background-color: var(--indigo) !important;
             }
             
             .btn-hero {
-                display: block !important;
-                width: 100% !important;
-                max-width: 180px !important;
                 padding: 5px 10px !important;
                 font-size: 0.75rem !important;
-            }
-            
-            .section-header h2 {
-                font-size: 1.3rem;
-            }
-            
-            .hotel-presentation-content h3 {
-                font-size: 1.3rem;
-            }
-            
-            .hotel-presentation-content .lead {
-                font-size: 0.9rem;
-            }
-            
-            .hotel-presentation-image {
-                height: 180px;
-            }
-            
-            .excursion-image {
-                height: 100px;
-            }
-            
-            .filter-card .row > div {
-                margin-bottom: 8px;
+                max-width: 180px !important;
             }
             
             .footer-logo-image {
-                width: 35px;
-                height: 35px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            body {
-                padding-top: 45px;
-            }
-            
-            .navbar {
-                min-height: 40px;
-            }
-            
-            .services-hero {
-                height: 180px !important;
-            }
-            
-            .logo-image {
-                width: 24px;
-                height: 24px;
-            }
-            
-            .hotel-name {
-                font-size: 0.8rem !important;
-            }
-            
-            .hero-title {
-                font-size: 1.1rem !important;
-                color: white !important;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.7rem !important;
-                color: white !important;
-            }
-            
-            .location-badge {
-                font-size: 0.6rem !important;
-                padding: 2px 5px !important;
-                color: white !important;
-                background-color: rgba(0,0,0,0.7) !important;
-            }
-            
-            .btn-hero {
-                padding: 4px 8px !important;
-                font-size: 0.7rem !important;
-                max-width: 160px !important;
-            }
-            
-            .excursion-card h4 {
-                font-size: 0.9rem;
-            }
-            
-            .offer-buttons .btn {
-                font-size: 0.7rem;
-                padding: 4px 6px;
-            }
-            
-            .footer-logo-image {
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation réduite avec fond blanc et texte bleu -->
+
+    <!-- ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo officiel avec fallback -->
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/35x35/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                     <div class="brand-text">
-                        <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
-                        <span class="hotel-subtitle" id="nav-hotel-subtitle">
-                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère, Gandiol
+                        <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
                         </span>
                     </div>
                 </div>
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a>
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a>
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="services.html" id="nav-services">Services</a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="galerie.html" id="nav-gallery">Galerie</a>
+                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-book">Réserver</a>
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
@@ -1140,17 +1168,17 @@
                 <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h3 class="mb-3" style="color: var(--indigo);" id="hotel-name"><i class="fas fa-hotel"></i> L'Hôtel Lawmar - Gandiol</h3>
+                            <h3 class="mb-3" style="color: var(--primary-color);" id="hotel-name2"><i class="fas fa-hotel"></i> L'Hôtel Lawmar - Gandiol</h3>
                             
                             <p class="lead" id="hotel-desc1">Situé au village de Tassinère, dans la commune de Ndiébène Gandiol, notre établissement incarne l'excellence de l'hospitalité sénégalaise alliée au luxe international.</p>
                             
                             <p id="hotel-desc2">Nichée aux portes de la Langue de Barbarie, classée réserve de biosphère, Les Résidences du Lawmar vous offre une expérience unique où tradition et modernité se rencontrent harmonieusement, au cœur d'un environnement préservé.</p>
                             
-                            <h5 class="mt-4" style="color: var(--indigo);" id="hotel-philosophy-title"><i class="fas fa-crown" style="color: var(--vert);"></i> Notre Philosophie</h5>
+                            <h5 class="mt-4" style="color: var(--primary-color);" id="hotel-philosophy-title"><i class="fas fa-crown" style="color: var(--vert);"></i> Notre Philosophie</h5>
                             <p id="hotel-philosophy-text">Au Lawmar - Gandiol, nous croyons que le vrai luxe réside dans l'attention aux détails, le service personnalisé et l'authenticité des expériences. Chaque séjour est conçu pour vous faire découvrir la richesse culturelle du Gandiol et du Sénégal.</p>
                             
-                            <div class="alert border mt-3" style="background-color: var(--sable); border-color: var(--indigo) !important;">
-                                <small><i class="fas fa-map-pin" style="color: var(--indigo);"></i> <strong id="hotel-address-label">Notre adresse :</strong> <span id="hotel-address">Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal</span></small>
+                            <div class="alert border mt-3" style="background-color: var(--sable); border-color: var(--primary-color) !important;">
+                                <small><i class="fas fa-map-pin" style="color: var(--primary-color);"></i> <strong id="hotel-address-label">Notre adresse :</strong> <span id="hotel-address">Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal</span></small>
                             </div>
                         </div>
                     </div>
@@ -1158,13 +1186,13 @@
                 
                 <div class="col-lg-4">
                     <div class="card">
-                        <div class="card-header text-white" style="background-color: var(--indigo);">
+                        <div class="card-header text-white" style="background-color: var(--primary-color);">
                             <h5 class="mb-0" id="commitments-title"><i class="fas fa-star"></i> Nos engagements</h5>
                         </div>
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <div class="me-3">
-                                    <i class="fas fa-hand-holding-heart fa-2x" style="color: var(--indigo);"></i>
+                                    <i class="fas fa-hand-holding-heart fa-2x" style="color: var(--primary-color);"></i>
                                 </div>
                                 <div>
                                     <h6 class="mb-1" id="commitment1-title">Hospitalité sénégalaise</h6>
@@ -1206,14 +1234,14 @@
                     
                     <div class="card mt-3">
                         <div class="card-body text-center">
-                            <h5 class="mb-3" style="color: var(--indigo);" id="contact-title">Contactez-nous</h5>
-                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--indigo);"></i> +221 77 995 20 20</p>
-                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--indigo);"></i> +221 77 291 72 15</p>
+                            <h5 class="mb-3" style="color: var(--primary-color);" id="contact-title">Contactez-nous</h5>
+                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--primary-color);"></i> +221 77 995 20 20</p>
+                            <p class="small mb-2"><i class="fas fa-phone" style="color: var(--primary-color);"></i> +221 77 291 72 15</p>
                             
                             <!-- EMAILS MIS À JOUR (3 adresses) -->
-                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--indigo);"></i> contact@residenceslawmar.com</p>
-                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--indigo);"></i> reservation@residencelawmar.com</p>
-                            <p class="small mb-3"><i class="fas fa-envelope" style="color: var(--indigo);"></i> residencelawmar@gmail.com</p>
+                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--primary-color);"></i> contact@residenceslawmar.com</p>
+                            <p class="small mb-2"><i class="fas fa-envelope" style="color: var(--primary-color);"></i> reservation@residencelawmar.com</p>
+                            <p class="small mb-3"><i class="fas fa-envelope" style="color: var(--primary-color);"></i> residencelawmar@gmail.com</p>
                             
                             <button class="btn btn-primary w-100" onclick="viewHotelHistory()" id="history-btn">
                                 <i class="fas fa-book-open"></i> Notre histoire
@@ -1237,7 +1265,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <div class="filter-card">
-                        <h5 class="card-title mb-3" id="filter-title"><i class="fas fa-filter" style="color: var(--indigo);"></i> Filtrez les services</h5>
+                        <h5 class="card-title mb-3" id="filter-title"><i class="fas fa-filter" style="color: var(--primary-color);"></i> Filtrez les services</h5>
                         <div class="row g-2">
                             <div class="col-md-3">
                                 <label class="form-label" id="filter-category">Catégorie</label>
@@ -1258,15 +1286,7 @@
                                     <option value="4+" id="filter-duration-4plus">Plus de 4h</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label" id="filter-price">Prix</label>
-                                <select class="form-select" id="service-price">
-                                    <option value="all" id="filter-price-all">Tous les prix</option>
-                                    <option value="0-20000" id="filter-price-20k">Moins de 20,000 XOF</option>
-                                    <option value="20000-50000" id="filter-price-50k">20,000 à 50,000 XOF</option>
-                                    <option value="50000+" id="filter-price-50kplus">Plus de 50,000 XOF</option>
-                                </select>
-                            </div>
+                           
                             <div class="col-md-3">
                                 <label class="form-label" id="filter-availability">Disponibilité</label>
                                 <select class="form-select" id="service-availability">
@@ -1289,22 +1309,22 @@
             <ul class="nav nav-tabs mb-3" id="servicesTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="excursions-tab" data-bs-toggle="tab" data-bs-target="#excursions" type="button">
-                        <i class="fas fa-binoculars" style="color: var(--indigo);"></i> <span id="tab-excursions">Excursions Gandiol</span>
+                        <i class="fas fa-binoculars" style="color: var(--primary-color);"></i> <span id="tab-excursions">Excursions Gandiol</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="spa-tab" data-bs-toggle="tab" data-bs-target="#spa" type="button">
-                        <i class="fas fa-spa" style="color: var(--indigo);"></i> <span id="tab-spa">Spa & Bien-être</span>
+                        <i class="fas fa-spa" style="color: var(--primary-color);"></i> <span id="tab-spa">Spa & Bien-être</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business" type="button">
-                        <i class="fas fa-briefcase" style="color: var(--indigo);"></i> <span id="tab-business">Affaires</span>
+                        <i class="fas fa-briefcase" style="color: var(--primary-color);"></i> <span id="tab-business">Affaires</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="transfer-tab" data-bs-toggle="tab" data-bs-target="#transfer" type="button">
-                        <i class="fas fa-car" style="color: var(--indigo);"></i> <span id="tab-transport">Transports</span>
+                        <i class="fas fa-car" style="color: var(--primary-color);"></i> <span id="tab-transport">Transports</span>
                     </button>
                 </li>
             </ul>
@@ -1330,16 +1350,13 @@
                                         </div>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="images/vue1.jpeg" 
-                                                     class="d-block w-100" alt="Île Historique">
+                                                <img src="images/vue1.jpeg" class="d-block w-100" alt="Île Historique">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="images/vue2.jpeg" 
-                                                     class="d-block w-100" alt="Architecture coloniale">
+                                                <img src="images/vue2.jpeg" class="d-block w-100" alt="Architecture coloniale">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="images/vue3.jpeg" 
-                                                     class="d-block w-100" alt="Rues de Saint-Louis">
+                                                <img src="images/vue3.jpeg" class="d-block w-100" alt="Rues de Saint-Louis">
                                             </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExcursion1" data-bs-slide="prev">
@@ -1354,12 +1371,10 @@
                                     <div class="excursion-duration">
                                         <i class="fas fa-clock"></i> <span id="exc1-duration">3 heures</span>
                                     </div>
-                                    <h4 style="color: var(--indigo);" id="exc1-title">Visite du Village de Tassinère</h4>
+                                    <h4 style="color: var(--primary-color);" id="exc1-title">Visite du Village de Tassinère</h4>
                                     <p class="small" id="exc1-desc">Découverte du village traditionnel de Tassinère, rencontre avec les artisans locaux et découverte de la vie villageoise du Gandiol.</p>
                                     
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <div class="service-price" id="exc1-price">20,000 XOF</div>
-                                    </div>
+                                    
                                     <div class="offer-buttons mt-2">
                                         <button class="btn btn-primary" onclick="bookService('visite-tassinère')" id="exc1-btn">
                                             <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
@@ -1384,16 +1399,13 @@
                                         </div>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="images/vue6.jpeg" 
-                                                     class="d-block w-100" alt="Parc National">
+                                                <img src="images/vue6.jpeg" class="d-block w-100" alt="Parc National">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="images/vue7.jpeg" 
-                                                     class="d-block w-100" alt="Oiseaux migrateurs">
+                                                <img src="images/vue7.jpeg" class="d-block w-100" alt="Oiseaux migrateurs">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="images/vue8.jpeg" 
-                                                     class="d-block w-100" alt="Village de pêcheurs">
+                                                <img src="images/vue8.jpeg" class="d-block w-100" alt="Village de pêcheurs">
                                             </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExcursion2" data-bs-slide="prev">
@@ -1408,12 +1420,10 @@
                                     <div class="excursion-duration">
                                         <i class="fas fa-clock"></i> <span id="exc2-duration">4 heures</span>
                                     </div>
-                                    <h4 style="color: var(--indigo);" id="exc2-title">Parc National de la Langue de Barbarie</h4>
+                                    <h4 style="color: var(--primary-color);" id="exc2-title">Parc National de la Langue de Barbarie</h4>
                                     <p class="small" id="exc2-desc">Excursion en pirogue depuis Tassinère, observation des oiseaux migrateurs et visite du village de pêcheurs.</p>
                                     
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <div class="service-price" id="exc2-price">40,000 XOF</div>
-                                    </div>
+                                    
                                     <div class="offer-buttons mt-2">
                                         <button class="btn btn-primary" onclick="bookService('langue-barbarie')" id="exc2-btn">
                                             <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
@@ -1437,12 +1447,10 @@
                                         </div>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="images/vue4.jpeg" 
-                                                     class="d-block w-100" alt="Coucher de soleil">
+                                                <img src="images/vue4.jpeg" class="d-block w-100" alt="Coucher de soleil">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="images/vue5.jpeg" 
-                                                     class="d-block w-100" alt="Navigation sur le fleuve">
+                                                <img src="images/vue5.jpeg" class="d-block w-100" alt="Navigation sur le fleuve">
                                             </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExcursion3" data-bs-slide="prev">
@@ -1457,12 +1465,10 @@
                                     <div class="excursion-duration">
                                         <i class="fas fa-clock"></i> <span id="exc3-duration">2 heures</span>
                                     </div>
-                                    <h4 style="color: var(--indigo);" id="exc3-title">Croisière Coucher de Soleil sur le Fleuve</h4>
+                                    <h4 style="color: var(--primary-color);" id="exc3-title">Croisière Coucher de Soleil sur le Fleuve</h4>
                                     <p class="small" id="exc3-desc">Navigation sur le fleuve Sénégal au coucher du soleil avec cocktail et amuse-bouches, au départ de Tassinère.</p>
                                     
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <div class="service-price" id="exc3-price">30,000 XOF</div>
-                                    </div>
+                                    
                                     <div class="offer-buttons mt-2">
                                         <button class="btn btn-primary" onclick="bookService('croisiere')" id="exc3-btn">
                                             <i class="fas fa-calendar-check me-1"></i> <span>Réserver</span>
@@ -1476,8 +1482,8 @@
                         </div>
                     </div>
                     
-                    <div class="alert alert-info mt-3" style="border-left: 3px solid var(--indigo);">
-                        <h5 id="exc-info-title"><i class="fas fa-info-circle" style="color: var(--indigo);"></i> Informations importantes</h5>
+                    <div class="alert alert-info mt-3" style="border-left: 3px solid var(--primary-color);">
+                        <h5 id="exc-info-title"><i class="fas fa-info-circle" style="color: var(--primary-color);"></i> Informations importantes</h5>
                         <ul class="mb-0" id="exc-info-list">
                             <li id="exc-info1">Tous les prix incluent le guide local du Gandiol, les transports et les entrées</li>
                             <li id="exc-info2">Départ de l'hôtel - Village de Tassinère</li>
@@ -1492,7 +1498,7 @@
                 <div class="tab-pane fade" id="spa" role="tabpanel">
                     <div class="row">
                         <div class="col-md-8">
-                            <h3 style="color: var(--indigo);" id="spa-title">Spa Lawmar - Bien-être Traditionnel</h3>
+                            <h3 style="color: var(--primary-color);" id="spa-title">Spa Lawmar - Bien-être Traditionnel</h3>
                             <p class="lead" id="spa-subtitle">Détendez-vous avec nos soins aux produits naturels locaux du Gandiol.</p>
                             
                             <div class="row mt-3">
@@ -1500,10 +1506,10 @@
                                     <div class="spa-treatment">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <div>
-                                                <h5 style="color: var(--indigo);" id="spa1-title">Massage Sénégalais Traditionnel</h5>
+                                                <h5 style="color: var(--primary-color);" id="spa1-title">Massage Sénégalais Traditionnel</h5>
                                                 <p class="small mb-0" id="spa1-desc">60 minutes de massage aux huiles de baobab et karité de Gandiol</p>
                                             </div>
-                                            <div class="treatment-price" id="spa1-price">25,000 XOF</div>
+                                        
                                         </div>
                                         <div class="offer-buttons mt-2">
                                             <button class="btn btn-primary btn-sm" onclick="bookService('massage-traditionnel')" id="spa1-btn">
@@ -1519,10 +1525,10 @@
                                     <div class="spa-treatment">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <div>
-                                                <h5 style="color: var(--indigo);" id="spa2-title">Rituel Hammam & Gommage</h5>
+                                                <h5 style="color: var(--primary-color);" id="spa2-title">Rituel Hammam & Gommage</h5>
                                                 <p class="small mb-0" id="spa2-desc">Hammam traditionnel suivi d'un gommage au savon noir</p>
                                             </div>
-                                            <div class="treatment-price" id="spa2-price">20,000 XOF</div>
+                                            
                                         </div>
                                         <div class="offer-buttons mt-2">
                                             <button class="btn btn-primary btn-sm" onclick="bookService('hammam')" id="spa2-btn">
@@ -1539,7 +1545,7 @@
                         
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-header text-white" style="background-color: var(--indigo);">
+                                <div class="card-header text-white" style="background-color: var(--primary-color);">
                                     <h5 class="mb-0" id="spa-hours-title"><i class="fas fa-clock"></i> Horaires Spa</h5>
                                 </div>
                                 <div class="card-body">
@@ -1556,7 +1562,7 @@
                 
                 <!-- Affaires -->
                 <div class="tab-pane fade" id="business" role="tabpanel">
-                    <h3 style="color: var(--indigo);" id="business-title">Services pour Professionnels</h3>
+                    <h3 style="color: var(--primary-color);" id="business-title">Services pour Professionnels</h3>
                     <p class="lead" id="business-subtitle">Infrastructures modernes pour vos réunions et séminaires à Gandiol.</p>
                     
                     <div class="row mt-3">
@@ -1564,10 +1570,10 @@
                             <div class="conference-room">
                                 <div class="p-3">
                                     <div class="room-capacity mb-2" id="business-capacity">Jusqu'à 30 personnes</div>
-                                    <h4 style="color: var(--indigo);" id="business-room-title">Salle Tassinère</h4>
+                                    <h4 style="color: var(--primary-color);" id="business-room-title">Salle Tassinère</h4>
                                     <p class="small" id="business-room-desc">Salle de réunion équipée pour vos séminaires au cœur du Gandiol.</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="service-price" id="business-room-price">50,000 XOF / jour</div>
+                                       
                                     </div>
                                     <div class="offer-buttons mt-2">
                                         <button class="btn btn-primary" onclick="bookService('salle-tassinère')" id="business-room-btn">
@@ -1585,16 +1591,16 @@
                 
                 <!-- Transports -->
                 <div class="tab-pane fade" id="transfer" role="tabpanel">
-                    <h3 style="color: var(--indigo);" id="transport-title">Services de Transport - Gandiol</h3>
+                    <h3 style="color: var(--primary-color);" id="transport-title">Services de Transport - Gandiol</h3>
                     <p class="lead" id="transport-subtitle">Déplacez-vous depuis Tassinère vers Saint-Louis et la région.</p>
                     
                     <div class="row mt-3">
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-plane-arrival fa-3x" style="color: var(--indigo);"></i>
-                                <h5 style="color: var(--indigo);" id="transport-airport-title">Transfert Aéroport Saint-Louis</h5>
+                                <i class="fas fa-plane-arrival fa-3x" style="color: var(--primary-color);"></i>
+                                <h5 style="color: var(--primary-color);" id="transport-airport-title">Transfert Aéroport Saint-Louis</h5>
                                 <p class="small" id="transport-airport-desc">Départ de Tassinère</p>
-                                <div class="service-price mb-2" id="transport-airport-price">25,000 XOF</div>
+                                
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('transfer-aeroport')" id="transport-airport-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1608,10 +1614,10 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-car fa-3x" style="color: var(--indigo);"></i>
-                                <h5 style="color: var(--indigo);" id="transport-car-title">Voiture avec Chauffeur</h5>
+                                <i class="fas fa-car fa-3x" style="color: var(--primary-color);"></i>
+                                <h5 style="color: var(--primary-color);" id="transport-car-title">Voiture avec Chauffeur</h5>
                                 <p class="small" id="transport-car-desc">Visite de Saint-Louis et environs</p>
-                                <div class="service-price mb-2" id="transport-car-price">85,000 XOF / jour</div>
+                               
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('voiture-chauffeur')" id="transport-car-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1625,10 +1631,10 @@
                         
                         <div class="col-md-4 mb-3">
                             <div class="transfer-option">
-                                <i class="fas fa-ship fa-3x" style="color: var(--indigo);"></i>
-                                <h5 style="color: var(--indigo);" id="transport-pirogue-title">Pirogue - Langue de Barbarie</h5>
+                                <i class="fas fa-ship fa-3x" style="color: var(--primary-color);"></i>
+                                <h5 style="color: var(--primary-color);" id="transport-pirogue-title">Pirogue - Langue de Barbarie</h5>
                                 <p class="small" id="transport-pirogue-desc">Départ de Tassinère</p>
-                                <div class="service-price mb-2" id="transport-pirogue-price">15,000 XOF</div>
+                                
                                 <div class="offer-buttons mt-2">
                                     <button class="btn btn-primary btn-sm w-100" onclick="bookService('pirogue')" id="transport-pirogue-btn">
                                         <i class="fas fa-calendar-check me-1"></i> Réserver
@@ -1656,7 +1662,7 @@
             <div class="google-reviews">
                 <div class="d-flex align-items-center mb-3">
                     <i class="fab fa-google fa-2x me-2 google-rating"></i>
-                    <h4 class="mb-0" style="color: var(--indigo);" id="reviews-google-title">Avis Google</h4>
+                    <h4 class="mb-0" style="color: var(--primary-color);" id="reviews-google-title">Avis Google</h4>
                 </div>
                 <p class="mb-3" id="reviews-google-text">Consultez les avis vérifiés de nos clients sur Google :</p>
                 <div class="row">
@@ -1739,15 +1745,15 @@
     <div class="modal fade" id="bookingModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                <div class="modal-header" style="background-color: var(--primary-color); color: white;">
                     <h5 class="modal-title" id="modal-booking-title">Réservation en ligne - Les Résidences du Lawmar <span class="senegal-flag-icon">🇸🇳</span></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div id="booking-engine">
                         <form id="booking-form">
-                            <div class="alert" style="background-color: var(--sable); border-left: 3px solid var(--indigo);" id="modal-booking-currency">
-                                <i class="fas fa-info-circle" style="color: var(--indigo);"></i> Tous les prix sont en XOF (Franc CFA) - Paiements Wave, Orange Money, Free
+                            <div class="alert" style="background-color: var(--sable); border-left: 3px solid var(--primary-color);" id="modal-booking-currency">
+                                <i class="fas fa-info-circle" style="color: var(--primary-color);"></i> Tous les prix sont en XOF (Franc CFA) - Paiements Wave, Orange Money, Free
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -1826,7 +1832,7 @@
     <div class="modal fade" id="serviceBookingModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                <div class="modal-header" style="background-color: var(--primary-color); color: white;">
                     <h5 class="modal-title" id="service-modal-title">Réservation de service</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -1839,7 +1845,7 @@
     <div class="modal fade" id="adminLoginModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                <div class="modal-header" style="background-color: var(--primary-color); color: white;">
                     <h5 class="modal-title" id="admin-modal-title">Connexion personnel</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -1860,18 +1866,17 @@
         </div>
     </div>
 
-    <!-- Footer BLANC avec écritures en bleu et EMAILS MIS À JOUR -->
+    <!-- Footer BLANC -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <!-- Logo officiel avec fallback -->
-                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/45x45/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
-                            <h3 class="mb-0"><i class="fas fa-crown" style="color: var(--indigo);"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <h3 class="mb-0"><i class="fas fa-crown" style="color: var(--primary-color);"></i> LAWMAR <span class="senegal-flag-icon">🇸🇳</span></h3>
                         </div>
-                        <p style="color: var(--indigo); opacity: 0.8;" id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <p style="color: var(--primary-color); opacity: 0.8;" id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1885,9 +1890,11 @@
                         <h4 id="footer-nav">Navigation</h4>
                         <ul>
                             <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="Residences.html" id="footer-residences">Résidences</a></li>
                             <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
-                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="restauration.html" id="footer-restauration">Restauration</a></li>
                             <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
                             <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
                             <li><a href="contact.html" id="footer-contact">Contact</a></li>
                         </ul>
@@ -1914,7 +1921,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-newsletter">
                         <h4 id="footer-guide-title">Guide Touristique</h4>
-                        <p style="color: var(--indigo); opacity: 0.8;" id="footer-guide-text">Recevez notre guide des excursions de Gandiol et de la Langue de Barbarie</p>
+                        <p style="color: var(--primary-color); opacity: 0.8;" id="footer-guide-text">Recevez notre guide des excursions de Gandiol et de la Langue de Barbarie</p>
                         <form id="newsletter-form">
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Votre email" id="footer-email-input" required>
@@ -1922,7 +1929,7 @@
                             </div>
                         </form>
                         <div class="mt-3">
-                            <small style="color: var(--indigo); opacity: 0.7;" id="footer-guide-note"><i class="fas fa-map-signs" style="color: var(--indigo);"></i> Guide certifié de Gandiol disponible</small>
+                            <small style="color: var(--primary-color); opacity: 0.7;" id="footer-guide-note"><i class="fas fa-map-signs" style="color: var(--primary-color);"></i> Guide certifié de Gandiol disponible</small>
                         </div>
                         <div class="mt-2">
                             <button class="btn btn-outline-primary btn-sm w-100" onclick="downloadTouristGuide()" id="footer-download-btn">
@@ -1933,12 +1940,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -1948,7 +1955,7 @@
         const WHATSAPP_NUMBER = "221779952020";
         let currentLang = 'fr';
 
-        // Données des services
+        // Données des services (conservé identique)
         const serviceData = {
             'visite-tassinère': {
                 name_fr: "Visite du Village de Tassinère",
@@ -1988,20 +1995,21 @@
             }
         };
 
-        // Traductions anglais/français
+        // Traductions (conservées identiques)
         const translations = {
             fr: {
                 // Navigation
-                'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
-                'nav-restaurant': 'Restauration',
+                'nav-hebergements': 'Hébergements',
+                'nav-restauration': 'Restauration',
                 'nav-services': 'Services',
-                'nav-gallery': 'Galerie',
+                'nav-experiences': 'Expériences',
+                'nav-galerie': 'Galerie',
                 'nav-contact': 'Contact',
-                'nav-admin': 'Admin',
-                'nav-book': 'Réserver',
+                'nav-reserver': 'Réserver',
                 'current-lang': 'FR',
                 
                 // Hero
@@ -2017,7 +2025,7 @@
                 // Hotel section
                 'hotel-title': 'Les Résidences du Lawmar 🇸🇳',
                 'hotel-subtitle': 'Un établissement d\'exception au cœur du Gandiol, aux portes de la Langue de Barbarie',
-                'hotel-name': 'L\'Hôtel Lawmar - Gandiol',
+                'hotel-name2': 'L\'Hôtel Lawmar - Gandiol',
                 'hotel-desc1': 'Situé au village de Tassinère, dans la commune de Ndiébène Gandiol, notre établissement incarne l\'excellence de l\'hospitalité sénégalaise alliée au luxe international.',
                 'hotel-desc2': 'Nichée aux portes de la Langue de Barbarie, classée réserve de biosphère, Les Résidences du Lawmar vous offre une expérience unique où tradition et modernité se rencontrent harmonieusement, au cœur d\'un environnement préservé.',
                 'hotel-philosophy-title': 'Notre Philosophie',
@@ -2187,9 +2195,11 @@
                 'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Accueil',
+                'footer-residences': 'Résidences',
                 'footer-rooms': 'Chambres',
-                'footer-restaurant': 'Restauration',
+                'footer-restauration': 'Restauration',
                 'footer-services': 'Services',
+                'footer-experiences': 'Expériences',
                 'footer-gallery': 'Galerie',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
@@ -2207,16 +2217,17 @@
             },
             en: {
                 // Navigation
-                'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
-                'nav-restaurant': 'Restaurant',
+                'nav-hebergements': 'Accommodation',
+                'nav-restauration': 'Restaurant',
                 'nav-services': 'Services',
-                'nav-gallery': 'Gallery',
+                'nav-experiences': 'Experiences',
+                'nav-galerie': 'Gallery',
                 'nav-contact': 'Contact',
-                'nav-admin': 'Admin',
-                'nav-book': 'Book now',
+                'nav-reserver': 'Book now',
                 'current-lang': 'EN',
                 
                 // Hero
@@ -2232,7 +2243,7 @@
                 // Hotel section
                 'hotel-title': 'Les Résidences du Lawmar 🇸🇳',
                 'hotel-subtitle': 'An exceptional establishment in the heart of Gandiol, at the gates of the Langue de Barbarie',
-                'hotel-name': 'Lawmar Hotel - Gandiol',
+                'hotel-name2': 'Lawmar Hotel - Gandiol',
                 'hotel-desc1': 'Located in the village of Tassinère, in the commune of Ndiébène Gandiol, our establishment embodies the excellence of Senegalese hospitality combined with international luxury.',
                 'hotel-desc2': 'Nestled at the gates of the Langue de Barbarie, classified as a biosphere reserve, Les Résidences du Lawmar offers you a unique experience where tradition and modernity meet harmoniously, in the heart of a preserved environment.',
                 'hotel-philosophy-title': 'Our Philosophy',
@@ -2402,9 +2413,11 @@
                 'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Home',
+                'footer-residences': 'Residences',
                 'footer-rooms': 'Rooms',
-                'footer-restaurant': 'Restaurant',
+                'footer-restauration': 'Restaurant',
                 'footer-services': 'Services',
+                'footer-experiences': 'Experiences',
                 'footer-gallery': 'Gallery',
                 'footer-contact': 'Contact',
                 'footer-contact-title': 'Contact - Gandiol',
@@ -2429,7 +2442,6 @@
             for (let key in translations[lang]) {
                 let element = document.getElementById(key);
                 if (element) {
-                    // Pour les éléments qui peuvent contenir du HTML
                     if (key === 'footer-address' || key === 'spa-hours-weekdays' || key === 'spa-hours-weekend') {
                         element.innerHTML = translations[lang][key];
                     } else {
@@ -2439,10 +2451,19 @@
             }
             
             // Mettre à jour les attributs placeholder
-            document.getElementById('footer-email-input').placeholder = translations[lang]['footer-email-input'];
+            let footerEmail = document.getElementById('footer-email-input');
+            if (footerEmail) {
+                footerEmail.placeholder = translations[lang]['footer-email-input'];
+            }
             
             // Mettre à jour l'attribut lang de la page
             document.documentElement.lang = lang;
+            
+            // Mettre à jour le texte du bouton de langue actuel
+            let currentLangElement = document.getElementById('current-lang');
+            if (currentLangElement) {
+                currentLangElement.textContent = translations[lang]['current-lang'];
+            }
             
             console.log('Langue changée en ' + lang);
         }

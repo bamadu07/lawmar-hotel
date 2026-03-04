@@ -97,7 +97,7 @@
             border-color: #25D366;
         }
 
-        /* MODIFICATION: Navbar en blanc avec texte bleu */
+        /* ===== NAVBAR MODIFIÉE ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -105,11 +105,20 @@
             min-height: 70px;
         }
 
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
             font-weight: 700;
             padding: 0;
+            /* Décalage vers la gauche */
+            margin-left: -20px;
         }
 
         .logo-container {
@@ -133,49 +142,59 @@
         }
 
         .hotel-name {
-            color: var(--primary-color) !important; /* Bleu */
+            color: var(--primary-color) !important;
             font-size: 1.4rem;
             margin: 0;
             line-height: 1.2;
         }
 
         .hotel-subtitle {
-            color: var(--dark-color) !important; /* Gris foncé pour meilleure lisibilité */
+            color: var(--dark-color) !important;
             font-size: 0.75rem;
             font-weight: 300;
         }
 
+        /* Restructuration des éléments de navigation */
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
-            color: var(--primary-color) !important; /* Bleu */
+            color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: var(--indigo) !important; /* Indigo plus foncé au survol */
-            opacity: 1;
+            color: var(--indigo) !important;
             border-bottom: 2px solid var(--vert);
         }
 
-        .btn-reservation {
-            background-color: var(--yellow-color) !important;
-            color: var(--primary-color) !important;
-            border-radius: 5px;
-            font-weight: 600;
-            padding: 6px 15px !important;
-            border: none;
-        }
+        /* Bouton Réserver stylisé */
+        /* Bouton Réserver sans fond bleu */
+.btn-reservation {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color) !important;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 6px 15px !important;
+    transition: var(--transition);
+}
 
-        .btn-reservation:hover {
-            
-            color: var(--primary-color) !important;
-            transform: translateY(-2px);
-        }
+.btn-reservation:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    transform: translateY(-2px);
+}
 
+        /* Dropdown langue */
         .dropdown-menu {
             background-color: white;
             border: 1px solid var(--secondary-color);
@@ -190,6 +209,49 @@
             color: var(--indigo) !important;
         }
 
+        /* Ajustements pour mobile */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        /* Styles existants conservés */
         .saint-louis-hero {
             background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
@@ -613,7 +675,7 @@
             background-size: 60%;
         }
 
-        /* ===== FOOTER MODIFIÉ (blanc avec écritures bleues) ===== */
+        /* Footer en blanc */
         .footer {
             background-color: white !important;
             color: var(--primary-color);
@@ -761,7 +823,6 @@
             filter: invert(1);
         }
 
-        /* Style pour la section À propos */
         .about-image {
             width: 100%;
             border-radius: 12px;
@@ -769,7 +830,6 @@
             border: 5px solid white;
         }
 
-        /* Style spécifique pour le logo du footer (sans cercle) */
         .footer-logo-image {
             width: 45px;
             height: 45px;
@@ -777,6 +837,18 @@
             border: none !important;
             border-radius: 0 !important;
             background: transparent !important;
+        }
+
+        .authentic-quote {
+            font-size: 1rem;
+            color: #2d3748;
+            font-style: italic;
+            border-left: 3px solid #1E3A5F;
+            padding-left: 15px;
+            margin-top: 15px;
+            background-color: rgba(30, 58, 95, 0.02);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
         }
 
         @media (max-width: 768px) {
@@ -787,6 +859,10 @@
             .navbar {
                 padding: 4px 0 !important;
                 min-height: 60px;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
             }
             
             .logo-image {
@@ -1060,31 +1136,17 @@
                 height: 28px;
             }
         }
-
-        /* Style pour l'encadré du texte ajouté */
-        .authentic-quote {
-            font-size: 1rem;
-            color: #2d3748;
-            font-style: italic;
-            border-left: 3px solid #1E3A5F;
-            padding-left: 15px;
-            margin-top: 15px;
-            background-color: rgba(30, 58, 95, 0.02);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation avec fond blanc et texte bleu -->
+    <!-- Navigation - Logo décalé à gauche et navbar ordonnée -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo officiel avec fallback -->
                     <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent; width: 50px; height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
@@ -1103,7 +1165,10 @@
                         <a class="nav-link active" href="index.html" id="nav-home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a>
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-services">Hébergements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
@@ -1116,9 +1181,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-reservation" href="chambres.html" id="nav-reserver">Réserver</a>
@@ -1137,20 +1199,17 @@
         </div>
     </nav>
 
-    <!-- Header Saint-Louis - MODIFIÉ SELON VOS INSTRUCTIONS -->
+    <!-- Header Saint-Louis -->
     <header class="saint-louis-hero">
         <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
-                    <!-- Titre principal -->
                     <h1 class="hero-title" id="hero-title">Hôtel Les Résidences du Lawmar</h1>
-                    <!-- Sous-titre -->
                     <h2 class="hero-subtitle" id="hero-subtitle">Entre Lac, Fleuve et Océan</h2>
                     <div class="location-badge mb-3" id="location-badge">
                         <i class="fas fa-map-marker-alt"></i> Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal
                     </div>
                     <div class="hero-buttons-container mt-3">
-                        <!-- Bouton avec le texte demandé -->
                         <a href="#offres" class="btn btn-primary btn-hero" style="background-color: #1E3A5F; border-color: #1E3A5F;" id="hero-book">Réserver votre séjour</a>
                         <a href="chambres.html" class="btn btn-outline-light btn-hero" id="hero-rooms">Voir nos chambres</a>
                     </div>
@@ -1159,12 +1218,11 @@
         </div>
     </header>
 
-    <!-- Section À propos avec fond sable (#F4EDE4) et PHOTO AJOUTÉE à côté du texte -->
+    <!-- Section À propos avec fond sable -->
     <section class="section-padding" style="background-color: #F4EDE4;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <!-- PHOTO REELLEMENT AJOUTÉE -->
                     <img src="images/vue5.jpeg" 
                          alt="Vue des Résidences du Lawmar" 
                          class="about-image img-fluid"
@@ -1181,7 +1239,6 @@
                         Ici, la nature est reine : entre les eaux paisibles du fleuve Sénégal et les vagues de l'océan Atlantique, 
                         vous découvrirez une biodiversité unique et la chaleur de l'hospitalité sénégalaise, la <strong>Teranga</strong>.
                     </p>
-                    <!-- TEXTE AJOUTÉ - Nichées à Tassinère -->
                     <div class="authentic-quote" id="about-quote">
                         <i class="fas fa-quote-left" style="color: #1E3A5F; opacity: 0.5; margin-right: 5px;"></i>
                         Nichées à Tassinère – Gandiol, à seulement 15 km de Saint-Louis, Les Résidences du Lawmar vous accueillent dans un cadre naturel exceptionnel, entre le lac Doutti et le fleuve Sénégal. Ici, le temps ralentit. L'air est pur. La lumière sublime les paysages. Offrez-vous une expérience unique alliant confort, sérénité et authenticité.
@@ -1209,10 +1266,7 @@
                         <div class="offer-content">
                             <h4 id="offer1-title">Weekend Découverte Gandiol</h4>
                             <p id="offer1-desc">2 nuits avec visite du village de pêcheurs et dégustation de thieboudienne</p>
-                            <div class="offer-price">
-                                <span class="old-price">295,000 XOF</span>
-                                <span class="new-price price-display">236,000</span>
-                            </div>
+                            
                             <div class="offer-details">
                                 <small><i class="fas fa-check"></i> <span id="offer1-detail1">Visite guidée inclus</span></small><br>
                                 <small><i class="fas fa-check"></i> <span id="offer1-detail2">Dîner gastronomique</span></small>
@@ -1236,10 +1290,7 @@
                         <div class="offer-content">
                             <h4 id="offer2-title">Forfait Langue de Barbarie</h4>
                             <p id="offer2-desc">3 nuits avec excursion dans le parc national et déjeuner sur l'île aux oiseaux</p>
-                            <div class="offer-price">
-                                <span class="old-price">450,000 XOF</span>
-                                <span class="new-price price-display">382,500</span>
-                            </div>
+                            
                             <div class="offer-details">
                                 <small><i class="fas fa-check"></i> <span id="offer2-detail1">Excursion en pirogue</span></small><br>
                                 <small><i class="fas fa-check"></i> <span id="offer2-detail2">Guide naturaliste</span></small>
@@ -1263,9 +1314,7 @@
                         <div class="offer-content">
                             <h4 id="offer3-title">Séjour Affaires</h4>
                             <p id="offer3-desc">Chambre + petit-déjeuner + accès salle de conférence + transfert</p>
-                            <div class="offer-price">
-                                <span class="new-price price-display">120,000</span><small id="offer3-night">/nuit</small>
-                            </div>
+                            
                             <div class="offer-details">
                                 <small><i class="fas fa-check"></i> <span id="offer3-detail1">Wi-Fi haute vitesse</span></small><br>
                                 <small><i class="fas fa-check"></i> <span id="offer3-detail2">Bureau équipé</span></small>
@@ -1322,7 +1371,7 @@
                         <div class="attraction-image" style="background-image: url('images/vue1.jpeg')"></div>
                         <div class="p-3">
                             <h6 id="attraction1">Visite de Tassinère</h6>
-                            <div class="price-display">25,000</div>
+                            
                         </div>
                     </div>
                 </div>
@@ -1331,7 +1380,7 @@
                         <div class="attraction-image" style="background-image: url('images/vue8.jpeg')"></div>
                         <div class="p-3">
                             <h6 id="attraction2">Langue de Barbarie</h6>
-                            <div class="price-display">45,000</div>
+                            
                         </div>
                     </div>
                 </div>
@@ -1340,19 +1389,11 @@
                         <div class="attraction-image" style="background-image: url('images/vue3.jpeg')"></div>
                         <div class="p-3">
                             <h6 id="attraction3">Croisière fleuve</h6>
-                            <div class="price-display">35,000</div>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="attraction-card">
-                        <div class="attraction-image" style="background-image: url('https://images.unsplash.com/photo-1581430872225-4c1d58d46375?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
-                        <div class="p-3">
-                            <h6 id="attraction4">Atelier cuisine</h6>
-                            <div class="price-display">30,000</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -1375,7 +1416,7 @@
         </div>
     </section>
 
-    <!-- Footer en blanc avec écritures bleues et emails mis à jour -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -1413,7 +1454,6 @@
                         <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
                         <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
                         <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
-                        <!-- EMAILS MIS À JOUR -->
                         <p><i class="fas fa-envelope"></i> contact@residenceslawmar.com</p>
                         <p><i class="fas fa-envelope"></i> reservation@residencelawmar.com</p>
                         <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
@@ -1438,7 +1478,6 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
@@ -1708,7 +1747,6 @@
         };
 
         function changeLanguage(lang) {
-            // Mettre à jour le texte de tous les éléments avec id
             for (let key in translations[lang]) {
                 let element = document.getElementById(key);
                 if (element) {
@@ -1720,13 +1758,8 @@
                 }
             }
             
-            // Mettre à jour les attributs placeholder
             document.getElementById('newsletter-input').placeholder = translations[lang]['newsletter-input'];
-            
-            // Mettre à jour l'attribut lang de la page
             document.documentElement.lang = lang;
-            
-            // Afficher une notification (optionnel)
             console.log('Langue changée en ' + lang);
         }
         
@@ -1735,14 +1768,12 @@
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
         }
 
-        // Formulaire admin
         document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Connexion réussie !');
             bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
         });
 
-        // Formulaire newsletter
         document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Merci pour votre inscription !');

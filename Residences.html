@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ===== STYLES GÉNÉRAUX ===== */
         :root {
             --primary-color: #025ba5;
             --secondary-color: #e0e0e0;
@@ -14,11 +15,11 @@
             --dark-color: #2d3748;
             --light-color: #f7fafc;
             --light-green: #f0fff4;
-            ;
+            --yellow-color: #FFD700;
             --transition: all 0.3s ease;
             --indigo: #1E3A5F;
             --sable: #F4EDE4;
-           
+            --vert: #2F5D50;
             --teranga: #D4AF37;
             --eau: #4aa3c2;
             --savane: #8B7355;
@@ -40,6 +41,7 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
+            color: var(--primary-color);
         }
 
         .section-padding {
@@ -50,7 +52,50 @@
             background-color: var(--sable) !important;
         }
 
-        /* ===== NAVBAR STYLE (identique à la page d'accueil) ===== */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #024a84;
+            border-color: #024a84;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white !important;
+            border-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            border-color: #1da851;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .senegal-flag-icon {
+            display: inline-block;
+        }
+
+        /* ===== NAVBAR STYLE ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -58,11 +103,19 @@
             min-height: 70px;
         }
 
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px;
         }
 
         .logo-container {
@@ -74,10 +127,10 @@
         .logo-image {
             width: 45px;
             height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--secondary-color);
-            background-color: white;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            border-radius: 0;
         }
 
         .brand-text {
@@ -98,52 +151,79 @@
             font-weight: 300;
         }
 
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: var(--indigo) !important;
-            opacity: 1;
             border-bottom: 2px solid var(--vert);
         }
 
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
-            border: none;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
+            border-bottom: 2px solid var(--primary-color) !important;
         }
 
+        /* Styles améliorés pour les dropdowns */
         .dropdown-menu {
             background-color: white;
             border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            margin-top: 5px;
+            min-width: 220px;
         }
 
         .dropdown-item {
             color: var(--primary-color) !important;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .dropdown-item:hover {
-            background-color: var(--light-color);
-            color: var(--indigo) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            padding-left: 25px;
         }
 
-        /* Hero Section avec histoire */
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .dropdown-item:hover i {
+            color: white !important;
+        }
+
+        /* Hero Section */
         .residences-hero {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
@@ -294,7 +374,7 @@
         .env-icon-item i {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            color: var(--yellow-color);
+            color: var(--teranga);
         }
 
         .env-icon-item span {
@@ -427,7 +507,7 @@
         .preview-icon {
             font-size: 3rem;
             margin-bottom: 15px;
-            color: var(--yellow-color);
+            color: var(--teranga);
         }
 
         .subpage-preview-card h3 {
@@ -443,7 +523,7 @@
         }
 
         .preview-link {
-            color: var(--yellow-color);
+            color: var(--teranga);
             font-weight: 600;
         }
 
@@ -569,7 +649,7 @@
         }
 
         .promo-banner .btn-light {
-            background-color: var(--yellow-color);
+            background-color: var(--teranga);
             border: none;
             color: var(--indigo);
             font-weight: 600;
@@ -579,6 +659,10 @@
         .promo-banner .btn-light:hover {
             background-color: #e6c200;
             transform: translateY(-2px);
+        }
+
+        .promo-banner .btn-outline-light:hover {
+            background-color: rgba(255,255,255,0.2);
         }
 
         /* Footer */
@@ -635,10 +719,6 @@
             color: var(--primary-color);
             margin-right: 10px;
             width: 20px;
-        }
-
-        .footer-contact i:hover {
-            color: var(--indigo);
         }
 
         .email-badge {
@@ -725,10 +805,84 @@
         .footer-logo-image {
             width: 45px;
             height: 45px;
-            object-fit: cover;
+            object-fit: contain;
             border: none !important;
             border-radius: 0 !important;
             background: transparent !important;
+        }
+
+        /* Modal */
+        .modal-content {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--indigo);
+            color: white;
+            border-bottom: none;
+            padding: 20px;
+        }
+
+        .modal-title {
+            color: white;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .card {
+            transition: var(--transition);
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
         }
 
         @media (max-width: 768px) {
@@ -752,10 +906,6 @@
             
             .hotel-subtitle {
                 font-size: 0.65rem !important;
-            }
-            
-            .navbar-nav .nav-link {
-                padding: 8px 15px !important;
             }
             
             .residences-hero {
@@ -845,6 +995,14 @@
                 font-size: 1.1rem !important;
             }
             
+            .residences-hero {
+                height: 300px;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
             .footer-logo-image {
                 width: 32px;
                 height: 32px;
@@ -874,74 +1032,17 @@
                 height: 28px;
             }
         }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white !important;
-            border-color: #25D366;
-        }
-        .btn-whatsapp:hover {
-            background-color: #1da851;
-            border-color: #1da851;
-            color: white !important;
-            transform: translateY(-2px);
-        }
-        
-        .card {
-            transition: var(--transition);
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-        }
-        
-        .senegal-flag-icon {
-            display: inline-block;
-        }
-
-        .email-badge {
-            background-color: var(--sable);
-            border-radius: 20px;
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            border-left: 3px solid var(--vert);
-        }
-
-        .modal-content {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            background-color: var(--indigo);
-            color: white;
-            border-bottom: none;
-            padding: 20px;
-        }
-
-        .modal-title {
-            color: white;
-        }
-
-        .btn-close {
-            filter: invert(1);
-        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation avec le même style que la page d'accueil -->
+    <!-- ===== NAVIGATION ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <!-- Logo officiel avec fallback -->
                     <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent; width: 50px; height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
@@ -957,37 +1058,40 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="residencesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span id="nav-residences">Résidences</span>
+                        <a class="nav-link dropdown-toggle" href="#" id="decouvrirDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Lawmar
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="residencesDropdown">
-                            <li><a class="dropdown-item active" href="residences.html" id="nav-all-residences"><i class="fas fa-home"></i> Toutes nos résidences</a></li>
-                            <li><a class="dropdown-item" href="experiences.html" onclick="showMainPage(); scrollToHistoire();" id="nav-experiences"><i class="fas fa-history"></i> Experiences</a></li>
-                            <li><a class="dropdown-item" href="Engagements.html" onclick="showMainPage(); scrollToEnvironnement();" id="nav-engagements"><i class="fas fa-leaf"></i> Engagements</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="decouvrirDropdown">
+                            <li><a class="dropdown-item" href="experiences.html"><i class="fas fa-compass"></i> Expériences</a></li>
+                            <li><a class="dropdown-item" href="engagements.html"><i class="fas fa-leaf"></i> Engagements</a></li>
                         </ul>
-                    </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
+                        <a class="nav-link" href="restauration.html">Restauration</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                        <a class="nav-link" href="chambres.html">Hébergements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                        <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a>
+                        <a class="nav-link" href="galerie.html">Galerie</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">Réserver</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
@@ -1006,9 +1110,9 @@
     <!-- Hero Section -->
     <section class="residences-hero">
         <div class="container text-center">
-            <h1 class="hero-title" id="hero-title">Les Résidences du Lawmar</h1>
-            <p class="hero-subtitle" id="hero-subtitle">Là où l'eau rencontre la terre, l'histoire s'écrit au fil du courant</p>
-            <div class="hero-watermark" id="hero-watermark">
+            <h1 class="hero-title">Les Résidences du Lawmar</h1>
+            <p class="hero-subtitle">Là où l'eau rencontre la terre, l'histoire s'écrit au fil du courant</p>
+            <div class="hero-watermark">
                 <i class="fas fa-water me-2"></i> Lawmar - Le cours d'eau qui borde le lac Doutti
             </div>
         </div>
@@ -1019,32 +1123,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="story-title" id="story-title">L'Âme du Lawmar</h2>
+                    <h2 class="story-title">L'Âme du Lawmar</h2>
                     
                     <div class="story-text">
-                        <p class="lead fw-bold" style="color: var(--vert);" id="story-quote">"Lawmar" - Un nom qui coule comme l'eau, porteur de vie et de continuité.</p>
+                        <p class="lead fw-bold" style="color: var(--vert);">"Lawmar" - Un nom qui coule comme l'eau, porteur de vie et de continuité.</p>
                         
-                        <p id="story-text1">Le nom <strong class="text-primary">Lawmar</strong> provient du cours d'eau qui borde le lac Doutti, à l'entrée du site. Ce n'est pas simplement un nom, c'est une identité, un héritage. Symbole d'eau, de vie et de continuité, Lawmar incarne l'esprit même du lieu : un espace où la nature généreuse du Gandiol rencontre l'hospitalité légendaire du Sénégal.</p>
+                        <p>Le nom <strong class="text-primary">Lawmar</strong> provient du cours d'eau qui borde le lac Doutti, à l'entrée du site. Ce n'est pas simplement un nom, c'est une identité, un héritage. Symbole d'eau, de vie et de continuité, Lawmar incarne l'esprit même du lieu : un espace où la nature généreuse du Gandiol rencontre l'hospitalité légendaire du Sénégal.</p>
                         
-                        <div class="story-quote" id="story-quote2">
+                        <div class="story-quote">
                             <i class="fas fa-quote-left me-2" style="color: var(--teranga);"></i>
                             Ici, chaque lever de soleil sur le lac raconte une histoire, chaque coucher sur l'océan invite à la contemplation.
                         </div>
                         
-                        <p id="story-text2"><strong>Les Résidences du Lawmar</strong> sont un établissement profondément enraciné dans le terroir gandiolais. Bien plus qu'un simple lieu d'hébergement, nous sommes les gardiens d'une culture, d'un environnement et d'une tradition d'accueil. Notre mission est de valoriser la culture locale, de préserver l'environnement naturel exceptionnel qui nous entoure, et d'offrir à nos hôtes une expérience authentique de l'hospitalité sénégalaise, cette fameuse <span class="fw-bold" style="color: var(--teranga);">Teranga</span>.</p>
+                        <p><strong>Les Résidences du Lawmar</strong> sont un établissement profondément enraciné dans le terroir gandiolais. Bien plus qu'un simple lieu d'hébergement, nous sommes les gardiens d'une culture, d'un environnement et d'une tradition d'accueil. Notre mission est de valoriser la culture locale, de préserver l'environnement naturel exceptionnel qui nous entoure, et d'offrir à nos hôtes une expérience authentique de l'hospitalité sénégalaise, cette fameuse <span class="fw-bold" style="color: var(--teranga);">Teranga</span>.</p>
                         
                         <div class="story-stats">
                             <div class="stat-item">
                                 <div class="stat-number">3</div>
-                                <div class="stat-label" id="stat1-label">Écosystèmes</div>
+                                <div class="stat-label">Écosystèmes</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">+50</div>
-                                <div class="stat-label" id="stat2-label">Espèces d'oiseaux</div>
+                                <div class="stat-label">Espèces d'oiseaux</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">1923</div>
-                                <div class="stat-label" id="stat3-label">Année du village</div>
+                                <div class="stat-label">Année du village</div>
                             </div>
                         </div>
                     </div>
@@ -1058,23 +1162,23 @@
         <div class="environment-banner">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h3 id="env-title"><i class="fas fa-map-marked-alt me-3"></i> Un Écrin de Nature Exceptionnel</h3>
-                    <p id="env-text1">Entre fleuve Sénégal, lac Doutti et océan Atlantique, notre établissement est niché au cœur d'une biodiversité remarquable. Les paysages offerts à nos visiteurs sont d'une beauté à couper le souffle : le calme du lac au petit matin, la puissance du fleuve, l'immensité de l'océan...</p>
-                    <p class="mb-0 fw-bold" id="env-text2">Ici, le temps suspend son vol. C'est un lieu de déconnexion totale, de contemplation et de ressourcement.</p>
+                    <h3><i class="fas fa-map-marked-alt me-3"></i> Un Écrin de Nature Exceptionnel</h3>
+                    <p>Entre fleuve Sénégal, lac Doutti et océan Atlantique, notre établissement est niché au cœur d'une biodiversité remarquable. Les paysages offerts à nos visiteurs sont d'une beauté à couper le souffle : le calme du lac au petit matin, la puissance du fleuve, l'immensité de l'océan...</p>
+                    <p class="mb-0 fw-bold">Ici, le temps suspend son vol. C'est un lieu de déconnexion totale, de contemplation et de ressourcement.</p>
                 </div>
                 <div class="col-lg-4">
                     <div class="environment-icons">
                         <div class="env-icon-item">
                             <i class="fas fa-water"></i>
-                            <span id="env-river">Fleuve</span>
+                            <span>Fleuve</span>
                         </div>
                         <div class="env-icon-item">
                             <i class="fas fa-swimmer"></i>
-                            <span id="env-lake">Lac Doutti</span>
+                            <span>Lac Doutti</span>
                         </div>
                         <div class="env-icon-item">
                             <i class="fas fa-umbrella-beach"></i>
-                            <span id="env-ocean">Océan</span>
+                            <span>Océan</span>
                         </div>
                     </div>
                 </div>
@@ -1104,28 +1208,28 @@
                         <img src="images/vue5.jpeg" alt="Vue d'ensemble des résidences" class="img-fluid rounded-4 shadow" onerror="this.src='https://via.placeholder.com/800x500/F4EDE4/1E3A5F?text=Lawmar+Residences';">
                     </div>
                     <div class="col-lg-6">
-                        <h2 style="color: var(--indigo);" id="main-title">Un hébergement pour chaque voyageur</h2>
-                        <p class="lead" style="color: var(--primary-color);" id="main-subtitle">Que vous voyagiez en solo, en couple, en famille ou en groupe, nous avons la résidence idéale pour vous.</p>
-                        <p id="main-text">Toutes nos résidences sont conçues pour vous offrir le meilleur du confort moderne tout en préservant l'authenticité de l'architecture locale. Chaque espace est pensé pour que vous vous sentiez chez vous, avec une touche de cette fameuse Teranga sénégalaise.</p>
+                        <h2 style="color: var(--indigo);">Un hébergement pour chaque voyageur</h2>
+                        <p class="lead" style="color: var(--primary-color);">Que vous voyagiez en solo, en couple, en famille ou en groupe, nous avons la résidence idéale pour vous.</p>
+                        <p>Toutes nos résidences sont conçues pour vous offrir le meilleur du confort moderne tout en préservant l'authenticité de l'architecture locale. Chaque espace est pensé pour que vous vous sentiez chez vous, avec une touche de cette fameuse Teranga sénégalaise.</p>
                         <div class="row mt-4">
                             <div class="col-6">
                                 <div class="d-flex align-items-center mb-3">
                                     <i class="fas fa-check-circle text-success me-2 fs-4"></i>
-                                    <span id="main-feature1">Climatisation réversible</span>
+                                    <span>Climatisation réversible</span>
                                 </div>
                                 <div class="d-flex align-items-center mb-3">
                                     <i class="fas fa-check-circle text-success me-2 fs-4"></i>
-                                    <span id="main-feature2">Wi-Fi haut débit</span>
+                                    <span>Wi-Fi haut débit</span>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="d-flex align-items-center mb-3">
                                     <i class="fas fa-check-circle text-success me-2 fs-4"></i>
-                                    <span id="main-feature3">Service de ménage quotidien</span>
+                                    <span>Service de ménage quotidien</span>
                                 </div>
                                 <div class="d-flex align-items-center mb-3">
                                     <i class="fas fa-check-circle text-success me-2 fs-4"></i>
-                                    <span id="main-feature4">Parking privé gratuit</span>
+                                    <span>Parking privé gratuit</span>
                                 </div>
                             </div>
                         </div>
@@ -1138,34 +1242,34 @@
         <section class="section-padding">
             <div class="container">
                 <div class="section-header text-center mb-5">
-                    <h2 style="color: var(--indigo);" id="types-title">Nos Types d'Hébergement</h2>
-                    <p class="lead" id="types-subtitle">Choisissez la résidence qui correspond à vos besoins</p>
+                    <h2 style="color: var(--indigo);">Nos Types d'Hébergement</h2>
+                    <p class="lead">Choisissez la résidence qui correspond à vos besoins</p>
                 </div>
 
                 <!-- Résidence 1 - Studio Vue Lac -->
                 <div class="row mb-5 align-items-center" id="studio-vue-lac">
                     <div class="col-lg-6 mb-4 mb-lg-0">
                         <div class="residence-card" onclick="showSubPage('studio')">
-                            <div class="residence-image" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
-                                <span class="residence-badge" id="studio-badge">Studio</span>
+                            <div class="residence-image" style="background-image: url('images/cham01.jpeg');">
+                                <span class="residence-badge">Studio</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <h3 style="color: var(--indigo);" id="studio-title">Studio Vue Lac Doutti</h3>
-                        <p class="text-muted" id="studio-capacity">Pour 2 personnes · 35 m²</p>
-                        <p id="studio-desc">Idéal pour les couples ou les voyageurs d'affaires, ce studio confortable offre une vue imprenable sur le lac Doutti. Profitez du calme et de la beauté du paysage depuis votre terrasse privée.</p>
+                        <h3 style="color: var(--indigo);">Studio Vue Lac Doutti</h3>
+                        <p class="text-muted">Pour 2 personnes · 35 m²</p>
+                        <p>Idéal pour les couples ou les voyageurs d'affaires, ce studio confortable offre une vue imprenable sur le lac Doutti. Profitez du calme et de la beauté du paysage depuis votre terrasse privée.</p>
                         <ul class="residence-features">
-                            <li><i class="fas fa-bed"></i> <span id="studio-feature1">1 lit queen-size (160 cm)</span></li>
-                            <li><i class="fas fa-shower"></i> <span id="studio-feature2">Salle de bain privative avec eau chaude</span></li>
-                            <li><i class="fas fa-utensils"></i> <span id="studio-feature3">Kitchenette équipée</span></li>
-                            <li><i class="fas fa-tv"></i> <span id="studio-feature4">Télévision écran plat</span></li>
-                            <li><i class="fas fa-wifi"></i> <span id="studio-feature5">Wi-Fi gratuit</span></li>
-                            <li><i class="fas fa-sun"></i> <span id="studio-feature6">Terrasse privée avec vue lac</span></li>
+                            <li><i class="fas fa-bed"></i> 1 lit queen-size (160 cm)</li>
+                            <li><i class="fas fa-shower"></i> Salle de bain privative avec eau chaude</li>
+                            <li><i class="fas fa-utensils"></i> Kitchenette équipée</li>
+                            <li><i class="fas fa-tv"></i> Télévision écran plat</li>
+                            <li><i class="fas fa-wifi"></i> Wi-Fi gratuit</li>
+                            <li><i class="fas fa-sun"></i> Terrasse privée avec vue lac</li>
                         </ul>
-                        <div class="price-tag" id="studio-price">65,000 XOF <small id="studio-per-night">/ nuit</small></div>
+                        <div class="price-tag"> <small></small></div>
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-grow-1" onclick="showSubPage('studio')" id="studio-btn-details">Voir détails</button>
+                            <button class="btn btn-primary flex-grow-1" onclick="showSubPage('studio')">Voir détails</button>
                             <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Studio Vue Lac Doutti', 65000)">
                                 <i class="fab fa-whatsapp"></i>
                             </button>
@@ -1174,117 +1278,59 @@
                 </div>
 
                 <!-- Résidence 2 - Appartement Familial -->
-                <div class="row mb-5 align-items-center flex-lg-row-reverse" id="appartement-familial">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="residence-card" onclick="showSubPage('appartement')">
-                            <div class="residence-image" style="background-image: url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
-                                <span class="residence-badge" id="appartement-badge">Appartement</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h3 style="color: var(--indigo);" id="appartement-title">Appartement Familial "Gandiol"</h3>
-                        <p class="text-muted" id="appartement-capacity">Pour 4-5 personnes · 70 m²</p>
-                        <p id="appartement-desc">Un espace généreux pour toute la famille. Cet appartement de deux chambres offre tout le confort nécessaire pour des vacances réussies, avec un salon spacieux et une cuisine entièrement équipée.</p>
-                        <ul class="residence-features">
-                            <li><i class="fas fa-bed"></i> <span id="appartement-feature1">2 chambres (1 lit double + 2 lits simples)</span></li>
-                            <li><i class="fas fa-bath"></i> <span id="appartement-feature2">2 salles de bain</span></li>
-                            <li><i class="fas fa-utensils"></i> <span id="appartement-feature3">Cuisine équipée</span></li>
-                            <li><i class="fas fa-couch"></i> <span id="appartement-feature4">Salon avec canapé-lit</span></li>
-                            <li><i class="fas fa-wifi"></i> <span id="appartement-feature5">Wi-Fi gratuit</span></li>
-                            <li><i class="fas fa-tree"></i> <span id="appartement-feature6">Vue sur le jardin</span></li>
-                        </ul>
-                        <div class="price-tag" id="appartement-price">120,000 XOF <small id="appartement-per-night">/ nuit</small></div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-grow-1" onclick="showSubPage('appartement')" id="appartement-btn-details">Voir détails</button>
-                            <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Appartement Familial Gandiol', 120000)">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Résidence 3 - Villa Prestige -->
-                <div class="row mb-5 align-items-center" id="villa-prestige">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <div class="residence-card" onclick="showSubPage('villa')">
-                            <div class="residence-image" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
-                                <span class="residence-badge" id="villa-badge">Villa</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h3 style="color: var(--indigo);" id="villa-title">Villa Prestige "Lawmar"</h3>
-                        <p class="text-muted" id="villa-capacity">Pour 6-8 personnes · 120 m²</p>
-                        <p id="villa-desc">Notre villa haut de gamme est l'option parfaite pour les groupes ou les grandes familles. Avec ses 3 chambres spacieuses, sa piscine privée et son grand jardin, elle offre un cadre d'exception.</p>
-                        <ul class="residence-features">
-                            <li><i class="fas fa-bed"></i> <span id="villa-feature1">3 chambres (2 lits king-size + 2 lits simples)</span></li>
-                            <li><i class="fas fa-bath"></i> <span id="villa-feature2">3 salles de bain</span></li>
-                            <li><i class="fas fa-swimming-pool"></i> <span id="villa-feature3">Piscine privée</span></li>
-                            <li><i class="fas fa-kitchen-set"></i> <span id="villa-feature4">Cuisine américaine équipée</span></li>
-                            <li><i class="fas fa-umbrella-beach"></i> <span id="villa-feature5">Terrasse avec salon de jardin</span></li>
-                            <li><i class="fas fa-wifi"></i> <span id="villa-feature6">Wi-Fi haut débit</span></li>
-                        </ul>
-                        <div class="price-tag" id="villa-price">250,000 XOF <small id="villa-per-night">/ nuit</small></div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-grow-1" onclick="showSubPage('villa')" id="villa-btn-details">Voir détails</button>
-                            <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Villa Prestige Lawmar', 250000)">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+               
+                
+            
         </section>
 
         <!-- Section Équipements et Services -->
         <section class="section-padding bg-sable" id="equipements">
             <div class="container">
                 <div class="section-header text-center mb-5">
-                    <h2 style="color: var(--indigo);" id="equipements-title">Équipements & Services Inclus</h2>
-                    <p class="lead" id="equipements-subtitle">Tout ce dont vous avez besoin pour un séjour confortable</p>
+                    <h2 style="color: var(--indigo);">Équipements & Services Inclus</h2>
+                    <p class="lead">Tout ce dont vous avez besoin pour un séjour confortable</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
-                            <h4 id="amenity1">Wi-Fi Haut Débit</h4>
-                            <p class="small" id="amenity1-desc">Gratuit dans tout l'établissement</p>
+                            <h4>Wi-Fi Haut Débit</h4>
+                            <p class="small">Gratuit dans tout l'établissement</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-snowflake"></i></div>
-                            <h4 id="amenity2">Climatisation</h4>
-                            <p class="small" id="amenity2-desc">Dans toutes les résidences</p>
+                            <h4>Climatisation</h4>
+                            <p class="small">Dans toutes les résidences</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-water"></i></div>
-                            <h4 id="amenity3">Eau Chaude</h4>
-                            <p class="small" id="amenity3-desc">24h/24, 7j/7</p>
+                            <h4>Eau Chaude</h4>
+                            <p class="small">24h/24, 7j/7</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-car"></i></div>
-                            <h4 id="amenity4">Parking Privé</h4>
-                            <p class="small" id="amenity4-desc">Gratuit et sécurisé</p>
+                            <h4>Parking Privé</h4>
+                            <p class="small">Gratuit et sécurisé</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-broom"></i></div>
-                            <h4 id="amenity5">Ménage Quotidien</h4>
-                            <p class="small" id="amenity5-desc">Service inclus</p>
+                            <h4>Ménage Quotidien</h4>
+                            <p class="small">Service inclus</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-6">
                         <div class="amenity-item">
                             <div class="amenity-icon"><i class="fas fa-shield-alt"></i></div>
-                            <h4 id="amenity6">Sécurité 24h/24</h4>
-                            <p class="small" id="amenity6-desc">Surveillance permanente</p>
+                            <h4>Sécurité 24h/24</h4>
+                            <p class="small">Surveillance permanente</p>
                         </div>
                     </div>
                 </div>
@@ -1295,32 +1341,32 @@
         <section class="section-padding" id="offres">
             <div class="container">
                 <div class="section-header text-center mb-5">
-                    <h2 style="color: var(--indigo);" id="offres-title">Offres Spéciales</h2>
-                    <p class="lead" id="offres-subtitle">Profitez de nos meilleurs tarifs</p>
+                    <h2 style="color: var(--indigo);">Offres Spéciales</h2>
+                    <p class="lead">Profitez de nos meilleurs tarifs</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <div class="subpage-preview-card">
+                        <div class="subpage-preview-card" onclick="showSubPage('offres')">
                             <div class="preview-icon"><i class="fas fa-calendar-alt"></i></div>
-                            <h3 id="offer1-title">Séjour Longue Durée</h3>
-                            <p id="offer1-desc">-15% pour toute réservation de 7 nuits ou plus</p>
-                            <span class="preview-link" id="offer1-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
+                            <h3>Séjour Longue Durée</h3>
+                            <p>-15% pour toute réservation de 7 nuits ou plus</p>
+                            <span class="preview-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="subpage-preview-card">
+                        <div class="subpage-preview-card" onclick="showSubPage('offres')">
                             <div class="preview-icon"><i class="fas fa-heart"></i></div>
-                            <h3 id="offer2-title">Offre Lune de Miel</h3>
-                            <p id="offer2-desc">Package romantique avec dîner aux chandelles et massage</p>
-                            <span class="preview-link" id="offer2-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
+                            <h3>Offre Lune de Miel</h3>
+                            <p>Package romantique avec dîner aux chandelles et massage</p>
+                            <span class="preview-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="subpage-preview-card">
+                        <div class="subpage-preview-card" onclick="showSubPage('offres')">
                             <div class="preview-icon"><i class="fas fa-users"></i></div>
-                            <h3 id="offer3-title">Offre Groupe</h3>
-                            <p id="offer3-desc">Tarifs préférentiels pour les groupes à partir de 6 personnes</p>
-                            <span class="preview-link" id="offer3-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
+                            <h3>Offre Groupe</h3>
+                            <p>Tarifs préférentiels pour les groupes à partir de 6 personnes</p>
+                            <span class="preview-link">En savoir plus <i class="fas fa-arrow-right ms-2"></i></span>
                         </div>
                     </div>
                 </div>
@@ -1334,8 +1380,8 @@
             <div class="container">
                 <div class="detail-card">
                     <div class="detail-header">
-                        <h2><i class="fas fa-building"></i> <span id="studio-detail-title">Studio Vue Lac Doutti</span></h2>
-                        <p class="mb-0" id="studio-detail-subtitle">Pour 2 personnes · 35 m² · Vue imprenable sur le lac</p>
+                        <h2><i class="fas fa-building"></i> Studio Vue Lac Doutti</h2>
+                        <p class="mb-0">Pour 2 personnes · 35 m² · Vue imprenable sur le lac</p>
                     </div>
                     <div class="detail-body">
                         <div class="row">
@@ -1346,49 +1392,47 @@
                                     <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                                     <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1630699144867-37acec97df5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                                 </div>
-                                
-                                <h4 class="mt-4" id="studio-detail-desc-title">Description détaillée</h4>
-                                <p id="studio-detail-desc1">Notre studio "Vue Lac Doutti" est l'endroit idéal pour les couples ou les voyageurs d'affaires recherchant calme et sérénité. La vue imprenable sur le lac Doutti offre un spectacle changeant au fil de la journée, des levers de soleil aux reflets du couchant.</p>
-                                <p id="studio-detail-desc2">Entièrement rénové et meublé avec goût, ce studio allie confort moderne et touches traditionnelles sénégalaises. La terrasse privée est l'endroit parfait pour prendre votre petit-déjeuner face au lac ou pour vous détendre en fin de journée avec un bon livre.</p>
-                                
-                                <h4 class="mt-4" id="studio-detail-equip-title">Équipements détaillés</h4>
+                                <h4 class="mt-4">Description détaillée</h4>
+                                <p>Notre studio "Vue Lac Doutti" est l'endroit idéal pour les couples ou les voyageurs d'affaires recherchant calme et sérénité. La vue imprenable sur le lac Doutti offre un spectacle changeant au fil de la journée, des levers de soleil aux reflets du couchant.</p>
+                                <p>Entièrement rénové et meublé avec goût, ce studio allie confort moderne et touches traditionnelles sénégalaises. La terrasse privée est l'endroit parfait pour prendre votre petit-déjeuner face au lac ou pour vous détendre en fin de journée avec un bon livre.</p>
+                                <h4 class="mt-4">Équipements détaillés</h4>
                                 <ul class="feature-list">
-                                    <li><i class="fas fa-bed"></i> <span id="studio-detail-feature1">Lit queen-size (160x200 cm) avec mousse à mémoire de forme</span></li>
-                                    <li><i class="fas fa-shower"></i> <span id="studio-detail-feature2">Salle de bain privative avec douche à l'italienne</span></li>
-                                    <li><i class="fas fa-utensils"></i> <span id="studio-detail-feature3">Kitchenette équipée (réfrigérateur, plaques induction, micro-ondes, bouilloire)</span></li>
-                                    <li><i class="fas fa-tv"></i> <span id="studio-detail-feature4">Télévision écran plat 43" avec chaînes satellite</span></li>
-                                    <li><i class="fas fa-wifi"></i> <span id="studio-detail-feature5">Wi-Fi fibre optique haut débit</span></li>
-                                    <li><i class="fas fa-sun"></i> <span id="studio-detail-feature6">Terrasse privée de 12 m² avec mobilier de jardin</span></li>
-                                    <li><i class="fas fa-wind"></i> <span id="studio-detail-feature7">Climatisation réversible silencieuse</span></li>
-                                    <li><i class="fas fa-shield"></i> <span id="studio-detail-feature8">Coffre-fort individuel</span></li>
-                                    <li><i class="fas fa-tint"></i> <span id="studio-detail-feature9">Eau chaude 24h/24 (chauffe-eau solaire)</span></li>
+                                    <li><i class="fas fa-bed"></i> Lit queen-size (160x200 cm) avec mousse à mémoire de forme</li>
+                                    <li><i class="fas fa-shower"></i> Salle de bain privative avec douche à l'italienne</li>
+                                    <li><i class="fas fa-utensils"></i> Kitchenette équipée (réfrigérateur, plaques induction, micro-ondes, bouilloire)</li>
+                                    <li><i class="fas fa-tv"></i> Télévision écran plat 43" avec chaînes satellite</li>
+                                    <li><i class="fas fa-wifi"></i> Wi-Fi fibre optique haut débit</li>
+                                    <li><i class="fas fa-sun"></i> Terrasse privée de 12 m² avec mobilier de jardin</li>
+                                    <li><i class="fas fa-wind"></i> Climatisation réversible silencieuse</li>
+                                    <li><i class="fas fa-shield"></i> Coffre-fort individuel</li>
+                                    <li><i class="fas fa-tint"></i> Eau chaude 24h/24 (chauffe-eau solaire)</li>
                                 </ul>
                             </div>
                             <div class="col-lg-4">
                                 <div class="bg-light p-4 rounded-4">
-                                    <h4 class="mb-3" id="studio-detail-price-title">Tarifs</h4>
-                                    <div class="price-tag mb-3" id="studio-detail-price">65,000 XOF <small id="studio-detail-per-night">/ nuit</small></div>
-                                    <p class="small text-muted" id="studio-detail-breakfast">Petit-déjeuner inclus</p>
+                                    <h4 class="mb-3">Tarifs</h4>
+                                    <div class="price-tag mb-3"> <small>/ </small></div>
+                                    <p class="small text-muted">Petit-déjeuner inclus</p>
                                     <hr>
-                                    <h5 id="studio-detail-included">Ce qui est inclus :</h5>
+                                    <h5>Ce qui est inclus :</h5>
                                     <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="studio-detail-included1">Ménage quotidien</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="studio-detail-included2">Serviettes de toilette</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="studio-detail-included3">Linge de lit</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="studio-detail-included4">Produits d'accueil</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="studio-detail-included5">Eau minérale offerte</span></li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Ménage quotidien</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Serviettes de toilette</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Linge de lit</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Produits d'accueil</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Eau minérale offerte</li>
                                     </ul>
                                     <hr>
-                                    <h5 id="studio-detail-options">Options supplémentaires :</h5>
+                                    <h5>Options supplémentaires :</h5>
                                     <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-utensils me-2"></i> <span id="studio-detail-option1">Demi-pension : +15,000 XOF</span></li>
-                                        <li class="mb-2"><i class="fas fa-spa me-2"></i> <span id="studio-detail-option2">Massage : 25,000 XOF</span></li>
-                                        <li class="mb-2"><i class="fas fa-car me-2"></i> <span id="studio-detail-option3">Transfert aéroport : 25,000 XOF</span></li>
+                                        <li class="mb-2"><i class="fas fa-utensils me-2"></i> Demi-pension : +15,000 XOF</li>
+                                        <li class="mb-2"><i class="fas fa-spa me-2"></i> Massage : 25,000 XOF</li>
+                                        <li class="mb-2"><i class="fas fa-car me-2"></i> Transfert aéroport : 25,000 XOF</li>
                                     </ul>
                                     <div class="d-grid gap-2 mt-4">
-                                        <button class="btn btn-primary" onclick="window.location.href='chambres.html'" id="studio-detail-book">Réserver maintenant</button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Studio Vue Lac Doutti', 65000)" id="studio-detail-wa">Réserver via WhatsApp</button>
-                                        <button class="btn btn-outline-primary mt-2" onclick="showMainPage()" id="studio-detail-back">← Retour aux résidences</button>
+                                        <button class="btn btn-primary" onclick="window.location.href='chambres.html'">Réserver maintenant</button>
+                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Studio Vue Lac Doutti', 65000)">Réserver via WhatsApp</button>
+                                        <button class="btn btn-outline-primary mt-2" onclick="showMainPage()">← Retour aux résidences</button>
                                     </div>
                                 </div>
                             </div>
@@ -1400,144 +1444,10 @@
     </div>
 
     <!-- ===== SOUS-PAGE : APPARTEMENT FAMILIAL ===== -->
-    <div id="appartement-page" style="display: none;">
-        <section class="section-padding">
-            <div class="container">
-                <div class="detail-card">
-                    <div class="detail-header">
-                        <h2><i class="fas fa-building"></i> <span id="appartement-detail-title">Appartement Familial "Gandiol"</span></h2>
-                        <p class="mb-0" id="appartement-detail-subtitle">Pour 4-5 personnes · 70 m² · Idéal pour les familles</p>
-                    </div>
-                    <div class="detail-body">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="gallery-grid">
-                                    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                                    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                                    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                                    <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                                </div>
-                                
-                                <h4 class="mt-4" id="appartement-detail-desc-title">Description détaillée</h4>
-                                <p id="appartement-detail-desc1">L'appartement familial "Gandiol" a été spécialement conçu pour accueillir les familles en quête d'espace et de confort. Avec ses deux chambres séparées, son grand salon et sa cuisine entièrement équipée, vous vous sentirez comme chez vous.</p>
-                                <p id="appartement-detail-desc2">Situé au rez-de-chaussée de notre résidence principale, il donne directement sur notre jardin tropical où les enfants pourront jouer en toute sécurité. La décoration mêle astucieusement artisanat local et équipements modernes.</p>
-                                
-                                <h4 class="mt-4" id="appartement-detail-equip-title">Équipements détaillés</h4>
-                                <ul class="feature-list">
-                                    <li><i class="fas fa-bed"></i> <span id="appartement-detail-feature1">Chambre 1 : lit double (160x200 cm)</span></li>
-                                    <li><i class="fas fa-bed"></i> <span id="appartement-detail-feature2">Chambre 2 : 2 lits simples (90x190 cm)</span></li>
-                                    <li><i class="fas fa-couch"></i> <span id="appartement-detail-feature3">Salon avec canapé-lit convertible (2 personnes)</span></li>
-                                    <li><i class="fas fa-bath"></i> <span id="appartement-detail-feature4">2 salles de bain complètes (douche et baignoire)</span></li>
-                                    <li><i class="fas fa-kitchen-set"></i> <span id="appartement-detail-feature5">Cuisine entièrement équipée (réfrigérateur, four, plaques, micro-ondes, cafetière)</span></li>
-                                    <li><i class="fas fa-utensils"></i> <span id="appartement-detail-feature6">Vaisselle et ustensiles complets</span></li>
-                                    <li><i class="fas fa-tv"></i> <span id="appartement-detail-feature7">Télévision écran plat 55" dans le salon</span></li>
-                                    <li><i class="fas fa-wifi"></i> <span id="appartement-detail-feature8">Wi-Fi fibre optique haut débit</span></li>
-                                    <li><i class="fas fa-tree"></i> <span id="appartement-detail-feature9">Accès direct au jardin</span></li>
-                                    <li><i class="fas fa-tshirt"></i> <span id="appartement-detail-feature10">Machine à laver</span></li>
-                                    <li><i class="fas fa-baby"></i> <span id="appartement-detail-feature11">Lit bébé et chaise haute sur demande</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="bg-light p-4 rounded-4">
-                                    <h4 class="mb-3" id="appartement-detail-price-title">Tarifs</h4>
-                                    <div class="price-tag mb-3" id="appartement-detail-price">120,000 XOF <small id="appartement-detail-per-night">/ nuit</small></div>
-                                    <p class="small text-muted" id="appartement-detail-included-text">Jusqu'à 4 personnes inclus</p>
-                                    <hr>
-                                    <h5 id="appartement-detail-included">Ce qui est inclus :</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="appartement-detail-included1">Ménage quotidien</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="appartement-detail-included2">Linge de lit et serviettes</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="appartement-detail-included3">Produits de toilette</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="appartement-detail-included4">Eau minérale offerte</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="appartement-detail-included5">Parking privé</span></li>
-                                    </ul>
-                                    <hr>
-                                    <h5 id="appartement-detail-extra">Personne supplémentaire :</h5>
-                                    <p id="appartement-detail-extra-text">15,000 XOF / nuit (maximum 1 personne)</p>
-                                    <div class="d-grid gap-2 mt-4">
-                                        <button class="btn btn-primary" onclick="window.location.href='chambres.html'" id="appartement-detail-book">Réserver maintenant</button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Appartement Familial Gandiol', 120000)" id="appartement-detail-wa">Réserver via WhatsApp</button>
-                                        <button class="btn btn-outline-primary mt-2" onclick="showMainPage()" id="appartement-detail-back">← Retour aux résidences</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    
+         
 
-    <!-- ===== SOUS-PAGE : VILLA PRESTIGE ===== -->
-    <div id="villa-page" style="display: none;">
-        <section class="section-padding">
-            <div class="container">
-                <div class="detail-card">
-                    <div class="detail-header">
-                        <h2><i class="fas fa-building"></i> <span id="villa-detail-title">Villa Prestige "Lawmar"</span></h2>
-                        <p class="mb-0" id="villa-detail-subtitle">Pour 6-8 personnes · 120 m² · Luxe et intimité</p>
-                    </div>
-                    <div class="detail-body">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="gallery-grid">
-                                    <div class="gallery-item" style="background-image: url('images/cham.jpeg');"></div>
-                                    <div class="gallery-item" style="background-image: url('images/cham2.jpeg');"></div>
-                                    <div class="gallery-item" style="background-image: url('images/cham3.jpeg');"></div>
-                                    <div class="gallery-item" style="background-image: url('images/cham4.jpeg');"></div>
-                                </div>
-                                
-                                <h4 class="mt-4" id="villa-detail-desc-title">Description détaillée</h4>
-                                <p id="villa-detail-desc1">La Villa Prestige "Lawmar" est notre hébergement le plus exclusif. Idéale pour les groupes d'amis ou les grandes familles, elle offre un cadre exceptionnel avec sa piscine privée et son vaste jardin tropical.</p>
-                                <p id="villa-detail-desc2">Construite dans un style architectural sénégalais revisité, elle allie le charme de l'authenticité au confort le plus moderne. Chaque chambre dispose de sa propre salle de bain privative, garantissant intimité et indépendance à chacun.</p>
-                                
-                                <h4 class="mt-4" id="villa-detail-equip-title">Équipements détaillés</h4>
-                                <ul class="feature-list">
-                                    <li><i class="fas fa-bed"></i> <span id="villa-detail-feature1">Chambre parentale : lit king-size (180x200 cm) avec suite</span></li>
-                                    <li><i class="fas fa-bed"></i> <span id="villa-detail-feature2">Chambre 2 : lit king-size (180x200 cm) avec salle de bain</span></li>
-                                    <li><i class="fas fa-bed"></i> <span id="villa-detail-feature3">Chambre 3 : 2 lits simples (90x190 cm) avec salle de bain</span></li>
-                                    <li><i class="fas fa-bath"></i> <span id="villa-detail-feature4">3 salles de bain complètes (2 avec douche, 1 avec baignoire)</span></li>
-                                    <li><i class="fas fa-swimming-pool"></i> <span id="villa-detail-feature5">Piscine privée (8x4 m) avec plage</span></li>
-                                    <li><i class="fas fa-kitchen-set"></i> <span id="villa-detail-feature6">Cuisine américaine entièrement équipée (îlot central)</span></li>
-                                    <li><i class="fas fa-couch"></i> <span id="villa-detail-feature7">Grand salon avec cheminée</span></li>
-                                    <li><i class="fas fa-tv"></i> <span id="villa-detail-feature8">Télévision 65" dans le salon + TV dans chaque chambre</span></li>
-                                    <li><i class="fas fa-wifi"></i> <span id="villa-detail-feature9">Wi-Fi fibre optique haut débit</span></li>
-                                    <li><i class="fas fa-umbrella-beach"></i> <span id="villa-detail-feature10">Terrasse couverte de 40 m² avec salon de jardin</span></li>
-                                    <li><i class="fas fa-tshirt"></i> <span id="villa-detail-feature11">Buanderie privée (lave-linge, sèche-linge)</span></li>
-                                    <li><i class="fas fa-lock"></i> <span id="villa-detail-feature12">Coffre-fort dans chaque chambre</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="bg-light p-4 rounded-4">
-                                    <h4 class="mb-3" id="villa-detail-price-title">Tarifs</h4>
-                                    <div class="price-tag mb-3" id="villa-detail-price">250,000 XOF <small id="villa-detail-per-night">/ nuit</small></div>
-                                    <p class="small text-muted" id="villa-detail-included-text">Jusqu'à 6 personnes inclus</p>
-                                    <hr>
-                                    <h5 id="villa-detail-included">Ce qui est inclus :</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included1">Ménage quotidien</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included2">Petit-déjeuner continental</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included3">Linge de lit et serviettes</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included4">Produits de toilette haut de gamme</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included5">Eau minérale en quantité</span></li>
-                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span id="villa-detail-included6">Accès prioritaire au restaurant</span></li>
-                                    </ul>
-                                    <hr>
-                                    <h5 id="villa-detail-extra">Personnes supplémentaires :</h5>
-                                    <p id="villa-detail-extra-text">20,000 XOF / nuit (maximum 2 personnes)</p>
-                                    <div class="d-grid gap-2 mt-4">
-                                        <button class="btn btn-primary" onclick="window.location.href='chambres.html'" id="villa-detail-book">Réserver maintenant</button>
-                                        <button class="btn btn-whatsapp" onclick="reserveViaWhatsApp('Villa Prestige Lawmar', 250000)" id="villa-detail-wa">Réserver via WhatsApp</button>
-                                        <button class="btn btn-outline-primary mt-2" onclick="showMainPage()" id="villa-detail-back">← Retour aux résidences</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    
 
     <!-- ===== SOUS-PAGE : ÉQUIPEMENTS DÉTAILLÉS ===== -->
     <div id="equipements-page" style="display: none;">
@@ -1545,43 +1455,43 @@
             <div class="container">
                 <div class="detail-card">
                     <div class="detail-header">
-                        <h2><i class="fas fa-tools"></i> <span id="equipements-detail-title">Équipements & Services</span></h2>
-                        <p class="mb-0" id="equipements-detail-subtitle">Tout ce que nous mettons à votre disposition</p>
+                        <h2><i class="fas fa-tools"></i> Équipements & Services</h2>
+                        <p class="mb-0">Tout ce que nous mettons à votre disposition</p>
                     </div>
                     <div class="detail-body">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <h4><i class="fas fa-concierge-bell text-primary me-2"></i> <span id="equipements-included-title">Services inclus</span></h4>
+                                <h4><i class="fas fa-concierge-bell text-primary me-2"></i> Services inclus</h4>
                                 <ul class="list-unstyled">
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included1">Accueil et conciergerie 24h/24</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included2">Petit-déjeuner servi en chambre ou en terrasse</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included3">Ménage quotidien</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included4">Change de linge tous les 2 jours</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included5">Wi-Fi haut débit dans tout l'établissement</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included6">Parking privé gratuit et sécurisé</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included7">Service de réveil personnalisé</span></li>
-                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <span id="equipements-included8">Service de bagagerie</span></li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Accueil et conciergerie 24h/24</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Petit-déjeuner servi en chambre ou en terrasse</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Ménage quotidien</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Change de linge tous les 2 jours</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Wi-Fi haut débit dans tout l'établissement</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Parking privé gratuit et sécurisé</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Service de réveil personnalisé</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Service de bagagerie</li>
                                 </ul>
                             </div>
                             <div class="col-md-6 mb-4">
-                                <h4><i class="fas fa-plus-circle text-primary me-2"></i> <span id="equipements-paid-title">Services payants</span></h4>
+                                <h4><i class="fas fa-plus-circle text-primary me-2"></i> Services payants</h4>
                                 <ul class="list-unstyled">
-                                    <li class="mb-3"><i class="fas fa-utensils me-2"></i> <span id="equipements-paid1">Demi-pension : 15,000 - 25,000 XOF/pers</span></li>
-                                    <li class="mb-3"><i class="fas fa-spa me-2"></i> <span id="equipements-paid2">Massages et soins bien-être : 25,000 - 50,000 XOF</span></li>
-                                    <li class="mb-3"><i class="fas fa-car me-2"></i> <span id="equipements-paid3">Transferts aéroport (Saint-Louis/Dakar) : sur demande</span></li>
-                                    <li class="mb-3"><i class="fas fa-bicycle me-2"></i> <span id="equipements-paid4">Location de vélos : 5,000 XOF/jour</span></li>
-                                    <li class="mb-3"><i class="fas fa-umbrella-beach me-2"></i> <span id="equipements-paid5">Excursions et visites guidées : sur demande</span></li>
-                                    <li class="mb-3"><i class="fas fa-tshirt me-2"></i> <span id="equipements-paid6">Service de blanchisserie : 3,000 - 8,000 XOF</span></li>
-                                    <li class="mb-3"><i class="fas fa-phone me-2"></i> <span id="equipements-paid7">Appels internationaux : selon tarifs</span></li>
+                                    <li class="mb-3"><i class="fas fa-utensils me-2"></i> Demi-pension : 15,000 - 25,000 XOF/pers</li>
+                                    <li class="mb-3"><i class="fas fa-spa me-2"></i> Massages et soins bien-être : 25,000 - 50,000 XOF</li>
+                                    <li class="mb-3"><i class="fas fa-car me-2"></i> Transferts aéroport (Saint-Louis/Dakar) : sur demande</li>
+                                    <li class="mb-3"><i class="fas fa-bicycle me-2"></i> Location de vélos : 5,000 XOF/jour</li>
+                                    <li class="mb-3"><i class="fas fa-umbrella-beach me-2"></i> Excursions et visites guidées : sur demande</li>
+                                    <li class="mb-3"><i class="fas fa-tshirt me-2"></i> Service de blanchisserie : 3,000 - 8,000 XOF</li>
+                                    <li class="mb-3"><i class="fas fa-phone me-2"></i> Appels internationaux : selon tarifs</li>
                                 </ul>
                             </div>
                             <div class="col-12 mt-3">
-                                <h4><i class="fas fa-wheelchair text-primary me-2"></i> <span id="equipements-access-title">Accessibilité</span></h4>
-                                <p id="equipements-access-text">Notre établissement est accessible aux personnes à mobilité réduite. Nous disposons d'une chambre adaptée au rez-de-chaussée et de rampes d'accès dans tout l'établissement. N'hésitez pas à nous signaler vos besoins spécifiques lors de votre réservation.</p>
+                                <h4><i class="fas fa-wheelchair text-primary me-2"></i> Accessibilité</h4>
+                                <p>Notre établissement est accessible aux personnes à mobilité réduite. Nous disposons d'une chambre adaptée au rez-de-chaussée et de rampes d'accès dans tout l'établissement. N'hésitez pas à nous signaler vos besoins spécifiques lors de votre réservation.</p>
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-outline-primary" onclick="showMainPage()" id="equipements-back">← Retour aux résidences</button>
+                            <button class="btn btn-outline-primary" onclick="showMainPage()">← Retour aux résidences</button>
                         </div>
                     </div>
                 </div>
@@ -1595,79 +1505,79 @@
             <div class="container">
                 <div class="detail-card">
                     <div class="detail-header">
-                        <h2><i class="fas fa-tags"></i> <span id="offres-detail-title">Offres Spéciales</span></h2>
-                        <p class="mb-0" id="offres-detail-subtitle">Profitez de nos meilleurs tarifs et packages</p>
+                        <h2><i class="fas fa-tags"></i> Offres Spéciales</h2>
+                        <p class="mb-0">Profitez de nos meilleurs tarifs et packages</p>
                     </div>
                     <div class="detail-body">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h4 class="text-primary"><i class="fas fa-calendar-alt me-2"></i> <span id="offer1-detail-title">Séjour Longue Durée</span></h4>
-                                        <p class="lead mt-3" id="offer1-detail-discount">-15% sur votre hébergement</p>
-                                        <p id="offer1-detail-desc">Pour toute réservation de 7 nuits ou plus, bénéficiez de 15% de réduction sur le tarif de votre hébergement.</p>
+                                        <h4 class="text-primary"><i class="fas fa-calendar-alt me-2"></i> Séjour Longue Durée</h4>
+                                        <p class="lead mt-3">-15% sur votre hébergement</p>
+                                        <p>Pour toute réservation de 7 nuits ou plus, bénéficiez de 15% de réduction sur le tarif de votre hébergement.</p>
                                         <ul class="list-unstyled">
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer1-detail-studio">Studio : 55,250 XOF/nuit</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer1-detail-appartement">Appartement : 102,000 XOF/nuit</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer1-detail-villa">Villa : 212,500 XOF/nuit</span></li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Studio : 55,250 XOF/nuit</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Appartement : 102,000 XOF/nuit</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Villa : 212,500 XOF/nuit</li>
                                         </ul>
-                                        <p class="text-muted small" id="offer1-detail-note">* Offre non cumulable avec d'autres promotions</p>
-                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'" id="offer1-detail-book">Réserver</button>
+                                        <p class="text-muted small">* Offre non cumulable avec d'autres promotions</p>
+                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'">Réserver</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h4 class="text-primary"><i class="fas fa-heart me-2"></i> <span id="offer2-detail-title">Package Lune de Miel</span></h4>
-                                        <p class="lead mt-3" id="offer2-detail-price">+75,000 XOF pour 3 nuits</p>
-                                        <p id="offer2-detail-desc">Un séjour romantique inoubliable pour les jeunes mariés.</p>
+                                        <h4 class="text-primary"><i class="fas fa-heart me-2"></i> Package Lune de Miel</h4>
+                                        <p class="lead mt-3">+75,000 XOF pour 3 nuits</p>
+                                        <p>Un séjour romantique inoubliable pour les jeunes mariés.</p>
                                         <ul class="list-unstyled">
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer2-detail-feature1">Dîner aux chandelles au restaurant</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer2-detail-feature2">Massage en duo (1h)</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer2-detail-feature3">Pétales de roses dans la chambre</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer2-detail-feature4">Bouteille de vin offerte</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer2-detail-feature5">Départ tardif (18h)</span></li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Dîner aux chandelles au restaurant</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Massage en duo (1h)</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Pétales de roses dans la chambre</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Bouteille de vin offerte</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Départ tardif (18h)</li>
                                         </ul>
-                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'" id="offer2-detail-book">Réserver</button>
+                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'">Réserver</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h4 class="text-primary"><i class="fas fa-users me-2"></i> <span id="offer3-detail-title">Offre Groupe</span></h4>
-                                        <p class="lead mt-3" id="offer3-detail-from">À partir de 6 personnes</p>
-                                        <p id="offer3-detail-desc">Tarifs préférentiels pour les groupes (familles nombreuses, amis, séminaires).</p>
+                                        <h4 class="text-primary"><i class="fas fa-users me-2"></i> Offre Groupe</h4>
+                                        <p class="lead mt-3">À partir de 6 personnes</p>
+                                        <p>Tarifs préférentiels pour les groupes (familles nombreuses, amis, séminaires).</p>
                                         <ul class="list-unstyled">
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer3-detail-feature1">6-8 personnes : -10% sur la Villa</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer3-detail-feature2">9-12 personnes : -15% sur 2 appartements</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer3-detail-feature3">Repas de groupe sur mesure</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer3-detail-feature4">Activités de groupe organisées</span></li>
+                                            <li><i class="fas fa-check text-success me-2"></i> 6-8 personnes : -10% sur la Villa</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> 9-12 personnes : -15% sur 2 appartements</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Repas de groupe sur mesure</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Activités de groupe organisées</li>
                                         </ul>
-                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'" id="offer3-detail-book">Demander un devis</button>
+                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'">Demander un devis</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h4 class="text-primary"><i class="fas fa-umbrella-beach me-2"></i> <span id="offer4-detail-title">Package Séjour + Restaurant</span></h4>
-                                        <p class="lead mt-3" id="offer4-detail-discount">Demi-pension à -10%</p>
-                                        <p id="offer4-detail-desc">Ajoutez la demi-pension à votre réservation et bénéficiez de 10% de réduction sur l'ensemble.</p>
+                                        <h4 class="text-primary"><i class="fas fa-umbrella-beach me-2"></i> Package Séjour + Restaurant</h4>
+                                        <p class="lead mt-3">Demi-pension à -10%</p>
+                                        <p>Ajoutez la demi-pension à votre réservation et bénéficiez de 10% de réduction sur l'ensemble.</p>
                                         <ul class="list-unstyled">
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer4-detail-feature1">Petit-déjeuner inclus</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer4-detail-feature2">Dîner au restaurant Le Teranga</span></li>
-                                            <li><i class="fas fa-check text-success me-2"></i> <span id="offer4-detail-feature3">Menu découverte de la cuisine sénégalaise</span></li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Petit-déjeuner inclus</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Dîner au restaurant Le Teranga</li>
+                                            <li><i class="fas fa-check text-success me-2"></i> Menu découverte de la cuisine sénégalaise</li>
                                         </ul>
-                                        <p class="text-muted small" id="offer4-detail-note">* Forfait à partir de 95,000 XOF/pers/nuit selon hébergement</p>
-                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'" id="offer4-detail-book">Réserver</button>
+                                        <p class="text-muted small">* Forfait à partir de 95,000 XOF/pers/nuit selon hébergement</p>
+                                        <button class="btn btn-primary mt-3" onclick="window.location.href='chambres.html'">Réserver</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-outline-primary" onclick="showMainPage()" id="offres-detail-back">← Retour aux résidences</button>
+                            <button class="btn btn-outline-primary" onclick="showMainPage()">← Retour aux résidences</button>
                         </div>
                     </div>
                 </div>
@@ -1678,21 +1588,21 @@
     <!-- Bannière promotionnelle combinée -->
     <section class="container">
         <div class="promo-banner text-center">
-            <h3 id="promo-title">Offre Spéciale : Séjour + Expériences</h3>
-            <p class="lead mb-4" id="promo-subtitle">Réservez votre résidence et ajoutez une expérience à -20%</p>
+            <h3>Offre Spéciale : Séjour + Expériences</h3>
+            <p class="lead mb-4">Réservez votre résidence et ajoutez une expérience à -20%</p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="experiences.html" class="btn btn-light btn-lg" id="promo-experience">
+                <a href="experiences.html" class="btn btn-light btn-lg">
                     <i class="fas fa-compass me-2"></i>Choisir une expérience
                 </a>
-                <a href="chambres.html" class="btn btn-outline-light btn-lg" id="promo-book">
+                <a href="#" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
                     <i class="fas fa-calendar-check me-2"></i>Réserver maintenant
                 </a>
             </div>
-            <p class="mt-3 small" id="promo-note">* Offre valable pour toute réservation de 3 nuits minimum</p>
+            <p class="mt-3 small">* Offre valable pour toute réservation de 3 nuits minimum</p>
         </div>
     </section>
 
-    <!-- Footer (identique à la page d'accueil) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -1702,7 +1612,7 @@
                             <img src="images/logo1.png" alt="Logo Lawmar" class="footer-logo-image" onerror="this.style.display='none';">
                             <h3>LAWMAR</h3>
                         </div>
-                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <p>Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
                         <div class="social-links">
                             <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook"></i></a>
                             <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1713,36 +1623,35 @@
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <div class="footer-links">
-                        <h4 id="footer-nav">Navigation</h4>
+                        <h4>Navigation</h4>
                         <ul>
-                            <li><a href="index.html" id="footer-home">Accueil</a></li>
-                            <li><a href="residences.html" id="footer-residences">Résidences</a></li>
-                            <li><a href="restauration.html" id="footer-restauration">Restauration</a></li>
-                            <li><a href="services.html" id="footer-services">Services</a></li>
-                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
-                            <li><a href="galerie.html" id="footer-galerie">Galerie</a></li>
-                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="residences.html">Résidences</a></li>
+                            <li><a href="restauration.html">Restauration</a></li>
+                            <li><a href="chambres.html">Hébergements</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="galerie.html">Galerie</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-contact">
-                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère, Gandiol, Saint-Louis</span></p>
+                        <h4>Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Village de Tassinère, Gandiol, Saint-Louis</p>
                         <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
                         <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
-                        <!-- EMAILS MIS À JOUR -->
                         <p><i class="fas fa-envelope"></i> contact@residenceslawmar.com</p>
                         <p><i class="fas fa-envelope"></i> reservation@residencelawmar.com</p>
                         <p><i class="fas fa-envelope"></i> residencelawmar@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> <span id="footer-wa">WhatsApp: +221 77 995 20 20</span></p>
-                        <p><i class="fas fa-money-bill-wave"></i> <span id="footer-payments">Paiements: Wave - Orange Money</span></p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +221 77 995 20 20</p>
+                        <p><i class="fas fa-money-bill-wave"></i> Paiements: Wave - Orange Money</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer-newsletter">
-                        <h4 id="footer-newsletter-title">Newsletter</h4>
-                        <p id="footer-newsletter-text">Recevez nos actualités de Gandiol</p>
+                        <h4>Newsletter</h4>
+                        <p>Recevez nos actualités de Gandiol</p>
                         <form id="newsletter-form">
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
@@ -1750,18 +1659,18 @@
                             </div>
                         </form>
                         <div class="mt-2">
-                            <small><i class="fas fa-info-circle"></i> <span id="footer-biosphere">Réserve de biosphère</span></small>
+                            <small><i class="fas fa-info-circle"></i> Réserve de biosphère</small>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
-                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. Tous droits réservés. | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
-                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -1769,58 +1678,58 @@
     <div class="modal fade" id="bookingModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="modal-title">Réserver une résidence</h5>
+                <div class="modal-header">
+                    <h5 class="modal-title">Réserver une résidence</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="booking-form">
                         <div class="mb-3">
-                            <label class="form-label" id="modal-type-label">Type d'hébergement</label>
+                            <label class="form-label">Type d'hébergement</label>
                             <select class="form-select" id="booking-type" required>
-                                <option value="" id="modal-type-placeholder">Choisissez...</option>
-                                <option value="studio" id="modal-type-studio">Studio Vue Lac Doutti</option>
-                                <option value="appartement" id="modal-type-appartement">Appartement Familial Gandiol</option>
-                                <option value="villa" id="modal-type-villa">Villa Prestige Lawmar</option>
+                                <option value="">Choisissez...</option>
+                                <option value="studio">Studio Vue Lac Doutti</option>
+                                <option value="appartement">Appartement Familial Gandiol</option>
+                                <option value="villa">Villa Prestige Lawmar</option>
                             </select>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label" id="modal-checkin-label">Date d'arrivée</label>
+                                <label class="form-label">Date d'arrivée</label>
                                 <input type="date" class="form-control" id="booking-checkin" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" id="modal-checkout-label">Date de départ</label>
+                                <label class="form-label">Date de départ</label>
                                 <input type="date" class="form-control" id="booking-checkout" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label" id="modal-adults-label">Adultes</label>
+                                <label class="form-label">Adultes</label>
                                 <input type="number" class="form-control" id="booking-adults" value="2" min="1" max="8">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" id="modal-children-label">Enfants</label>
+                                <label class="form-label">Enfants</label>
                                 <input type="number" class="form-control" id="booking-children" value="0" min="0" max="4">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" id="modal-name-label">Nom complet</label>
+                            <label class="form-label">Nom complet</label>
                             <input type="text" class="form-control" id="booking-name" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" id="modal-email-label">Email</label>
+                            <label class="form-label">Email</label>
                             <input type="email" class="form-control" id="booking-email" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" id="modal-phone-label">Téléphone</label>
+                            <label class="form-label">Téléphone</label>
                             <input type="tel" class="form-control" id="booking-phone" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" id="modal-message-label">Message spécial (optionnel)</label>
+                            <label class="form-label">Message spécial (optionnel)</label>
                             <textarea class="form-control" id="booking-message" rows="2"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100" id="modal-submit">Envoyer la demande</button>
+                        <button type="submit" class="btn btn-primary w-100">Envoyer la demande</button>
                     </form>
                 </div>
             </div>
@@ -1832,29 +1741,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="admin-title">Connexion personnel</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="admin-login-form">
                         <div class="mb-3">
-                            <label for="admin-email" class="form-label" id="admin-email-label">Email</label>
+                            <label for="admin-email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="admin-email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="admin-password" class="form-label" id="admin-password-label">Mot de passe</label>
+                            <label for="admin-password" class="form-label">Mot de passe</label>
                             <input type="password" class="form-control" id="admin-password" required>
                         </div>
                         <div class="mb-3">
                             <select class="form-select" id="admin-role">
-                                <option value="reception" id="admin-role-reception">Réceptionniste</option>
-                                <option value="serveur" id="admin-role-serveur">Serveur</option>
-                                <option value="cuisine" id="admin-role-cuisine">Cuisine</option>
-                                <option value="guide" id="admin-role-guide">Guide touristique</option>
-                                <option value="manager" id="admin-role-manager">Manager</option>
+                                <option value="reception">Réceptionniste</option>
+                                <option value="serveur">Serveur</option>
+                                <option value="cuisine">Cuisine</option>
+                                <option value="guide">Guide touristique</option>
+                                <option value="manager">Manager</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100" id="admin-login-btn">Se connecter</button>
+                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
                     </form>
                 </div>
             </div>
@@ -1869,403 +1778,16 @@
         // Dictionnaire de traduction
         const translations = {
             fr: {
-                // Navigation
-                'hotel-name': 'LAWMAR',
-                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
-                'nav-home': 'Accueil',
-                'nav-residences': 'Résidences',
-                'nav-all-residences': 'Toutes nos résidences',
-                'nav-experiences': 'Experiences',
-                'nav-engagements': 'Engagements',
-                'nav-restauration': 'Restauration',
-                'nav-services': 'Services',
-                'nav-galerie': 'Galerie',
-                'nav-contact': 'Contact',
-                'nav-reserver': 'Réserver',
-                'current-lang': 'FR',
-                
-                // Hero
-                'hero-title': 'Les Résidences du Lawmar',
-                'hero-subtitle': 'Là où l\'eau rencontre la terre, l\'histoire s\'écrit au fil du courant',
-                'hero-watermark': 'Lawmar - Le cours d\'eau qui borde le lac Doutti',
-                
-                // Histoire
-                'story-title': 'L\'Âme du Lawmar',
-                'story-quote': '"Lawmar" - Un nom qui coule comme l\'eau, porteur de vie et de continuité.',
-                'story-text1': 'Le nom <strong class="text-primary">Lawmar</strong> provient du cours d\'eau qui borde le lac Doutti, à l\'entrée du site. Ce n\'est pas simplement un nom, c\'est une identité, un héritage. Symbole d\'eau, de vie et de continuité, Lawmar incarne l\'esprit même du lieu : un espace où la nature généreuse du Gandiol rencontre l\'hospitalité légendaire du Sénégal.',
-                'story-quote2': 'Ici, chaque lever de soleil sur le lac raconte une histoire, chaque coucher sur l\'océan invite à la contemplation.',
-                'story-text2': '<strong>Les Résidences du Lawmar</strong> sont un établissement profondément enraciné dans le terroir gandiolais. Bien plus qu\'un simple lieu d\'hébergement, nous sommes les gardiens d\'une culture, d\'un environnement et d\'une tradition d\'accueil. Notre mission est de valoriser la culture locale, de préserver l\'environnement naturel exceptionnel qui nous entoure, et d\'offrir à nos hôtes une expérience authentique de l\'hospitalité sénégalaise, cette fameuse <span class="fw-bold" style="color: var(--teranga);">Teranga</span>.',
-                'stat1-label': 'Écosystèmes',
-                'stat2-label': 'Espèces d\'oiseaux',
-                'stat3-label': 'Année du village',
-                
-                // Environnement
-                'env-title': 'Un Écrin de Nature Exceptionnel',
-                'env-text1': 'Entre fleuve Sénégal, lac Doutti et océan Atlantique, notre établissement est niché au cœur d\'une biodiversité remarquable. Les paysages offerts à nos visiteurs sont d\'une beauté à couper le souffle : le calme du lac au petit matin, la puissance du fleuve, l\'immensité de l\'océan...',
-                'env-text2': 'Ici, le temps suspend son vol. C\'est un lieu de déconnexion totale, de contemplation et de ressourcement.',
-                'env-river': 'Fleuve',
-                'env-lake': 'Lac Doutti',
-                'env-ocean': 'Océan',
-                
-                // Navigation sous-pages
-                'nav-all': 'Toutes les résidences',
-                'nav-studio': 'Studio Vue Lac',
-                'nav-appartement': 'Appartement Familial',
-                'nav-villa': 'Villa Prestige',
-                'nav-equipements': 'Équipements',
-                'nav-offres': 'Offres spéciales',
-                
-                // Page principale
-                'main-title': 'Un hébergement pour chaque voyageur',
-                'main-subtitle': 'Que vous voyagiez en solo, en couple, en famille ou en groupe, nous avons la résidence idéale pour vous.',
-                'main-text': 'Toutes nos résidences sont conçues pour vous offrir le meilleur du confort moderne tout en préservant l\'authenticité de l\'architecture locale. Chaque espace est pensé pour que vous vous sentiez chez vous, avec une touche de cette fameuse Teranga sénégalaise.',
-                'main-feature1': 'Climatisation réversible',
-                'main-feature2': 'Wi-Fi haut débit',
-                'main-feature3': 'Service de ménage quotidien',
-                'main-feature4': 'Parking privé gratuit',
-                'types-title': 'Nos Types d\'Hébergement',
-                'types-subtitle': 'Choisissez la résidence qui correspond à vos besoins',
-                
-                // Studio
-                'studio-badge': 'Studio',
-                'studio-title': 'Studio Vue Lac Doutti',
-                'studio-capacity': 'Pour 2 personnes · 35 m²',
-                'studio-desc': 'Idéal pour les couples ou les voyageurs d\'affaires, ce studio confortable offre une vue imprenable sur le lac Doutti. Profitez du calme et de la beauté du paysage depuis votre terrasse privée.',
-                'studio-feature1': '1 lit queen-size (160 cm)',
-                'studio-feature2': 'Salle de bain privative avec eau chaude',
-                'studio-feature3': 'Kitchenette équipée',
-                'studio-feature4': 'Télévision écran plat',
-                'studio-feature5': 'Wi-Fi gratuit',
-                'studio-feature6': 'Terrasse privée avec vue lac',
-                'studio-price': '65,000 XOF ',
-                'studio-per-night': '/ nuit',
-                'studio-btn-details': 'Voir détails',
-                
-                // Appartement
-                'appartement-badge': 'Appartement',
-                'appartement-title': 'Appartement Familial "Gandiol"',
-                'appartement-capacity': 'Pour 4-5 personnes · 70 m²',
-                'appartement-desc': 'Un espace généreux pour toute la famille. Cet appartement de deux chambres offre tout le confort nécessaire pour des vacances réussies, avec un salon spacieux et une cuisine entièrement équipée.',
-                'appartement-feature1': '2 chambres (1 lit double + 2 lits simples)',
-                'appartement-feature2': '2 salles de bain',
-                'appartement-feature3': 'Cuisine équipée',
-                'appartement-feature4': 'Salon avec canapé-lit',
-                'appartement-feature5': 'Wi-Fi gratuit',
-                'appartement-feature6': 'Vue sur le jardin',
-                'appartement-price': '120,000 XOF ',
-                'appartement-per-night': '/ nuit',
-                'appartement-btn-details': 'Voir détails',
-                
-                // Villa
-                'villa-badge': 'Villa',
-                'villa-title': 'Villa Prestige "Lawmar"',
-                'villa-capacity': 'Pour 6-8 personnes · 120 m²',
-                'villa-desc': 'Notre villa haut de gamme est l\'option parfaite pour les groupes ou les grandes familles. Avec ses 3 chambres spacieuses, sa piscine privée et son grand jardin, elle offre un cadre d\'exception.',
-                'villa-feature1': '3 chambres (2 lits king-size + 2 lits simples)',
-                'villa-feature2': '3 salles de bain',
-                'villa-feature3': 'Piscine privée',
-                'villa-feature4': 'Cuisine américaine équipée',
-                'villa-feature5': 'Terrasse avec salon de jardin',
-                'villa-feature6': 'Wi-Fi haut débit',
-                'villa-price': '250,000 XOF ',
-                'villa-per-night': '/ nuit',
-                'villa-btn-details': 'Voir détails',
-                
-                // Équipements
-                'equipements-title': 'Équipements & Services Inclus',
-                'equipements-subtitle': 'Tout ce dont vous avez besoin pour un séjour confortable',
-                'amenity1': 'Wi-Fi Haut Débit',
-                'amenity1-desc': 'Gratuit dans tout l\'établissement',
-                'amenity2': 'Climatisation',
-                'amenity2-desc': 'Dans toutes les résidences',
-                'amenity3': 'Eau Chaude',
-                'amenity3-desc': '24h/24, 7j/7',
-                'amenity4': 'Parking Privé',
-                'amenity4-desc': 'Gratuit et sécurisé',
-                'amenity5': 'Ménage Quotidien',
-                'amenity5-desc': 'Service inclus',
-                'amenity6': 'Sécurité 24h/24',
-                'amenity6-desc': 'Surveillance permanente',
-                
-                // Offres
-                'offres-title': 'Offres Spéciales',
-                'offres-subtitle': 'Profitez de nos meilleurs tarifs',
-                'offer1-title': 'Séjour Longue Durée',
-                'offer1-desc': '-15% pour toute réservation de 7 nuits ou plus',
-                'offer1-link': 'En savoir plus ',
-                'offer2-title': 'Offre Lune de Miel',
-                'offer2-desc': 'Package romantique avec dîner aux chandelles et massage',
-                'offer2-link': 'En savoir plus ',
-                'offer3-title': 'Offre Groupe',
-                'offer3-desc': 'Tarifs préférentiels pour les groupes à partir de 6 personnes',
-                'offer3-link': 'En savoir plus ',
-                
-                // Footer
-                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
-                'footer-nav': 'Navigation',
-                'footer-home': 'Accueil',
-                'footer-residences': 'Résidences',
-                'footer-restauration': 'Restauration',
-                'footer-services': 'Services',
-                'footer-experiences': 'Expériences',
-                'footer-galerie': 'Galerie',
-                'footer-contact': 'Contact',
-                'footer-contact-title': 'Contact - Gandiol',
-                'footer-address': 'Village de Tassinère, Gandiol, Saint-Louis',
-                'footer-wa': 'WhatsApp: +221 77 995 20 20',
-                'footer-payments': 'Paiements: Wave - Orange Money',
-                'footer-newsletter-title': 'Newsletter',
-                'footer-newsletter-text': 'Recevez nos actualités de Gandiol',
-                'newsletter-input': 'Votre email',
-                'footer-biosphere': 'Réserve de biosphère',
-                'footer-rights': 'Tous droits réservés.',
-                
-                // Promo banner
-                'promo-title': 'Offre Spéciale : Séjour + Expériences',
-                'promo-subtitle': 'Réservez votre résidence et ajoutez une expérience à -20%',
-                'promo-experience': 'Choisir une expérience',
-                'promo-book': 'Réserver maintenant',
-                'promo-note': '* Offre valable pour toute réservation de 3 nuits minimum',
-                
-                // Modal
-                'modal-title': 'Réserver une résidence',
-                'modal-type-label': 'Type d\'hébergement',
-                'modal-type-placeholder': 'Choisissez...',
-                'modal-type-studio': 'Studio Vue Lac Doutti',
-                'modal-type-appartement': 'Appartement Familial Gandiol',
-                'modal-type-villa': 'Villa Prestige Lawmar',
-                'modal-checkin-label': 'Date d\'arrivée',
-                'modal-checkout-label': 'Date de départ',
-                'modal-adults-label': 'Adultes',
-                'modal-children-label': 'Enfants',
-                'modal-name-label': 'Nom complet',
-                'modal-email-label': 'Email',
-                'modal-phone-label': 'Téléphone',
-                'modal-message-label': 'Message spécial (optionnel)',
-                'modal-submit': 'Envoyer la demande',
-                
-                // Admin modal
-                'admin-title': 'Connexion personnel',
-                'admin-email-label': 'Email',
-                'admin-password-label': 'Mot de passe',
-                'admin-role-reception': 'Réceptionniste',
-                'admin-role-serveur': 'Serveur',
-                'admin-role-cuisine': 'Cuisine',
-                'admin-role-guide': 'Guide touristique',
-                'admin-role-manager': 'Manager',
-                'admin-login-btn': 'Se connecter'
+                'current-lang': 'FR'
             },
             en: {
-                // Navigation
-                'hotel-name': 'LAWMAR',
-                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
-                'nav-home': 'Home',
-                'nav-residences': 'Residences',
-                'nav-all-residences': 'All residences',
-                'nav-experiences': 'Experiences',
-                'nav-engagements': 'Commitments',
-                'nav-restauration': 'Restaurant',
-                'nav-services': 'Services',
-                'nav-galerie': 'Gallery',
-                'nav-contact': 'Contact',
-                'nav-reserver': 'Book now',
-                'current-lang': 'EN',
-                
-                // Hero
-                'hero-title': 'Lawmar Residences',
-                'hero-subtitle': 'Where water meets land, history flows with the current',
-                'hero-watermark': 'Lawmar - The stream that borders Lake Doutti',
-                
-                // Histoire
-                'story-title': 'The Soul of Lawmar',
-                'story-quote': '"Lawmar" - A name that flows like water, bearer of life and continuity.',
-                'story-text1': 'The name <strong class="text-primary">Lawmar</strong> comes from the stream that borders Lake Doutti, at the entrance of the site. It is not simply a name, it is an identity, a heritage. Symbol of water, life and continuity, Lawmar embodies the very spirit of the place: a space where the generous nature of Gandiol meets the legendary hospitality of Senegal.',
-                'story-quote2': 'Here, every sunrise on the lake tells a story, every sunset on the ocean invites contemplation.',
-                'story-text2': '<strong>Les Résidences du Lawmar</strong> is an establishment deeply rooted in the Gandiol region. Much more than a simple accommodation, we are the guardians of a culture, an environment and a tradition of hospitality. Our mission is to promote local culture, preserve the exceptional natural environment that surrounds us, and offer our guests an authentic experience of Senegalese hospitality, the famous <span class="fw-bold" style="color: var(--teranga);">Teranga</span>.',
-                'stat1-label': 'Ecosystems',
-                'stat2-label': 'Bird species',
-                'stat3-label': 'Village year',
-                
-                // Environnement
-                'env-title': 'An Exceptional Natural Setting',
-                'env-text1': 'Between the Senegal River, Lake Doutti and the Atlantic Ocean, our establishment is nestled in the heart of remarkable biodiversity. The landscapes offered to our visitors are breathtaking: the calm of the lake in the early morning, the power of the river, the immensity of the ocean...',
-                'env-text2': 'Here, time stands still. It is a place of total disconnection, contemplation and rejuvenation.',
-                'env-river': 'River',
-                'env-lake': 'Lake Doutti',
-                'env-ocean': 'Ocean',
-                
-                // Navigation sous-pages
-                'nav-all': 'All residences',
-                'nav-studio': 'Lake View Studio',
-                'nav-appartement': 'Family Apartment',
-                'nav-villa': 'Prestige Villa',
-                'nav-equipements': 'Amenities',
-                'nav-offres': 'Special offers',
-                
-                // Page principale
-                'main-title': 'Accommodation for every traveler',
-                'main-subtitle': 'Whether you travel solo, as a couple, with family or in a group, we have the ideal residence for you.',
-                'main-text': 'All our residences are designed to offer you the best of modern comfort while preserving the authenticity of local architecture. Each space is designed to make you feel at home, with a touch of the famous Senegalese Teranga.',
-                'main-feature1': 'Reversible air conditioning',
-                'main-feature2': 'High-speed Wi-Fi',
-                'main-feature3': 'Daily housekeeping',
-                'main-feature4': 'Free private parking',
-                'types-title': 'Our Accommodation Types',
-                'types-subtitle': 'Choose the residence that suits your needs',
-                
-                // Studio
-                'studio-badge': 'Studio',
-                'studio-title': 'Lake Doutti View Studio',
-                'studio-capacity': 'For 2 people · 35 m²',
-                'studio-desc': 'Ideal for couples or business travelers, this comfortable studio offers stunning views of Lake Doutti. Enjoy the calm and beauty of the landscape from your private terrace.',
-                'studio-feature1': '1 queen-size bed (160 cm)',
-                'studio-feature2': 'Private bathroom with hot water',
-                'studio-feature3': 'Equipped kitchenette',
-                'studio-feature4': 'Flat screen TV',
-                'studio-feature5': 'Free Wi-Fi',
-                'studio-feature6': 'Private terrace with lake view',
-                'studio-price': '65,000 XOF ',
-                'studio-per-night': '/ night',
-                'studio-btn-details': 'View details',
-                
-                // Appartement
-                'appartement-badge': 'Apartment',
-                'appartement-title': 'Family Apartment "Gandiol"',
-                'appartement-capacity': 'For 4-5 people · 70 m²',
-                'appartement-desc': 'A generous space for the whole family. This two-bedroom apartment offers all the comfort needed for a successful vacation, with a spacious living room and a fully equipped kitchen.',
-                'appartement-feature1': '2 bedrooms (1 double bed + 2 single beds)',
-                'appartement-feature2': '2 bathrooms',
-                'appartement-feature3': 'Equipped kitchen',
-                'appartement-feature4': 'Living room with sofa bed',
-                'appartement-feature5': 'Free Wi-Fi',
-                'appartement-feature6': 'Garden view',
-                'appartement-price': '120,000 XOF ',
-                'appartement-per-night': '/ night',
-                'appartement-btn-details': 'View details',
-                
-                // Villa
-                'villa-badge': 'Villa',
-                'villa-title': 'Prestige Villa "Lawmar"',
-                'villa-capacity': 'For 6-8 people · 120 m²',
-                'villa-desc': 'Our high-end villa is the perfect option for groups or large families. With its 3 spacious bedrooms, private pool and large garden, it offers an exceptional setting.',
-                'villa-feature1': '3 bedrooms (2 king-size beds + 2 single beds)',
-                'villa-feature2': '3 bathrooms',
-                'villa-feature3': 'Private pool',
-                'villa-feature4': 'Equipped American kitchen',
-                'villa-feature5': 'Terrace with garden furniture',
-                'villa-feature6': 'High-speed Wi-Fi',
-                'villa-price': '250,000 XOF ',
-                'villa-per-night': '/ night',
-                'villa-btn-details': 'View details',
-                
-                // Équipements
-                'equipements-title': 'Amenities & Included Services',
-                'equipements-subtitle': 'Everything you need for a comfortable stay',
-                'amenity1': 'High-Speed Wi-Fi',
-                'amenity1-desc': 'Free throughout the property',
-                'amenity2': 'Air Conditioning',
-                'amenity2-desc': 'In all residences',
-                'amenity3': 'Hot Water',
-                'amenity3-desc': '24/7',
-                'amenity4': 'Private Parking',
-                'amenity4-desc': 'Free and secure',
-                'amenity5': 'Daily Housekeeping',
-                'amenity5-desc': 'Included service',
-                'amenity6': '24/7 Security',
-                'amenity6-desc': 'Permanent surveillance',
-                
-                // Offres
-                'offres-title': 'Special Offers',
-                'offres-subtitle': 'Take advantage of our best rates',
-                'offer1-title': 'Long Stay',
-                'offer1-desc': '-15% for any reservation of 7 nights or more',
-                'offer1-link': 'Learn more ',
-                'offer2-title': 'Honeymoon Offer',
-                'offer2-desc': 'Romantic package with candlelight dinner and massage',
-                'offer2-link': 'Learn more ',
-                'offer3-title': 'Group Offer',
-                'offer3-desc': 'Preferential rates for groups of 6 people or more',
-                'offer3-link': 'Learn more ',
-                
-                // Footer
-                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
-                'footer-nav': 'Navigation',
-                'footer-home': 'Home',
-                'footer-residences': 'Residences',
-                'footer-restauration': 'Restaurant',
-                'footer-services': 'Services',
-                'footer-experiences': 'Experiences',
-                'footer-galerie': 'Gallery',
-                'footer-contact': 'Contact',
-                'footer-contact-title': 'Contact - Gandiol',
-                'footer-address': 'Tassinère Village, Gandiol, Saint-Louis',
-                'footer-wa': 'WhatsApp: +221 77 995 20 20',
-                'footer-payments': 'Payments: Wave - Orange Money',
-                'footer-newsletter-title': 'Newsletter',
-                'footer-newsletter-text': 'Receive our news from Gandiol',
-                'newsletter-input': 'Your email',
-                'footer-biosphere': 'Biosphere reserve',
-                'footer-rights': 'All rights reserved.',
-                
-                // Promo banner
-                'promo-title': 'Special Offer: Stay + Experiences',
-                'promo-subtitle': 'Book your residence and add an experience at -20%',
-                'promo-experience': 'Choose an experience',
-                'promo-book': 'Book now',
-                'promo-note': '* Offer valid for any reservation of 3 nights minimum',
-                
-                // Modal
-                'modal-title': 'Book a residence',
-                'modal-type-label': 'Accommodation type',
-                'modal-type-placeholder': 'Choose...',
-                'modal-type-studio': 'Lake Doutti View Studio',
-                'modal-type-appartement': 'Gandiol Family Apartment',
-                'modal-type-villa': 'Lawmar Prestige Villa',
-                'modal-checkin-label': 'Check-in date',
-                'modal-checkout-label': 'Check-out date',
-                'modal-adults-label': 'Adults',
-                'modal-children-label': 'Children',
-                'modal-name-label': 'Full name',
-                'modal-email-label': 'Email',
-                'modal-phone-label': 'Phone',
-                'modal-message-label': 'Special message (optional)',
-                'modal-submit': 'Send request',
-                
-                // Admin modal
-                'admin-title': 'Staff login',
-                'admin-email-label': 'Email',
-                'admin-password-label': 'Password',
-                'admin-role-reception': 'Receptionist',
-                'admin-role-serveur': 'Waiter',
-                'admin-role-cuisine': 'Kitchen',
-                'admin-role-guide': 'Tour guide',
-                'admin-role-manager': 'Manager',
-                'admin-login-btn': 'Sign in'
+                'current-lang': 'EN'
             }
         };
 
         function changeLanguage(lang) {
-            // Mettre à jour le texte de tous les éléments avec id
-            for (let key in translations[lang]) {
-                let element = document.getElementById(key);
-                if (element) {
-                    // Pour les éléments qui contiennent du HTML, on utilise innerHTML
-                    if (key.includes('text1') || key.includes('text2') || key.includes('quote') || key.includes('feature') || key.includes('desc') || key.includes('included') || key.includes('paid')) {
-                        element.innerHTML = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            }
-            
-            // Mettre à jour les attributs placeholder
-            document.getElementById('newsletter-input').placeholder = translations[lang]['newsletter-input'];
-            
-            // Mettre à jour l'attribut lang de la page
+            document.getElementById('current-lang').textContent = translations[lang]['current-lang'];
             document.documentElement.lang = lang;
-            
-            // Afficher une notification (optionnel)
-            console.log('Langue changée en ' + lang);
         }
         
         function showMainPage() {
@@ -2276,18 +1798,15 @@
             document.getElementById('equipements-page').style.display = 'none';
             document.getElementById('offres-page').style.display = 'none';
             
-            // Mettre à jour les boutons actifs
             document.querySelectorAll('.subpage-nav .btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector('.subpage-nav .btn:first-child').classList.add('active');
             
-            // Scroll en haut de page
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
         function showSubPage(page) {
-            // Cacher toutes les pages
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('studio-page').style.display = 'none';
             document.getElementById('appartement-page').style.display = 'none';
@@ -2295,7 +1814,6 @@
             document.getElementById('equipements-page').style.display = 'none';
             document.getElementById('offres-page').style.display = 'none';
             
-            // Afficher la page demandée
             if (page === 'studio') {
                 document.getElementById('studio-page').style.display = 'block';
             } else if (page === 'appartement') {
@@ -2308,7 +1826,6 @@
                 document.getElementById('offres-page').style.display = 'block';
             }
             
-            // Mettre à jour les boutons actifs
             document.querySelectorAll('.subpage-nav .btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -2321,20 +1838,11 @@
                 'offres': 5
             };
             
-            if (btnMap[page]) {
+            if (btnMap[page] !== undefined) {
                 document.querySelectorAll('.subpage-nav .btn')[btnMap[page]].classList.add('active');
             }
             
-            // Scroll en haut de page
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function scrollToHistoire() {
-            document.getElementById('histoire').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        function scrollToEnvironnement() {
-            document.getElementById('environnement').scrollIntoView({ behavior: 'smooth' });
         }
         
         function reserveViaWhatsApp(offerName, price) {
@@ -2342,7 +1850,7 @@
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
         }
 
-        // Gestionnaire pour le formulaire de réservation
+        // Formulaires
         document.getElementById('booking-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const type = document.getElementById('booking-type').value;
@@ -2383,26 +1891,15 @@
             this.reset();
         });
         
-        // Gestion des ancres dans l'URL
+        // Gestion des ancres
         window.addEventListener('load', function() {
             if (window.location.hash) {
                 const hash = window.location.hash.substring(1);
-                if (hash === 'studio-vue-lac') {
-                    showSubPage('studio');
-                } else if (hash === 'appartement-familial') {
-                    showSubPage('appartement');
-                } else if (hash === 'villa-prestige') {
-                    showSubPage('villa');
-                } else if (hash === 'equipements') {
-                    showSubPage('equipements');
-                } else if (hash === 'offres') {
-                    showSubPage('offres');
-                } else if (hash === 'histoire') {
+                if (['studio', 'appartement', 'villa', 'equipements', 'offres'].includes(hash)) {
+                    showSubPage(hash);
+                } else if (hash === 'histoire' || hash === 'environnement') {
                     showMainPage();
-                    setTimeout(() => scrollToHistoire(), 100);
-                } else if (hash === 'environnement') {
-                    showMainPage();
-                    setTimeout(() => scrollToEnvironnement(), 100);
+                    setTimeout(() => document.getElementById(hash).scrollIntoView({ behavior: 'smooth' }), 100);
                 }
             }
         });

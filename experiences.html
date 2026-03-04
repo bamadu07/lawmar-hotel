@@ -57,7 +57,7 @@
             background-color: var(--sable) !important;
         }
 
-        /* Navigation - Sans cercle autour du logo */
+        /* Navigation - IDENTIQUE À LA PAGE D'ACCUEIL - LOGO SANS CADRE */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -65,11 +65,19 @@
             min-height: 70px;
         }
 
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .navbar-brand {
             display: flex;
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px; /* Décalage vers la gauche comme sur l'accueil */
         }
 
         .logo-container {
@@ -83,8 +91,8 @@
             height: 45px;
             object-fit: contain;
             background: transparent;
-            border: none;
-            border-radius: 0;
+            border: none; /* SUPPRESSION DU CADRE */
+            border-radius: 0; /* SUPPRESSION DU CADRE ARRONDI */
         }
 
         .brand-text {
@@ -105,35 +113,55 @@
             font-weight: 300;
         }
 
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 6px 12px !important;
-            margin: 0 2px;
+            padding: 6px 10px !important;
             transition: var(--transition);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important;
-            background-color: var(--vert) !important;
-            border-radius: 5px;
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
         }
 
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
             padding: 6px 15px !important;
-            border: none;
+            transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .dropdown-item {
+            color: var(--primary-color) !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-color);
+            color: var(--indigo) !important;
         }
 
         .btn-whatsapp {
@@ -173,20 +201,6 @@
             background-color: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
-        }
-
-        .dropdown-menu {
-            background-color: white;
-            border: 1px solid var(--secondary-color);
-        }
-
-        .dropdown-item {
-            color: var(--primary-color) !important;
-        }
-
-        .dropdown-item:hover {
-            background-color: var(--light-color);
-            color: var(--indigo) !important;
         }
 
         /* Hero Section */
@@ -757,8 +771,8 @@
             width: 45px;
             height: 45px;
             object-fit: contain;
-            border: none !important;
-            border-radius: 0 !important;
+            border: none !important; /* SUPPRESSION DU CADRE DANS LE FOOTER */
+            border-radius: 0 !important; /* SUPPRESSION DU CADRE ARRONDI DANS LE FOOTER */
             background: transparent !important;
         }
 
@@ -785,14 +799,93 @@
             font-style: italic;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
+        /* Responsive - IDENTIQUE À LA PAGE D'ACCUEIL */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
             
-            .hero-title { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .experience-filters { border-radius: 30px; padding: 15px; }
-            .filter-btn { padding: 6px 12px; font-size: 0.8rem; }
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { 
+                padding-top: 70px; 
+            }
+            
+            .navbar {
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hotel-name {
+                font-size: 1.2rem !important;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.65rem !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 15px !important;
+            }
+            
+            .hero-title { 
+                font-size: 2.2rem; 
+            }
+            .hero-subtitle { 
+                font-size: 1rem; 
+            }
+            .experience-filters { 
+                border-radius: 30px; 
+                padding: 15px; 
+            }
+            .filter-btn { 
+                padding: 6px 12px; 
+                font-size: 0.8rem; 
+            }
             
             .activites-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -800,19 +893,62 @@
         }
 
         @media (max-width: 576px) {
-            .hero-title { font-size: 1.8rem; }
-            .experience-filters { border-radius: 20px; }
-            .filter-btn { padding: 5px 10px; font-size: 0.75rem; }
+            body {
+                padding-top: 65px;
+            }
+            
+            .navbar {
+                min-height: 55px;
+            }
+            
+            .logo-image {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .hotel-name {
+                font-size: 1.1rem !important;
+            }
+            
+            .hero-title { 
+                font-size: 1.8rem; 
+            }
+            .experience-filters { 
+                border-radius: 20px; 
+            }
+            .filter-btn { 
+                padding: 5px 10px; 
+                font-size: 0.75rem; 
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar {
+                min-height: 50px;
+            }
+            
+            .logo-image {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .hotel-name {
+                font-size: 1rem !important;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation (identique aux autres pages) -->
+    <!-- Navigation - IDENTIQUE À LA PAGE D'ACCUEIL - LOGO SANS CADRE -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle" id="hotel-subtitle">
@@ -821,24 +957,38 @@
                     </div>
                 </div>
             </a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="residences.html" id="nav-residences">Résidences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html" id="nav-services">Services</a></li>
-                   
-                    <li class="nav-item"><a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html" id="nav-contact">Contact</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link btn-reservation" href="chambres.html" id="nav-reserver">Réserver</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="experiences.html" id="nav-experiences">Expériences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="chambres.html" id="nav-reserver">Réserver</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
@@ -996,7 +1146,7 @@
                             <span class="experience-badge" id="langue-badge">Nature</span>
                         </div>
                         <div class="experience-content">
-                            <h3 id="langue-title">Vue de Gandiol</h3>
+                            <h3 id="langue-title">Langue de Barbarie</h3>
                             <div class="experience-meta"><span><i class="far fa-clock"></i> <span id="langue-duration">4h</span></span><span><i class="fas fa-bird"></i> <span id="langue-bird">Observation</span></span></div>
                             <p class="experience-description" id="langue-desc">Parc national, observation des oiseaux (pélicans, flamants...).</p>
                             <div class="experience-price">35,000 XOF</div>
@@ -1012,7 +1162,7 @@
                             <span class="experience-badge" id="lacrose-badge">Aventure</span>
                         </div>
                         <div class="experience-content">
-                            <h3 id="lacrose-title">Village de Tassinere </h3>
+                            <h3 id="lacrose-title">Lac Rose (Retba)</h3>
                             <div class="experience-meta"><span><i class="far fa-clock"></i> <span id="lacrose-duration">Journée</span></span><span><i class="fas fa-car"></i> <span id="lacrose-transport">Transport</span></span></div>
                             <p class="experience-description" id="lacrose-desc">Découverte du lac Retba, extraction du sel, baignade.</p>
                             <div class="experience-price">65,000 XOF</div>
@@ -1028,7 +1178,7 @@
                             <span class="experience-badge" id="bandia-badge">Safari</span>
                         </div>
                         <div class="experience-content">
-                            <h3 id="bandia-title">Réserve de Gandiol</h3>
+                            <h3 id="bandia-title">Réserve de Bandia</h3>
                             <div class="experience-meta"><span><i class="far fa-clock"></i> <span id="bandia-duration">Journée</span></span><span><i class="fas fa-camera"></i> <span id="bandia-photo">Safari photo</span></span></div>
                             <p class="experience-description" id="bandia-desc">Girafes, rhinocéros, zèbres, antilopes...</p>
                             <div class="experience-price">75,000 XOF</div>
@@ -1039,8 +1189,6 @@
             </div>
         </div>
     </section>
-
-    
 
     <!-- Avis et Témoignages -->
     <section class="section-padding bg-sable">
@@ -1158,7 +1306,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                             <h3>LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
                         </div>
                         <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
@@ -1216,12 +1364,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -1263,6 +1411,7 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
+                'nav-hebergements': 'Hébergements',
                 'nav-restauration': 'Restauration',
                 'nav-services': 'Services',
                 'nav-experiences': 'Expériences',
@@ -1354,27 +1503,6 @@
                 'bandia-desc': 'Girafes, rhinocéros, zèbres, antilopes...',
                 'bandia-btn': 'Réserver',
                 
-                // Wellness section
-                'wellness-title': 'Bien-être & Détente',
-                'wellness-subtitle': 'Prenez soin de vous',
-                'massage-badge': 'Détente',
-                'massage-title': 'Massages Traditionnels',
-                'massage-desc': 'Massages aux huiles naturelles, gommage au karité.',
-                'massage-option1': 'Massage relaxant (1h) - 25,000 XOF',
-                'massage-option2': 'Massage aux huiles (1h30) - 35,000 XOF',
-                'massage-option3': 'Gommage au karité (45min) - 20,000 XOF',
-                'massage-btn': 'Réserver',
-                
-                'yoga-badge': 'Bien-être',
-                'yoga-title': 'Yoga au Lever du Soleil',
-                'yoga-desc': 'Séance face au lac Doutti, au lever du soleil.',
-                'yoga-btn': 'Réserver',
-                
-                'meditation-badge': 'Méditation',
-                'meditation-title': 'Méditation en Pleine Nature',
-                'meditation-desc': 'Séances dans les jardins ou au bord du lac.',
-                'meditation-btn': 'Réserver',
-                
                 // Testimonials
                 'testimonials-title': 'Ce que disent nos voyageurs',
                 'testimonials-subtitle': 'Des expériences qui marquent les esprits',
@@ -1436,6 +1564,7 @@
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
+                'nav-hebergements': 'Accommodation',
                 'nav-restauration': 'Restaurant',
                 'nav-services': 'Services',
                 'nav-experiences': 'Experiences',
@@ -1526,27 +1655,6 @@
                 'bandia-photo': 'Photo safari',
                 'bandia-desc': 'Giraffes, rhinos, zebras, antelopes...',
                 'bandia-btn': 'Book',
-                
-                // Wellness section
-                'wellness-title': 'Wellness & Relaxation',
-                'wellness-subtitle': 'Take care of yourself',
-                'massage-badge': 'Relaxation',
-                'massage-title': 'Traditional Massages',
-                'massage-desc': 'Massages with natural oils, shea butter scrub.',
-                'massage-option1': 'Relaxing massage (1h) - 25,000 XOF',
-                'massage-option2': 'Oil massage (1h30) - 35,000 XOF',
-                'massage-option3': 'Shea butter scrub (45min) - 20,000 XOF',
-                'massage-btn': 'Book',
-                
-                'yoga-badge': 'Wellness',
-                'yoga-title': 'Sunrise Yoga',
-                'yoga-desc': 'Session facing Lake Doutti at sunrise.',
-                'yoga-btn': 'Book',
-                
-                'meditation-badge': 'Meditation',
-                'meditation-title': 'Meditation in Nature',
-                'meditation-desc': 'Sessions in the gardens or by the lake.',
-                'meditation-btn': 'Book',
                 
                 // Testimonials
                 'testimonials-title': 'What our travelers say',

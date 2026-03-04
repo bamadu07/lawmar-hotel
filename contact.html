@@ -10,22 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== STYLES GÉNÉRAUX - COULEUR PRINCIPALE #025ba5 ===== */
+        /* ===== STYLES GÉNÉRAUX ===== */
         :root {
             --primary-color: #025ba5;
             --secondary-color: #e0e0e0;
             --accent-color: #c53030;
             --dark-color: #2d3748;
             --light-color: #f7fafc;
+            --yellow-color: #FFD700;
             --light-green: #f0fff4;
-            
             --transition: all 0.3s ease;
-            --indigo: #1E3A5F;
-            --sable: #F4EDE4;
-            --vert: #2F5D50;
             --border-radius: 8px;
             --box-shadow: 0 3px 10px rgba(2, 91, 165, 0.08);
             --box-shadow-hover: 0 10px 25px rgba(2, 91, 165, 0.15);
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
         }
 
         * {
@@ -38,7 +38,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            padding-top: 60px;
+            padding-top: 80px;
             background-color: #f8fbff;
         }
 
@@ -52,20 +52,14 @@
             padding: 40px 0;
         }
 
-        .bg-light {
-            background-color: var(--light-color) !important;
-        }
-
-        /* ===== BOUTONS AMÉLIORÉS ===== */
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
-            padding: 8px 20px;
+            padding: 8px 18px;
             font-weight: 500;
             transition: var(--transition);
             font-size: 0.9rem;
             border-radius: var(--border-radius);
-            color: white;
         }
 
         .btn-primary:hover {
@@ -81,7 +75,6 @@
             padding: 6px 14px;
             font-size: 0.85rem;
             border-radius: var(--border-radius);
-            transition: var(--transition);
         }
 
         .btn-outline-primary:hover,
@@ -89,22 +82,21 @@
             background-color: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
-            transform: translateY(-2px);
         }
         
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 5px;
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
         
         .btn-whatsapp:hover {
@@ -131,31 +123,52 @@
             transform: translateY(-2px);
         }
 
-        /* ===== BOUTON RÉSERVER - FOND JAUNE ===== */
+        /* ===== BOUTON RÉSERVER - STYLE OUTLINE (SANS FOND JAUNE) ===== */
         .btn-reservation {
-            background-color: var(--yellow-color) !important;
+            background-color: transparent !important;
             color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
             border-radius: 5px;
             font-weight: 600;
-            padding: 4px 12px !important;
-            border: none;
-            font-size: 0.8rem !important;
+            padding: 6px 18px !important;
             transition: var(--transition);
         }
 
         .btn-reservation:hover {
-            background-color: #e6c200 !important;
-            color: var(--primary-color) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+        
+        .btn-admin {
+            background-color: #6c757d !important;
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            border: none;
+        }
+        
+        .btn-admin:hover {
+            background-color: #5a6268 !important;
+            color: white !important;
+            transform: translateY(-2px);
         }
 
-        /* ===== NAVIGATION RÉDUITE ===== */
+        /* ===== NAVBAR STYLE ===== */
         .navbar {
             background-color: white !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 2px 0 !important;
-            min-height: 55px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .navbar-brand {
@@ -163,26 +176,22 @@
             align-items: center;
             font-weight: 700;
             padding: 0;
+            margin-left: -20px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
 
         .logo-image {
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
             background: transparent;
             border: none;
             border-radius: 0;
-            transition: var(--transition);
-        }
-
-        .logo-image:hover {
-            transform: scale(1.05);
         }
 
         .brand-text {
@@ -192,59 +201,82 @@
 
         .hotel-name {
             color: var(--primary-color) !important;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin: 0;
-            line-height: 1.1;
-            font-weight: 700;
+            line-height: 1.2;
         }
 
         .hotel-subtitle {
             color: var(--dark-color) !important;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 300;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .navbar-nav .nav-link {
             color: var(--primary-color) !important;
             font-weight: 500;
-            padding: 4px 10px !important;
-            margin: 0 2px;
-            font-size: 0.8rem;
+            padding: 6px 10px !important;
             transition: var(--transition);
-            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: white !important;
-            background-color: var(--vert) !important;
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
         }
 
         .dropdown-menu {
             background-color: white;
             border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            margin-top: 5px;
+            min-width: 220px;
         }
 
         .dropdown-item {
             color: var(--primary-color) !important;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .dropdown-item:hover {
-            background-color: var(--light-color);
-            color: var(--indigo) !important;
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            padding-left: 25px;
         }
 
-        /* ===== HEADER RÉDUIT ===== */
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .dropdown-item:hover i {
+            color: white !important;
+        }
+
+        /* ===== HEADER ===== */
         .contact-hero {
             background: url('images/lawmar.jpeg') no-repeat center center;
             background-size: cover;
             background-position: center;
-            height: 280px;
+            height: 350px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
             text-align: center;
-            padding-bottom: 30px;
+            padding-bottom: 40px;
             margin-bottom: 20px;
             position: relative;
         }
@@ -261,29 +293,25 @@
         }
 
         .hero-content {
-            color: white;
             width: 100%;
             max-width: 800px;
-            padding: 0 20px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
         .hero-title {
             color: white;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 12px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
@@ -291,16 +319,35 @@
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 30px;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
             border: 1px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
         }
 
-        /* ===== SECTION HEADER ===== */
+        .senegal-flag-icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* ===== PRIX XOF STYLISÉ ===== */
+        .price-display {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .price-display::after {
+            content: " XOF";
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin-left: 3px;
+        }
+
+        /* ===== STYLES SPÉCIFIQUES CONTACT ===== */
         .section-header {
             text-align: center;
             margin-bottom: 30px;
@@ -330,27 +377,6 @@
             font-size: 0.95rem;
             max-width: 700px;
             margin: 0 auto;
-        }
-
-        /* ===== PRIX XOF STYLISÉ ===== */
-        .price-display {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        
-        .price-display::after {
-            content: " XOF";
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.75rem;
-            margin-left: 3px;
-        }
-
-        /* ===== STYLES SPÉCIFIQUES CONTACT ===== */
-        .senegal-flag-icon {
-            display: inline-block;
-            margin-right: 5px;
         }
         
         .contact-card {
@@ -501,7 +527,6 @@
             font-weight: 600;
         }
         
-        /* ===== STYLE SPÉCIAL POUR LA RÈGLE CHECK-IN/CHECK-OUT ===== */
         .hour-item.checkin-rule {
             background-color: rgba(255, 215, 0, 0.15);
             border-left: 4px solid var(--yellow-color);
@@ -693,7 +718,6 @@
             margin-right: 8px;
         }
 
-        /* ===== EMAILS PROFESSIONNELS MIS EN ÉVIDENCE ===== */
         .professional-emails {
             background-color: var(--light-green);
             border-left: 4px solid var(--primary-color);
@@ -919,7 +943,7 @@
             margin-bottom: 6px;
         }
 
-        /* ===== FOOTER - BLANC AVEC ÉCRITURES BLEUES ===== */
+        /* ===== FOOTER ===== */
         .footer {
             background-color: white !important;
             color: var(--primary-color);
@@ -1055,6 +1079,15 @@
             text-decoration: underline;
         }
 
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
         /* ===== MODAL ===== */
         .modal-header {
             background-color: var(--primary-color);
@@ -1082,17 +1115,16 @@
         /* ===== NOTIFICATION TOAST ===== */
         .notification-toast {
             position: fixed;
-            top: 90px;
+            top: 100px;
             right: 20px;
             background: white;
             border-radius: 8px;
-            padding: 15px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-left: 6px solid var(--accent-color);
+            padding: 12px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--accent-color);
             z-index: 9999;
-            max-width: 380px;
-            animation: slideIn 0.4s ease;
-            border-radius: 8px;
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
         }
 
         @keyframes slideIn {
@@ -1101,65 +1133,89 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
             .navbar-brand {
-                max-width: 70%;
+                margin-left: 0;
             }
-            .hotel-name {
-                font-size: 1.2rem !important;
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
             }
-            .carousel-control-prev {
-                left: -15px;
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
             }
-            .carousel-control-next {
-                right: -15px;
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
             }
-            .hero-title {
-                font-size: 1.8rem !important;
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 55px;
+                padding-top: 70px;
             }
             
             .navbar {
-                min-height: 50px;
+                padding: 4px 0 !important;
+                min-height: 60px;
             }
             
             .logo-image {
-                width: 32px;
-                height: 32px;
+                width: 38px;
+                height: 38px;
             }
             
             .hotel-name {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
             }
             
             .hotel-subtitle {
-                font-size: 0.6rem !important;
+                font-size: 0.65rem !important;
             }
             
             .contact-hero {
-                height: 220px !important;
-                padding-bottom: 25px !important;
+                height: 280px !important;
+                padding-bottom: 30px !important;
             }
             
             .hero-title {
-                font-size: 1.5rem !important;
+                font-size: 1.6rem !important;
                 color: white !important;
             }
             
             .hero-subtitle {
-                font-size: 0.85rem !important;
-                padding: 0 15px;
+                font-size: 0.9rem !important;
+                padding: 0 10px;
                 color: white !important;
             }
             
             .location-badge {
-                font-size: 0.7rem !important;
-                padding: 4px 10px !important;
+                font-size: 0.75rem !important;
+                padding: 5px 12px !important;
                 width: 90%;
                 margin-left: auto;
                 margin-right: auto;
@@ -1226,29 +1282,29 @@
         
         @media (max-width: 576px) {
             body {
-                padding-top: 50px;
+                padding-top: 65px;
             }
             
             .navbar {
-                min-height: 45px;
+                min-height: 55px;
             }
             
             .logo-image {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
             }
             
             .hotel-name {
-                font-size: 0.9rem !important;
+                font-size: 1.1rem !important;
             }
             
             .contact-hero {
-                height: 200px !important;
-                padding-bottom: 20px !important;
+                height: 240px !important;
+                padding-bottom: 25px !important;
             }
             
             .hero-title {
-                font-size: 1.3rem !important;
+                font-size: 1.4rem !important;
                 color: white !important;
             }
             
@@ -1259,8 +1315,8 @@
             }
             
             .location-badge {
-                font-size: 0.65rem !important;
-                padding: 3px 8px !important;
+                font-size: 0.7rem !important;
+                padding: 4px 10px !important;
                 width: 95%;
                 color: white !important;
                 background-color: rgba(0,0,0,0.7) !important;
@@ -1339,20 +1395,26 @@
             .review-author {
                 font-size: 0.95rem;
             }
+            
+            .footer-logo-image {
+                width: 38px;
+                height: 38px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION RÉDUITE - BLANC AVEC TEXTE BLEU ===== -->
+    <!-- ===== NAVIGATION IDENTIQUE AUX AUTRES PAGES ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <div class="logo-container">
-                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/35x35/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                    <!-- Logo officiel avec fallback -->
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent; width: 50px; height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
                     <div class="brand-text">
                         <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
                         <span class="hotel-subtitle" id="nav-hotel-subtitle">
-                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère, Gandiol
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
                         </span>
                     </div>
                 </div>
@@ -1366,10 +1428,13 @@
                         <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Residences.html" id="nav-residences">Résidences</a>
+                        <a class="nav-link" href="residences.html" id="nav-residences">Résidences</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="services.html" id="nav-services">Services</a>
@@ -1520,8 +1585,7 @@
                 <div class="col-lg-8">
                     <!-- Carte Gandiol -->
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15349.67156807006!2d-16.519272613815616!3d15.887163155240756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xeeaaacadc972157%3A0x4f00169541d1d16f!2sTassin%C3%A8re!5e0!3m2!1sfr!2ssn!4v1772054944022!5m2!1sfr!2ssn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                         
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15349.67156807006!2d-16.519272613815616!3d15.887163155240756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xeeaaacadc972157%3A0x4f00169541d1d16f!2sTassin%C3%A8re!5e0!3m2!1sfr!2ssn!4v1772054944022!5m2!1sfr!2ssn" 
                                 width="100%" 
                                 height="350" 
                                 style="border:0;" 
@@ -1591,17 +1655,14 @@
                 </div>
                 
                 <div class="col-lg-4">
-                    <!-- Horaires - Gandiol AVEC RÈGLE CHECK-IN/CHECK-OUT À LA PLACE DE RÉCEPTION -->
+                    <!-- Horaires - Gandiol AVEC RÈGLE CHECK-IN/CHECK-OUT -->
                     <div class="opening-hours">
                         <h4 id="hours-title"><i class="fas fa-clock"></i> Horaires d'ouverture</h4>
                         
-                        <!-- ===== RÈGLE CHECK-IN/CHECK-OUT (REMPLACE RÉCEPTION) ===== -->
+                        <!-- RÈGLE CHECK-IN/CHECK-OUT -->
                         <div class="hour-item checkin-rule">
                             <span><strong id="hours-checkin-label">Règles :</strong></span>
                             <span id="hours-checkin-time">Check-in 14h – Check-out 12h</span>
-                        </div>
-                        
-                        
                         </div>
                     </div>
                     
@@ -1941,14 +2002,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-about">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="width: 40px; height: 40px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
                             <h3>LAWMAR</h3>
                         </div>
-                        <p style="color: var(--primary-color);" id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol, aux portes de la Langue de Barbarie.</p>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol, aux portes de la Langue de Barbarie.</p>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
                             <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
@@ -1958,8 +2019,9 @@
                         <h4 id="footer-nav">Navigation</h4>
                         <ul>
                             <li><a href="index.html" id="footer-home">Accueil</a></li>
-                            <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
+                            <li><a href="residences.html" id="footer-residences">Résidences</a></li>
                             <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="chambres.html" id="footer-hebergements">Hébergements</a></li>
                             <li><a href="services.html" id="footer-services">Services</a></li>
                             <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
                             <li><a href="contact.html" id="footer-contact">Contact</a></li>
@@ -1989,7 +2051,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-newsletter">
                         <h4 id="footer-newsletter-title">Newsletter</h4>
-                        <p style="color: var(--primary-color);" id="footer-newsletter-text">Recevez nos offres spéciales et actualités de Gandiol</p>
+                        <p id="footer-newsletter-text">Recevez nos offres spéciales et actualités de Gandiol</p>
                         <form id="newsletter-form">
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Votre email" id="footer-email-input" required>
@@ -1999,18 +2061,18 @@
                             </div>
                         </form>
                         <div class="mt-2">
-                            <small style="color: var(--primary-color);" id="footer-biosphere"><i class="fas fa-info-circle me-1"></i> Réserve de la Langue de Barbarie</small>
+                            <small id="footer-biosphere"><i class="fas fa-info-circle me-1"></i> Réserve de la Langue de Barbarie</small>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
                 <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
                    <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
                    <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -2068,10 +2130,11 @@
             fr: {
                 // Navigation
                 'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Accueil',
                 'nav-residences': 'Résidences',
                 'nav-restaurant': 'Restauration',
+                'nav-hebergements': 'Hébergements',
                 'nav-services': 'Services',
                 'nav-gallery': 'Galerie',
                 'nav-contact': 'Contact',
@@ -2130,17 +2193,6 @@
                 'hours-title': 'Horaires d\'ouverture',
                 'hours-checkin-label': 'Règles :',
                 'hours-checkin-time': 'Check-in 14h – Check-out 12h',
-                'hours-breakfast': 'Petit-déjeuner',
-                'hours-breakfast-time': '7h00 - 10h30',
-                'hours-lunch': 'Déjeuner',
-                'hours-lunch-time': '12h00 - 15h00',
-                'hours-dinner': 'Dîner',
-                'hours-dinner-time': '19h00 - 22h30',
-                'hours-pool': 'Piscine',
-                'hours-pool-time': '8h00 - 20h00',
-                'hours-room': 'Room service',
-                'hours-room-time': '7h00 - 23h00',
-                'hours-24h': 'Accueil 24h/24',
                 
                 // Direct contacts
                 'direct-contacts-title': 'Contacts directs',
@@ -2248,8 +2300,9 @@
                 'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol, aux portes de la Langue de Barbarie.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Accueil',
-                'footer-rooms': 'Chambres',
+                'footer-residences': 'Résidences',
                 'footer-restaurant': 'Restauration',
+                'footer-hebergements': 'Hébergements',
                 'footer-services': 'Services',
                 'footer-gallery': 'Galerie',
                 'footer-contact': 'Contact',
@@ -2267,10 +2320,11 @@
             en: {
                 // Navigation
                 'nav-hotel-name': 'LAWMAR',
-                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère, Gandiol',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
                 'nav-residences': 'Residences',
                 'nav-restaurant': 'Restaurant',
+                'nav-hebergements': 'Accommodations',
                 'nav-services': 'Services',
                 'nav-gallery': 'Gallery',
                 'nav-contact': 'Contact',
@@ -2329,17 +2383,6 @@
                 'hours-title': 'Opening Hours',
                 'hours-checkin-label': 'Rules:',
                 'hours-checkin-time': 'Check-in 2 PM – Check-out 12 PM',
-                'hours-breakfast': 'Breakfast',
-                'hours-breakfast-time': '7:00 AM - 10:30 AM',
-                'hours-lunch': 'Lunch',
-                'hours-lunch-time': '12:00 PM - 3:00 PM',
-                'hours-dinner': 'Dinner',
-                'hours-dinner-time': '7:00 PM - 10:30 PM',
-                'hours-pool': 'Pool',
-                'hours-pool-time': '8:00 AM - 8:00 PM',
-                'hours-room': 'Room service',
-                'hours-room-time': '7:00 AM - 11:00 PM',
-                'hours-24h': '24/7 Reception',
                 
                 // Direct contacts
                 'direct-contacts-title': 'Direct Contacts',
@@ -2447,8 +2490,9 @@
                 'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol, at the gates of the Langue de Barbarie.',
                 'footer-nav': 'Navigation',
                 'footer-home': 'Home',
-                'footer-rooms': 'Rooms',
+                'footer-residences': 'Residences',
                 'footer-restaurant': 'Restaurant',
+                'footer-hebergements': 'Accommodations',
                 'footer-services': 'Services',
                 'footer-gallery': 'Gallery',
                 'footer-contact': 'Contact',
@@ -2488,11 +2532,17 @@
             // Mettre à jour l'attribut lang
             document.documentElement.lang = lang;
             
+            // Mettre à jour le texte du bouton de langue
+            document.getElementById('current-lang').textContent = translations[lang]['current-lang'];
+            
+            // Recharger les avis dans la bonne langue
+            displayContactReviews(lang);
+            
             showNotification(lang === 'fr' ? '🇫🇷 Français sélectionné' : '🇬🇧 English selected', 'success');
         }
 
         // Afficher les avis
-        function displayContactReviews(lang) {
+        function displayContactReviews(lang = 'fr') {
             const reviewsContainer = document.getElementById('reviews-container');
             const indicatorsContainer = document.querySelector('.carousel-indicators');
             
@@ -2578,9 +2628,9 @@
             const notification = document.createElement('div');
             notification.className = 'notification-toast';
             notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div>${type === 'success' ? '✅' : 'ℹ️'}</div>
-                    <div>${message}</div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="font-size: 1.2rem;">${type === 'success' ? '✅' : 'ℹ️'}</div>
+                    <div style="flex-grow: 1;">${message}</div>
                 </div>
             `;
             document.body.appendChild(notification);
