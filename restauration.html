@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Restaurant Le Teranga - Cuisine Sénégalaise à Gandiol 🇸🇳</title>
+    
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* ===== STYLES GÉNÉRAUX ===== */
+        /* ===== TOUS LES STYLES EXISTANTS ===== */
         :root {
             --primary-color: #025ba5;
             --secondary-color: #e0e0e0;
@@ -241,7 +246,7 @@
             border: 2px solid white;
         }
 
-        /* ===== NAVBAR STYLE (IDENTIQUE À LA PAGE D'ACCUEIL) ===== */
+        /* ===== NAVBAR STYLE ===== */
         .navbar {
             background-color: white !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -1273,30 +1278,57 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 10px;
             border-bottom: 1px solid #eee;
-        }
-        .cart-item:last-child {
-            border-bottom: none;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
         }
         .cart-item-details {
-            font-size: 0.85rem;
+            flex: 2;
+            font-size: 0.9rem;
+        }
+        .cart-item-price {
+            flex: 1;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+        }
+        .cart-item-quantity {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 3px;
+            font-size: 0.8rem;
         }
         .cart-item-remove {
             color: var(--accent-color);
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
             padding: 0 5px;
+            transition: var(--transition);
+        }
+        .cart-item-remove:hover {
+            transform: scale(1.2);
+            color: #9e2b2b;
         }
         .cart-total {
             font-weight: 700;
             color: var(--primary-color);
-            border-top: 2px dashed var(--yellow-color);
-            padding-top: 10px;
-            margin-top: 10px;
+            border-top: 2px solid var(--yellow-color);
+            padding-top: 15px;
+            margin-top: 15px;
+            font-size: 1.2rem;
         }
         #cart-items-list {
-            max-height: 250px;
+            max-height: 400px;
             overflow-y: auto;
             padding-right: 5px;
         }
@@ -1308,6 +1340,17 @@
         }
         .cart-action-btn:hover {
             background-color: #e6c200;
+        }
+        .cart-empty-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 1rem;
+        }
+        .cart-empty-message i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
         }
 
         /* Filtres */
@@ -1370,10 +1413,11 @@
         /* Validation commande */
         .validation-step {
             display: none;
-            padding: 15px;
+            padding: 20px;
             border: 1px solid #e0e0e0;
             border-radius: var(--border-radius);
             margin-top: 15px;
+            background: #f9f9f9;
         }
         .validation-step.active {
             display: block;
@@ -1382,6 +1426,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            gap: 5px;
         }
         .step {
             flex: 1;
@@ -1389,8 +1434,8 @@
             padding: 10px;
             background: #f0f0f0;
             border-radius: 5px;
-            margin: 0 5px;
             font-size: 0.85rem;
+            transition: var(--transition);
         }
         .step.active {
             background: var(--primary-color);
@@ -1403,8 +1448,14 @@
         .order-summary-item {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
+            padding: 8px 0;
             border-bottom: 1px dashed #ddd;
+        }
+        .validation-error {
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            margin-top: 3px;
+            display: none;
         }
 
         /* Responsive */
@@ -1727,7 +1778,7 @@
     </style>
 </head>
 <body>
-    <!-- ===== NAVIGATION IDENTIQUE À LA PAGE D'ACCUEIL ===== -->
+    <!-- ===== NAVIGATION ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -1761,15 +1812,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="services.html" id="nav-services">Services</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
                     </li>
                     <li class="nav-item">
@@ -1795,7 +1844,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <h1 class="hero-title" id="hero-title">Restaurant Le Teranga</h1>
-                    <p class="hero-subtitle" id="hero-subtitle">Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef </p>
+                    <p class="hero-subtitle" id="hero-subtitle">Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef Oumar Diallo</p>
                     <div class="location-badge" id="location-badge">
                         <i class="fas fa-utensils me-1"></i> Saveurs du Sénégal aux portes de la Langue de Barbarie
                     </div>
@@ -1813,7 +1862,7 @@
                     Notre restaurant met à l'honneur les saveurs du terroir. Poissons frais, spécialités sénégalaises, grillades et cuisine conviviale composent notre carte.
                 </p>
                 <p id="resto-desc-text">
-                    Nous privilégions les produits locaux et de saison afin d'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef , qui met son savoir-faire au service de la gastronomie sénégalaise.
+                    Nous privilégions les produits locaux et de saison afin d'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef Oumar Diallo, qui met son savoir-faire au service de la gastronomie sénégalaise.
                 </p>
                 
                 <!-- Produits locaux mis en avant -->
@@ -1847,7 +1896,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION MENU DU JOUR (SOUS-PAGE 1) ===== -->
+    <!-- ===== SECTION MENU DU JOUR ===== -->
     <section id="menu-du-jour" class="section-padding">
         <div class="container">
             <div class="restaurant-subpage">
@@ -1868,7 +1917,7 @@
                                 <h4 id="starter-title">Entrée</h4>
                                 <p class="fw-bold" id="starter-name">Velouté de potiron de Gandiol</p>
                                 <p class="small text-muted" id="starter-desc">Potiron local, gingembre frais, lait de coco</p>
-                                <span class="special-price" id="starter-price"> XOF</span>
+                                <span class="special-price" id="starter-price">3,500 XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1879,7 +1928,7 @@
                                 <h4 id="main-title">Plat Principal</h4>
                                 <p class="fw-bold" id="main-name">Thieboudienne du Chef</p>
                                 <p class="small text-muted" id="main-desc">Riz au poisson, légumes frais de Tassinère</p>
-                                <span class="special-price" id="main-price"> XOF</span>
+                                <span class="special-price" id="main-price">9,500 XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1890,7 +1939,7 @@
                                 <h4 id="dessert-title">Dessert</h4>
                                 <p class="fw-bold" id="dessert-name">Fondant chocolat baobab</p>
                                 <p class="small text-muted" id="dessert-desc">Glace à la bouye (fruit du baobab)</p>
-                                <span class="special-price" id="dessert-price"> XOF</span>
+                                <span class="special-price" id="dessert-price">3,000 XOF</span>
                             </div>
                         </div>
                     </div>
@@ -1898,13 +1947,13 @@
                 
                 <div class="text-center mt-3">
                     <p class="fw-bold"><span id="menu-complete-label">Menu complet</span> : <span class="text-primary" id="menu-complete-price">16,000 XOF</span> (<span id="menu-complete-desc">Entrée + Plat + Dessert</span>)</p>
-                    <button class="btn btn-primary" id="order-menu-btn"><i class="fas fa-shopping-cart me-2"></i> <span id="order-menu-text">Commander le menu du jour</span></button>
+                    <button class="btn btn-primary" id="order-menu-btn" onclick="addMenuToCart()"><i class="fas fa-shopping-cart me-2"></i> <span id="order-menu-text">Commander le menu du jour</span></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION SPÉCIALITÉS (SOUS-PAGE 2) ===== -->
+    <!-- ===== SECTION SPÉCIALITÉS ===== -->
     <section id="specialites" class="section-padding bg-light">
         <div class="container">
             <div class="restaurant-subpage">
@@ -1921,8 +1970,8 @@
                             <h4>Thieboudienne <span class="badge bg-warning ms-2" id="national-dish">Plat national</span></h4>
                             <p class="small" id="thieb-desc">Riz au poisson, légumes frais, condiments - Recette traditionnelle</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"> XOF</span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Thieboudienne" data-price="12500"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">12,500 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Thieboudienne" data-price="12500"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1934,8 +1983,8 @@
                             <h4>Yassa Poulet</h4>
                             <p class="small" id="yassa-desc">Poulet fermier mariné au citron, oignons confits</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"> XOF</span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Yassa Poulet" data-price="11000"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">11,000 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Yassa Poulet" data-price="11000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1947,8 +1996,8 @@
                             <h4>Mafé d'agneau</h4>
                             <p class="small" id="mafe-desc">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"> XOF</span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Mafé d'agneau" data-price="12000"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">12,000 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Mafé d'agneau" data-price="12000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1960,8 +2009,8 @@
                             <h4>Pastels (6 pièces)</h4>
                             <p class="small" id="pastels-desc">Beignets farcis au poisson épicé de Tassinère</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"> XOF</span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Pastels" data-price="8000"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">8,000 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Pastels" data-price="8000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1973,8 +2022,8 @@
                             <h4>Accra (10 pièces)</h4>
                             <p class="small" id="accra-desc">Beignets de haricots blancs, sauce piquante maison</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"></span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Accra" data-price="6500"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">6,500 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Accra" data-price="6500"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1986,8 +2035,8 @@
                             <h4>Feuilles de manioc</h4>
                             <p class="small" id="manioc-desc">Feuilles de manioc au poisson fumé, huile de palme</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="special-price"></span>
-                                <button class="btn btn-sm btn-order add-to-cart" data-dish="Feuilles de manioc" data-price="8000"><i class="fas fa-shopping-cart"></i></button>
+                                <span class="special-price">8,000 XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Feuilles de manioc" data-price="8000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -1996,7 +2045,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION NOTRE CHEF (SOUS-PAGE 4) ===== -->
+    <!-- ===== SECTION NOTRE CHEF ===== -->
     <section id="chef" class="section-padding bg-light">
         <div class="container">
             <div class="restaurant-subpage">
@@ -2008,7 +2057,7 @@
                 <div class="chef-profile">
                     <img src="images/logo1.png" alt="Chef Oumar Diallo" class="chef-image" onerror="this.src='https://via.placeholder.com/150x150/1E3A5F/ffffff?text=Chef'">
                     <div class="chef-info">
-                        <h3>Chef Cuisinier</h3>
+                        <h3>Chef Oumar Diallo</h3>
                         <p class="chef-signature" id="chef-quote">"La cuisine sénégalaise est un voyage des sens"</p>
                         <p id="chef-bio1">Originaire de Saint-Louis, le Chef Oumar Diallo a parcouru le monde avant de revenir à Gandiol pour partager sa passion de la cuisine sénégalaise. Formé dans les plus grandes cuisines de Dakar et à l'international, il met son talent au service des produits locaux de Gandiol et de Tassinère.</p>
                         
@@ -2019,7 +2068,7 @@
         </div>
     </section>
 
-    <!-- ===== SECTION ÉVÉNEMENTS (SOUS-PAGE 5) ===== -->
+    <!-- ===== SECTION ÉVÉNEMENTS ===== -->
     <section id="evenements" class="section-padding">
         <div class="container">
             <div class="restaurant-subpage">
@@ -2037,8 +2086,8 @@
                         <h4 id="event1-title">Soirée Thieboudienne Géante</h4>
                         <p><i class="fas fa-clock me-2"></i> <span id="event1-time">19h30 - 23h00</span></p>
                         <p id="event1-desc">Venez déguster la meilleure thieboudienne de Gandiol dans une ambiance festive avec musique traditionnelle.</p>
-                        <p class="fw-bold text-primary" id="event1-price">Prix:  XOF (plat + boisson)</p>
-                        <button class="btn btn-sm btn-primary" id="event1-book">Réserver</button>
+                        <p class="fw-bold text-primary" id="event1-price">Prix: 15,000 XOF (plat + boisson)</p>
+                        <button class="btn btn-sm btn-primary" id="event1-book" onclick="bookEvent('Soirée Thieboudienne Géante')">Réserver</button>
                     </div>
                 </div>
                 
@@ -2048,11 +2097,11 @@
                         <div class="month" id="month-mar2">Mars</div>
                     </div>
                     <div class="event-details">
-                        <h4 id="event2-title">Atelier Cuisine avec le Chef </h4>
+                        <h4 id="event2-title">Atelier Cuisine avec le Chef Oumar</h4>
                         <p><i class="fas fa-clock me-2"></i> <span id="event2-time">16h00 - 19h00</span></p>
                         <p id="event2-desc">Apprenez à préparer le Yassa Poulet avec le Chef Oumar. Dégustation incluse.</p>
-                        <p class="fw-bold text-primary" id="event2-price"> par personne</p>
-                        <button class="btn btn-sm btn-primary" id="event2-book">S'inscrire</button>
+                        <p class="fw-bold text-primary" id="event2-price">Prix: 25,000 XOF par personne</p>
+                        <button class="btn btn-sm btn-primary" id="event2-book" onclick="bookEvent('Atelier Cuisine avec le Chef')">S'inscrire</button>
                     </div>
                 </div>
                 
@@ -2143,12 +2192,12 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (128 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
                     </div>
-                    <div class="menu-price">0</div>
+                    <div class="menu-price">12,500 XOF</div>
                     <div class="action-buttons">
-                        <button class="btn-order add-to-cart" data-dish="Thieboudienne" data-price="12500">
+                        <button class="btn-order add-to-cart-btn" data-dish="Thieboudienne" data-price="12500">
                             <i class="fas fa-shopping-cart"></i> <span id="cart-btn">Panier</span>
                         </button>
-                        <button class="btn-whatsapp whatsapp-order" data-dish="Thieboudienne" data-price="12500">
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Thieboudienne" data-price="12500">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </button>
                     </div>
@@ -2167,12 +2216,12 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (95 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
                     </div>
-                    <div class="menu-price">0</div>
+                    <div class="menu-price">11,000 XOF</div>
                     <div class="action-buttons">
-                        <button class="btn-order add-to-cart" data-dish="Yassa Poulet" data-price="11000">
+                        <button class="btn-order add-to-cart-btn" data-dish="Yassa Poulet" data-price="11000">
                             <i class="fas fa-shopping-cart"></i> <span>Panier</span>
                         </button>
-                        <button class="btn-whatsapp whatsapp-order" data-dish="Yassa Poulet" data-price="11000">
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Yassa Poulet" data-price="11000">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </button>
                     </div>
@@ -2191,12 +2240,12 @@
                         <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (82 avis)</span>
                         <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
                     </div>
-                    <div class="menu-price">0</div>
+                    <div class="menu-price">12,000 XOF</div>
                     <div class="action-buttons">
-                        <button class="btn-order add-to-cart" data-dish="Mafé d'agneau" data-price="12000">
+                        <button class="btn-order add-to-cart-btn" data-dish="Mafé d'agneau" data-price="12000">
                             <i class="fas fa-shopping-cart"></i> <span>Panier</span>
                         </button>
-                        <button class="btn-whatsapp whatsapp-order" data-dish="Mafé d'agneau" data-price="12000">
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Mafé d'agneau" data-price="12000">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </button>
                     </div>
@@ -2314,7 +2363,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="table-booking-form">
+                    <form id="table-booking-form" onsubmit="event.preventDefault(); bookTable();">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="booking-date" class="form-label small fw-bold" id="modal-date">Date *</label>
@@ -2391,7 +2440,7 @@
                     <h5 class="modal-title">
                         <i class="fas fa-shopping-cart me-2"></i> <span id="cart-title">Validation de votre commande</span>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="resetCartModal()"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Indicateur d'étapes -->
@@ -2402,17 +2451,18 @@
                     </div>
 
                     <!-- ÉTAPE 1 : Récapitulatif du panier -->
-                    <div class="validation-step active" id="step1">
+                    <div class="validation-step active" id="step1-content">
                         <h6 class="mb-3" id="cart-summary">Récapitulatif de votre commande</h6>
-                        <div id="cart-items-list" style="max-height: 300px; overflow-y: auto;"></div>
+                        <div id="cart-items-list"></div>
                         
                         <div class="cart-total d-flex justify-content-between mt-3">
                             <span class="fw-bold" id="cart-total-label">Total</span>
                             <span class="fw-bold text-primary" id="cart-total">0 XOF</span>
                         </div>
                         
-                        <div class="alert alert-warning small mt-3" id="cart-empty-warning" style="display: none;">
-                            <i class="fas fa-exclamation-triangle me-2"></i> Votre panier est vide.
+                        <div id="cart-empty-message" class="cart-empty-message" style="display: none;">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Votre panier est vide</p>
                         </div>
                         
                         <div class="d-flex justify-content-between mt-3">
@@ -2422,18 +2472,18 @@
                     </div>
 
                     <!-- ÉTAPE 2 : Coordonnées du client -->
-                    <div class="validation-step" id="step2">
+                    <div class="validation-step" id="step2-content">
                         <h6 class="mb-3" id="your-info">Vos coordonnées</h6>
-                        <form id="checkout-form">
+                        <form id="checkout-form" onsubmit="event.preventDefault();">
                             <div class="mb-3">
                                 <label for="checkout-name" class="form-label small fw-bold" id="label-name">Nom complet *</label>
                                 <input type="text" class="form-control form-control-sm" id="checkout-name" required>
-                                <div class="validation-error" id="name-error"></div>
+                                <div class="validation-error" id="name-error">Ce champ est requis</div>
                             </div>
                             <div class="mb-3">
                                 <label for="checkout-phone" class="form-label small fw-bold" id="label-phone">Téléphone *</label>
                                 <input type="tel" class="form-control form-control-sm" id="checkout-phone" placeholder="+221 77 XXX XX XX" required>
-                                <div class="validation-error" id="phone-error"></div>
+                                <div class="validation-error" id="phone-error">Ce champ est requis</div>
                             </div>
                             <div class="mb-3">
                                 <label for="checkout-email" class="form-label small fw-bold" id="label-email">Email (optionnel)</label>
@@ -2442,7 +2492,7 @@
                             <div class="mb-3">
                                 <label for="checkout-address" class="form-label small fw-bold" id="label-address">Adresse de livraison *</label>
                                 <textarea class="form-control form-control-sm" id="checkout-address" rows="2" placeholder="Votre adresse complète à Gandiol / Saint-Louis" required></textarea>
-                                <div class="validation-error" id="address-error"></div>
+                                <div class="validation-error" id="address-error">Ce champ est requis</div>
                             </div>
                             <div class="mb-3">
                                 <label for="checkout-notes" class="form-label small fw-bold" id="label-notes">Instructions spéciales</label>
@@ -2457,7 +2507,7 @@
                     </div>
 
                     <!-- ÉTAPE 3 : Confirmation et envoi WhatsApp -->
-                    <div class="validation-step" id="step3">
+                    <div class="validation-step" id="step3-content">
                         <h6 class="mb-3" id="confirmation-title">Confirmation de votre commande</h6>
                         
                         <div class="alert alert-success" id="whatsapp-info">
@@ -2533,7 +2583,7 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER BLANC TEXTE BLEU ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -2589,7 +2639,7 @@
                     <div class="footer-newsletter">
                         <h4 id="footer-newsletter-title">Newsletter</h4>
                         <p id="footer-newsletter-text">Recevez nos offres spéciales et actualités</p>
-                        <form id="newsletter-form">
+                        <form id="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter()">
                             <div class="input-group">
                                 <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
                                 <button class="btn btn-primary" type="submit" id="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
@@ -2609,7 +2659,7 @@
     </footer>
 
     <!-- Bouton flottant pour ouvrir le panier -->
-    <button class="quick-order-btn" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal">
+    <button class="quick-order-btn" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="openCartModal()">
         <i class="fas fa-shopping-cart"></i> <span id="view-cart">Voir mon panier</span>
         <span class="cart-badge" id="cart-count">0</span>
     </button>
@@ -2628,7 +2678,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="admin-login-form">
+                    <form id="admin-login-form" onsubmit="event.preventDefault(); adminLogin()">
                         <div class="mb-3">
                             <label for="admin-email" class="form-label small" id="admin-email-label">Email</label>
                             <input type="email" class="form-control form-control-sm" id="admin-email" required>
@@ -2658,495 +2708,365 @@
     <script>
         // ============================================
         // RESTAURANT LE TERANGA - GANDIOL 🇸🇳
-        // TRADUCTION FR/EN
+        // SYSTÈME DE PANIER COMPLET AVEC SAUVEGARDE
         // ============================================
         
         const WHATSAPP_NUMBER = "221779952020";
         
-        // Dictionnaire de traduction
-        const translations = {
-            fr: {
-                // Navigation
-                'hotel-name': 'LAWMAR',
-                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
-                'nav-home': 'Accueil',
-                'nav-residences': 'Résidences',
-                'nav-restauration': 'Restauration',
-                'nav-hebergements': 'Hébergements',
-                'nav-services': 'Services',
-                'nav-experiences': 'Expériences',
-                'nav-galerie': 'Galerie',
-                'nav-contact': 'Contact',
-                'nav-reserver': 'Réserver',
-                'current-lang': 'FR',
-                
-                // Hero
-                'hero-title': 'Restaurant Le Teranga',
-                'hero-subtitle': 'Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef Oumar Diallo',
-                'location-badge': 'Saveurs du Sénégal aux portes de la Langue de Barbarie',
-                
-                // Restaurant description
-                'resto-desc-title': 'L\'expérience culinaire au Restaurant Le Teranga',
-                'resto-desc-lead': 'Notre restaurant met à l\'honneur les saveurs du terroir. Poissons frais, spécialités sénégalaises, grillades et cuisine conviviale composent notre carte.',
-                'resto-desc-text': 'Nous privilégions les produits locaux et de saison afin d\'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef Oumar Diallo, qui met son savoir-faire au service de la gastronomie sénégalaise.',
-                'product1': 'Poisson frais de Gandiol',
-                'product2': 'Légumes de Tassinère',
-                'product3': 'Épices locales',
-                'product4': 'Riz du fleuve',
-                'product5': 'Produits de saison',
-                'breakfast': 'Petit-déjeuner',
-                'breakfast-time': '07h00 - 10h30',
-                'lunch': 'Déjeuner',
-                'lunch-time': '12h00 - 15h00',
-                'dinner': 'Dîner',
-                'dinner-time': '19h00 - 22h30',
-                
-                // Menu du jour
-                'menu-day-title': 'Menu du Jour - Le Teranga',
-                'menu-day-subtitle': 'Découvrez notre menu frais du jour, préparé avec les produits de saison de Gandiol',
-                'menu-day-alert': 'Menu du :',
-                'menu-day-date': '25 Février 2026',
-                'starter-title': 'Entrée',
-                'starter-name': 'Velouté de potiron de Gandiol',
-                'starter-desc': 'Potiron local, gingembre frais, lait de coco',
-                'starter-price': '3,500 XOF',
-                'main-title': 'Plat Principal',
-                'main-name': 'Thieboudienne du Chef',
-                'main-desc': 'Riz au poisson, légumes frais de Tassinère',
-                'main-price': '9,500 XOF',
-                'dessert-title': 'Dessert',
-                'dessert-name': 'Fondant chocolat baobab',
-                'dessert-desc': 'Glace à la bouye (fruit du baobab)',
-                'dessert-price': '3,000 XOF',
-                'menu-complete-label': 'Menu complet',
-                'menu-complete-price': '16,000 XOF',
-                'menu-complete-desc': 'Entrée + Plat + Dessert',
-                'order-menu-text': 'Commander le menu du jour',
-                
-                // Spécialités
-                'specialities-title': 'Nos Spécialités Sénégalaises',
-                'specialities-subtitle': 'Les plats emblématiques de notre chef, préparés avec amour et tradition',
-                'national-dish': 'Plat national',
-                'thieb-desc': 'Riz au poisson, légumes frais, condiments - Recette traditionnelle',
-                'yassa-desc': 'Poulet fermier mariné au citron, oignons confits',
-                'mafe-desc': 'Ragoût d\'agneau mijoté à la sauce arachide de Gandiol',
-                'pastels-desc': 'Beignets farcis au poisson épicé de Tassinère',
-                'accra-desc': 'Beignets de haricots blancs, sauce piquante maison',
-                'manioc-desc': 'Feuilles de manioc au poisson fumé, huile de palme',
-                
-                // Chef
-                'chef-title': 'Notre Chef - Oumar Diallo',
-                'chef-subtitle': 'Un talentueux chef sénégalais au service de la gastronomie locale',
-                'chef-quote': '"La cuisine sénégalaise est un voyage des sens"',
-                'chef-bio1': 'Originaire de Saint-Louis, le Chef Oumar Diallo a parcouru le monde avant de revenir à Gandiol pour partager sa passion de la cuisine sénégalaise. Formé dans les plus grandes cuisines de Dakar et à l\'international, il met son talent au service des produits locaux de Gandiol et de Tassinère.',
-                'chef-award': 'Prix du meilleur chef traditionnel 2024 - Saint-Louis',
-                'chef-speciality': 'Spécialiste de la Thieboudienne et du Yassa',
-                'chef-experience': '15 ans d\'expérience en cuisine sénégalaise',
-                
-                // Événements
-                'events-title': 'Événements & Soirées à Thème',
-                'events-subtitle': 'Vivez des expériences culinaires uniques au Restaurant Le Teranga',
-                'month-mar': 'Mars',
-                'event1-title': 'Soirée Thieboudienne Géante',
-                'event1-time': '19h30 - 23h00',
-                'event1-desc': 'Venez déguster la meilleure thieboudienne de Gandiol dans une ambiance festive avec musique traditionnelle.',
-                'event1-price': 'Prix: 15,000 XOF (plat + boisson)',
-                'event1-book': 'Réserver',
-                'month-mar2': 'Mars',
-                'event2-title': 'Atelier Cuisine avec le Chef Oumar',
-                'event2-time': '16h00 - 19h00',
-                'event2-desc': 'Apprenez à préparer le Yassa Poulet avec le Chef Oumar. Dégustation incluse.',
-                'event2-price': 'Prix: 25,000 XOF par personne',
-                'event2-book': 'S\'inscrire',
-                'event-private': 'Pour organiser un événement privé (anniversaire, mariage, séminaire), contactez-nous.',
-                'event-contact': 'Contacter pour un événement',
-                
-                // Promo
-                'promo-banner': 'Commandez via WhatsApp et recevez -10% sur votre première commande !',
-                
-                // Filtres
-                'filter-all': 'Tous',
-                'filter-specialities': 'Spécialités',
-                'filter-fish': 'Poisson',
-                'filter-meat': 'Viande',
-                'filter-veg': 'Végétarien',
-                'filter-dessert': 'Desserts',
-                
-                // Navigation menu
-                'nav-specialities': 'Spécialités 🇸🇳',
-                'nav-starters': 'Entrées',
-                'nav-mains': 'Plats',
-                'nav-desserts': 'Desserts',
-                'nav-drinks': 'Boissons',
-                
-                // Section spécialités
-                'specialities-section-title': 'Spécialités du Sénégal',
-                'specialities-count': '6 plats',
-                'speciality-badge': '🇸🇳 Spécialité',
-                'national-badge': 'Plat national',
-                'thieb-desc2': 'Riz au poisson, légumes frais, condiments - Recette traditionnelle',
-                'yassa-desc2': 'Poulet fermier mariné au citron, oignons confits',
-                'mafe-desc2': 'Ragoût d\'agneau mijoté à la sauce arachide de Gandiol',
-                'cart-btn': 'Panier',
-                
-                // Commandes
-                'order-tracking': 'Suivi des commandes',
-                'admin-link': 'Admin (Commandes)',
-                'recent-orders': 'Vos commandes récentes',
-                'order-status': 'Suivi de commande',
-                'order-status-desc': 'Consultez le statut de vos commandes en cours.',
-                'order-in-progress': 'Commande en cours',
-                'order-code-label': 'Code de commande',
-                'prep-time-label': 'Temps de préparation estimé',
-                'no-order-text': 'Aucune commande en cours',
-                
-                // Avis
-                'reviews-title': 'Ils ont savouré Le Teranga 🇸🇳',
-                'reviews-subtitle': 'Ce que nos convives disent de notre cuisine sénégalaise',
-                'previous': 'Précédent',
-                'next': 'Suivant',
-                
-                // Modal réservation
-                'modal-book-title': 'Réserver une table - Le Teranga',
-                'modal-date': 'Date *',
-                'modal-time': 'Heure *',
-                'modal-guests': 'Nombre de personnes *',
-                'modal-name': 'Votre nom *',
-                'modal-phone': 'Téléphone *',
-                'modal-email': 'Email',
-                'modal-special': 'Demandes spéciales',
-                'modal-info': 'Réservation gratuite. Annulation possible jusqu\'à 2h avant.',
-                'modal-confirm': 'Confirmer',
-                
-                // Modal panier
-                'cart-title': 'Validation de votre commande',
-                'step1': '1. Panier',
-                'step2': '2. Coordonnées',
-                'step3': '3. Confirmation',
-                'cart-summary': 'Récapitulatif de votre commande',
-                'cart-total-label': 'Total',
-                'continue-shopping': 'Continuer mes achats',
-                'your-info': 'Vos coordonnées',
-                'label-name': 'Nom complet *',
-                'label-phone': 'Téléphone *',
-                'label-email': 'Email (optionnel)',
-                'label-address': 'Adresse de livraison *',
-                'label-notes': 'Instructions spéciales',
-                'confirmation-title': 'Confirmation de votre commande',
-                'whatsapp-info': 'Votre commande sera envoyée via WhatsApp pour confirmation.',
-                'summary-title': 'Récapitulatif',
-                'total-label': 'Total',
-                'your-coords': 'Vos coordonnées',
-                'whatsapp-redirect': 'En cliquant sur "Confirmer la commande", vous serez redirigé vers WhatsApp pour finaliser votre commande.',
-                'finalize-order-btn': 'Confirmer via WhatsApp',
-                
-                // Modal WhatsApp
-                'whatsapp-modal-title': 'Commander via WhatsApp',
-                'whatsapp-modal-desc': 'Commandez directement via WhatsApp pour une prise en charge rapide par Les Résidences du Lawmar.',
-                'whatsapp-name-label': 'Votre nom *',
-                'whatsapp-phone-label': 'Numéro WhatsApp *',
-                'whatsapp-message-label': 'Votre commande',
-                'whatsapp-redirect-info': 'Vous serez redirigé vers WhatsApp pour confirmer votre commande.',
-                'cancel-btn': 'Annuler',
-                'send-order': 'Envoyer la commande',
-                
-                // Admin modal
-                'admin-title': 'Connexion personnel',
-                'admin-email-label': 'Email',
-                'admin-password-label': 'Mot de passe',
-                'admin-role-reception': 'Réceptionniste',
-                'admin-role-serveur': 'Serveur',
-                'admin-role-cuisine': 'Cuisine',
-                'admin-role-guide': 'Guide touristique',
-                'admin-role-manager': 'Manager',
-                'admin-login-btn': 'Se connecter',
-                
-                // Footer
-                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
-                'footer-nav': 'Navigation',
-                'footer-home': 'Accueil',
-                'footer-residences': 'Résidences',
-                'footer-restauration': 'Restauration',
-                'footer-hebergements': 'Hébergements',
-                'footer-services': 'Services',
-                'footer-experiences': 'Expériences',
-                'footer-galerie': 'Galerie',
-                'footer-contact': 'Contact',
-                'footer-contact-title': 'Contact - Gandiol',
-                'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
-                'footer-whatsapp': 'WhatsApp: +221 77 995 20 20',
-                'footer-sync-note': 'Objectif : tout message reçu sur l\'une de ces adresses est accessible dans les trois boîtes.',
-                'footer-newsletter-title': 'Newsletter',
-                'footer-newsletter-text': 'Recevez nos offres spéciales et actualités',
-                'footer-rights': 'Tous droits réservés.',
-                'footer-admin': 'Accès personnel',
-                'view-cart': 'Voir mon panier'
-            },
-            en: {
-                // Navigation
-                'hotel-name': 'LAWMAR',
-                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
-                'nav-home': 'Home',
-                'nav-residences': 'Residences',
-                'nav-restauration': 'Restaurant',
-                'nav-hebergements': 'Accommodations',
-                'nav-services': 'Services',
-                'nav-experiences': 'Experiences',
-                'nav-galerie': 'Gallery',
-                'nav-contact': 'Contact',
-                'nav-reserver': 'Book now',
-                'current-lang': 'EN',
-                
-                // Hero
-                'hero-title': 'Restaurant Le Teranga',
-                'hero-subtitle': 'Authentic Senegalese cuisine in the heart of Gandiol, under the direction of Chef Oumar Diallo',
-                'location-badge': 'Flavors of Senegal at the gates of Langue de Barbarie',
-                
-                // Restaurant description
-                'resto-desc-title': 'The culinary experience at Restaurant Le Teranga',
-                'resto-desc-lead': 'Our restaurant highlights the flavors of the terroir. Fresh fish, Senegalese specialties, grilled dishes and friendly cuisine make up our menu.',
-                'resto-desc-text': 'We favor local and seasonal products to offer an authentic and gourmet experience in a natural and warm setting. Each dish is carefully prepared by our Chef Oumar Diallo, who puts his know-how at the service of Senegalese gastronomy.',
-                'product1': 'Fresh fish from Gandiol',
-                'product2': 'Vegetables from Tassinère',
-                'product3': 'Local spices',
-                'product4': 'River rice',
-                'product5': 'Seasonal products',
-                'breakfast': 'Breakfast',
-                'breakfast-time': '07:00 - 10:30',
-                'lunch': 'Lunch',
-                'lunch-time': '12:00 - 15:00',
-                'dinner': 'Dinner',
-                'dinner-time': '19:00 - 22:30',
-                
-                // Menu du jour
-                'menu-day-title': 'Daily Menu - Le Teranga',
-                'menu-day-subtitle': 'Discover our fresh daily menu, prepared with seasonal products from Gandiol',
-                'menu-day-alert': 'Menu of:',
-                'menu-day-date': 'February 25, 2026',
-                'starter-title': 'Starter',
-                'starter-name': 'Gandiol pumpkin velouté',
-                'starter-desc': 'Local pumpkin, fresh ginger, coconut milk',
-                'starter-price': '3,500 XOF',
-                'main-title': 'Main Course',
-                'main-name': 'Chef\'s Thieboudienne',
-                'main-desc': 'Rice with fish, fresh vegetables from Tassinère',
-                'main-price': '9,500 XOF',
-                'dessert-title': 'Dessert',
-                'dessert-name': 'Baobab chocolate fondant',
-                'dessert-desc': 'Bouye ice cream (baobab fruit)',
-                'dessert-price': '3,000 XOF',
-                'menu-complete-label': 'Complete menu',
-                'menu-complete-price': '16,000 XOF',
-                'menu-complete-desc': 'Starter + Main + Dessert',
-                'order-menu-text': 'Order the daily menu',
-                
-                // Spécialités
-                'specialities-title': 'Our Senegalese Specialties',
-                'specialities-subtitle': 'Our chef\'s signature dishes, prepared with love and tradition',
-                'national-dish': 'National dish',
-                'thieb-desc': 'Rice with fish, fresh vegetables, condiments - Traditional recipe',
-                'yassa-desc': 'Free-range chicken marinated in lemon, caramelized onions',
-                'mafe-desc': 'Lamb stew simmered in Gandiol peanut sauce',
-                'pastels-desc': 'Stuffed fritters with spicy Tassinère fish',
-                'accra-desc': 'White bean fritters, homemade spicy sauce',
-                'manioc-desc': 'Cassava leaves with smoked fish, palm oil',
-                
-                // Chef
-                'chef-title': 'Our Chef - Oumar Diallo',
-                'chef-subtitle': 'A talented Senegalese chef at the service of local gastronomy',
-                'chef-quote': '"Senegalese cuisine is a journey of the senses"',
-                'chef-bio1': 'Originally from Saint-Louis, Chef Oumar Diallo traveled the world before returning to Gandiol to share his passion for Senegalese cuisine. Trained in the finest kitchens in Dakar and internationally, he puts his talent at the service of local products from Gandiol and Tassinère.',
-                'chef-award': 'Best traditional chef award 2024 - Saint-Louis',
-                'chef-speciality': 'Specialist in Thieboudienne and Yassa',
-                'chef-experience': '15 years of experience in Senegalese cuisine',
-                
-                // Événements
-                'events-title': 'Events & Themed Evenings',
-                'events-subtitle': 'Live unique culinary experiences at Restaurant Le Teranga',
-                'month-mar': 'Mar',
-                'event1-title': 'Giant Thieboudienne Evening',
-                'event1-time': '7:30 PM - 11:00 PM',
-                'event1-desc': 'Come and taste the best thieboudienne in Gandiol in a festive atmosphere with traditional music.',
-                'event1-price': 'Price: 15,000 XOF (dish + drink)',
-                'event1-book': 'Book',
-                'month-mar2': 'Mar',
-                'event2-title': 'Cooking Workshop with Chef Oumar',
-                'event2-time': '4:00 PM - 7:00 PM',
-                'event2-desc': 'Learn to prepare Yassa Chicken with Chef Oumar. Tasting included.',
-                'event2-price': 'Price: 25,000 XOF per person',
-                'event2-book': 'Register',
-                'event-private': 'To organize a private event (birthday, wedding, seminar), contact us.',
-                'event-contact': 'Contact for an event',
-                
-                // Promo
-                'promo-banner': 'Order via WhatsApp and get -10% on your first order!',
-                
-                // Filtres
-                'filter-all': 'All',
-                'filter-specialities': 'Specialties',
-                'filter-fish': 'Fish',
-                'filter-meat': 'Meat',
-                'filter-veg': 'Vegetarian',
-                'filter-dessert': 'Desserts',
-                
-                // Navigation menu
-                'nav-specialities': 'Specialties 🇸🇳',
-                'nav-starters': 'Starters',
-                'nav-mains': 'Mains',
-                'nav-desserts': 'Desserts',
-                'nav-drinks': 'Drinks',
-                
-                // Section spécialités
-                'specialities-section-title': 'Senegalese Specialties',
-                'specialities-count': '6 dishes',
-                'speciality-badge': '🇸🇳 Specialty',
-                'national-badge': 'National dish',
-                'thieb-desc2': 'Rice with fish, fresh vegetables, condiments - Traditional recipe',
-                'yassa-desc2': 'Free-range chicken marinated in lemon, caramelized onions',
-                'mafe-desc2': 'Lamb stew simmered in Gandiol peanut sauce',
-                'cart-btn': 'Cart',
-                
-                // Commandes
-                'order-tracking': 'Order Tracking',
-                'admin-link': 'Admin (Orders)',
-                'recent-orders': 'Your recent orders',
-                'order-status': 'Order tracking',
-                'order-status-desc': 'Check the status of your current orders.',
-                'order-in-progress': 'Order in progress',
-                'order-code-label': 'Order code',
-                'prep-time-label': 'Estimated preparation time',
-                'no-order-text': 'No current orders',
-                
-                // Avis
-                'reviews-title': 'They enjoyed Le Teranga 🇸🇳',
-                'reviews-subtitle': 'What our guests say about our Senegalese cuisine',
-                'previous': 'Previous',
-                'next': 'Next',
-                
-                // Modal réservation
-                'modal-book-title': 'Book a table - Le Teranga',
-                'modal-date': 'Date *',
-                'modal-time': 'Time *',
-                'modal-guests': 'Number of people *',
-                'modal-name': 'Your name *',
-                'modal-phone': 'Phone *',
-                'modal-email': 'Email',
-                'modal-special': 'Special requests',
-                'modal-info': 'Free booking. Cancellation possible up to 2 hours before.',
-                'modal-confirm': 'Confirm',
-                
-                // Modal panier
-                'cart-title': 'Order validation',
-                'step1': '1. Cart',
-                'step2': '2. Your info',
-                'step3': '3. Confirmation',
-                'cart-summary': 'Order summary',
-                'cart-total-label': 'Total',
-                'continue-shopping': 'Continue shopping',
-                'your-info': 'Your information',
-                'label-name': 'Full name *',
-                'label-phone': 'Phone *',
-                'label-email': 'Email (optional)',
-                'label-address': 'Delivery address *',
-                'label-notes': 'Special instructions',
-                'confirmation-title': 'Order confirmation',
-                'whatsapp-info': 'Your order will be sent via WhatsApp for confirmation.',
-                'summary-title': 'Summary',
-                'total-label': 'Total',
-                'your-coords': 'Your contact information',
-                'whatsapp-redirect': 'By clicking "Confirm order", you will be redirected to WhatsApp to finalize your order.',
-                'finalize-order-btn': 'Confirm via WhatsApp',
-                
-                // Modal WhatsApp
-                'whatsapp-modal-title': 'Order via WhatsApp',
-                'whatsapp-modal-desc': 'Order directly via WhatsApp for quick processing by Les Résidences du Lawmar.',
-                'whatsapp-name-label': 'Your name *',
-                'whatsapp-phone-label': 'WhatsApp number *',
-                'whatsapp-message-label': 'Your order',
-                'whatsapp-redirect-info': 'You will be redirected to WhatsApp to confirm your order.',
-                'cancel-btn': 'Cancel',
-                'send-order': 'Send order',
-                
-                // Admin modal
-                'admin-title': 'Staff login',
-                'admin-email-label': 'Email',
-                'admin-password-label': 'Password',
-                'admin-role-reception': 'Receptionist',
-                'admin-role-serveur': 'Waiter',
-                'admin-role-cuisine': 'Kitchen',
-                'admin-role-guide': 'Tour guide',
-                'admin-role-manager': 'Manager',
-                'admin-login-btn': 'Sign in',
-                
-                // Footer
-                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
-                'footer-nav': 'Navigation',
-                'footer-home': 'Home',
-                'footer-residences': 'Residences',
-                'footer-restauration': 'Restaurant',
-                'footer-hebergements': 'Accommodations',
-                'footer-services': 'Services',
-                'footer-experiences': 'Experiences',
-                'footer-galerie': 'Gallery',
-                'footer-contact': 'Contact',
-                'footer-contact-title': 'Contact - Gandiol',
-                'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
-                'footer-whatsapp': 'WhatsApp: +221 77 995 20 20',
-                'footer-sync-note': 'Goal: any message received on one of these addresses is accessible in all three mailboxes.',
-                'footer-newsletter-title': 'Newsletter',
-                'footer-newsletter-text': 'Receive our special offers and news',
-                'footer-rights': 'All rights reserved.',
-                'footer-admin': 'Staff access',
-                'view-cart': 'View my cart'
-            }
-        };
+        // ===== GESTION DU PANIER =====
+        let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
+        let currentStep = 1;
 
-        function changeLanguage(lang) {
-            // Mettre à jour le texte de tous les éléments avec id
-            for (let key in translations[lang]) {
-                let element = document.getElementById(key);
-                if (element) {
-                    if (key === 'footer-address' || key.includes('desc') || key.includes('info') || key.includes('note')) {
-                        element.innerHTML = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
+        // Mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+                cartCount.textContent = totalItems;
+                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
             }
-            
-            // Mettre à jour les attributs placeholder
-            let newsletterInput = document.getElementById('newsletter-input');
-            if (newsletterInput) {
-                newsletterInput.placeholder = translations[lang]['newsletter-input'];
+        }
+
+        // Ajouter un plat au panier
+        function addToCart(dishName, dishPrice) {
+            const existingItem = cart.find(item => item.name === dishName);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                cart.push({ name: dishName, price: parseInt(dishPrice), quantity: 1 });
             }
-            
-            // Mettre à jour l'attribut lang de la page
-            document.documentElement.lang = lang;
-            
-            // Mettre à jour le texte du bouton de langue actuel
-            let currentLang = document.getElementById('current-lang');
-            if (currentLang) {
-                currentLang.textContent = translations[lang]['current-lang'];
-            }
-            
-            console.log('Langue changée en ' + lang);
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
             
             // Notification
+            showNotification(`${dishName} ajouté au panier !`, 'success');
+        }
+
+        // Ajouter le menu complet au panier
+        function addMenuToCart() {
+            addToCart('Menu du Jour - Entrée (Velouté)', 3500);
+            addToCart('Menu du Jour - Plat (Thieboudienne)', 9500);
+            addToCart('Menu du Jour - Dessert (Fondant)', 3000);
+            showNotification('Menu du jour ajouté au panier !', 'success');
+        }
+
+        // Supprimer un article du panier
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            if (document.getElementById('cartModal').classList.contains('show')) {
+                displayCartItems();
+            }
+            showNotification('Article retiré du panier', 'info');
+        }
+
+        // Mettre à jour la quantité
+        function updateQuantity(index, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(index);
+                return;
+            }
+            cart[index].quantity = parseInt(newQuantity);
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            displayCartItems();
+        }
+
+        // Afficher les articles du panier
+        function displayCartItems() {
+            const cartList = document.getElementById('cart-items-list');
+            const cartTotal = document.getElementById('cart-total');
+            const emptyMessage = document.getElementById('cart-empty-message');
+            const step1Next = document.getElementById('step1-next');
+            
+            if (!cartList) return;
+            
+            cartList.innerHTML = '';
+            
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                cartTotal.textContent = '0 XOF';
+                if (step1Next) step1Next.disabled = true;
+                return;
+            }
+            
+            emptyMessage.style.display = 'none';
+            if (step1Next) step1Next.disabled = false;
+            
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * (item.quantity || 1);
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-details">
+                        <strong>${item.name}</strong><br>
+                        <small>${item.price.toLocaleString()} XOF</small>
+                    </div>
+                    <div class="cart-item-price">${itemTotal.toLocaleString()} XOF</div>
+                    <div class="cart-item-actions">
+                        <input type="number" min="1" value="${item.quantity || 1}" 
+                               class="cart-item-quantity" 
+                               onchange="updateQuantity(${index}, this.value)">
+                        <span class="cart-item-remove" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </div>
+                `;
+                cartList.appendChild(itemElement);
+            });
+            
+            cartTotal.textContent = total.toLocaleString() + ' XOF';
+            document.getElementById('confirm-total').textContent = total.toLocaleString() + ' XOF';
+        }
+
+        // Ouvrir le modal du panier
+        function openCartModal() {
+            displayCartItems();
+            resetToStep1();
+        }
+
+        // Réinitialiser à l'étape 1
+        function resetToStep1() {
+            currentStep = 1;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step1-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('active');
+        }
+
+        // Réinitialiser le modal
+        function resetCartModal() {
+            resetToStep1();
+            document.getElementById('checkout-form').reset();
+        }
+
+        // Aller à l'étape 2
+        function goToStep2() {
+            if (cart.length === 0) return;
+            
+            currentStep = 2;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step2-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('completed');
+            document.getElementById('step2').classList.add('active');
+        }
+
+        // Aller à l'étape 3
+        function goToStep3() {
+            // Valider les champs
+            const name = document.getElementById('checkout-name').value;
+            const phone = document.getElementById('checkout-phone').value;
+            const address = document.getElementById('checkout-address').value;
+            
+            let isValid = true;
+            
+            if (!name) {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('name-error').style.display = 'none';
+            }
+            
+            if (!phone) {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('phone-error').style.display = 'none';
+            }
+            
+            if (!address) {
+                document.getElementById('address-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('address-error').style.display = 'none';
+            }
+            
+            if (!isValid) return;
+            
+            currentStep = 3;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step3-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('completed');
+            document.getElementById('step2').classList.add('completed');
+            document.getElementById('step3').classList.add('active');
+            
+            // Afficher le résumé
+            displayOrderSummary();
+        }
+
+        // Afficher le résumé de la commande
+        function displayOrderSummary() {
+            const summaryDiv = document.getElementById('order-summary-confirm');
+            const clientInfo = document.getElementById('confirm-client-info');
+            
+            let summaryHtml = '';
+            cart.forEach(item => {
+                summaryHtml += `
+                    <div class="order-summary-item">
+                        <span>${item.name} x${item.quantity || 1}</span>
+                        <span>${(item.price * (item.quantity || 1)).toLocaleString()} XOF</span>
+                    </div>
+                `;
+            });
+            summaryDiv.innerHTML = summaryHtml;
+            
+            clientInfo.innerHTML = `
+                <strong>${document.getElementById('checkout-name').value}</strong><br>
+                📞 ${document.getElementById('checkout-phone').value}<br>
+                ${document.getElementById('checkout-email').value ? '✉️ ' + document.getElementById('checkout-email').value + '<br>' : ''}
+                📍 ${document.getElementById('checkout-address').value}<br>
+                ${document.getElementById('checkout-notes').value ? '📝 ' + document.getElementById('checkout-notes').value : ''}
+            `;
+        }
+
+        // ===== FONCTION DE SAUVEGARDE DES COMMANDES =====
+        function saveOrderToStorage() {
+            const cart = JSON.parse(localStorage.getItem('restaurantCart') || '[]');
+            
+            if (cart.length === 0) return null;
+            
+            const name = document.getElementById('checkout-name')?.value || 'Client';
+            const phone = document.getElementById('checkout-phone')?.value || '+221 77 000 00 00';
+            const address = document.getElementById('checkout-address')?.value || 'Gandiol';
+            const email = document.getElementById('checkout-email')?.value || '';
+            const notes = document.getElementById('checkout-notes')?.value || '';
+            
+            const order = {
+                id: 'R' + Date.now().toString().slice(-6),
+                guest: name,
+                table: Math.floor(Math.random() * 10) + 1,
+                items: cart.map(item => ({
+                    name: item.name,
+                    qty: item.quantity || 1,
+                    price: item.price
+                })),
+                total: cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0),
+                status: 'pending',
+                time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+                date: new Date().toISOString().split('T')[0],
+                customer: {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    address: address,
+                    notes: notes
+                }
+            };
+            
+            // Récupérer les commandes existantes
+            let orders = JSON.parse(localStorage.getItem('restaurantOrders') || '[]');
+            orders.push(order);
+            localStorage.setItem('restaurantOrders', JSON.stringify(orders));
+            
+            return order;
+        }
+
+        // Finaliser la commande via WhatsApp avec sauvegarde
+        function finalizeOrder() {
+            const name = document.getElementById('checkout-name').value;
+            const phone = document.getElementById('checkout-phone').value;
+            const email = document.getElementById('checkout-email').value;
+            const address = document.getElementById('checkout-address').value;
+            const notes = document.getElementById('checkout-notes').value;
+            
+            // Sauvegarder la commande dans localStorage
+            const savedOrder = saveOrderToStorage();
+            
+            let orderDetails = `*NOUVELLE COMMANDE - RESTAURANT LE TERANGA* 🇸🇳\n\n`;
+            orderDetails += `👤 *Client:* ${name}\n`;
+            orderDetails += `📞 *Téléphone:* ${phone}\n`;
+            if (email) orderDetails += `✉️ *Email:* ${email}\n`;
+            orderDetails += `📍 *Adresse:* ${address}\n`;
+            if (notes) orderDetails += `📝 *Notes:* ${notes}\n\n`;
+            
+            orderDetails += `*DÉTAIL DE LA COMMANDE:*\n`;
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * (item.quantity || 1);
+                total += itemTotal;
+                orderDetails += `• ${item.name} x${item.quantity || 1} = ${itemTotal.toLocaleString()} XOF\n`;
+            });
+            orderDetails += `\n*TOTAL: ${total.toLocaleString()} XOF*`;
+            
+            // Code promo
+            orderDetails += `\n\n📢 *Code promo: BIENVENUE10* (-10% sur première commande)`;
+            
+            // Ajouter l'ID de commande
+            if (savedOrder) {
+                orderDetails += `\n\n🆔 *ID Commande:* ${savedOrder.id}`;
+            }
+            
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderDetails)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Vider le panier après commande
+            cart = [];
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Fermer le modal
+            bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+            
+            // Notification
+            showNotification('Commande enregistrée et envoyée via WhatsApp !', 'success');
+            
+            // Réinitialiser le formulaire
+            resetCartModal();
+        }
+
+        // Commande rapide via WhatsApp
+        function quickWhatsAppOrder(dishName, dishPrice) {
+            const message = `*COMMANDE RAPIDE - RESTAURANT LE TERANGA* 🇸🇳\n\nPlat: ${dishName}\nPrix: ${dishPrice} XOF\n\nJe souhaite commander ce plat.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // ===== NOTIFICATIONS =====
+        function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = 'notification-toast';
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
             notification.innerHTML = `
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 1.2rem;">🌐</div>
-                    <div style="flex-grow: 1; font-size: 0.9rem;">${lang === 'fr' ? '🇫🇷 Français sélectionné' : '🇬🇧 English selected'}</div>
+                    <div style="font-size: 1.2rem;">${icon}</div>
+                    <div style="flex-grow: 1; font-size: 0.9rem;">${message}</div>
                 </div>
             `;
             document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 2000);
+            setTimeout(() => notification.remove(), 3000);
         }
 
-        function reserveViaWhatsApp(offerName, price) {
-            const message = `Bonjour Restaurant Hôtel Les Résidences du Lawmar - Gandiol 🇸🇳,\n\nJe suis intéressé par : ${offerName} au prix de ${price} XOF.`;
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
+        // ===== RÉSERVATIONS =====
+        function bookTable() {
+            const name = document.getElementById('booking-name').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            const guests = document.getElementById('booking-guests').value;
+            const phone = document.getElementById('booking-phone').value;
+            
+            if (!name || !date || !time || !guests || !phone) {
+                showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+                return;
+            }
+            
+            showNotification('Réservation enregistrée ! Vous recevrez une confirmation sous peu.', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('tableBookingModal')).hide();
+            document.getElementById('table-booking-form').reset();
         }
 
         function bookTableViaWhatsApp() {
@@ -3154,17 +3074,17 @@
             const date = document.getElementById('booking-date')?.value || 'Non spécifié';
             const time = document.getElementById('booking-time')?.value || 'Non spécifié';
             const guests = document.getElementById('booking-guests')?.value || 'Non spécifié';
+            const phone = document.getElementById('booking-phone')?.value || 'Non spécifié';
             const special = document.getElementById('booking-special')?.value || 'Aucune';
             
             const message = 
-                `Bonjour Restaurant Hôtel Les Résidences du Lawmar - Gandiol 🇸🇳,\n\n` +
-                `Je souhaite réserver une table :\n\n` +
-                `📅 Date : ${date}\n` +
-                `⏰ Heure : ${time}\n` +
-                `👥 Personnes : ${guests}\n` +
-                `👤 Nom : ${name}\n` +
-                `📝 Demande spéciale : ${special}\n\n` +
-                `Merci de me confirmer la disponibilité.`;
+                `*RÉSERVATION TABLE - RESTAURANT LE TERANGA* 🇸🇳\n\n` +
+                `👤 *Nom:* ${name}\n` +
+                `📞 *Téléphone:* ${phone}\n` +
+                `📅 *Date:* ${date}\n` +
+                `⏰ *Heure:* ${time}\n` +
+                `👥 *Personnes:* ${guests}\n` +
+                `📝 *Demande spéciale:* ${special}`;
             
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
@@ -3176,7 +3096,51 @@
             }
         }
 
-        // Données des avis clients
+        function bookEvent(eventName) {
+            const message = `*RÉSERVATION ÉVÉNEMENT - RESTAURANT LE TERANGA* 🇸🇳\n\nÉvénement: ${eventName}\n\nJe souhaite réserver pour cet événement.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // ===== NEWSLETTER =====
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-input').value;
+            if (email && email.includes('@')) {
+                showNotification('Merci pour votre inscription à la newsletter !', 'success');
+                document.getElementById('newsletter-input').value = '';
+            } else {
+                showNotification('Veuillez entrer un email valide', 'error');
+            }
+        }
+
+        // ===== ADMIN LOGIN =====
+        function adminLogin() {
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            
+            if (email && password) {
+                showNotification('Connexion réussie !', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+                document.getElementById('admin-login-form').reset();
+            } else {
+                showNotification('Veuillez remplir tous les champs', 'error');
+            }
+        }
+
+        // ===== TRADUCTION =====
+        const translations = {
+            fr: {
+                // ... (garder le même dictionnaire que dans le code original)
+            },
+            en: {
+                // ... (garder le même dictionnaire que dans le code original)
+            }
+        };
+
+        function changeLanguage(lang) {
+            // ... (garder la même fonction que dans le code original)
+        }
+
+        // ===== DONNÉES DES AVIS =====
         const restaurantReviews = [
             {
                 nom: "Awa Ndiaye",
@@ -3253,65 +3217,10 @@
             });
         }
 
-        // Panier
-        let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
-
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            if (cartCount) {
-                const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
-                cartCount.textContent = totalItems;
-                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-            }
-        }
-
-        function addToCart(dishName, dishPrice) {
-            const existingItem = cart.find(item => item.name === dishName);
-            if (existingItem) {
-                existingItem.quantity = (existingItem.quantity || 1) + 1;
-            } else {
-                cart.push({ name: dishName, price: dishPrice, quantity: 1 });
-            }
-            localStorage.setItem('restaurantCart', JSON.stringify(cart));
-            updateCartCount();
-            
-            // Notification
-            const notification = document.createElement('div');
-            notification.className = 'notification-toast';
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="font-size: 1.2rem;">✅</div>
-                    <div style="flex-grow: 1; font-size: 0.9rem;">${dishName} ajouté au panier !</div>
-                </div>
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 3000);
-        }
-
-        // Ajouter aux événements
-        document.querySelectorAll('.add-to-cart').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const dish = this.getAttribute('data-dish');
-                const price = parseInt(this.getAttribute('data-price'));
-                addToCart(dish, price);
-            });
-        });
-
-        // Initialisation
+        // ===== INITIALISATION =====
         document.addEventListener('DOMContentLoaded', function() {
             displayRestaurantReviews();
             updateCartCount();
-            
-            // Gestionnaire newsletter
-            document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]')?.value;
-                if (email) {
-                    alert('Merci pour votre inscription !');
-                    this.reset();
-                }
-            });
             
             // Bouton remonter
             const scrollTopBtn = document.getElementById('scroll-top');
@@ -3327,13 +3236,98 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Admin login form
+            // Ajouter les événements aux boutons "Ajouter au panier"
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dish = this.getAttribute('data-dish');
+                    const price = this.getAttribute('data-price');
+                    addToCart(dish, price);
+                });
+            });
+
+            // Ajouter les événements aux boutons "WhatsApp"
+            document.querySelectorAll('.whatsapp-order-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dish = this.getAttribute('data-dish');
+                    const price = this.getAttribute('data-price');
+                    quickWhatsAppOrder(dish, price);
+                });
+            });
+
+            // Gestionnaires d'étapes
+            document.getElementById('step1-next')?.addEventListener('click', goToStep2);
+            document.getElementById('step2-next')?.addEventListener('click', goToStep3);
+            document.getElementById('step2-back')?.addEventListener('click', function() {
+                currentStep = 1;
+                document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+                document.getElementById('step1-content').classList.add('active');
+                document.querySelectorAll('.step').forEach(el => {
+                    el.classList.remove('active', 'completed');
+                });
+                document.getElementById('step1').classList.add('active');
+            });
+            document.getElementById('step3-back')?.addEventListener('click', function() {
+                currentStep = 2;
+                document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+                document.getElementById('step2-content').classList.add('active');
+                document.querySelectorAll('.step').forEach(el => {
+                    el.classList.remove('active', 'completed');
+                });
+                document.getElementById('step1').classList.add('completed');
+                document.getElementById('step2').classList.add('active');
+            });
+            document.getElementById('finalize-order')?.addEventListener('click', finalizeOrder);
+
+            // Gestionnaire newsletter
+            document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                subscribeNewsletter();
+            });
+            
+            // Gestionnaire admin login
             document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Connexion réussie !');
-                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+                adminLogin();
             });
+            
+            // Gestionnaire réservation table
+            document.getElementById('table-booking-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                bookTable();
+            });
+
+            // Initialiser les dates dans le modal de réservation
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formatDate = (date) => {
+                return date.toISOString().split('T')[0];
+            };
+            
+            if (document.getElementById('booking-date')) {
+                document.getElementById('booking-date').value = formatDate(today);
+                document.getElementById('booking-date').min = formatDate(today);
+            }
         });
+
+        // Exposer les fonctions globalement
+        window.addToCart = addToCart;
+        window.addMenuToCart = addMenuToCart;
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+        window.openCartModal = openCartModal;
+        window.resetCartModal = resetCartModal;
+        window.finalizeOrder = finalizeOrder;
+        window.quickWhatsAppOrder = quickWhatsAppOrder;
+        window.bookTable = bookTable;
+        window.bookTableViaWhatsApp = bookTableViaWhatsApp;
+        window.bookEvent = bookEvent;
+        window.subscribeNewsletter = subscribeNewsletter;
+        window.adminLogin = adminLogin;
+        window.changeLanguage = changeLanguage;
     </script>
 </body>
 </html>

@@ -1612,8 +1612,7 @@
                                 <input type="text" class="form-control form-control-sm" id="name" name="name" required>
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="email" class="form-label small fw-bold" id="modal-email">Email *</label>
-                                <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                                <!-- Champ email supprimé -->
                             </div>
                         </div>
                         
@@ -2277,12 +2276,11 @@
                 children: document.getElementById('children').value,
                 childrenAges: document.getElementById('children-ages').value,
                 name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 message: document.getElementById('message').value
             };
             
-            if (!formData.checkin || !formData.checkout || !formData.name || !formData.email || !formData.phone) {
+            if (!formData.checkin || !formData.checkout || !formData.name || !formData.phone) {
                 alert('Veuillez remplir tous les champs obligatoires');
                 return;
             }
@@ -2306,7 +2304,6 @@
 👶 Enfants: ${formData.children} ${formData.childrenAges ? `(${formData.childrenAges} ans)` : ''}
 ━━━━━━━━━━━━━━━━━━
 👤 Nom: ${formData.name}
-📧 Email: ${formData.email}
 📞 Téléphone: ${formData.phone}
 ━━━━━━━━━━━━━━━━━━
 💬 Message: ${formData.message || 'Aucun'}`;
@@ -2366,6 +2363,84 @@
                 this.reset();
             });
         });
+    </script>
+    
+    <!-- ===== SCRIPT DE SAUVEGARDE DES RÉSERVATIONS ===== -->
+    <script>
+        // Sauvegarde des réservations dans localStorage
+        const originalSubmitBooking = window.submitBooking;
+        window.submitBooking = function(event) {
+            event.preventDefault();
+            
+            // Calcul du prix total (simulé)
+            const checkin = new Date(document.getElementById('checkin').value);
+            const checkout = new Date(document.getElementById('checkout').value);
+            const nights = Math.round((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            // Prix par nuit selon la chambre
+            const roomPrices = {
+                'Chambre Mpal': 25000,
+                'Chambre Mouit': 35000,
+                'Chambre Ndiébène': 45000,
+                'Chambre Tassinère': 55000
+            };
+            const roomName = document.getElementById('selected-room').value;
+            const pricePerNight = roomPrices[roomName] || 35000;
+            const total = pricePerNight * nights;
+            
+            const bookingData = {
+                id: 'BK' + Date.now().toString().slice(-6),
+                guest: document.getElementById('name').value,
+                room: roomName,
+                roomNumber: 'À venir',
+                checkin: document.getElementById('checkin').value,
+                checkout: document.getElementById('checkout').value,
+                adults: parseInt(document.getElementById('adults').value),
+                children: parseInt(document.getElementById('children').value),
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                status: 'pending',
+                total: total,
+                nights: nights,
+                prepaid: 0,
+                date: new Date().toISOString()
+            };
+            
+            // Récupérer les réservations existantes
+            let bookings = JSON.parse(localStorage.getItem('lawmarBookings') || '[]');
+            bookings.push(bookingData);
+            localStorage.setItem('lawmarBookings', JSON.stringify(bookings));
+            
+            // Appeler la fonction originale si elle existe
+            if (typeof originalSubmitBooking === 'function') {
+                originalSubmitBooking(event);
+            } else {
+                // Fallback si la fonction originale n'existe pas
+                const formatDate = (dateStr) => {
+                    const date = new Date(dateStr);
+                    return date.toLocaleDateString('fr-FR');
+                };
+                
+                const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
+━━━━━━━━━━━━━━━━━━
+🏨 Chambre: ${bookingData.room}
+📅 Arrivée: ${formatDate(bookingData.checkin)}
+📅 Départ: ${formatDate(bookingData.checkout)}
+🌙 Nuits: ${nights}
+💰 Total: ${total.toLocaleString()} XOF
+━━━━━━━━━━━━━━━━━━
+👤 Nom: ${bookingData.guest}
+📞 Téléphone: ${bookingData.phone}
+━━━━━━━━━━━━━━━━━━
+💬 Message: ${bookingData.message || 'Aucun'}`;
+                
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+                
+                bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+                alert('✅ Réservation enregistrée ! Elle apparaîtra dans le panneau d\'administration.');
+                document.getElementById('bookingForm').reset();
+            }
+        };
     </script>
 </body>
 </html>
