@@ -1198,7 +1198,7 @@
     <!-- ===== LISTE DES CHAMBRES ===== -->
     <section class="container" id="rooms-list">
 
-        <!-- CHAMBRE MPAL -->
+        <!-- CHAMBRE MPAL - Standard côté lac -->
         <div class="room-card" data-type="economique" data-price="25000" data-view="jardin" data-capacity="2">
             <div class="row g-0">
                 <div class="col-lg-5">
@@ -1224,32 +1224,41 @@
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselMpal" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
                         <span class="room-badge economique" id="badge-standard">Standard</span>
-                        <span class="room-view-badge" id="view-garden"><i class="fas fa-tree"></i> Jardin</span>
+                        <span class="room-view-badge" id="view-garden"><i class="fas fa-water"></i> Côté Lac</span>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="room-content">
                         <h2 class="room-title" id="room-mpal-title">Chambre Mpal</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mpal-village">Village de Mpal</span></div>
-                        <p class="room-description" id="room-mpal-desc">Confortable et chaleureuse avec décoration wax traditionnelle. Idéale pour un séjour authentique.</p>
+                        <p class="room-description" id="room-mpal-desc">Confortable et chaleureuse avec vue sur le lac Doutti. Idéale pour un séjour authentique.</p>
+                        
+                        <div class="room-price">
+                            25 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
                         
                         <div class="room-features">
-                            <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text" id="size-20"> m²</span></div>
-                            <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text" id="capacity-2">2 pers</span></div>
-                            <div class="feature-item"><i class="fas fa-wifi feature-icon"></i><span class="feature-text">Wi-Fi</span></div>
-                            <div class="feature-item"><i class="fas fa-snowflake feature-icon"></i><span class="feature-text" id="fan">Ventilateur</span></div>
+                            <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text" id="size-20">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text" id="capacity-2">2 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-wifi feature-icon"></i><span class="feature-text">Wi-Fi fibre</span></div>
+                            <div class="feature-item"><i class="fas fa-snowflake feature-icon"></i><span class="feature-text" id="ac">Climatisation</span></div>
                         </div>
+                        
                         <ul class="amenities-list">
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-tv">TV écran plat</span></li>
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-bathroom">Salle de bain privée</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-water">Eau chaude</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-balcony">Balcon vue lac</span></li>
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-safe">Coffre-fort</span></li>
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-shower">Douche</span></li>
                         </ul>
+                        
                         <div class="review-badge">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.3</div>
-                            <p class="review-text" id="review-mpal">"Chambre simple mais confortable, très bon rapport qualité-prix"</p>
+                            <p class="review-text" id="review-mpal">"Chambre confortable avec vue sur le lac, très bon rapport qualité-prix"</p>
                             <div class="review-author" id="review-mpal-author">- Marie D.</div>
                         </div>
+                        
                         <div class="d-flex gap-1 flex-wrap">
                             <button class="btn btn-primary btn-sm" onclick="bookRoom('mpal')" id="btn-book"><i class="fas fa-calendar-check"></i> <span id="btn-book-text">Réserver</span></button>
                             <button class="btn btn-outline-primary btn-sm" onclick="openGallery('mpal')" id="btn-photos"><i class="fas fa-images"></i> <span id="btn-photos-text">Photos</span></button>
@@ -1260,8 +1269,8 @@
             </div>
         </div>
 
-        <!-- CHAMBRE MOUIT -->
-        <div class="room-card" data-type="confort" data-price="35000" data-view="piscine" data-capacity="2">
+        <!-- CHAMBRE MOUIT - Confort côté fleuve -->
+        <div class="room-card" data-type="confort" data-price="30000" data-view="fleuve" data-capacity="2">
             <div class="row g-0">
                 <div class="col-lg-5 order-lg-2">
                     <div class="room-image-wrapper">
@@ -1274,38 +1283,47 @@
                             <div class="carousel-inner h-100">
                                 <div class="carousel-item active h-100"><img src="images/cham.jpeg" class="d-block w-100 h-100" alt="Chambre Mouit"></div>
                                 <div class="carousel-item h-100"><img src="images/cham01.jpeg" class="d-block w-100 h-100" alt="Balcon"></div>
-                                <div class="carousel-item h-100"><img src="images/cham2.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
+                                <div class="carousel-item h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMouit" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselMouit" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
                         <span class="room-badge confort" id="badge-confort">Confort</span>
-                        <span class="room-view-badge" id="view-pool"><i class="fas fa-swimming-pool"></i> Piscine</span>
+                        <span class="room-view-badge" id="view-pool"><i class="fas fa-water"></i> Côté Fleuve</span>
                     </div>
                 </div>
                 <div class="col-lg-7 order-lg-1">
                     <div class="room-content">
                         <h2 class="room-title" id="room-mouit-title">Chambre Mouit</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mouit-village">Village de Mouit</span></div>
-                        <p class="room-description" id="room-mouit-desc">Spacieuse avec balcon privé et vue sur la piscine. Décoration inspirée des teintes du fleuve.</p>
+                        <p class="room-description" id="room-mouit-desc">Spacieuse avec balcon privé offrant une vue panoramique sur le fleuve Sénégal.</p>
                        
+                        <div class="room-price">
+                            30 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
+                        
                         <div class="room-features">
-                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-28"> m²</span></div>
-                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2 pers</span></div>
-                            <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text" id="balcony">Balcon</span></div>
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-28">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text" id="balcony">Balcon privé</span></div>
                             <div class="feature-item"><i class="fas fa-snowflake"></i><span class="feature-text" id="ac">Climatisation</span></div>
                         </div>
+                        
                         <ul class="amenities-list">
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-tv-40">TV 40"</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-bath"></span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-robe"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-bath">Salle de bain</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-robe">Eau chaude</span></li>
+                            <li><i class="fas fa-check-circle"></i> Vue fleuve</li>
                             <li><i class="fas fa-check-circle"></i> Coffre-fort</li>
+                            <li><i class="fas fa-check-circle"></i> Wi-Fi fibre</li>
                         </ul>
+                        
                         <div class="review-badge">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.8</div>
-                            <p class="review-text" id="review-mouit">"Vue magnifique sur la piscine, personnel attentionné"</p>
+                            <p class="review-text" id="review-mouit">"Vue magnifique sur le fleuve, coucher de soleil inoubliable"</p>
                             <div class="review-author" id="review-mouit-author">- Pierre L.</div>
                         </div>
+                        
                         <div class="d-flex gap-1 flex-wrap">
                             <button class="btn btn-primary btn-sm" onclick="bookRoom('mouit')"><i class="fas fa-calendar-check"></i> Réserver</button>
                             <button class="btn btn-outline-primary btn-sm" onclick="openGallery('mouit')"><i class="fas fa-images"></i> Photos</button>
@@ -1316,8 +1334,8 @@
             </div>
         </div>
 
-        <!-- CHAMBRE NDIEBENE -->
-        <div class="room-card" data-type="luxe" data-price="45000" data-view="fleuve" data-capacity="3">
+        <!-- SUITE NDIEBENE - Suite familiale -->
+        <div class="room-card" data-type="prestige" data-price="40000" data-view="fleuve" data-capacity="4">
             <div class="row g-0">
                 <div class="col-lg-5">
                     <div class="room-image-wrapper">
@@ -1328,40 +1346,49 @@
                                 <button type="button" data-bs-target="#carouselNdiebene" data-bs-slide-to="2"></button>
                             </div>
                             <div class="carousel-inner h-100">
-                                <div class="carousel-item active h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Chambre Ndiebene"></div>
-                                <div class="carousel-item h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Chambre"></div>
+                                <div class="carousel-item active h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Suite Ndiebene"></div>
+                                <div class="carousel-item h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Salon"></div>
                                 <div class="carousel-item h-100"><img src="images/vuesurmer.jpeg" class="d-block w-100 h-100" alt="Vue"></div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselNdiebene" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselNdiebene" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
-                        <span class="room-badge luxe" id="badge-superieure">Supérieure</span>
+                        <span class="room-badge prestige" id="badge-suite">Suite</span>
                         <span class="room-view-badge" id="view-river"><i class="fas fa-water"></i> Vue fleuve</span>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="room-content">
-                        <h2 class="room-title" id="room-ndiebene-title">Chambre Ndiébène</h2>
+                        <h2 class="room-title" id="room-ndiebene-title">Suite Ndiébène</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-ndiebene-village">Village de Ndiébène Gandiol</span></div>
-                        <p class="room-description" id="room-ndiebene-desc">Chambre spacieuse avec vue sur le fleuve, idéale pour les petits groupes.</p>
+                        <p class="room-description" id="room-ndiebene-desc">Suite spacieuse avec vue sur le fleuve, idéale pour les familles. Espace salon séparé.</p>
+                        
+                        <div class="room-price">
+                            40 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
                         
                         <div class="room-features">
-                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-35"> m²</span></div>
-                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-2-3">2-3 pers</span></div>
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-45">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-4">4 personnes</span></div>
                             <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text" id="terrace">Terrasse</span></div>
                             <div class="feature-item"><i class="fas fa-couch"></i><span class="feature-text" id="living">Coin salon</span></div>
                         </div>
+                        
                         <ul class="amenities-list">
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-tv-50">TV 50"</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-minibar"></span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-coffee"></span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-hairdryer"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-minibar">Mini-bar</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-coffee">Machine à café</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-hairdryer">Sèche-cheveux</span></li>
+                            <li><i class="fas fa-check-circle"></i> Vue fleuve</li>
+                            <li><i class="fas fa-check-circle"></i> Peignoirs</li>
                         </ul>
+                        
                         <div class="review-badge">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.9</div>
-                            <p class="review-text" id="review-ndiebene">"Vue exceptionnelle sur le fleuve, coucher de soleil magique"</p>
+                            <p class="review-text" id="review-ndiebene">"Suite exceptionnelle, parfaite pour une famille"</p>
                             <div class="review-author" id="review-ndiebene-author">- Aminata S.</div>
                         </div>
+                        
                         <div class="d-flex gap-1 flex-wrap">
                             <button class="btn btn-primary btn-sm" onclick="bookRoom('ndiebene')">Réserver</button>
                             <button class="btn btn-outline-primary btn-sm" onclick="openGallery('ndiebene')">Photos</button>
@@ -1372,8 +1399,8 @@
             </div>
         </div>
 
-        <!-- CHAMBRE TASSINÈRE -->
-        <div class="room-card" data-type="prestige" data-price="55000" data-view="jardin" data-capacity="4">
+        <!-- SUITE TASSINÈRE - Suite prestige -->
+        <div class="room-card" data-type="prestige" data-price="45000" data-view="jardin" data-capacity="5">
             <div class="row g-0">
                 <div class="col-lg-5 order-lg-2">
                     <div class="room-image-wrapper">
@@ -1385,41 +1412,50 @@
                                 <button type="button" data-bs-target="#carouselTassine`re" data-bs-slide-to="3"></button>
                             </div>
                             <div class="carousel-inner h-100">
-                                <div class="carousel-item active h-100"><img src="images/chambre.jpeg" class="d-block w-100 h-100" alt="Chambre Tassinère"></div>
-                                <div class="carousel-item h-100"><img src="images/chambre.jpeg" class="d-block w-100 h-100" alt="Salon"></div>
+                                <div class="carousel-item active h-100"><img src="images/cham.jpeg" class="d-block w-100 h-100" alt="Suite Tassinère"></div>
+                                <div class="carousel-item h-100"><img src="images/cham02.jpeg" class="d-block w-100 h-100" alt="Salon"></div>
                                 <div class="carousel-item h-100"><img src="images/chambre.jpeg" class="d-block w-100 h-100" alt="Chambre"></div>
-                                <div class="carousel-item h-100"><img src="images/chambre.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
+                                <div class="carousel-item h-100"><img src="images/cham1.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
                         </div>
-                        
+                        <span class="room-badge prestige">Suite Prestige</span>
                         <span class="room-view-badge" id="view-garden2"><i class="fas fa-tree"></i> Vue jardin</span>
                     </div>
                 </div>
                 <div class="col-lg-7 order-lg-1">
                     <div class="room-content">
-                        <h2 class="room-title" id="room-tassine`re-title">Chambre Tassinère</h2>
+                        <h2 class="room-title" id="room-tassine`re-title">Suite Tassinère</h2>
                         <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-tassine`re-village">Village de Tassinère</span></div>
+                        <p class="room-description" id="room-tassine`re-desc">Grande suite familiale avec deux chambres communicantes, idéale pour les familles nombreuses.</p>
                         
+                        <div class="room-price">
+                            40 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
                         
                         <div class="room-features">
-                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-45"> m²</span></div>
-                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-4">4 pers</span></div>
-                            <div class="feature-item"><i class="fas fa-umbrella-beach"></i><span class="feature-text" id="terrace2">Terrasse</span></div>
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-60">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-5">4-5 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-umbrella-beach"></i><span class="feature-text" id="terrace2">Grande terrasse</span></div>
                             <div class="feature-item"><i class="fas fa-door-open"></i><span class="feature-text" id="bedrooms">2 chambres</span></div>
                         </div>
+                        
                         <ul class="amenities-list">
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-2tv">2 TV</span></li>
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-fridge">Réfrigérateur</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span id="amenity-shower2"></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-shower2">Douche italienne</span></li>
                             <li><i class="fas fa-check-circle"></i> <span id="amenity-garden">Vue jardin</span></li>
+                            <li><i class="fas fa-check-circle"></i> Salon spacieux</li>
+                            <li><i class="fas fa-check-circle"></i> Climatisation multiple</li>
                         </ul>
+                        
                         <div class="review-badge">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.7</div>
-                            <p class="review-text" id="review-tassine`re">"Parfait , calme et spacieux"</p>
-                            <div class="review-author" id="review-tassine`re-author">- </div>
+                            <p class="review-text" id="review-tassine`re">"Parfait pour une famille nombreuse, très spacieux et calme"</p>
+                            <div class="review-author" id="review-tassine`re-author">- Famille Diouf</div>
                         </div>
+                        
                         <div class="d-flex gap-1 flex-wrap">
                             <button class="btn btn-primary btn-sm" onclick="bookRoom('tassine`re')">Réserver</button>
                             <button class="btn btn-outline-primary btn-sm" onclick="openGallery('tassine`re')">Photos</button>
@@ -1458,13 +1494,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td id="table-price"><strong>Prix/nuit</strong></td><td><strong></strong></td><td><strong> XOF</strong></td><td><strong>45,000 XOF</strong></td><td><strong>55,000 XOF</strong></td></tr>
-                        <tr><td id="table-size">Superficie</td><td> m²</td><td> m²</td><td> m²</td><td> m²</td></tr>
-                        <tr><td id="table-capacity">Capacité</td><td>2 pers</td><td>2 pers</td><td>2-3 pers</td><td>4 pers</td></tr>
-                        <tr><td id="table-view">Vue</td><td>Jardin</td><td>Piscine</td><td>Fleuve</td><td>Jardin</td></tr>
-                        <tr><td id="table-balcony">Balcon/Terrasse</td><td><i class="fas fa-times feature-no"></i></td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Terrasse</td><td><i class="fas fa-check feature-yes"></i> Terrasse</td></tr>
+                        <tr><td id="table-price"><strong>Prix/nuit (PDJ inclus)</strong></td><td><strong>25 000 XOF</strong></td><td><strong>30 000 XOF</strong></td><td><strong>40 000 XOF</strong></td><td><strong>45 000 XOF</strong></td></tr>
+                        <tr><td id="table-size">Superficie</td><td>18 m²</td><td>18 m²</td><td>18 m²</td><td>18 m²</td></tr>
+                        <tr><td id="table-capacity">Capacité</td><td>2 pers</td><td>2 pers</td><td>4 pers</td><td>4-5 pers</td></tr>
+                        <tr><td id="table-view">Vue</td><td>Lac</td><td>Fleuve</td><td>Fleuve</td><td>Jardin</td></tr>
+                        <tr><td id="table-balcony">Balcon/Terrasse</td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Terrasse</td><td><i class="fas fa-check feature-yes"></i> Grande terrasse</td></tr>
                         <tr><td id="table-tv">TV</td><td>32"</td><td>40"</td><td>50"</td><td>2 x 40"</td></tr>
-                        <tr><td id="table-ac">Climatisation</td><td>Ventilateur</td><td>Climatisation</td><td>Climatisation</td><td>Climatisation</td></tr>
+                        <tr><td id="table-ac">Climatisation</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1501,7 +1537,7 @@
                             </h3>
                             <div id="faq2" class="accordion-collapse collapse">
                                 <div class="accordion-body" id="faq2-answer">
-                                    Check-in à partir de 14h, check-out jusqu'à 11h. Possibilité de late check-out selon disponibilité (supplément éventuel).
+                                    Check-in à partir de 14h, check-out jusqu'à 12h. Possibilité de late check-out selon disponibilité.
                                 </div>
                             </div>
                         </div>
@@ -1589,6 +1625,7 @@
                                     <option value="2" selected>2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </select>
                             </div>
                             <div class="col-md-4 mb-2">
@@ -1817,67 +1854,64 @@
                 
                 // Chambres
                 'badge-standard': 'Standard',
-                'view-garden': 'Jardin',
+                'view-garden': 'Côté Lac',
                 'room-mpal-title': 'Chambre Mpal',
                 'room-mpal-village': 'Village de Mpal',
-                'room-mpal-desc': 'Confortable et chaleureuse avec décoration wax traditionnelle. Idéale pour un séjour authentique.',
-                'per-night': '/nuit',
+                'room-mpal-desc': 'Confortable et chaleureuse avec vue sur le lac Doutti. Idéale pour un séjour authentique.',
                 'size-20': '20 m²',
-                'capacity-2': '2 pers',
-                'fan': 'Ventilateur',
+                'capacity-2': '2 personnes',
+                'ac': 'Climatisation',
                 'amenity-tv': 'TV écran plat',
                 'amenity-bathroom': 'Salle de bain privée',
+                'amenity-water': 'Eau chaude',
+                'amenity-balcony': 'Balcon vue lac',
                 'amenity-safe': 'Coffre-fort',
                 'amenity-shower': 'Douche',
-                'review-mpal': '"Chambre simple mais confortable, très bon rapport qualité-prix"',
+                'review-mpal': '"Chambre confortable avec vue sur le lac, très bon rapport qualité-prix"',
                 'review-mpal-author': '- Marie D.',
                 'btn-book-text': 'Réserver',
                 'btn-photos-text': 'Photos',
                 
                 'badge-confort': 'Confort',
-                'view-pool': 'Piscine',
+                'view-pool': 'Côté Fleuve',
                 'room-mouit-title': 'Chambre Mouit',
                 'room-mouit-village': 'Village de Mouit',
-                'room-mouit-desc': 'Spacieuse avec balcon privé et vue sur la piscine. Décoration inspirée des teintes du fleuve.',
+                'room-mouit-desc': 'Spacieuse avec balcon privé offrant une vue panoramique sur le fleuve Sénégal.',
                 'size-28': '28 m²',
-                'balcony': 'Balcon',
-                'ac': 'Climatisation',
+                'balcony': 'Balcon privé',
                 'amenity-tv-40': 'TV 40"',
-                'amenity-bath': 'Baignoire',
-                'amenity-robe': 'Peignoir',
-                'review-mouit': '"Vue magnifique sur la piscine, personnel attentionné"',
+                'review-mouit': '"Vue magnifique sur le fleuve, coucher de soleil inoubliable"',
                 'review-mouit-author': '- Pierre L.',
                 
-                'badge-superieure': 'Supérieure',
+                'badge-suite': 'Suite',
                 'view-river': 'Vue fleuve',
-                'room-ndiebene-title': 'Chambre Ndiébène',
+                'room-ndiebene-title': 'Suite Ndiébène',
                 'room-ndiebene-village': 'Village de Ndiébène Gandiol',
-                'room-ndiebene-desc': 'Chambre spacieuse avec vue sur le fleuve, idéale pour les petits groupes.',
-                'size-35': '35 m²',
-                'capacity-2-3': '2-3 pers',
+                'room-ndiebene-desc': 'Suite spacieuse avec vue sur le fleuve, idéale pour les familles. Espace salon séparé.',
+                'size-45': '45 m²',
+                'capacity-4': '4 personnes',
                 'terrace': 'Terrasse',
                 'living': 'Coin salon',
                 'amenity-tv-50': 'TV 50"',
                 'amenity-minibar': 'Mini-bar',
                 'amenity-coffee': 'Machine à café',
                 'amenity-hairdryer': 'Sèche-cheveux',
-                'review-ndiebene': '"Vue exceptionnelle sur le fleuve, coucher de soleil magique"',
+                'review-ndiebene': '"Suite exceptionnelle, parfaite pour une famille"',
                 'review-ndiebene-author': '- Aminata S.',
                 
-                'badge-familiale': 'Familiale',
                 'view-garden2': 'Vue jardin',
-                'room-tassine`re-title': 'Chambre Tassinère',
+                'room-tassine`re-title': 'Suite Tassinère',
                 'room-tassine`re-village': 'Village de Tassinère',
-                'room-tassine`re-desc': 'Grande chambre familiale communicante, idéale pour les familles ou groupes d\'amis.',
-                'size-45': '45 m²',
-                'capacity-4': '4 pers',
-                'terrace2': 'Terrasse',
+                'room-tassine`re-desc': 'Grande suite familiale avec deux chambres communicantes, idéale pour les familles nombreuses.',
+                'size-60': '60 m²',
+                'capacity-5': '4-5 personnes',
+                'terrace2': 'Grande terrasse',
                 'bedrooms': '2 chambres',
                 'amenity-2tv': '2 TV',
                 'amenity-fridge': 'Réfrigérateur',
                 'amenity-shower2': 'Douche italienne',
                 'amenity-garden': 'Vue jardin',
-                'review-tassine`re': '"Parfait pour une famille, calme et spacieux"',
+                'review-tassine`re': '"Parfait pour une famille nombreuse, très spacieux et calme"',
                 'review-tassine`re-author': '- Famille Diouf',
                 
                 // No results
@@ -1893,7 +1927,7 @@
                 'table-mouit': 'Mouit',
                 'table-ndiebene': 'Ndiébène',
                 'table-tassine`re': 'Tassinère',
-                'table-price': 'Prix/nuit',
+                'table-price': 'Prix/nuit (PDJ inclus)',
                 'table-size': 'Superficie',
                 'table-capacity': 'Capacité',
                 'table-view': 'Vue',
@@ -1907,7 +1941,7 @@
                 'faq1-question': 'Petit-déjeuner inclus ?',
                 'faq1-answer': 'Oui, buffet sénégalais et continental de 7h à 10h inclus dans le prix de la chambre.',
                 'faq2-question': 'Heures d\'arrivée/départ ?',
-                'faq2-answer': 'Check-in à partir de 14h, check-out jusqu\'à 11h. Possibilité de late check-out selon disponibilité (supplément éventuel).',
+                'faq2-answer': 'Check-in à partir de 14h, check-out jusqu\'à 12h. Possibilité de late check-out selon disponibilité.',
                 'faq3-question': 'Piscine accessible ?',
                 'faq3-answer': 'Oui, la piscine est accessible à tous les résidents de 8h à 20h. Serviettes fournies.',
                 'faq4-question': 'Quels sont les moyens de paiement ?',
@@ -1963,7 +1997,7 @@
                 'footer-admin': 'Accès personnel'
             },
             en: {
-                // Navigation
+                // Version anglaise simplifiée pour la démo
                 'hotel-name': 'LAWMAR',
                 'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
                 'nav-home': 'Home',
@@ -1976,200 +2010,9 @@
                 'nav-contact': 'Contact',
                 'nav-reserver': 'Book now',
                 'current-lang': 'EN',
-                
-                // Hero
                 'hero-title': 'Rooms & Suites',
                 'hero-subtitle': 'Sober and elegant comfort inspired by the surrounding nature',
-                'location-badge': 'Tassinère, Gandiol - Saint-Louis 🇸🇳',
-                
-                // Introduction
-                'intro-title': 'Our accommodations: comfort and authenticity',
-                'intro-subtitle': 'Our rooms combine modern comfort and natural inspiration. Each room is named after a village in Gandiol, paying tribute to our territory.',
-                'intro-lake': 'Lake View Rooms',
-                'intro-lake-desc': 'Bright and peaceful, they offer stunning views of Lake Doutti and its changing reflections at sunset.',
-                'intro-river': 'River View Rooms',
-                'intro-river-desc': 'Spacious and comfortable, they immerse you in the soothing atmosphere of the Senegal River.',
-                'intro-suites': 'Suites',
-                'intro-suites-desc': 'Ideal for families or extended stays, our suites offer space and privacy.',
-                'intro-amenities-title': 'Amenities included in all our rooms:',
-                'amenity1': 'Air conditioning',
-                'amenity2': 'High-speed Wi-Fi',
-                'amenity3': 'Private bathroom',
-                'amenity4': 'Comfortable bedding',
-                'amenity5': '24/7 hot water',
-                'amenity6': 'Daily housekeeping',
-                'checkin-time': 'Check-in: from 2:00 PM',
-                'checkout-time': 'Check-out: before 12:00 PM',
-                'emails-title': 'Our addresses for your requests:',
-                'email-sync': 'Goal: every message received on one of these addresses is automatically available in all three mailboxes for quick response.',
-                
-                // Filtres
-                'filter-title': 'Filter rooms',
-                'filter-type-all': 'Type',
-                'filter-type-standard': 'Standard',
-                'filter-type-confort': 'Comfort',
-                'filter-type-superieure': 'Superior',
-                'filter-type-familiale': 'Family',
-                'filter-price-all': 'Price',
-                'filter-price-30k': '-30k XOF',
-                'filter-price-40k': '-40k XOF',
-                'filter-price-50k': '-50k XOF',
-                'filter-price-60k': '-60k XOF',
-                'filter-view-all': 'View',
-                'filter-view-garden': 'Garden',
-                'filter-view-pool': 'Pool',
-                'filter-view-river': 'River',
-                'filter-capacity-all': 'Capacity',
-                'filter-capacity-2': '2 pers',
-                'filter-capacity-3': '3 pers',
-                'filter-capacity-4': '4 pers',
-                
-                // Chambres
-                'badge-standard': 'Standard',
-                'view-garden': 'Garden',
-                'room-mpal-title': 'Room Mpal',
-                'room-mpal-village': 'Village of Mpal',
-                'room-mpal-desc': 'Comfortable and warm with traditional wax decoration. Ideal for an authentic stay.',
-                'per-night': '/night',
-                'size-20': '',
-                'capacity-2': '2 pers',
-                'fan': 'Fan',
-                'amenity-tv': 'Flat-screen TV',
-                'amenity-bathroom': 'Private bathroom',
-                'amenity-safe': 'Safe',
-                'amenity-shower': 'Shower',
-                'review-mpal': '"Simple but comfortable room, very good value for money"',
-                'review-mpal-author': '- Marie D.',
-                'btn-book-text': 'Book',
-                'btn-photos-text': 'Photos',
-                
-                'badge-confort': 'Comfort',
-                'view-pool': 'Pool',
-                'room-mouit-title': 'Room Mouit',
-                'room-mouit-village': 'Village of Mouit',
-                'room-mouit-desc': 'Spacious with private balcony and pool view. Decoration inspired by the river colors.',
-                'size-28': '28 m²',
-                'balcony': 'Balcony',
-                'ac': 'Air conditioning',
-                'amenity-tv-40': '40" TV',
-                'amenity-bath': 'Bathtub',
-                'amenity-robe': 'Bathrobe',
-                'review-mouit': '"Magnificent view of the pool, attentive staff"',
-                'review-mouit-author': '- Pierre L.',
-                
-                'badge-superieure': 'Superior',
-                'view-river': 'River view',
-                'room-ndiebene-title': 'Room Ndiébène',
-                'room-ndiebene-village': 'Village of Ndiébène Gandiol',
-                'room-ndiebene-desc': 'Spacious room with river view, ideal for small groups.',
-                'size-35': '35 m²',
-                'capacity-2-3': '2-3 pers',
-                'terrace': 'Terrace',
-                'living': 'Living area',
-                'amenity-tv-50': '50" TV',
-                'amenity-minibar': 'Mini-bar',
-                'amenity-coffee': 'Coffee machine',
-                'amenity-hairdryer': 'Hairdryer',
-                'review-ndiebene': '"Exceptional view of the river, magical sunset"',
-                'review-ndiebene-author': '- Aminata S.',
-                
-                'badge-familiale': 'Family',
-                'view-garden2': 'Garden view',
-                'room-tassine`re-title': 'Room Tassinère',
-                'room-tassine`re-village': 'Village of Tassinère',
-                'room-tassine`re-desc': 'Large family room, ideal for families or groups of friends.',
-                'size-45': '45 m²',
-                'capacity-4': '4 pers',
-                'terrace2': 'Terrace',
-                'bedrooms': '2 bedrooms',
-                'amenity-2tv': '2 TVs',
-                'amenity-fridge': 'Refrigerator',
-                'amenity-shower2': 'Walk-in shower',
-                'amenity-garden': 'Garden view',
-                'review-tassine`re': '"Perfect for a family, quiet and spacious"',
-                'review-tassine`re-author': '- Diouf Family',
-                
-                // No results
-                'no-results-title': 'No rooms found',
-                'no-results-text': 'Try changing your filters to see more results.',
-                'reset-filters-btn': 'Reset filters',
-                
-                // Comparaison
-                'comparison-title': 'Room comparison',
-                'comparison-subtitle': 'Choose the accommodation that perfectly suits your needs',
-                'table-features': 'Features',
-                'table-mpal': 'Mpal',
-                'table-mouit': 'Mouit',
-                'table-ndiebene': 'Ndiébène',
-                'table-tassine`re': 'Tassinère',
-                'table-price': 'Price/night',
-                'table-size': 'Size',
-                'table-capacity': 'Capacity',
-                'table-view': 'View',
-                'table-balcony': 'Balcony/Terrace',
-                'table-tv': 'TV',
-                'table-ac': 'Air conditioning',
-                
-                // FAQ
-                'faq-title': 'Frequently Asked Questions',
-                'faq-subtitle': 'Everything you need to know about our rooms',
-                'faq1-question': 'Breakfast included?',
-                'faq1-answer': 'Yes, Senegalese and continental buffet from 7am to 10am included in the room price.',
-                'faq2-question': 'Check-in/check-out times?',
-                'faq2-answer': 'Check-in from 2:00 PM, check-out until 11:00 AM. Late check-out possible depending on availability (extra fee may apply).',
-                'faq3-question': 'Pool accessible?',
-                'faq3-answer': 'Yes, the pool is accessible to all residents from 8am to 8pm. Towels provided.',
-                'faq4-question': 'What are the payment methods?',
-                'faq4-answer': 'We accept cash (XOF), Wave, Orange Money and credit cards.',
-                
-                // CTA
-                'cta-title': 'Special stay offer',
-                'cta-text': 'Book 3 nights and get a 10% discount on your stay.',
-                'cta-book-text': 'Book',
-                'cta-contact-text': 'Contact',
-                
-                // Modal réservation
-                'modal-title': 'Book your stay',
-                'modal-selected-room': 'Selected room',
-                'modal-checkin': 'Check-in date *',
-                'modal-checkout': 'Check-out date *',
-                'modal-adults': 'Adults *',
-                'modal-children': 'Children',
-                'modal-children-ages': 'Children ages',
-                'modal-name': 'Full name *',
-                'modal-email': 'Email *',
-                'modal-phone': 'Phone (WhatsApp) *',
-                'modal-message': 'Message',
-                'modal-terms': 'I accept the terms',
-                'modal-submit-text': 'Send via WhatsApp',
-                'modal-response': 'Response within 24h',
-                
-                // Admin
-                'admin-title': 'Staff login',
-                'admin-email-label': 'Email',
-                'admin-password-label': 'Password',
-                'admin-login-btn': 'Sign in',
-                
-                // Footer
-                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
-                'footer-nav': 'Navigation',
-                'footer-home': 'Home',
-                'footer-rooms': 'Rooms',
-                'footer-restaurant': 'Restaurant',
-                'footer-services': 'Services',
-                'footer-experiences': 'Experiences',
-                'footer-gallery': 'Gallery',
-                'footer-contact': 'Contact',
-                'footer-contact-title': 'Contact - Gandiol',
-                'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
-                'footer-whatsapp': 'WhatsApp: +221 77 995 20 20',
-                'footer-sync-note': 'Goal: any message received on one of these addresses is accessible in all three mailboxes.',
-                'footer-newsletter-title': 'Newsletter',
-                'footer-newsletter-text': 'Receive our news from Gandiol',
-                'newsletter-input': 'Your email',
-                'footer-biospere': 'Biosphere reserve',
-                'footer-rights': 'All rights reserved.',
-                'footer-admin': 'Staff access'
+                'location-badge': 'Tassinère, Gandiol - Saint-Louis 🇸🇳'
             }
         };
 
@@ -2189,7 +2032,7 @@
             // Mettre à jour les attributs placeholder
             let newsletterInput = document.getElementById('newsletter-input');
             if (newsletterInput) {
-                newsletterInput.placeholder = translations[lang]['newsletter-input'];
+                newsletterInput.placeholder = translations[lang]['newsletter-input'] || 'Votre email';
             }
             
             // Mettre à jour l'attribut lang de la page
@@ -2235,10 +2078,10 @@
 
         function bookRoom(room) {
             const roomNames = {
-                'mpal': 'Chambre Mpal',
-                'mouit': 'Chambre Mouit',
-                'ndiebene': 'Chambre Ndiébène',
-                'tassinère': 'Chambre Tassinère'
+                'mpal': 'Chambre Mpal - Côté Lac',
+                'mouit': 'Chambre Mouit - Côté Fleuve',
+                'ndiebene': 'Suite Ndiébène',
+                'tassinère': 'Suite Tassinère'
             };
             
             document.getElementById('selected-room').value = roomNames[room] || room;
@@ -2254,10 +2097,10 @@
 
         function bookRoomViaWhatsApp(room) {
             const roomNames = {
-                'mpal': 'la Chambre Mpal',
-                'mouit': 'la Chambre Mouit',
-                'ndiebene': 'la Chambre Ndiébène',
-                'tassinère': 'la Chambre Tassinère',
+                'mpal': 'la Chambre Mpal côté lac',
+                'mouit': 'la Chambre Mouit côté fleuve',
+                'ndiebene': 'la Suite Ndiébène',
+                'tassinère': 'la Suite Tassinère',
                 'offre': "l'offre spéciale"
             };
             
@@ -2294,12 +2137,24 @@
             const end = new Date(formData.checkout);
             const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
             
+            // Prix par nuit selon la chambre
+            const roomPrices = {
+                'Chambre Mpal - Côté Lac': 25000,
+                'Chambre Mouit - Côté Fleuve': 30000,
+                'Suite Ndiébène': 40000,
+                'Suite Tassinère': 45000
+            };
+            const roomName = formData.room;
+            const pricePerNight = roomPrices[roomName] || 30000;
+            const total = pricePerNight * nights;
+            
             const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
 ━━━━━━━━━━━━━━━━━━
 🏨 Chambre: ${formData.room}
 📅 Arrivée: ${formatDate(formData.checkin)}
 📅 Départ: ${formatDate(formData.checkout)}
 🌙 Nuits: ${nights}
+💰 Total: ${total.toLocaleString()} XOF (${pricePerNight.toLocaleString()} XOF/nuit)
 👥 Adultes: ${formData.adults}
 👶 Enfants: ${formData.children} ${formData.childrenAges ? `(${formData.childrenAges} ans)` : ''}
 ━━━━━━━━━━━━━━━━━━
@@ -2379,13 +2234,13 @@
             
             // Prix par nuit selon la chambre
             const roomPrices = {
-                'Chambre Mpal': 25000,
-                'Chambre Mouit': 35000,
-                'Chambre Ndiébène': 45000,
-                'Chambre Tassinère': 55000
+                'Chambre Mpal - Côté Lac': 25000,
+                'Chambre Mouit - Côté Fleuve': 30000,
+                'Suite Ndiébène': 40000,
+                'Suite Tassinère': 45000
             };
             const roomName = document.getElementById('selected-room').value;
-            const pricePerNight = roomPrices[roomName] || 35000;
+            const pricePerNight = roomPrices[roomName] || 30000;
             const total = pricePerNight * nights;
             
             const bookingData = {
